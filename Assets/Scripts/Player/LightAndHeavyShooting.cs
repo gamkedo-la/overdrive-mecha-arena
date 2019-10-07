@@ -50,7 +50,7 @@ public class LightAndHeavyShooting : MonoBehaviour
     {
         Ray ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
 
-        Debug.DrawRay(ray.origin, ray.direction * shotRange, Color.red, 2.0f);
+        //Debug.DrawRay(ray.origin, ray.direction * shotRange, Color.red, 2.0f);
 
         RaycastHit hitInfo;
 
