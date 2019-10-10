@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class PatrolArea : MonoBehaviour
 {
+    private Animator animator;
     private NavMeshAgent thisAgent;
 
     [SerializeField] private float patrolRadius = 100.0f;
@@ -16,6 +17,7 @@ public class PatrolArea : MonoBehaviour
     private void Awake()
     {
         thisAgent = GetComponent<NavMeshAgent>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Start()
@@ -36,6 +38,15 @@ public class PatrolArea : MonoBehaviour
         {
             SetNewRandomDest();
             timerCount = 0f;
+        }
+
+        if(thisAgent.velocity.sqrMagnitude == 0)
+        {
+            animator.SetFloat("Speed", 0f);
+        }
+        else
+        {
+            animator.SetFloat("Speed", 1f);
         }
     }
 
