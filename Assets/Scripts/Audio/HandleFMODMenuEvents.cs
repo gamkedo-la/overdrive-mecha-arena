@@ -11,13 +11,7 @@ public class HandleFMODMenuEvents : MonoBehaviour
     FMOD.Studio.EventInstance menuState;
     FMOD.Studio.PARAMETER_ID mainLayerID, optionsLayerID, creditsLayerID;
 
-    FMOD.Studio.Bus MasterBus;
-    FMOD.Studio.Bus MusicBus;
-    FMOD.Studio.Bus SoundsBus;
-
-    float MasterBusVol = 1.0f;
-    float MusicBusVol = 1.0f;
-    float SoundsBusVol = 1.0f;
+    
 
     private void Awake()
     {
@@ -29,7 +23,7 @@ public class HandleFMODMenuEvents : MonoBehaviour
         menuState = RuntimeManager.CreateInstance(fmodMenuEvent);
         menuState.start();
 
-        //FMOD Layer ID Caches
+        // FMOD Layer ID Caches
         #region
         FMOD.Studio.EventDescription mainEventDescription;
         menuState.getDescription(out mainEventDescription);
@@ -49,10 +43,13 @@ public class HandleFMODMenuEvents : MonoBehaviour
         creditsEventDescription.getParameterDescriptionByName("Credits Layer On", out creditsParameterDescription);
         creditsLayerID = creditsParameterDescription.id;
         #endregion
+        // End of FMOD Layer ID Caches
 
         menuState.setParameterByID(mainLayerID, 1f);
     }
 
+    // Main menu, options, anc credits FMOD handling
+    #region
     public void SwitchToOptionsLayer()
     {
         menuState.setParameterByID(optionsLayerID, 1f);
@@ -74,20 +71,6 @@ public class HandleFMODMenuEvents : MonoBehaviour
     {
         menuState.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
-
-    public void ChangeMusicVolume()
-    {
-        //Lower/Increase music bus volume according to slider
-        //save bus volume so it carries over to other scenes
-    }
-    public void ChangeSoundsVolume()
-    {
-        //Lower/Increase sounds bus volume according to slider
-        //save bus volume so it carries over to other scenes
-    }
-    public void ChangeMasterVolume()
-    {
-        //Lower/Increase master bus volume according to slider
-        //save bus volume so it carries over to other scenes
-    }
+    #endregion
+    // End of Main menu, options, anc credits FMOD handling
 }
