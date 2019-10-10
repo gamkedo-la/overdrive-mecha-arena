@@ -9,7 +9,6 @@ using UnityEngine.SceneManagement;
 public class HandleMenuSelections : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera virtualCamera;
-
     private float optionsCameraPathPos = 1;
 
     public void MoveCameraAndSwitchToOptionsMenu()

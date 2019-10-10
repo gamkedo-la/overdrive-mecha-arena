@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{9c756f55-24af-46d3-87ba-542836ee7563}">
+		<property name="name">
+			<value>Credits Layer On</value>
+		</property>
+		<relationship name="folder">
+			<destination>{a2874f59-7f31-4c30-9b4f-fbb39266d34a}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{c082ab97-44d7-482e-b5ec-dae247ca1a15}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{c082ab97-44d7-482e-b5ec-dae247ca1a15}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="seekSpeed">
+			<value>0.33000001311302185</value>
+		</property>
+	</object>
+</objects>
