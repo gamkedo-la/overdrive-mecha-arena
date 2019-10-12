@@ -17,7 +17,7 @@ public class DropBeamAtRandomPos : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(beamPrefab);
+        //Debug.Log(beamPrefab);
     }
 
     private void Update()
@@ -45,7 +45,7 @@ public class DropBeamAtRandomPos : MonoBehaviour
         }
         else
         {
-            Debug.Log("Cannot drop a beam!");
+            //Debug.Log("Cannot drop a beam!");
         }
     }
 }

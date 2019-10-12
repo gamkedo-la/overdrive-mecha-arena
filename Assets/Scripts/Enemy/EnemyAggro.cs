@@ -14,7 +14,7 @@ public class EnemyAggro : MonoBehaviour
         if (player != null)
         {
             Aggroed(player.transform);
-            Debug.Log("Enemy Attacking");
+            //Debug.Log("Enemy Attacking");
         }
     }
 }
