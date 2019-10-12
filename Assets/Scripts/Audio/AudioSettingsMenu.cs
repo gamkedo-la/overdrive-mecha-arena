@@ -16,11 +16,11 @@ public class AudioSettingsMenu : MonoBehaviour
     float MusicBusVol = 1.0f;
     float SoundsBusVol = 1.0f;
 
-    private void Awake()
+    private void Start()
     {
-        MasterBus = FMODUnity.RuntimeManager.GetBus("bus:/");
-        MusicBus = FMODUnity.RuntimeManager.GetBus("bus:/Music");
-        SoundsBus = FMODUnity.RuntimeManager.GetBus("bus:/Sounds");
+        MasterBus = FMODUnity.RuntimeManager.GetBus("bus:/Master");
+        MusicBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/Music");
+        SoundsBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/Sounds");
 
         //soundsVolTest = FMODUnity.RuntimeManager.CreateInstance("event:/Sounds/testSound");
     }
