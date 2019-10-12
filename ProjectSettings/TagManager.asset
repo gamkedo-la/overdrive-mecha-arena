@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Triggers
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - Enemy
   - Player
   - Ground
-  - 
-  - 
+  - Dangerous Object
+  - Trigger
   - 
   - 
   - 
