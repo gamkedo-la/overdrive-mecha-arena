@@ -9,7 +9,7 @@ public class SpecialAbility : MonoBehaviour
 
     [SerializeField] private float specialCooldown = 120.0f;
     [SerializeField] private float specialUseTimeLimit = 30.0f;
-    [SerializeField] private float strengthOfSpecialAbility = 20.0f;
+    [SerializeField] private int strengthOfSpecialAbility = 20;
 
     private float specialCooldownTimer;
     private float specialUseTimer;
