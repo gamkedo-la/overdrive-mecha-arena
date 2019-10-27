@@ -70,3 +70,5 @@ Assets/FMODStudioCache.asset
 Assets/FMODStudioCache.asset
 obj
 /Assets/ProBuilder Data/ProBuilderPreferences.asset
+Assets/Plugins/FMOD/Resources/FMODStudioCache.asset
+fmod_editor.log
