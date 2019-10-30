@@ -63,7 +63,7 @@ public class LightAndHeavyShooting : MonoBehaviour
         if (Physics.Raycast(ray, out hitInfo, shotRange, layerMask, QueryTriggerInteraction.Ignore))
         {
             Instantiate(shotImpact, hitInfo.point, Quaternion.identity);
-
+            Debug.Log("Shot hit: " + hitInfo.collider.name);
             var health = hitInfo.collider.GetComponent<Health>();
             if (health != null)
             {
