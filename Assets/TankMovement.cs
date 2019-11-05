@@ -56,7 +56,7 @@ public class TankMovement : MonoBehaviour
     {
         float speedDir;
         float angleToDriveGoal = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(driveToPtTarget - transform.position));
-        Debug.Log(angleToDriveGoal);
+        //Debug.Log(angleToDriveGoal);
         if ( Vector3.Distance(transform.position, driveToPtTarget) < driveSpeed)
         {
             speedDir = 0.0f;
