@@ -1564,7 +1564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d18b271baa0024da7734819a45e5d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfParticipants: 8
+  numberOfAIParticipants: 7
   spawnPointsList:
   - {fileID: 1973670411}
   - {fileID: 1165262993}
@@ -3607,7 +3607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 5, y: 25, z: -24.510002}
+  m_FollowOffset: {x: 5, y: 25, z: -30}
   m_XDamping: 0.25
   m_YDamping: 1
   m_ZDamping: 1
@@ -7545,7 +7545,7 @@ MonoBehaviour:
   m_TransparentLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_MinimumDistanceFromTarget: 0.1
+  m_MinimumDistanceFromTarget: 50
   m_AvoidObstacles: 1
   m_DistanceLimit: 0
   m_MinimumOcclusionTime: 0
