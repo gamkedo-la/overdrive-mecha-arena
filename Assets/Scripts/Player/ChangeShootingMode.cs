@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangeCombatMode : MonoBehaviour
+public class ChangeShootingMode : MonoBehaviour
 {
     //NOTE: Light mode is on by default
     private bool heavyModeOn = false;

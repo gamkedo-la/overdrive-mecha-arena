@@ -6,7 +6,7 @@ using UnityEngine;
 public class LightAndHeavyShooting : MonoBehaviour
 {
     private Animator animator;
-    private ChangeCombatMode combatMode;
+    private ChangeShootingMode combatMode;
 
     //TODO: Increase fireRate if light mode is on
     //TODO: Increase damage if heavy mode is on
@@ -23,7 +23,7 @@ public class LightAndHeavyShooting : MonoBehaviour
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
-        combatMode = GetComponent<ChangeCombatMode>();
+        combatMode = GetComponent<ChangeShootingMode>();
     }
 
     void Update()

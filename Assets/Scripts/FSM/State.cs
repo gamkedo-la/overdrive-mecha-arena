@@ -4,15 +4,15 @@ using UnityEngine;
 
 public abstract class State
 {
-    protected Character character;
+    protected AICharacter agent;
 
     public abstract void Tick();
 
     public virtual void OnStateEnter() { }
     public virtual void OnStateExit() { }
 
-    public State(Character character)
+    public State(AICharacter agent)
     {
-        this.character = character;
+        this.agent = agent;
     }
 }

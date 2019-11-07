@@ -13,7 +13,7 @@ public class PatrolState : State
 
     private float timerCount;
 
-    public PatrolState(Character character) : base(character)
+    public PatrolState(AICharacter agent) : base(agent)
     {
     }
 
@@ -43,14 +43,14 @@ public class PatrolState : State
 
     public override void OnStateEnter()
     {
-        thisAgent = character.GetComponent<NavMeshAgent>();
+        thisAgent = agent.GetComponent<NavMeshAgent>();
 
         timerCount = patrolTimer;
     }
 
     private void SetNewRandomDest()
     {
-        Vector3 newDest = RandomNavSphere(character.transform.position, patrolRadius, -1);
+        Vector3 newDest = RandomNavSphere(agent.transform.position, patrolRadius, -1);
         thisAgent.SetDestination(newDest);
     }
 
