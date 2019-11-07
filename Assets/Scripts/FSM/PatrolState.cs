@@ -8,8 +8,8 @@ public class PatrolState : State
 {
     private NavMeshAgent thisAgent;
 
-    [SerializeField] private float patrolRadius = 100.0f;
-    [SerializeField] private float patrolTimer = 10.0f;
+    private float patrolRadius = 100.0f;
+    private float patrolTimer = 10.0f;
 
     private float timerCount;
 
@@ -20,9 +20,15 @@ public class PatrolState : State
     public override void Tick()
     {
         Patrol();
+        Observe();
 
         //if attacked or if found an enemy
         //SetState to ChaseState
+    }
+
+    private void Observe()
+    {
+        //Debug.Log("Observing for threats");
     }
 
     private void Patrol()
