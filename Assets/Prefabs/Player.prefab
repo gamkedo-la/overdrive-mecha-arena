@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1515524012658226914}
   - component: {fileID: 1515524012658226913}
   - component: {fileID: 1515524012658226912}
-  - component: {fileID: 1515524012658226919}
   - component: {fileID: 1515524012658226918}
   - component: {fileID: -7531149912251045396}
   - component: {fileID: 7048220341263063037}
@@ -126,22 +125,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heavyModeVFX: {fileID: 1515524012608998402}
   lightModeVFX: {fileID: 1504765820584364589}
---- !u!114 &1515524012658226919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1515524012658226926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7c017835c6d44a47b86fb8c8d8f3046, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lightMeleeDamage: 5
-  heavyMeleeDamage: 20
-  lightMeleeRange: 20
-  heavyMeleeRange: 20
 --- !u!114 &1515524012658226918
 MonoBehaviour:
   m_ObjectHideFlags: 0
