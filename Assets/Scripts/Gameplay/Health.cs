@@ -29,7 +29,7 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log(gameObject.name + " is not destroyed. It's simply disabled for pitch demo purposes.");
+        //Debug.Log(gameObject.name + " is not destroyed. It's simply disabled for pitch demo purposes.");
         gameObject.SetActive(false);
     }
 }
