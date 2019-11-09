@@ -58,8 +58,7 @@ GameObject:
   - component: {fileID: 8841960133733178274}
   - component: {fileID: 8841960133733178272}
   - component: {fileID: 8841960133733178275}
-  - component: {fileID: 8841960133733178273}
-  - component: {fileID: 8841960133733178303}
+  - component: {fileID: -2859765032389037777}
   - component: {fileID: 8841960133733178302}
   - component: {fileID: 1425691920792359793}
   - component: {fileID: -7424934990164168292}
@@ -128,7 +127,7 @@ NavMeshAgent:
   m_Acceleration: 50
   avoidancePriority: 50
   m_AngularSpeed: 100
-  m_StoppingDistance: 50
+  m_StoppingDistance: 100
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -150,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHP: 200
   defense: 100
---- !u!114 &8841960133733178273
+--- !u!114 &-2859765032389037777
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,21 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 702eae20465c14243a8c2a06ef8f8d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8841960133733178303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8841960133733178278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 487c698584038f54498f89e68c741558, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dashSpeed: 100
-  minRangeBeforeDashAllowed: 100
-  dashTimeLimit: 5
 --- !u!114 &8841960133733178302
 MonoBehaviour:
   m_ObjectHideFlags: 0

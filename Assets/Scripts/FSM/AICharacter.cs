@@ -5,6 +5,9 @@ using UnityEngine;
 public class AICharacter : MonoBehaviour
 {
     private State currentState;
+    private Collider targetCol;
+
+    public Collider getTargetCollider { get { return targetCol; } }
 
     private void Start()
     {
@@ -28,6 +31,18 @@ public class AICharacter : MonoBehaviour
         if (currentState != null)
         {
             currentState.OnStateEnter();
+        }
+    }
+
+    // For OnTriggerExit we could call the return to PatrolState or enter a new state called EscapeState depending on the situation
+    private void OnTriggerEnter(Collider other)
+    {
+        // Ignore collisions with non-killable objects
+        if(other.GetComponent<Health>())
+        {
+            targetCol = other;
+
+            SetState(new ChaseState(this));
         }
     }
 }

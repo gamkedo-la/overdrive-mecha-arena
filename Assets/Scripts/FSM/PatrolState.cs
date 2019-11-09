@@ -8,7 +8,7 @@ public class PatrolState : State
 {
     private NavMeshAgent thisAgent;
 
-    private float patrolRadius = 100.0f;
+    private float patrolRadius = 250.0f;
     private float patrolTimer = 10.0f;
 
     private float timerCount;
