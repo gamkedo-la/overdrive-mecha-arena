@@ -48,4 +48,12 @@ public class AICharacter : MonoBehaviour
             SetState(new ChaseState(this));
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        // Add each collider that has a Health Script to a list
+        // List will be used in ChaseState to determine which targets are worth attacking and which one's are not
+        // List could also be used to determine when running away is the smart AI choice. 
+        // For example, if the 50% of the targets in the list have over 50% HP, then this AI should run away and find a new target or hide
+    }
 }

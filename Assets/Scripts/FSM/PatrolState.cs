@@ -29,6 +29,7 @@ public class PatrolState : State
     private void Observe()
     {
         //Debug.Log("Observing for threats");
+        // Use capsule trigger as "cone of vision" and attack the target if it has a Health script
     }
 
     private void Patrol()
