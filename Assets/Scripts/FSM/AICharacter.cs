@@ -6,11 +6,14 @@ public class AICharacter : MonoBehaviour
 {
     private State currentState;
     private Collider targetCol;
+    private EnemyShooting aiShooting;
 
     public Collider getTargetCollider { get { return targetCol; } }
+    public EnemyShooting getShootingScript { get { return aiShooting; } }
 
     private void Start()
     {
+        aiShooting = GetComponent<EnemyShooting>();
         SetState(new PatrolState(this));
     }
 

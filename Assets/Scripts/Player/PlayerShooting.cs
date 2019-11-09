@@ -15,7 +15,7 @@ public class PlayerShooting : Shooting
     protected override void Start()
     {
         base.Start();
-        // Setup shot particles for player
+        // Set shooting according to which mecha the player is
     }
 
     protected override void Update()

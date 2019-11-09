@@ -10,6 +10,7 @@ public class ChaseState : State
     private Health target;
     private Transform targetTransform;
     private NavMeshAgent thisAgent;
+    private EnemyShooting shootingScript;
 
     private float dashSpeed = 100.0f;
     private float minRangeBeforeDashAllowed = 100.0f;
@@ -24,6 +25,7 @@ public class ChaseState : State
     public override void Tick()
     {
         ChaseTarget();
+        shootingScript.FireWeapon();
     }
 
     private void ChaseTarget()
@@ -49,6 +51,7 @@ public class ChaseState : State
     public override void OnStateEnter()
     {
         thisAgent = agent.GetComponent<NavMeshAgent>();
+        shootingScript = agent.getShootingScript;
         otherCol = agent.getTargetCollider;
         target = otherCol.GetComponent<Health>();
 

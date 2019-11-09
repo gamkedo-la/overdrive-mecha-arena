@@ -31,35 +31,44 @@ public class Shooting : MonoBehaviour
     {
         shotTimer += Time.deltaTime;
 
-        animator.SetBool("isShooting", false);
+        if (animator != null)
+        {
+            animator.SetBool("isShooting", false);
+        }
     }
 
     protected virtual void FireWeapon(ParticleSystem shotImpact, ParticleSystem muzzleFlash, bool isPlayer)
     {
         Ray ray;
-        if(isPlayer)
+        if (isPlayer)
         {
             ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
         }
         else
         {
+            // TODO: instantiate ray at a higher position; currently it's instantiated at the AI's feet
             ray = new Ray(transform.position, transform.forward);
         }
 
-        //Debug.DrawRay(ray.origin, ray.direction * shotRange, Color.red, 2.0f);
+        //Debug.DrawRay(ray.origin, ray.direction * range, Color.red, 2.0f);
 
         RaycastHit hitInfo;
 
         muzzleFlash.Play();
-        animator.SetBool("isShooting", true);
 
+        if(animator != null)
+            animator.SetBool("isShooting", true);
+
+        // Might have a bug here with the layerMask and AI's not shooting both AI's and player properly
         int layerMask = 1 << 10;
         layerMask = ~layerMask;
 
         if (Physics.Raycast(ray, out hitInfo, range, layerMask, QueryTriggerInteraction.Ignore))
         {
             Instantiate(shotImpact, hitInfo.point, Quaternion.identity);
-            Debug.Log("Shot hit: " + hitInfo.collider.name);
+
+            //Debug.Log("Shot hit: " + hitInfo.collider.name);
+
             var health = hitInfo.collider.GetComponent<Health>();
             if (health != null)
             {
