@@ -30,13 +30,14 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
+        //Debug.Log(gameObject.name + " targeting " + target.name);
         if (target != null)
         {
-            ChasePlayer();
+            ChaseTarget();
         }
     }
 
-    private void ChasePlayer()
+    private void ChaseTarget()
     {
         //check distance between target and this AI
         // if distance is greater than say 100.0f then set navMeshAgent speed to it current value times the dash speed
