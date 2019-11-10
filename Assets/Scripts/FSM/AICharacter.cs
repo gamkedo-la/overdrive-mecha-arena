@@ -5,15 +5,15 @@ using UnityEngine;
 public class AICharacter : MonoBehaviour
 {
     private State currentState;
-    private Collider targetCol;
-    private EnemyShooting aiShooting;
+    private List<Health> validTargets = new List<Health>();
+    private bool isChasing = false;
 
-    public Collider getTargetCollider { get { return targetCol; } }
-    public EnemyShooting getShootingScript { get { return aiShooting; } }
+    public List<Health> getValidTargets { get { return validTargets; } }
+    // isChasing should only be set to true by collisions 
+    public bool setIsChasing { set { isChasing = false; } }
 
     private void Start()
     {
-        aiShooting = GetComponent<EnemyShooting>();
         SetState(new PatrolState(this));
     }
 
@@ -40,12 +40,17 @@ public class AICharacter : MonoBehaviour
     // For OnTriggerExit we could call the return to PatrolState or enter a new state called EscapeState depending on the situation
     private void OnTriggerEnter(Collider other)
     {
-        // Ignore collisions with non-killable objects
-        if(other.GetComponent<Health>())
-        {
-            targetCol = other;
+        Health target = other.GetComponent<Health>();
 
-            SetState(new ChaseState(this));
+        // Ignore collisions with non-killable objects
+        if (target != null)
+        {
+            validTargets.Add(target);
+
+            if (!isChasing)
+            {
+                SetState(new ChaseState(this));
+            }
         }
     }
 

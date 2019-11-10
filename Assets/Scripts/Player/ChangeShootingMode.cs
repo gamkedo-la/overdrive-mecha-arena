@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class ChangeShootingMode : MonoBehaviour
 {
+    // TODO: Refactor so both AI and player can use this script
+    // TODO: Update ChangeMode() to check if health is above 50% and only change modes if it is. Additionally, have ChangeMode set heavyModeOn to false if it's not.
+
     //NOTE: Light mode is on by default
     private bool heavyModeOn = false;
     [SerializeField] GameObject heavyModeVFX;
@@ -25,16 +28,6 @@ public class ChangeShootingMode : MonoBehaviour
         {
             ChangeMode();
         }
-
-        //if (heavyModeOn)
-        //{
-        //    Debug.Log("Heavy configuration loaded. Melee module enabled; Shooting module disabled.");
-        //}
-        //else
-        //{
-        //    Debug.Log("Light configuration loaded. Shooting module enabled; Melee module disabled.");
-        //}
-
 
         //Debug.Log("Heavy Mode On? " + heavyModeOn);
     }
