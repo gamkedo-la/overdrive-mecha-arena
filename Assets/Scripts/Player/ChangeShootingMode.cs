@@ -12,11 +12,13 @@ public class ChangeShootingMode : MonoBehaviour
     private bool heavyModeOn = false;
     [SerializeField] GameObject heavyModeVFX;
     [SerializeField] GameObject lightModeVFX;
+    private Health health;
 
     public bool getHeavyModeStatus { get { return heavyModeOn; } }
 
     void Start()
     {
+        health = GetComponent<Health>();
         heavyModeOn = false;
         lightModeVFX.SetActive(true);
     }
@@ -24,19 +26,31 @@ public class ChangeShootingMode : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Transform"))
+        if (gameObject.tag == "Player")
         {
-            ChangeMode();
+            if (Input.GetButtonDown("Transform"))
+            {
+                ChangeMode();
+            }
         }
 
         //Debug.Log("Heavy Mode On? " + heavyModeOn);
     }
 
-    private void ChangeMode()
+    public void ChangeMode()
     {
-        heavyModeOn = !heavyModeOn;
+        if (health.getCurrentHP >= health.getBaseHP / 2)
+        {
+            heavyModeOn = !heavyModeOn;
 
-        lightModeVFX.SetActive(!heavyModeOn);
-        heavyModeVFX.SetActive(heavyModeOn);
+            lightModeVFX.SetActive(!heavyModeOn);
+            heavyModeVFX.SetActive(heavyModeOn);
+        }
+        else
+        {
+            heavyModeOn = false;
+            lightModeVFX.SetActive(true);
+            heavyModeVFX.SetActive(false);
+        }
     }
 }

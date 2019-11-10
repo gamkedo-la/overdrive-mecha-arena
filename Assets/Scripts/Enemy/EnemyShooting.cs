@@ -28,23 +28,23 @@ public class EnemyShooting : Shooting
     }
 
     // Called by AI character and it states
-    public void FireWeapon()
+    public void FireWeapon(Health tgt)
     {
         if (CanAttack())
         {
             shotTimer = 0;
 
             // TODO: implement accuracy and random hit probabilities so they affect the accuracy of raycast in Shooting.cs
-            // Alternatively, could create a custom function that will account for those without needing raycasts
-            base.FireWeapon(shotImpact, muzzleFlash, false);
+            // Raycast bug workaround next line (temporary; maybe?)
+            Attack(tgt);
         }
     }
 
-    /* Attack() here as reference for potential improvement to FireWeapon()
-    private void Attack()
+    //Attack() here as reference for potential improvement to FireWeapon()
+    private void Attack(Health tgt)
     {
         shotTimer = 0;
-        targetHP.TakeDamage(damageAmount);
+        tgt.TakeDamage(damage);
     }
-    */
+
 }

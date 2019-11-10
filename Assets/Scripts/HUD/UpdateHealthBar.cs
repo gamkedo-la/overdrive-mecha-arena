@@ -11,6 +11,7 @@ public class UpdateHealthBar : MonoBehaviour
 
     private void Awake()
     {
+
         healthBar = GetComponent<Image>();
     }
 
@@ -20,5 +21,9 @@ public class UpdateHealthBar : MonoBehaviour
         {
             healthBar.fillAmount = playerHealth.getCurrentHP / 100.0f;
         }
+    }
+    public void SetPlayerHealthScript(Health health)
+    {
+        playerHealth = health;
     }
 }

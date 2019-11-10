@@ -9,18 +9,20 @@ public class ChaseState : State
     private List<Health> validTargets;
 
     private Transform targetTransform;
+    private Health currentTgt;
+
     private NavMeshAgent thisAgent;
     private EnemyShooting shootingScript;
     private Health thisAgentHealth;
 
     private float dashSpeed = 100.0f;
-    private float minRangeBeforeDashAllowed = 100.0f;
+    private float minRangeBeforeDashAllowed = 150.0f;
     // dashTimeLimit not implemented yet but should be used to limit dashing ability to prevent infinite dash
     private float dashTimeLimit = 5.0f;
     private float defaultAiSpeed = 50.0f;
 
     private int highValueTgts, midValueTgts, lowValueTgts = 0;
-    private float nearThreatDistance = 100.0f;
+    private float nearThreatDistance = 75.0f;
 
     public ChaseState(AICharacter agent) : base(agent)
     {
@@ -37,10 +39,10 @@ public class ChaseState : State
     {
         SelectTarget();
 
-        if(targetTransform != null)
+        if (targetTransform != null)
         {
             ChaseTarget();
-            shootingScript.FireWeapon();
+            shootingScript.FireWeapon(currentTgt);
         }
     }
 
@@ -58,10 +60,16 @@ public class ChaseState : State
 
         foreach (Health tgt in validTargets)
         {
+            if(tgt == null)
+            {
+                validTargets.Remove(tgt);
+            }
+
             var distance = Vector3.Distance(agent.transform.position, tgt.transform.position);
-            if(distance <= nearThreatDistance)
+            if (distance <= nearThreatDistance)
             {
                 targetTransform = tgt.transform;
+                currentTgt = tgt;
             }
         }
     }

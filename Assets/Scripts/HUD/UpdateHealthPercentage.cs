@@ -6,7 +6,7 @@ using TMPro;
 
 public class UpdateHealthPercentage : MonoBehaviour
 {
-    [SerializeField] Health playerHealth;
+    [SerializeField] private Health playerHealth;
 
     private TextMeshProUGUI TMProText;
 
@@ -17,7 +17,7 @@ public class UpdateHealthPercentage : MonoBehaviour
 
     void Start()
     {
-        TMProText.SetText(playerHealth.getCurrentHP.ToString() + "%");
+        //TMProText.SetText(playerHealth.getCurrentHP.ToString() + "%");
     }
 
     // Update is called once per frame
@@ -27,5 +27,10 @@ public class UpdateHealthPercentage : MonoBehaviour
         {
             TMProText.SetText(playerHealth.getCurrentHP.ToString() + "%");
         }
+    }
+
+    public void SetPlayerHealthScript(Health health)
+    {
+        playerHealth = health;
     }
 }

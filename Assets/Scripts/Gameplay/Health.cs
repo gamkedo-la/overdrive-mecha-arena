@@ -7,6 +7,10 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private int startingHP = 200;
     [SerializeField] private float defense = 100;
+    public int getBaseHP { get { return startingHP; } }
+
+    private int currentHP;
+    public int getCurrentHP { get { return currentHP / 2; } }
 
     private string[] priorityValues = new string[] { "high", "medium", "low" };
 
@@ -18,10 +22,6 @@ public class Health : MonoBehaviour
     private string targetPriority;
     public string getTargetPriority { get { return targetPriority; } }
 
-
-    private int currentHP;
-    public int getCurrentHP { get { return currentHP / 2; } }
-
     private void OnEnable()
     {
         currentHP = startingHP;
@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         currentHP -= damageAmount;
-        //Debug.Log(gameObject.name + " took " + damageAmount + " damage, now has hp: " + currentHP);
+        Debug.Log(gameObject.name + " took " + damageAmount + " damage, now has hp: " + currentHP);
 
         SetMyValueAsATarget();
 
