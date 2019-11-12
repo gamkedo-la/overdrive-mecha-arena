@@ -9,8 +9,8 @@ public class AICharacter : MonoBehaviour
     private bool isChasing = false;
 
     public List<Health> getValidTargets { get { return validTargets; } }
-    // isChasing should only be set to true by collisions 
-    public bool setIsChasing { set { isChasing = false; } }
+
+    public bool resetIsChasing { set { isChasing = false; } }
 
     private void Start()
     {
@@ -19,11 +19,15 @@ public class AICharacter : MonoBehaviour
 
     private void Update()
     {
-        currentState.Tick();
+        if (currentState != null)
+        {
+            currentState.Tick();
+        }
     }
 
     public void SetState(State state)
     {
+        Debug.Log(state);
         if (currentState != null)
         {
             currentState.OnStateExit();
@@ -37,28 +41,26 @@ public class AICharacter : MonoBehaviour
         }
     }
 
+    public void RemoveTargetFromSuperList(Health tgt)
+    {
+        validTargets.Remove(tgt);
+    }
+
     // For OnTriggerExit we could call the return to PatrolState or enter a new state called EscapeState depending on the situation
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         Health target = other.GetComponent<Health>();
 
         // Ignore collisions with non-killable objects
-        if (target != null)
+        if (target != null && validTargets.Contains(target) == false)
         {
+            //Debug.Log(target.name);
             validTargets.Add(target);
 
-            if (!isChasing)
+            if (currentState == null || currentState.StateName() != "chase state")
             {
                 SetState(new ChaseState(this));
             }
         }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        // Add each collider that has a Health Script to a list
-        // List will be used in ChaseState to determine which targets are worth attacking and which one's are not
-        // List could also be used to determine when running away is the smart AI choice. 
-        // For example, if the 50% of the targets in the list have over 50% HP, then this AI should run away and find a new target or hide
     }
 }

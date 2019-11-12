@@ -13,22 +13,42 @@ public class PatrolState : State
 
     private float timerCount;
 
+    private bool takingFire = false;
+
     public PatrolState(AICharacter agent) : base(agent)
     {
     }
 
+    public override string StateName()
+    {
+        return "patrol state";
+    }
+
     public override void Tick()
     {
+        if (UnderAttack())
+        {
+            //SetState to ChaseState
+        }
+
         Patrol();
         Observe();
+    }
 
-        //if attacked or if found an enemy
-        //SetState to ChaseState
+    private bool UnderAttack()
+    {
+        // check if this AI is taking damage
+        // if it is then set takingFire to true
+        // else set takingFire to false
+
+        return takingFire;
     }
 
     private void Observe()
     {
         //Debug.Log("Observing for threats");
+
+        // Have AI choose which look left, right, back, and forward in semi-random fashion
         // Use capsule trigger as "cone of vision" and attack the target if it has a Health script
     }
 

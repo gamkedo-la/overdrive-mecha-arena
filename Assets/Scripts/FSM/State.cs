@@ -15,4 +15,6 @@ public abstract class State
     {
         this.agent = agent;
     }
+
+    public virtual string StateName() { return "undefined state"; }
 }

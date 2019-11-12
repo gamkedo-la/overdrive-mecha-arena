@@ -22,10 +22,15 @@ public class ChaseState : State
     private float defaultAiSpeed = 50.0f;
 
     private int highValueTgts, midValueTgts, lowValueTgts = 0;
-    private float nearThreatDistance = 75.0f;
+    private float nearThreatDistance = 500.0f;
 
     public ChaseState(AICharacter agent) : base(agent)
     {
+    }
+
+    public override string StateName()
+    {
+        return "chase state";
     }
 
     public override void OnStateEnter()
@@ -44,6 +49,11 @@ public class ChaseState : State
             ChaseTarget();
             shootingScript.FireWeapon(currentTgt);
         }
+
+        if(targetTransform != null)
+        {
+            Debug.DrawLine(agent.transform.position + Vector3.up * 24.0f, targetTransform.position, Color.red);
+        }
     }
 
     private void SelectTarget()
@@ -55,14 +65,18 @@ public class ChaseState : State
         // find distance between this agent and target
         // use the target's priority, distance, and this agent's target value to decide which target to pursue
 
+        //  Want this AI to update its targets as our AI character script adds more enemies
         validTargets = agent.getValidTargets;
         string thisAgentTargetValue = thisAgentHealth.getTargetPriority;
+
+        List<Health> toRemove = new List<Health>();
 
         foreach (Health tgt in validTargets)
         {
             if(tgt == null)
             {
-                validTargets.Remove(tgt);
+                toRemove.Add(tgt);
+                continue;
             }
 
             var distance = Vector3.Distance(agent.transform.position, tgt.transform.position);
@@ -71,6 +85,11 @@ public class ChaseState : State
                 targetTransform = tgt.transform;
                 currentTgt = tgt;
             }
+        }
+
+        foreach (Health tgt in toRemove)
+        {
+            agent.RemoveTargetFromSuperList(tgt);
         }
     }
 
