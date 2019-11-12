@@ -14,24 +14,23 @@ public class Health : MonoBehaviour
 
     private string[] priorityValues = new string[] { "high", "medium", "low" };
 
-    // Next three lines used to determine how targetable this GO is
+    // Next three lines used to determine how valuable this target is according to how much HP it has left
     private int highPriorityThreshold = 50;
     private int mediumPriorityThreshold = 100;
     private int lowPriorityThreshold = 150;
 
     private string targetPriority;
-    public string getTargetPriority { get { return targetPriority; } }
     public float getPriorityScore
     {
         get
         {
             if(targetPriority == "high")
             {
-                return 0.0f;
+                return 50.0f;
             }
             else if(targetPriority == "medium")
             {
-                return 20.0f;
+                return 75.0f;
             }
             else
             {

@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class ChaseState : State
 {
     private List<Health> validTargets;
+    private List<Health> toRemove = new List<Health>();
 
     private Transform targetTransform;
     private Health currentTgt;
@@ -22,7 +23,9 @@ public class ChaseState : State
     private float defaultAiSpeed = 50.0f;
 
     private int highValueTgts, midValueTgts, lowValueTgts = 0;
-    private float nearThreatDistance = 500.0f;
+    private float nearThreatDistance = 75.0f;
+    private float bestTgtScore = 10000.0f;
+
 
     public ChaseState(AICharacter agent) : base(agent)
     {
@@ -63,22 +66,11 @@ public class ChaseState : State
 
     private void SelectTarget()
     {
-        // cycle through valid targets
-        // determine how many high, medium, low value targets there
-        // determine this agent's target value
-        // compared this agent's tgt value to the number of highs, mediums, and lows
-        // find distance between this agent and target
-        // use the target's priority, distance, and this agent's target value to decide which target to pursue
-
         //  Want this AI to update its targets as our AI character script adds more enemies
         validTargets = agent.getValidTargets;
-        string thisAgentTargetValue = thisAgentHealth.getTargetPriority;
 
-        List<Health> toRemove = new List<Health>();
 
         validTargets.RemoveAll(item => item == null);
-
-        float bestTgtScore = 10000.0f;
 
         foreach (Health tgt in validTargets)
         {
