@@ -50,10 +50,15 @@ public class ChaseState : State
             shootingScript.FireWeapon(currentTgt);
         }
 
+        foreach (Health tgt in validTargets)
+        {
+            Debug.DrawLine(agent.transform.position + Vector3.up * 12.0f, tgt.transform.position, Color.yellow);
+        }
         if(targetTransform != null)
         {
             Debug.DrawLine(agent.transform.position + Vector3.up * 24.0f, targetTransform.position, Color.red);
         }
+
     }
 
     private void SelectTarget()
@@ -71,9 +76,11 @@ public class ChaseState : State
 
         List<Health> toRemove = new List<Health>();
 
+        validTargets.RemoveAll(item => item == null);
+
         foreach (Health tgt in validTargets)
         {
-            if(tgt == null)
+            if(tgt.getCurrentHP <= 0)
             {
                 toRemove.Add(tgt);
                 continue;
