@@ -27,7 +27,7 @@ public class AICharacter : MonoBehaviour
 
     public void SetState(State state)
     {
-        Debug.Log(state);
+        //Debug.Log(state);
         if (currentState != null)
         {
             currentState.OnStateExit();

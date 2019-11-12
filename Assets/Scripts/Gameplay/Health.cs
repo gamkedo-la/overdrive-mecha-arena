@@ -21,6 +21,24 @@ public class Health : MonoBehaviour
 
     private string targetPriority;
     public string getTargetPriority { get { return targetPriority; } }
+    public float getPriorityScore
+    {
+        get
+        {
+            if(targetPriority == "high")
+            {
+                return 0.0f;
+            }
+            else if(targetPriority == "medium")
+            {
+                return 20.0f;
+            }
+            else
+            {
+                return 100.0f;
+            }
+        }
+    }
 
     private void OnEnable()
     {

@@ -78,6 +78,8 @@ public class ChaseState : State
 
         validTargets.RemoveAll(item => item == null);
 
+        float bestTgtScore = 10000.0f;
+
         foreach (Health tgt in validTargets)
         {
             if(tgt.getCurrentHP <= 0)
@@ -87,10 +89,13 @@ public class ChaseState : State
             }
 
             var distance = Vector3.Distance(agent.transform.position, tgt.transform.position);
-            if (distance <= nearThreatDistance)
+            var thisTgtScore = distance + tgt.getPriorityScore;
+
+            if (thisTgtScore <= bestTgtScore)
             {
                 targetTransform = tgt.transform;
                 currentTgt = tgt;
+                bestTgtScore = thisTgtScore;
             }
         }
 
