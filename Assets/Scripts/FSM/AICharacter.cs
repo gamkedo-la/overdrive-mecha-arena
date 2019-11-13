@@ -5,20 +5,26 @@ using UnityEngine;
 public class AICharacter : MonoBehaviour
 {
     private State currentState;
+    private Animator animator;
     private List<Health> validTargets = new List<Health>();
     private bool isChasing = false;
 
     public List<Health> getValidTargets { get { return validTargets; } }
 
     public bool resetIsChasing { set { isChasing = false; } }
+    public Animator getAnimator { get { return animator; } }
 
     private void Start()
     {
+        animator = GetComponentInChildren<Animator>();
+
         SetState(new PatrolState(this));
     }
 
     private void Update()
     {
+        //Debug.Log(gameObject.name + " has this many targets: " + validTargets.Count);
+
         if (currentState != null)
         {
             currentState.Tick();
@@ -54,7 +60,8 @@ public class AICharacter : MonoBehaviour
         // Ignore collisions with non-killable objects
         if (target != null && validTargets.Contains(target) == false)
         {
-            //Debug.Log(target.name);
+            //Debug.Log(target.name + " entered " + gameObject.name + " detection radius");
+
             validTargets.Add(target);
 
             if (currentState == null || currentState.StateName() != "chase state")

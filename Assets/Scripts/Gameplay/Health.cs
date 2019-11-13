@@ -26,17 +26,22 @@ public class Health : MonoBehaviour
         {
             if(targetPriority == "high")
             {
-                return 50.0f;
+                return 0.0f;
             }
             else if(targetPriority == "medium")
             {
-                return 75.0f;
+                return 50.0f;
             }
             else
             {
                 return 100.0f;
             }
         }
+    }
+
+    private void Awake()
+    {
+        // Set defense, starting HP, priority threshold according to mech type
     }
 
     private void OnEnable()
@@ -72,6 +77,11 @@ public class Health : MonoBehaviour
             // This GO has low HP and so it becomes an easier target to destroy
             targetPriority = priorityValues[0];
         }
+    }
+
+    private void Retreat()
+    {
+
     }
 
     private void Die()

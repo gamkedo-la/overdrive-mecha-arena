@@ -32,6 +32,9 @@ public class PatrolState : State
         }
 
         Patrol();
+
+        PlayAnimations();
+
         Observe();
     }
 
@@ -46,7 +49,7 @@ public class PatrolState : State
 
     private void Observe()
     {
-        //Debug.Log("Observing for threats");
+        // Debug.Log("Observing for threats");
 
         // Have AI choose which look left, right, back, and forward in semi-random fashion
         // Use capsule trigger as "cone of vision" and attack the target if it has a Health script
@@ -65,6 +68,7 @@ public class PatrolState : State
     public override void OnStateEnter()
     {
         thisAgent = agent.GetComponent<NavMeshAgent>();
+        agent.getValidTargets.Clear();
 
         timerCount = patrolTimer;
     }
@@ -85,5 +89,17 @@ public class PatrolState : State
         NavMesh.SamplePosition(randDir, out navHit, patrolRadius, layerMask);
 
         return navHit.position;
+    }
+
+    private void PlayAnimations()
+    {
+        if (thisAgent.velocity.sqrMagnitude == 0)
+        {
+            agent.getAnimator.SetFloat("Speed", 0f);
+        }
+        else
+        {
+            agent.getAnimator.SetFloat("Speed", 1f);
+        }
     }
 }

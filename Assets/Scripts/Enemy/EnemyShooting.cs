@@ -7,7 +7,7 @@ public class EnemyShooting : Shooting
 {
     [SerializeField] private ParticleSystem shotImpact;
     [SerializeField] private ParticleSystem muzzleFlash;
-
+    [SerializeField] private ScriptableObject mecha;
 
     protected override void Start()
     {
@@ -34,8 +34,7 @@ public class EnemyShooting : Shooting
         {
             shotTimer = 0;
 
-            // TODO: implement accuracy and random hit probabilities so they affect the accuracy of raycast in Shooting.cs
-            // Raycast bug workaround next line (temporary; maybe?)
+            // TODO: implement accuracy and random hit probabilities so they affect the accuracy
             Attack(tgt);
         }
     }

@@ -6,8 +6,6 @@ public class Shooting : MonoBehaviour
 {
     private Animator animator;
     protected ChangeShootingMode shootingMode;
-    protected ScriptableObject mecha;
-
 
     // NOTE: Light mode features lower damage, faster fire rate, and increased range
     // NOTE: Heavy mode features higher damage, slower fire rate, and decreased range
@@ -31,6 +29,9 @@ public class Shooting : MonoBehaviour
     protected float movementPenalty;
     protected float dashPenalty;
     protected float hitProbability;
+    protected float breakContactAtThisRange;
+
+    public float getBreakContactRange { get { return breakContactAtThisRange; } }
 
     private void Awake()
     {
@@ -49,7 +50,8 @@ public class Shooting : MonoBehaviour
         healthPenalty = 0.0f;
         movementPenalty = 10.0f;
         dashPenalty = 15.0f;
-        hitProbability = 1.0f; 
+        hitProbability = 1.0f;
+        breakContactAtThisRange = range;
     }
 
     protected virtual void Update()

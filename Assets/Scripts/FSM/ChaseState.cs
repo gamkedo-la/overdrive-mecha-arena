@@ -7,7 +7,6 @@ using UnityEngine.AI;
 public class ChaseState : State
 {
     private List<Health> validTargets;
-    private List<Health> toRemove = new List<Health>();
 
     private Transform targetTransform;
     private Health currentTgt;
@@ -17,15 +16,14 @@ public class ChaseState : State
     private Health thisAgentHealth;
 
     private float dashSpeed = 100.0f;
-    private float minRangeBeforeDashAllowed = 150.0f;
     // dashTimeLimit not implemented yet but should be used to limit dashing ability to prevent infinite dash
     private float dashTimeLimit = 5.0f;
     private float defaultAiSpeed = 50.0f;
 
-    private int highValueTgts, midValueTgts, lowValueTgts = 0;
-    private float nearThreatDistance = 75.0f;
-    private float bestTgtScore = 10000.0f;
+    private float minRangeBeforeDashAllowed = 150.0f;
 
+    private int highValueTgts, midValueTgts, lowValueTgts = 0;
+    private float thisAgentPriorityScore;
 
     public ChaseState(AICharacter agent) : base(agent)
     {
@@ -46,6 +44,11 @@ public class ChaseState : State
     public override void Tick()
     {
         SelectTarget();
+        if(validTargets.Count == 0)
+        {
+            // We have no targets so go back to patrolling the arena
+            agent.SetState(new PatrolState(agent));
+        }
 
         if (targetTransform != null)
         {
@@ -53,28 +56,22 @@ public class ChaseState : State
             shootingScript.FireWeapon(currentTgt);
         }
 
-        foreach (Health tgt in validTargets)
-        {
-            Debug.DrawLine(agent.transform.position + Vector3.up * 12.0f, tgt.transform.position, Color.yellow);
-        }
-        if(targetTransform != null)
-        {
-            Debug.DrawLine(agent.transform.position + Vector3.up * 24.0f, targetTransform.position, Color.red);
-        }
-
+        PlayAnimations();
+        DrawDebugLines();
     }
 
     private void SelectTarget()
     {
-        //  Want this AI to update its targets as our AI character script adds more enemies
         validTargets = agent.getValidTargets;
-
+        List<Health> toRemove = new List<Health>();
 
         validTargets.RemoveAll(item => item == null);
 
+        float bestTgtScore = 10000.0f;
+
         foreach (Health tgt in validTargets)
         {
-            if(tgt.getCurrentHP <= 0)
+            if (tgt.getCurrentHP < 0)
             {
                 toRemove.Add(tgt);
                 continue;
@@ -101,19 +98,51 @@ public class ChaseState : State
     {
         var distance = Vector3.Distance(agent.transform.position, targetTransform.position);
 
-        // TODO: implement AI choice to use dash or save it depending on target health and distance
-        if (distance > minRangeBeforeDashAllowed)
+        // only chase target if it's still withing firing range
+        if (distance < shootingScript.getBreakContactRange)
         {
-            thisAgent.speed = dashSpeed;
+            if (distance > minRangeBeforeDashAllowed)
+            {
+                thisAgent.speed = dashSpeed;
+            }
+            else
+            {
+                thisAgent.speed = defaultAiSpeed;
+            }
         }
         else
         {
-            thisAgent.speed = defaultAiSpeed;
+            agent.SetState(new PatrolState(agent));
         }
 
+        // improve set destination so it strafes around its target in a semi-random manner
         thisAgent.SetDestination(targetTransform.position);
 
         //TODO: polish LookAt code so it's more natural and less instantanious
         agent.transform.LookAt(targetTransform.position);
+    }
+
+    private void PlayAnimations()
+    {
+        if (thisAgent.velocity.sqrMagnitude == 0)
+        {
+            agent.getAnimator.SetFloat("Speed", 0f);
+        }
+        else
+        {
+            agent.getAnimator.SetFloat("Speed", 1f);
+        }
+    }
+
+    private void DrawDebugLines()
+    {
+        foreach (Health tgt in validTargets)
+        {
+            Debug.DrawLine(agent.transform.position + Vector3.up * 12.0f, tgt.transform.position, Color.yellow);
+        }
+        if (targetTransform != null)
+        {
+            Debug.DrawLine(agent.transform.position + Vector3.up * 24.0f, targetTransform.position, Color.red);
+        }
     }
 }
