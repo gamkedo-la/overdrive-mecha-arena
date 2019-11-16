@@ -2350,14 +2350,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfAIParticipants: 7
   spawnPointsList:
-  - {fileID: 1973670411}
-  - {fileID: 1165262993}
-  - {fileID: 780134246}
-  - {fileID: 686688087}
-  - {fileID: 1228941348}
-  - {fileID: 2034137877}
-  - {fileID: 575100815}
-  - {fileID: 478932360}
+  - {fileID: 1973670412}
+  - {fileID: 1165262994}
+  - {fileID: 780134247}
+  - {fileID: 686688088}
+  - {fileID: 1228941349}
+  - {fileID: 2034137878}
+  - {fileID: 575100816}
+  - {fileID: 478932361}
   enemyCharacters:
   - {fileID: 4234567098220050998, guid: 0990fce9499226f4d934f018624fbac0, type: 3}
   - {fileID: 4238611126876636925, guid: 51e6eaee4c804e247bc5f05a6931e97d, type: 3}
@@ -2376,6 +2376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a79e2765f574aa4093fcb5ad179c08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnRate: 5
 --- !u!1001 &235489553
 PrefabInstance:
   m_ObjectHideFlags: 0
