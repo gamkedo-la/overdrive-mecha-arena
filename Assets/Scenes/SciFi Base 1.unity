@@ -2970,7 +2970,6 @@ MonoBehaviour:
   - {fileID: 5320919325789254278, guid: 4ac21b834438d534ea2c1d9e208e3028, type: 3}
   playerMech: {fileID: 1515524012658226926, guid: fdad7feaec8474cabbaf01b227a8fa9c,
     type: 3}
-  respawnRate: 5
 --- !u!114 &217279744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2983,7 +2982,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a79e2765f574aa4093fcb5ad179c08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnRate: 5
+  Notes: This script passes a spawn point to each mecha's Respawn method that is responsible
+    for when they come back
+  respawnRate: 10
 --- !u!1001 &222354623
 PrefabInstance:
   m_ObjectHideFlags: 0

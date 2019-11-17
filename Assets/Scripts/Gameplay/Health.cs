@@ -7,10 +7,10 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private int startingHP = 200;
     [SerializeField] private float defense = 100;
-    public int getBaseHP { get { return startingHP; } }
+
+    private float respawnTimer = 0.0f;
 
     private int currentHP;
-    public int getCurrentHP { get { return currentHP / 2; } }
 
     private string[] priorityValues = new string[] { "high", "medium", "low" };
 
@@ -20,6 +20,9 @@ public class Health : MonoBehaviour
     private int lowPriorityThreshold = 150;
 
     private string targetPriority;
+
+    private SpawnParticipantIfAble respawnManager;
+
     public float getPriorityScore
     {
         get
@@ -38,14 +41,19 @@ public class Health : MonoBehaviour
             }
         }
     }
+    public int getBaseHP { get { return startingHP; } }
+    public int getCurrentHP { get { return currentHP / 2; } }
 
-    private void Awake()
+    private void Start()
     {
         // Set defense, starting HP, priority threshold according to mech type
+        respawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnParticipantIfAble>();
     }
 
     private void OnEnable()
     {
+        CancelInvoke("SpawnCooldown");
+        respawnTimer = 0;
         currentHP = startingHP;
     }
 
@@ -86,6 +94,23 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        InvokeRepeating("SpawnCooldown", 0.0f, 1.0f);
+        gameObject.SetActive(false);
+    }
+
+    public void ResetCharacter(Transform spawnPoint)
+    {
+        gameObject.transform.position = spawnPoint.position;
+        gameObject.SetActive(true);
+    }
+
+    private void SpawnCooldown()
+    {
+        respawnTimer++;
+
+        if(respawnTimer >= respawnManager._respawnRate)
+        {
+            respawnManager.Respawn(gameObject);
+        }
     }
 }

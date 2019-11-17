@@ -12,8 +12,6 @@ public class InitialParticipantsSpawn : MonoBehaviour
 
     private SpawnParticipantIfAble respawnGOs;
 
-    public List<Transform> _spawnPointsList { get { return spawnPointsList; } }
-
     void Start()
     {
         respawnGOs = GetComponent<SpawnParticipantIfAble>();
@@ -33,8 +31,6 @@ public class InitialParticipantsSpawn : MonoBehaviour
     {
         Transform spawnPoint = SelectSpawnPoint();
         Instantiate(playerMech, spawnPoint);
-
-        respawnGOs._playerRespawnGO = playerMech;
     }
 
     private void SpawnMechAt(Transform spawnPoint)
@@ -43,8 +39,6 @@ public class InitialParticipantsSpawn : MonoBehaviour
         GameObject mechToSpawn = enemyCharacters[index];
 
         Instantiate(mechToSpawn, spawnPoint);
-
-        respawnGOs.AddAiToRespawnSystem(mechToSpawn);
     }
 
     //TODO: use one spawn point per mech to avoid mechs spawning on top of each other
