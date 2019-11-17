@@ -119,6 +119,7 @@ public class ChaseState : State
         thisAgent.SetDestination(targetTransform.position);
 
         //TODO: polish LookAt code so it's more natural and less instantanious
+        // NOTE: Since the GO consists of several parts stitched together in Blender we could also make specific body parts look at a position through code
         agent.transform.LookAt(targetTransform.position);
     }
 

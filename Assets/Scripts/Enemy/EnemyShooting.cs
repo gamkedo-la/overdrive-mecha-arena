@@ -9,9 +9,12 @@ public class EnemyShooting : Shooting
     [SerializeField] private ParticleSystem muzzleFlash;
     [SerializeField] private ScriptableObject mecha;
 
+    private Health health;
+
     protected override void Start()
     {
         base.Start();
+        health = GetComponent<Health>();
         // Set this AI's shooting stats according to it's mecha type
     }
 
@@ -34,7 +37,7 @@ public class EnemyShooting : Shooting
         {
             shotTimer = 0;
 
-            // TODO: implement accuracy and random hit probabilities so they affect the accuracy
+            // TODO: implement accuracy so they affect the accuracy
             Attack(tgt);
         }
     }
@@ -43,6 +46,13 @@ public class EnemyShooting : Shooting
     private void Attack(Health tgt)
     {
         shotTimer = 0;
+        
+        // check my health and if I'm moving, then set my accuracy according to those parameters
+        // next, check if there's no obstruction between me and my target OR if my target is out of range
+        // if either is true, then I cannot damage my target and must move to a better position (hanlde this movement with AI states)
+        // if those conditions are not met, then check if my target is moving then find out if they are dashing or not
+        // then take their movement penalty and subtract my accuracy by it
+        // Now get a random float between 0  and 100 and only damage the target if that random is less than or equal to our accuracy
         tgt.TakeDamage(damage);
     }
 
