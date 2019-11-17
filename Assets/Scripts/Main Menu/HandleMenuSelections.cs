@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class HandleMenuSelections : MonoBehaviour
 {
+    private int sceneIndex = 0;
+
     [SerializeField] CinemachineVirtualCamera virtualCamera;
     private float optionsCameraPathPos = 1;
 
@@ -29,7 +31,8 @@ public class HandleMenuSelections : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Main");
+        sceneIndex++;
+        SceneManager.LoadScene(sceneIndex);
     }
 
     public void QuitGame()

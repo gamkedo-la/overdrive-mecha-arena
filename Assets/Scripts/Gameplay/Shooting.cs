@@ -26,12 +26,16 @@ public class Shooting : MonoBehaviour
     /// </summary>
     protected float accuracy;
     protected float healthPenalty;
-    protected float movementPenalty;
-    protected float dashPenalty;
+
+    private float movementPenalty;
+    private float dashPenalty;
+
     protected float hitProbability;
     protected float breakContactAtThisRange;
 
     public float getBreakContactRange { get { return breakContactAtThisRange; } }
+    public float _movementPenalty { get { return movementPenalty; } }
+    public float _dashPenalty { get { return dashPenalty; } }
 
     private void Awake()
     {
@@ -48,8 +52,10 @@ public class Shooting : MonoBehaviour
         fireRate = 0.1f;
         accuracy = 100.0f;
         healthPenalty = 0.0f;
+
         movementPenalty = 10.0f;
         dashPenalty = 15.0f;
+
         hitProbability = 1.0f;
         breakContactAtThisRange = range;
     }

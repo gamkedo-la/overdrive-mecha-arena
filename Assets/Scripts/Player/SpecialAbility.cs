@@ -9,7 +9,7 @@ public class SpecialAbility : MonoBehaviour
 
     [SerializeField] private float specialCooldown = 120.0f;
     [SerializeField] private float specialUseTimeLimit = 30.0f;
-    [SerializeField] private int strengthOfSpecialAbility = 20;
+    [SerializeField] private int strengthOfSpecialAbility = 20; // Refers to how many much damage it will cause
 
     private float specialCooldownTimer;
     private float specialUseTimer;
@@ -21,8 +21,9 @@ public class SpecialAbility : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isSpecialInUse)
+        if(!isSpecialInUse) // if special is not use and if cooldown is complete we can use our special
         {
+            //Debug.Log(specialCooldownTimer);
             specialCooldownTimer += Time.deltaTime;
             if (specialCooldownTimer >= specialCooldown)
             {
@@ -33,8 +34,9 @@ public class SpecialAbility : MonoBehaviour
                 }
             }
         }
-        else
+        else // special is in use and we are now waiting for it to run out of uses
         {
+            //Debug.Log(specialUseTimer);
             specialUseTimer += Time.deltaTime;
             if(specialUseTimer >= specialUseTimeLimit)
             {
@@ -48,6 +50,6 @@ public class SpecialAbility : MonoBehaviour
     {
         isSpecialInUse = true;
 
-        spawnedVFX = Instantiate(specialAbilityVFX);
+        spawnedVFX = Instantiate(specialAbilityVFX, gameObject.transform);
     }
 }

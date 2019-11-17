@@ -79,6 +79,7 @@ MonoBehaviour:
   strafingRightMoveSpeed: 50
   strafingLeftMoveSpeed: 50
   dashSpeed: 2
+  dashTimeLimit: 5
 --- !u!114 &1515524012658226913
 MonoBehaviour:
   m_ObjectHideFlags: 0

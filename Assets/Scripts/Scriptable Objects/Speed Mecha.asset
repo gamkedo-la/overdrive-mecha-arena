@@ -10,18 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56876357d70960f47aa8ecbb4e9b224d, type: 3}
-  m_Name: Knight
+  m_Name: Speed Mecha
   m_EditorClassIdentifier: 
-  name: Knight
+  names:
+  - Rad Baby
+  - Justin Time
+  - Burami
+  - Cardio R
+  - Veekir
   facePortrait: {fileID: 21300000, guid: c37f5ebf03ab51c4c88831780572a56d, type: 3}
-  health: 200
+  health: 250
   defense: 75
-  lightMeleeDMG: 10
-  heavyMeleeDMG: 20
-  meleeRange: 75
-  specialAbilityPowerLevel: 30
-  shotDamage: 1
-  fireRate: 3
-  shotRange: 75
-  shotAccuracy: 65
-  randomShotHitChance: 50
+  specialCooldown: 30
+  specialUseTimeLimit: 10
+  strengthOfSpecialAbility: 0
+  damage: 1
+  range: 200
+  fireRate: 0.3
+  fowardMoveSpeed: 75
+  backwardMoveSpeed: 50
+  dashSpeed: 2.5
+  dashTimeLimit: 3.5
+  turnSpeed: 100
+  strafingRightMoveSpeed: 75
+  strafingLeftMoveSpeed: 75

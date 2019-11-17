@@ -8487,7 +8487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 5, y: 25, z: -30}
+  m_FollowOffset: {x: 15, y: 25, z: -30}
   m_XDamping: 0.25
   m_YDamping: 1
   m_ZDamping: 1
@@ -18058,7 +18058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivity: 1
   viewTiltMin: -15
-  viewTiltMax: 9
+  viewTiltMax: 15
 --- !u!1001 &1374018653
 PrefabInstance:
   m_ObjectHideFlags: 0
