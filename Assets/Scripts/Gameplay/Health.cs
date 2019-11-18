@@ -10,7 +10,7 @@ public class Health : MonoBehaviour
 
     private float respawnTimer = 0.0f;
 
-    private int currentHP;
+    private float currentHP;
 
     private string[] priorityValues = new string[] { "high", "medium", "low" };
 
@@ -42,7 +42,9 @@ public class Health : MonoBehaviour
         }
     }
     public int getBaseHP { get { return startingHP; } }
-    public int getCurrentHP { get { return currentHP / 2; } }
+
+    // Make it so this returns a percentage based off our starting hp. For example, 250 (speed mech HP) is 100% and 125 is 50%.
+    public float getCurrentHP { get { return currentHP / 2; } }
 
     private void Start()
     {

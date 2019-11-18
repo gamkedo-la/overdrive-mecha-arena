@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AICharacter : MonoBehaviour
 {
+    [SerializeField] private ScriptableObject mech;
+
     private State currentState;
     private Animator animator;
     private List<Health> validTargets = new List<Health>();

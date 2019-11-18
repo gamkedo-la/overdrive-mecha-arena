@@ -45,6 +45,36 @@ CapsuleCollider:
   m_Height: 150
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 71}
+--- !u!1 &1690176266001544053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5777913320556151924}
+  m_Layer: 9
+  m_Name: ShotOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5777913320556151924
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690176266001544053}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.82, y: 19.23, z: 14.18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8841960133733178277}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8841960133733178278
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,6 +115,7 @@ Transform:
   - {fileID: 7847980526227252980}
   - {fileID: 2538350604814091878}
   - {fileID: 6645419204856425224}
+  - {fileID: 5777913320556151924}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -168,6 +199,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 7175814859913242126, guid: 42e996ec8f2300345920db10477e9a8b,
     type: 3}
   mecha: {fileID: 0}
+  shotOrigin: {fileID: 5777913320556151924}
 --- !u!114 &1425691920792359793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6372c0eea821154b83b3afe68ded278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mech: {fileID: 0}
 --- !u!54 &5587483571316489424
 Rigidbody:
   m_ObjectHideFlags: 0

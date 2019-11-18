@@ -34,9 +34,13 @@ public class Shooting : MonoBehaviour
 
     protected float breakContactAtThisRange;
 
+    private float speed;
+    private Vector3 lastPos;
+
     public float getBreakContactRange { get { return breakContactAtThisRange; } }
     public float _movementPenalty { get { return movementPenalty; } }
     public float _dashPenalty { get { return dashPenalty; } }
+    public float _speed { get { return speed; } }
 
     private void Awake()
     {
@@ -52,7 +56,7 @@ public class Shooting : MonoBehaviour
         range = 300.0f;
         fireRate = 0.1f;
         accuracy = 100.0f;
-        healthPenalty = 0.0f;
+        healthPenalty = 12.5f;
 
         movementPenalty = 10.0f;
         dashPenalty = 15.0f;
@@ -68,6 +72,14 @@ public class Shooting : MonoBehaviour
         {
             animator.SetBool("isShooting", false);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        speed = Mathf.Lerp(speed, (transform.position - lastPos).magnitude, 0.5f);
+        lastPos = transform.position;
+
+        //print(speed);
     }
 
     protected virtual void FireWeapon(ParticleSystem shotImpact, ParticleSystem muzzleFlash, bool isPlayer)
@@ -110,8 +122,46 @@ public class Shooting : MonoBehaviour
         }
     }
 
-    protected void SetAccuracy(float hp, float movementSpeed)
+    protected float SetAccuracyAccordingToHealthAndMovement(float hpPercentage, float movementSpeed, float baseSpeed, float dashSpeed)
     {
+        float currentAccuracy = accuracy;
+        
+        //NOTE: Potential bug might be caused here; will find out once implemented
+        if(movementSpeed >= baseSpeed) { currentAccuracy -= movementPenalty; }
+        else if(movementSpeed >= dashSpeed) { currentAccuracy -= dashPenalty; }
+        else { } //if not moving then accuracy remains unchanged;
 
+        if(hpPercentage > healthPenaltyZones[0])//above 100%
+        {
+            //Decrease accuracy because we are in overdrive
+        }
+        else if(hpPercentage <= healthPenaltyZones[1] && hpPercentage > healthPenaltyZones[2])//Between 80-61%
+        {
+            currentAccuracy -= healthPenalty;
+        }
+        else if(hpPercentage <= healthPenaltyZones[2] && hpPercentage > healthPenaltyZones[3])//Between 60-41%
+        {
+            currentAccuracy -= (healthPenalty * 2);
+        }
+        else if (hpPercentage <= healthPenaltyZones[3] && hpPercentage > healthPenaltyZones[4])//Between 40-21%
+        {
+            currentAccuracy -= (healthPenalty * 3);
+        }
+        else
+        {
+            if(hpPercentage > 0 && hpPercentage <= healthPenaltyZones[4])//Between 20-1%
+            {
+                currentAccuracy -= (healthPenalty * 4);
+            }
+        }
+
+        return currentAccuracy;
+    }
+
+    protected float ReduceAccuracyBasedOffTgtMovement()
+    {
+        float currentAccuracy = accuracy;
+
+        return currentAccuracy;
     }
 }

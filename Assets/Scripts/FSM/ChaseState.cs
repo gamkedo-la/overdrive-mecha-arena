@@ -53,7 +53,7 @@ public class ChaseState : State
         if (targetTransform != null)
         {
             ChaseTarget();
-            shootingScript.FireWeapon(currentTgt);
+            shootingScript.FireWeapon(currentTgt, defaultAiSpeed, dashSpeed);
         }
 
         PlayAnimations();
@@ -133,6 +133,8 @@ public class ChaseState : State
         {
             agent.getAnimator.SetFloat("Speed", 1f);
         }
+
+        //Debug.Log(thisAgent.velocity.sqrMagnitude);
     }
 
     private void DrawDebugLines()
