@@ -158,9 +158,13 @@ public class Shooting : MonoBehaviour
         return currentAccuracy;
     }
 
-    protected float ReduceAccuracyBasedOffTgtMovement()
+    protected float ReduceAccuracyBasedOffTgtMovement(float tgtSpeed, float tgtDashSpeed, float tgtBaseSpeed)
     {
         float currentAccuracy = accuracy;
+
+        if (tgtSpeed >= tgtBaseSpeed) { currentAccuracy -= movementPenalty; }
+        else if (tgtSpeed >= tgtDashSpeed) { currentAccuracy -= dashPenalty; }
+        else { } //if not moving then accuracy remains unchanged;
 
         return currentAccuracy;
     }

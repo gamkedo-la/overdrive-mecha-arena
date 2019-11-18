@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private int startingHP = 200;
     [SerializeField] private float defense = 100;
+    [SerializeField] private Mecha mech;
 
     private float respawnTimer = 0.0f;
 
@@ -22,6 +23,7 @@ public class Health : MonoBehaviour
     private string targetPriority;
 
     private SpawnParticipantIfAble respawnManager;
+    public Mecha _mech { get { return mech; } }
 
     public float getPriorityScore
     {

@@ -8,7 +8,7 @@ public class EnemyShooting : Shooting
 {
     [SerializeField] private ParticleSystem shotImpact;
     [SerializeField] private ParticleSystem muzzleFlash;
-    [SerializeField] private ScriptableObject mecha;
+    [SerializeField] private Mecha mech;
 
     [SerializeField] private Transform shotOrigin;
 
@@ -43,39 +43,49 @@ public class EnemyShooting : Shooting
             // check my health and if I'm moving, then set my accuracy according to those parameters
             accuracy = SetAccuracyAccordingToHealthAndMovement(health.getCurrentHP, _speed, baseSpeed, dashSpeed);
 
-            Attack(tgt, accuracy);
+            Attack(tgt);
         }
     }
 
-    private void Attack(Health tgt, float accuracy)
+    private void Attack(Health tgt)
     {
         shotTimer = 0;
 
-        var distance = Vector3.Distance(shotOrigin.position, tgt.transform.position);
+        //var distance = Vector3.Distance(shotOrigin.position, tgt.transform.position);
+        //float tgtSpeed = 0.0f;
 
-        // have linecast spawn from character's chest height instead of their feet (use an empty GO and use that as the shot origin pos)
-        if (!Physics.Linecast(shotOrigin.position, tgt.transform.position) && distance <= range) //Only attack if line of sight is clear and target is within range
-        {
-            //accuracy = ReduceAccuracyBasedOffTgtMovement();
-            //Random random = GetRandomBetween(0.0f, 100.0f);
-            /*if(ShotLanded())
-             * {
-             *    tgt.TakeDamage(damage);
-             * }
-             */
-        }
-        else
-        {
-            if(distance <= range)
-            {
-                // Move to an position free of obstructions if target is within range (hanlde this movement within ChaseState)
-            }
-            // Otherwise, do nothing here because ChaseState will automatically break contact and choose a new target OR it will make AI return to PatrolState
-        }
+        //if (tgt.GetComponent<PlayerShooting>())
+        //{
+        //    PlayerShooting p = tgt.GetComponent<PlayerShooting>();
+        //    tgtSpeed = p._speed;
+        //}
+        //else
+        //{
+        //    EnemyShooting e = tgt.GetComponent<EnemyShooting>();
+        //    tgtSpeed = e._speed;
+        //}
 
-        // if those conditions are not met, then check if my target is moving then find out if they are dashing or not
-        // then take their movement penalty and subtract my accuracy by it
-        // Now get a random float between 0  and 100 and only damage the target if that random is less than or equal to our accuracy
+        //// have linecast spawn from character's chest height instead of their feet (use an empty GO and use that as the shot origin pos)
+        //if (!Physics.Linecast(shotOrigin.position, tgt.transform.position) && distance <= range) //Only attack if line of sight is clear and target is within range
+        //{
+        //    accuracy = ReduceAccuracyBasedOffTgtMovement(tgtSpeed, tgt._mech.dashSpeed, tgt._mech.fowardMoveSpeed);
+
+        //    float random = UnityEngine.Random.Range(0.0f, 100.0f);
+
+        //    if (random <= accuracy)
+        //    {
+        //        tgt.TakeDamage(damage);
+        //    }
+        //}
+        //else
+        //{
+        //    if (distance <= range)
+        //    {
+        //        // Move to an position free of obstructions if target is within range (hanlde this movement within ChaseState)
+        //    }
+        //    // Otherwise, do nothing here because ChaseState will automatically break contact and choose a new target OR it will make AI return to PatrolState
+        //}
+
         tgt.TakeDamage(damage);
     }
 }

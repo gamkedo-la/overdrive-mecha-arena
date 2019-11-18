@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class AICharacter : MonoBehaviour
 {
-    [SerializeField] private ScriptableObject mech;
+    [SerializeField] private Mecha mech;
 
     private State currentState;
     private Animator animator;
     private List<Health> validTargets = new List<Health>();
-    private bool isChasing = false;
 
     public List<Health> getValidTargets { get { return validTargets; } }
 
-    public bool resetIsChasing { set { isChasing = false; } }
     public Animator getAnimator { get { return animator; } }
+    public Mecha _mech { get { return mech; } }
 
     private void Start()
     {

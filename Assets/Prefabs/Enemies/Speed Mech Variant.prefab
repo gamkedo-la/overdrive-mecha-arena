@@ -23,6 +23,12 @@ PrefabInstance:
       propertyPath: startingHP
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 8841960133733178275, guid: aaf99d2a6f82ca943a32b605f72c1907,
+        type: 3}
+      propertyPath: mech
+      value: 
+      objectReference: {fileID: 11400000, guid: b208076f6f69bc14bb2474c54ac024bf,
+        type: 2}
     - target: {fileID: 8841960133733178277, guid: aaf99d2a6f82ca943a32b605f72c1907,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -81,6 +87,12 @@ PrefabInstance:
     - target: {fileID: 9204702744872670521, guid: aaf99d2a6f82ca943a32b605f72c1907,
         type: 3}
       propertyPath: mecha
+      value: 
+      objectReference: {fileID: 11400000, guid: b208076f6f69bc14bb2474c54ac024bf,
+        type: 2}
+    - target: {fileID: 9204702744872670521, guid: aaf99d2a6f82ca943a32b605f72c1907,
+        type: 3}
+      propertyPath: mech
       value: 
       objectReference: {fileID: 11400000, guid: b208076f6f69bc14bb2474c54ac024bf,
         type: 2}

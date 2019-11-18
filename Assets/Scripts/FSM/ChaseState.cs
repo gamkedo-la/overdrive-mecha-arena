@@ -39,6 +39,11 @@ public class ChaseState : State
         thisAgent = agent.GetComponent<NavMeshAgent>();
         shootingScript = agent.GetComponent<EnemyShooting>();
         thisAgentHealth = agent.GetComponent<Health>();
+
+        dashSpeed = agent._mech.dashSpeed;
+        dashTimeLimit = agent._mech.dashTimeLimit;
+        defaultAiSpeed = agent._mech.fowardMoveSpeed;
+        minRangeBeforeDashAllowed = agent._mech.range / 2;
     }
 
     public override void Tick()

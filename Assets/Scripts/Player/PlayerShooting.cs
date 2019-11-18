@@ -11,7 +11,7 @@ public class PlayerShooting : Shooting
 
     [SerializeField] private ParticleSystem shotImpact;
     [SerializeField] private ParticleSystem muzzleFlash;
-    [SerializeField] private ScriptableObject mecha;
+    [SerializeField] private Mecha mecha;
 
     protected override void Start()
     {
