@@ -36,14 +36,23 @@ public class EnemyShooting : Shooting
     // Called by AI character and it states
     public void FireWeapon(Health tgt, float baseSpeed, float dashSpeed)
     {
-        if (CanAttack())
+        if (!tgt.CompareTag("Non-playables"))
         {
-            shotTimer = 0;
+            if (CanAttack())
+            {
+                shotTimer = 0;
 
-            // check my health and if I'm moving, then set my accuracy according to those parameters
-            accuracy = SetAccuracyAccordingToHealthAndMovement(health.getCurrentHP, _speed, baseSpeed, dashSpeed);
+                // check my health and if I'm moving, then set my accuracy according to those parameters
+                accuracy = SetAccuracyAccordingToHealthAndMovement(health.getCurrentHP, _speed, baseSpeed, dashSpeed);
 
-            Attack(tgt);
+                print(gameObject.name + " accuracy: " + accuracy);
+
+                Attack(tgt);
+            }
+        }
+        else
+        {
+            tgt.TakeDamage(damage);
         }
     }
 
@@ -51,41 +60,46 @@ public class EnemyShooting : Shooting
     {
         shotTimer = 0;
 
-        //var distance = Vector3.Distance(shotOrigin.position, tgt.transform.position);
-        //float tgtSpeed = 0.0f;
+        var distance = Vector3.Distance(shotOrigin.position, tgt.transform.position);
+        float tgtSpeed = 0.0f;
 
-        //if (tgt.GetComponent<PlayerShooting>())
-        //{
-        //    PlayerShooting p = tgt.GetComponent<PlayerShooting>();
-        //    tgtSpeed = p._speed;
-        //}
-        //else
-        //{
-        //    EnemyShooting e = tgt.GetComponent<EnemyShooting>();
-        //    tgtSpeed = e._speed;
-        //}
+        if (tgt.GetComponent<PlayerShooting>())
+        {
+            PlayerShooting p = tgt.GetComponent<PlayerShooting>();
+            tgtSpeed = p._speed;
+        }
+        else if (tgt.GetComponent<EnemyShooting>())
+        {
+            EnemyShooting e = tgt.GetComponent<EnemyShooting>();
+            tgtSpeed = e._speed;
+        }
+        else
+        {
+            print("Could not get " + tgt.name + "'s shooting component");
+        }
 
-        //// have linecast spawn from character's chest height instead of their feet (use an empty GO and use that as the shot origin pos)
-        //if (!Physics.Linecast(shotOrigin.position, tgt.transform.position) && distance <= range) //Only attack if line of sight is clear and target is within range
-        //{
-        //    accuracy = ReduceAccuracyBasedOffTgtMovement(tgtSpeed, tgt._mech.dashSpeed, tgt._mech.fowardMoveSpeed);
+        if (!Physics.Linecast(shotOrigin.position, tgt.transform.position) && distance <= range) //Only attack if line of sight is clear and target is within range
+        {
+            accuracy = ReduceAccuracyBasedOffTgtMovement(tgtSpeed, tgt._mech.dashSpeed, tgt._mech.fowardMoveSpeed);
 
-        //    float random = UnityEngine.Random.Range(0.0f, 100.0f);
+            float random = UnityEngine.Random.Range(0.0f, 100.0f);
 
-        //    if (random <= accuracy)
-        //    {
-        //        tgt.TakeDamage(damage);
-        //    }
-        //}
-        //else
-        //{
-        //    if (distance <= range)
-        //    {
-        //        // Move to an position free of obstructions if target is within range (hanlde this movement within ChaseState)
-        //    }
-        //    // Otherwise, do nothing here because ChaseState will automatically break contact and choose a new target OR it will make AI return to PatrolState
-        //}
+            print(gameObject.name + " accuracy: " + accuracy);
 
-        tgt.TakeDamage(damage);
+            if (random <= accuracy)
+            {
+                tgt.TakeDamage(damage);
+            }
+        }
+        else
+        {
+            if (distance <= range)
+            {
+                // Move to an position free of obstructions if target is within range (hanlde this movement within ChaseState)
+            }
+            // Otherwise, do nothing here because ChaseState will automatically break contact and choose a new target OR it will make AI return to PatrolState
+        }
+
+        //tgt.TakeDamage(damage);
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1641144016251890665}
   m_Layer: 9
   m_Name: TankPrefab
-  m_TagString: Untagged
+  m_TagString: Non-playables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,6 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHP: 1
   defense: 0
+  mech: {fileID: 0}
 --- !u!1001 &1641144017691504932
 PrefabInstance:
   m_ObjectHideFlags: 0

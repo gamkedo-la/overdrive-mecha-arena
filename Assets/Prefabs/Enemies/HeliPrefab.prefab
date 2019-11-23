@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 86753297}
   m_Layer: 0
   m_Name: HeliPrefab
-  m_TagString: Untagged
+  m_TagString: Non-playables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHP: 1
   defense: 0
+  mech: {fileID: 0}
 --- !u!65 &2080322798736541431
 BoxCollider:
   m_ObjectHideFlags: 0

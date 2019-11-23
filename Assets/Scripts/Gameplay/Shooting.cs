@@ -162,6 +162,9 @@ public class Shooting : MonoBehaviour
     {
         float currentAccuracy = accuracy;
 
+        // BUG: currentAccuracy will continously be reduced while the tgt moves. This is not the intended behavior.
+        // What should be happening is that currentAccuracy should only get reduced once based on which tgt movement is detected.
+        // If there is no movement then we should back the accuracy penalty to the attacker
         if (tgtSpeed >= tgtBaseSpeed) { currentAccuracy -= movementPenalty; }
         else if (tgtSpeed >= tgtDashSpeed) { currentAccuracy -= dashPenalty; }
         else { } //if not moving then accuracy remains unchanged;

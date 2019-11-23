@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashSpeed = 2.0f;
     [SerializeField] private float dashTimeLimit = 5.0f;
 
+    [SerializeField] private Mecha mech;
+
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -26,6 +28,17 @@ public class PlayerMovement : MonoBehaviour
 
         //TODO: Make the following line toggable in game
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    private void Start()
+    {
+        fowardMoveSpeed = mech.fowardMoveSpeed;
+        turnSpeed = mech.turnSpeed;
+        backwardMoveSpeed = mech.backwardMoveSpeed;
+        strafingLeftMoveSpeed = mech.strafingLeftMoveSpeed;
+        strafingRightMoveSpeed = mech.strafingRightMoveSpeed;
+        dashSpeed = mech.dashSpeed;
+        dashTimeLimit = mech.dashTimeLimit;
     }
 
     private void Update()
