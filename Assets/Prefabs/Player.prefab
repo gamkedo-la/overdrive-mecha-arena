@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1515524012658226915}
   - component: {fileID: 1515524012658226913}
   - component: {fileID: 1515524012658226912}
-  - component: {fileID: 1515524012658226918}
   - component: {fileID: -7531149912251045396}
   - component: {fileID: 7048220341263063037}
   - component: {fileID: -1872641308477468944}
@@ -110,23 +109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heavyModeVFX: {fileID: 1515524012608998402}
   lightModeVFX: {fileID: 1504765820584364589}
---- !u!114 &1515524012658226918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1515524012658226926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d29361e1ed0e5c54cbb74a6cc34693b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  specialAbilityVFX: {fileID: 1009715617738617082, guid: 8cde22cfd4d5ecc499637ab8bde7b69b,
-    type: 3}
-  specialCooldown: 15
-  specialUseTimeLimit: 5
-  strengthOfSpecialAbility: 20
 --- !u!114 &-7531149912251045396
 MonoBehaviour:
   m_ObjectHideFlags: 0

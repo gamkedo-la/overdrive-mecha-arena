@@ -6,6 +6,7 @@ using UnityEngine;
 public class SpecialAbility : MonoBehaviour
 {
     [SerializeField] private GameObject specialAbilityVFX;
+    [SerializeField] private Mecha mech;
 
     [SerializeField] private float specialCooldown = 120.0f;
     [SerializeField] private float specialUseTimeLimit = 30.0f;
