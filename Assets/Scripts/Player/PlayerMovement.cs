@@ -20,11 +20,15 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Mecha mech;
 
+    private PlayerShooting playerShooting;
+
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
 
         animator = GetComponentInChildren<Animator>();
+
+        playerShooting = GetComponent<PlayerShooting>();
 
         //TODO: Make the following line toggable in game
         Cursor.lockState = CursorLockMode.Locked;
@@ -57,23 +61,31 @@ public class PlayerMovement : MonoBehaviour
         {
             float moveSpeedToUse = vertical > 0 ? fowardMoveSpeed : backwardMoveSpeed;
 
-            if (Input.GetButton("Dash"))
+            playerShooting.isTryingToDash = Input.GetButton("Dash");
+
+            if (playerShooting.isTryingToDash)
             {
                 characterController.SimpleMove(transform.forward * (moveSpeedToUse * dashSpeed) * vertical);
             }
-
-            characterController.SimpleMove(transform.forward * moveSpeedToUse * vertical);
+            else
+            {
+                characterController.SimpleMove(transform.forward * moveSpeedToUse * vertical);
+            }
         }
         if (horizontalStrafe != 0)
         {
             float strafeSpeedToUse = horizontalStrafe > 0 ? strafingRightMoveSpeed : strafingLeftMoveSpeed;
 
-            if (Input.GetButton("Dash"))
+            playerShooting.isTryingToDash = Input.GetButton("Dash");
+
+            if (playerShooting.isTryingToDash)
             {
                 characterController.SimpleMove(transform.right * (strafeSpeedToUse * dashSpeed) * horizontalStrafe);
             }
-
-            characterController.SimpleMove(transform.right * strafeSpeedToUse * horizontalStrafe);
+            else
+            {
+                characterController.SimpleMove(transform.right * strafeSpeedToUse * horizontalStrafe);
+            }
         }
     }
 }

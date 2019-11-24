@@ -23,4 +23,9 @@ public class RetreatState : State
     {
         // Execute retreat specific functions
     }
+
+    public override void FixedTick()
+    {
+        
+    }
 }

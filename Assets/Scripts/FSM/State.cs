@@ -7,6 +7,7 @@ public abstract class State
     protected AICharacter agent;
 
     public abstract void Tick();
+    public abstract void FixedTick();
 
     public virtual void OnStateEnter() { }
     public virtual void OnStateExit() { }

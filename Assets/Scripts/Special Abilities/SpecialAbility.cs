@@ -26,7 +26,7 @@ public class SpecialAbility : MonoBehaviour
 
         mech = health._mech;
 
-        print(gameObject.name + " is a " + mech.mechType);
+        //print(gameObject.name + " is a " + mech.mechType);
 
         specialCooldown = mech.specialCooldown;
         specialUseTimeLimit = mech.specialUseTimeLimit;

@@ -31,6 +31,15 @@ public class AICharacter : MonoBehaviour
             currentState.Tick();
         }
     }
+    private void FixedUpdate()
+    {
+        //Debug.Log(gameObject.name + " has this many targets: " + validTargets.Count);
+
+        if (currentState != null)
+        {
+            currentState.FixedTick();
+        }
+    }
 
     public void SetState(State state)
     {

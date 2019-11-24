@@ -38,6 +38,11 @@ public class PatrolState : State
         Observe();
     }
 
+    public override void FixedTick()
+    {
+        
+    }
+
     private bool UnderAttack()
     {
         // check if this AI is taking damage

@@ -49,20 +49,29 @@ public class ChaseState : State
     public override void Tick()
     {
         SelectTarget();
-        if(validTargets.Count == 0)
+        if (validTargets.Count == 0)
         {
             // We have no targets so go back to patrolling the arena
             agent.SetState(new PatrolState(agent));
         }
 
+        shootingScript.isTryingToDash = false; // ChaseTarget may override on frame by frame basis
+
         if (targetTransform != null)
         {
             ChaseTarget();
-            shootingScript.FireWeapon(currentTgt, defaultAiSpeed, dashSpeed);
         }
 
         PlayAnimations();
         DrawDebugLines();
+    }
+
+    public override void FixedTick()
+    {
+        if (targetTransform != null)
+        {
+            shootingScript.FireWeapon(currentTgt, defaultAiSpeed, dashSpeed);
+        }
     }
 
     private void SelectTarget()
@@ -106,7 +115,9 @@ public class ChaseState : State
         // only chase target if it's still withing firing range
         if (distance < shootingScript.getBreakContactRange)
         {
-            if (distance > minRangeBeforeDashAllowed)
+            shootingScript.isTryingToDash = distance > minRangeBeforeDashAllowed;
+
+            if (shootingScript.isTryingToDash)
             {
                 thisAgent.speed = dashSpeed;
             }

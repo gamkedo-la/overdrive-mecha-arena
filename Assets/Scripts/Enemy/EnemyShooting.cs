@@ -36,6 +36,8 @@ public class EnemyShooting : Shooting
     // Called by AI character and it states
     public void FireWeapon(Health tgt, float baseSpeed, float dashSpeed)
     {
+        accuracy = 100.0f; //will be reduce by SetAccuracy and ReduceAccuracy functions
+
         if (!tgt.CompareTag("Non-playables"))
         {
             if (CanAttack())
@@ -43,7 +45,7 @@ public class EnemyShooting : Shooting
                 shotTimer = 0;
 
                 // check my health and if I'm moving, then set my accuracy according to those parameters
-                accuracy = SetAccuracyAccordingToHealthAndMovement(health.getCurrentHP, _speed, baseSpeed, dashSpeed);
+                accuracy = SetAccuracyAccordingToHealthAndMovement(health.getCurrentHP, _speed, baseSpeed, dashSpeed, isTryingToDash);
 
                 //print(gameObject.name + " accuracy: " + accuracy);
 
@@ -63,15 +65,19 @@ public class EnemyShooting : Shooting
         var distance = Vector3.Distance(shotOrigin.position, tgt.transform.position);
         float tgtSpeed = 0.0f;
 
+        bool tgtIsDashing = false;
+
         if (tgt.GetComponent<PlayerShooting>())
         {
             PlayerShooting p = tgt.GetComponent<PlayerShooting>();
             tgtSpeed = p._speed;
+            tgtIsDashing = p.isTryingToDash;
         }
         else if (tgt.GetComponent<EnemyShooting>())
         {
             EnemyShooting e = tgt.GetComponent<EnemyShooting>();
             tgtSpeed = e._speed;
+            tgtIsDashing = e.isTryingToDash;
         }
         else
         {
@@ -80,7 +86,7 @@ public class EnemyShooting : Shooting
 
         if (!Physics.Linecast(shotOrigin.position, tgt.transform.position) && distance <= range) //Only attack if line of sight is clear and target is within range
         {
-            accuracy = ReduceAccuracyBasedOffTgtMovement(tgtSpeed, tgt._mech.dashSpeed, tgt._mech.fowardMoveSpeed);
+            accuracy = ReduceAccuracyBasedOffTgtMovement(tgtSpeed, tgt._mech.dashSpeed, tgt._mech.fowardMoveSpeed, tgtIsDashing);
 
             float random = UnityEngine.Random.Range(0.0f, 100.0f);
 
@@ -99,7 +105,5 @@ public class EnemyShooting : Shooting
             }
             // Otherwise, do nothing here because ChaseState will automatically break contact and choose a new target OR it will make AI return to PatrolState
         }
-
-        //tgt.TakeDamage(damage);
     }
 }

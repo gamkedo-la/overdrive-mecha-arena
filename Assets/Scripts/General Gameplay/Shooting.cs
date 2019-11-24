@@ -37,6 +37,8 @@ public class Shooting : MonoBehaviour
     private float speed;
     private Vector3 lastPos;
 
+    public bool isTryingToDash = false;
+
     public float getBreakContactRange { get { return breakContactAtThisRange; } }
     public float _movementPenalty { get { return movementPenalty; } }
     public float _dashPenalty { get { return dashPenalty; } }
@@ -58,8 +60,8 @@ public class Shooting : MonoBehaviour
         accuracy = 100.0f;
         healthPenalty = 12.5f;
 
-        movementPenalty = 10.0f;
-        dashPenalty = 15.0f;
+        movementPenalty = 20.0f;
+        dashPenalty = 40.0f;
 
         breakContactAtThisRange = range;
     }
@@ -122,14 +124,23 @@ public class Shooting : MonoBehaviour
         }
     }
 
-    protected float SetAccuracyAccordingToHealthAndMovement(float hpPercentage, float movementSpeed, float baseSpeed, float dashSpeed)
+    protected float SetAccuracyAccordingToHealthAndMovement(float hpPercentage, float movementSpeed, float baseSpeed, float dashSpeed, bool isDashing)
     {
         float currentAccuracy = accuracy;
-        
-        //NOTE: Potential bug might be caused here; will find out once implemented
-        if(movementSpeed >= baseSpeed) { currentAccuracy -= movementPenalty; }
-        else if(movementSpeed >= dashSpeed) { currentAccuracy -= dashPenalty; }
-        else { } //if not moving then accuracy remains unchanged;
+
+        //NOTE: Unable to test until further AI movement improvements are made
+        if (isDashing)
+        {
+            currentAccuracy -= dashPenalty;
+        }
+        else if (movementSpeed >= 0.25f)
+        {
+            currentAccuracy -= movementPenalty;
+        }
+        else
+        {
+
+        }
 
         if(hpPercentage > healthPenaltyZones[0])//above 100%
         {
@@ -158,16 +169,27 @@ public class Shooting : MonoBehaviour
         return currentAccuracy;
     }
 
-    protected float ReduceAccuracyBasedOffTgtMovement(float tgtSpeed, float tgtDashSpeed, float tgtBaseSpeed)
+    protected float ReduceAccuracyBasedOffTgtMovement(float tgtSpeed, float tgtDashSpeed, float tgtBaseSpeed, bool isDashing)
     {
         float currentAccuracy = accuracy;
 
         // BUG: currentAccuracy will continously be reduced while the tgt moves. This is not the intended behavior.
         // What should be happening is that currentAccuracy should only get reduced once based on which tgt movement is detected.
         // If there is no movement then we should back the accuracy penalty to the attacker
-        if (tgtSpeed >= tgtBaseSpeed) { currentAccuracy -= movementPenalty; }
-        else if (tgtSpeed >= tgtDashSpeed) { currentAccuracy -= dashPenalty; }
-        else { } //if not moving then accuracy remains unchanged;
+
+        //Debug.Log("Target speed: " + tgtSpeed + ", tgtBaseSpeed:" + tgtBaseSpeed);
+
+        if (isDashing)
+        {
+            currentAccuracy -= dashPenalty;
+        }
+        else if (tgtSpeed >= 0.25f)
+        {
+            currentAccuracy -= movementPenalty;
+        }
+        else
+        {
+        } //if not moving then accuracy remains unchanged;
 
         return currentAccuracy;
     }
