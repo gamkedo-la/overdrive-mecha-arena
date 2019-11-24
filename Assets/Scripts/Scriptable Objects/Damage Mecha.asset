@@ -19,6 +19,7 @@ MonoBehaviour:
   - Ken Nyon
   - Chunky Cat
   facePortrait: {fileID: 21300000, guid: c37f5ebf03ab51c4c88831780572a56d, type: 3}
+  mechType: Damage
   health: 150
   defense: 150
   specialCooldown: 60

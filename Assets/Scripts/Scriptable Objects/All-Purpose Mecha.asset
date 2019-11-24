@@ -19,6 +19,7 @@ MonoBehaviour:
   - JJ Niko
   - Baron of the Bashi
   facePortrait: {fileID: 21300000, guid: c37f5ebf03ab51c4c88831780572a56d, type: 3}
+  mechType: All-purpose
   health: 200
   defense: 100
   specialCooldown: 45

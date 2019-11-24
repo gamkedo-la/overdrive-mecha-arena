@@ -19,6 +19,7 @@ MonoBehaviour:
   - Cardio R
   - Veekir
   facePortrait: {fileID: 21300000, guid: c37f5ebf03ab51c4c88831780572a56d, type: 3}
+  mechType: Speed
   health: 250
   defense: 75
   specialCooldown: 30
