@@ -45,7 +45,7 @@ public class EnemyShooting : Shooting
                 // check my health and if I'm moving, then set my accuracy according to those parameters
                 accuracy = SetAccuracyAccordingToHealthAndMovement(health.getCurrentHP, _speed, baseSpeed, dashSpeed);
 
-                print(gameObject.name + " accuracy: " + accuracy);
+                //print(gameObject.name + " accuracy: " + accuracy);
 
                 Attack(tgt);
             }
@@ -84,7 +84,7 @@ public class EnemyShooting : Shooting
 
             float random = UnityEngine.Random.Range(0.0f, 100.0f);
 
-            print(gameObject.name + " accuracy: " + accuracy);
+            //print(gameObject.name + " accuracy: " + accuracy);
 
             if (random <= accuracy)
             {

@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1026615182595732854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5320919325789254278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f9d83c9033227d4f861115c62968519, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  specialAbilityVFX: {fileID: 0}
+  mech: {fileID: 11400000, guid: d0cc3f52f7b99a745a60c49c34f4aefc, type: 2}
 --- !u!1001 &3702873732159187232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93,3 +107,9 @@ PrefabInstance:
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaf99d2a6f82ca943a32b605f72c1907, type: 3}
+--- !u!1 &5320919325789254278 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8841960133733178278, guid: aaf99d2a6f82ca943a32b605f72c1907,
+    type: 3}
+  m_PrefabInstance: {fileID: 3702873732159187232}
+  m_PrefabAsset: {fileID: 0}

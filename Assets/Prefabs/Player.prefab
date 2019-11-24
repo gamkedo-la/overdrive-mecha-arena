@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7048220341263063037}
   - component: {fileID: -1872641308477468944}
   - component: {fileID: -2573241638059145581}
+  - component: {fileID: -4340105851203275179}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -79,7 +80,7 @@ MonoBehaviour:
   strafingLeftMoveSpeed: 50
   dashSpeed: 2
   dashTimeLimit: 5
-  mech: {fileID: 11400000, guid: d0cc3f52f7b99a745a60c49c34f4aefc, type: 2}
+  mech: {fileID: 11400000, guid: b208076f6f69bc14bb2474c54ac024bf, type: 2}
 --- !u!114 &1515524012658226913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHP: 200
   defense: 100
-  mech: {fileID: 11400000, guid: d0cc3f52f7b99a745a60c49c34f4aefc, type: 2}
+  mech: {fileID: 11400000, guid: b208076f6f69bc14bb2474c54ac024bf, type: 2}
 --- !u!114 &1515524012658226912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,7 +152,7 @@ MonoBehaviour:
     type: 3}
   muzzleFlash: {fileID: 7175814859913242126, guid: 42e996ec8f2300345920db10477e9a8b,
     type: 3}
-  mecha: {fileID: 11400000, guid: d0cc3f52f7b99a745a60c49c34f4aefc, type: 2}
+  mecha: {fileID: 11400000, guid: b208076f6f69bc14bb2474c54ac024bf, type: 2}
 --- !u!114 &-2573241638059145581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +165,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de16541dc50f8914695d459dac84b12c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4340105851203275179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515524012658226926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b54d233158d2a064589ed994558fc84b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mech: {fileID: 11400000, guid: b208076f6f69bc14bb2474c54ac024bf, type: 2}
 --- !u!1 &1515524012939720657
 GameObject:
   m_ObjectHideFlags: 0

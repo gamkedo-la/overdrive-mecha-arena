@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class MissileBarrageSpecial : SpecialAbility
 {
+    private int barrageDamage = 20;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        barrageDamage = _mech.strengthOfSpecialAbility;
     }
-
-    // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-        
+        base.Update();
     }
 }

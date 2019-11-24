@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class DoubleStatsSpecial : SpecialAbility
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.Update();
     }
 }

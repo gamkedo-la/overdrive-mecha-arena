@@ -10,6 +10,9 @@ public class Mecha : ScriptableObject
     public List<string> names;
     public Sprite facePortrait;
 
+    [Header("Mech Type")]
+    public string mechType;
+
     [Header("Health Properties")]
     public int health;
     public int defense;

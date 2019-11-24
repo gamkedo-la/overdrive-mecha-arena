@@ -8,21 +8,34 @@ public class SpecialAbility : MonoBehaviour
     [SerializeField] private GameObject specialAbilityVFX;
     [SerializeField] private Mecha mech;
 
-    [SerializeField] private float specialCooldown = 120.0f;
-    [SerializeField] private float specialUseTimeLimit = 30.0f;
-    [SerializeField] private int strengthOfSpecialAbility = 20; // Refers to how many much damage it will cause
+    private float specialCooldown = 120.0f;
+    private float specialUseTimeLimit = 30.0f;
 
     private float specialCooldownTimer;
     private float specialUseTimer;
 
-    private bool isSpecialInUse = false;
+    protected bool isSpecialInUse = false;
 
     private GameObject spawnedVFX;
 
-    // Update is called once per frame
-    void Update()
+    public Mecha _mech { get { return mech; } }
+
+    private void Start()
     {
-        if(!isSpecialInUse) // if special is not use and if cooldown is complete we can use our special
+        Health health = GetComponent<Health>();
+
+        mech = health._mech;
+
+        print(gameObject.name + " is a " + mech.mechType);
+
+        specialCooldown = mech.specialCooldown;
+        specialUseTimeLimit = mech.specialUseTimeLimit;
+    }
+
+    // Update is called once per frame
+    protected virtual void Update()
+    {
+        if (!isSpecialInUse) // if special is not use and if cooldown is complete we can use our special
         {
             //Debug.Log(specialCooldownTimer);
             specialCooldownTimer += Time.deltaTime;
@@ -39,7 +52,7 @@ public class SpecialAbility : MonoBehaviour
         {
             //Debug.Log(specialUseTimer);
             specialUseTimer += Time.deltaTime;
-            if(specialUseTimer >= specialUseTimeLimit)
+            if (specialUseTimer >= specialUseTimeLimit)
             {
                 isSpecialInUse = false;
                 Destroy(spawnedVFX);
@@ -47,10 +60,16 @@ public class SpecialAbility : MonoBehaviour
         }
     }
 
-    private void UseSpecialAbility()
+    protected virtual void UseSpecialAbility()
     {
         isSpecialInUse = true;
 
+        // Execute mech's special ability
         spawnedVFX = Instantiate(specialAbilityVFX, gameObject.transform);
+    }
+
+    protected bool CanUseSpecial()
+    {
+        return specialCooldownTimer >= specialCooldown;
     }
 }
