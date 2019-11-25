@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shader Graphs_Laser
+  m_Shader: {fileID: -6465566751694194690, guid: d9864213ddba4eb44b75788588b2b6ca,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_26ED0406:
+        m_Texture: {fileID: 2800000, guid: 9cf17153369dbe740ac592d1547ec72f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_281CE807: 1
+    - Vector1_31B6B9AF: -0.5
+    - Vector1_C57B3849: 0.5
+    - Vector1_FC375514: 10
+    m_Colors:
+    - Color_1E2E0B6A: {r: 1, g: 0, b: 0, a: 1}
