@@ -21,7 +21,11 @@ public class InitialParticipantsSpawn : MonoBehaviour
         for (int i = 0; i < numberOfAIParticipants; i++)
         {
             Transform spawnPoint = SelectSpawnPoint();
+
             SpawnMechAt(spawnPoint);
+
+            // Remove the spawn point:
+            spawnPointsList.Remove(spawnPoint);
         }
 
         SpawnPlayer();
