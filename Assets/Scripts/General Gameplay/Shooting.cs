@@ -84,7 +84,7 @@ public class Shooting : MonoBehaviour
         //print(speed);
     }
 
-    protected virtual void FireWeapon(ParticleSystem shotImpact, ParticleSystem muzzleFlash, bool isPlayer)
+    protected virtual void FireWeapon(Transform bulletPool, bool isPlayer)
     {
         Ray ray;
         if (isPlayer)
@@ -101,7 +101,17 @@ public class Shooting : MonoBehaviour
 
         RaycastHit hitInfo;
 
-        muzzleFlash.Play();
+        GameObject bullet = bulletPool.GetComponent<BulletObjectPool>().GetBulletFromPool();
+        Component[] children = bullet.GetComponentsInChildren<ParticleSystem>();
+
+        foreach (ParticleSystem childParticleSystem in children)
+        {
+            if (childParticleSystem.name == "Muzzle Flash")
+            {
+                childParticleSystem.Clear();
+                childParticleSystem.Play();
+            }
+        }
 
         if(animator != null)
             animator.SetBool("isShooting", true);
@@ -112,7 +122,15 @@ public class Shooting : MonoBehaviour
 
         if (Physics.Raycast(ray, out hitInfo, range, layerMask, QueryTriggerInteraction.Ignore))
         {
-            Instantiate(shotImpact, hitInfo.point, Quaternion.identity);
+            foreach (ParticleSystem childParticleSystem in children)
+            {
+                if (childParticleSystem.name == "Shot Impact Particles")
+                {
+                    childParticleSystem.transform.position = hitInfo.point;
+                    childParticleSystem.Clear();
+                    childParticleSystem.Play();
+                }
+            }
 
             //Debug.Log("Shot hit: " + hitInfo.collider.name);
 
