@@ -11,8 +11,8 @@ public class SpecialAbility : MonoBehaviour
     private float specialCooldown = 120.0f;
     private float specialUseTimeLimit = 30.0f;
 
-    private float specialCooldownTimer;
-    private float specialUseTimer;
+    protected float specialCooldownTimer;
+    protected float specialUseTimer;
 
     protected bool isSpecialInUse = false;
 
@@ -39,36 +39,21 @@ public class SpecialAbility : MonoBehaviour
         {
             //Debug.Log(specialCooldownTimer);
             specialCooldownTimer += Time.deltaTime;
-            if (specialCooldownTimer >= specialCooldown)
-            {
-                if (Input.GetButtonDown("Fire3"))
-                {
-                    specialCooldownTimer = 0.0f;
-                    UseSpecialAbility();
-                }
-            }
         }
         else // special is in use and we are now waiting for it to run out of uses
         {
-            //Debug.Log(specialUseTimer);
+            //Debug.Log("Special Ability Time Left: " + specialUseTimer);
             specialUseTimer += Time.deltaTime;
+
             if (specialUseTimer >= specialUseTimeLimit)
             {
                 isSpecialInUse = false;
-                Destroy(spawnedVFX);
+                specialUseTimer = 0.0f;
             }
         }
     }
 
-    protected virtual void UseSpecialAbility()
-    {
-        isSpecialInUse = true;
-
-        // Execute mech's special ability
-        spawnedVFX = Instantiate(specialAbilityVFX, gameObject.transform);
-    }
-
-    protected bool CanUseSpecial()
+    public bool CanUseSpecial()
     {
         return specialCooldownTimer >= specialCooldown;
     }

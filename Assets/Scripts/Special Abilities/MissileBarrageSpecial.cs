@@ -11,6 +11,7 @@ public class MissileBarrageSpecial : SpecialAbility
     {
         barrageDamage = _mech.strengthOfSpecialAbility;
     }
+
     protected override void Update()
     {
         base.Update();

@@ -22,18 +22,21 @@ public class Health : MonoBehaviour
 
     private string targetPriority;
 
+    private bool isInvulnerable = false;
+
     private SpawnParticipantIfAble respawnManager;
     public Mecha _mech { get { return mech; } }
+    public bool _isInvulnerable { set { isInvulnerable = value; } }
 
     public float getPriorityScore
     {
         get
         {
-            if(targetPriority == "high")
+            if (targetPriority == "high")
             {
                 return 0.0f;
             }
-            else if(targetPriority == "medium")
+            else if (targetPriority == "medium")
             {
                 return 50.0f;
             }
@@ -63,14 +66,21 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
-        currentHP -= damageAmount;
-        //Debug.Log(gameObject.name + " took " + damageAmount + " damage, now has hp: " + currentHP);
-
-        SetMyValueAsATarget();
-
-        if (currentHP <= 0)
+        if (!isInvulnerable)
         {
-            Die();
+            currentHP -= damageAmount;
+            //Debug.Log(gameObject.name + " took " + damageAmount + " damage, now has hp: " + currentHP);
+
+            SetMyValueAsATarget();
+
+            if (currentHP <= 0)
+            {
+                Die();
+            }
+        }
+        else
+        {
+            //Debug.Log(gameObject.name + " is INVULNERABLE!!!");
         }
     }
 
@@ -112,7 +122,7 @@ public class Health : MonoBehaviour
     {
         respawnTimer++;
 
-        if(respawnTimer >= respawnManager._respawnRate)
+        if (respawnTimer >= respawnManager._respawnRate)
         {
             respawnManager.Respawn(gameObject);
         }
