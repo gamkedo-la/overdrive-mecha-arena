@@ -15,6 +15,11 @@ public class PlayerShooting : Shooting
     protected override void Start()
     {
         base.Start();
+
+        damage = mecha.damage;
+        range = mecha.range;
+        fireRate = mecha.fireRate;
+
         bulletPool = transform.Find("PlayerBulletPool");
         // Set shooting according to which mecha the player is
     }

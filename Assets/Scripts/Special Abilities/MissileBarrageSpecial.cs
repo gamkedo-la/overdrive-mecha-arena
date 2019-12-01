@@ -31,9 +31,8 @@ public class MissileBarrageSpecial : SpecialAbility
 
         if (CanUseSpecial())
         {
-            if (Input.GetButtonDown("Fire3"))
+            if (Input.GetButtonDown("Fire3") && gameObject.tag == "Player")
             {
-                specialCooldownTimer = 0.0f;
                 UseMissileBarrageSpecial();
             }
         }
@@ -41,6 +40,7 @@ public class MissileBarrageSpecial : SpecialAbility
 
     public void UseMissileBarrageSpecial()
     {
+        specialCooldownTimer = 0.0f;
         isSpecialInUse = true;
 
         Debug.Log("Launching Missiles!");
@@ -54,7 +54,7 @@ public class MissileBarrageSpecial : SpecialAbility
         {
             Instantiate(missilePrefab, missileSpawnPoints[0]);
 
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(0.75f);
         }
     }
 }

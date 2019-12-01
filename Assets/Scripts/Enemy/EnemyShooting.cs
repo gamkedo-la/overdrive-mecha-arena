@@ -17,6 +17,12 @@ public class EnemyShooting : Shooting
     protected override void Start()
     {
         base.Start();
+
+        damage = mech.damage;
+        range = mech.range;
+        fireRate = mech.fireRate;
+        breakContactAtThisRange = range;
+
         health = GetComponent<Health>();
         // Set this AI's shooting stats according to it's mecha type
     }

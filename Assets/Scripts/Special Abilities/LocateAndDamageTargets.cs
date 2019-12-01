@@ -16,6 +16,7 @@ public class LocateAndDamageTargets : MonoBehaviour
     private Transform target;
     [SerializeField] private Transform myParent;
     private Rigidbody rb;
+    private List<Transform> targets = new List<Transform>();
 
     private void Awake()
     {
@@ -24,13 +25,32 @@ public class LocateAndDamageTargets : MonoBehaviour
         /// I.E. parent 1 = Spawn Point, parent 2 = Spawn Points List
         /// parent 3 = the mecha GO with the main scripts
         ///</summary>
-        myParent = transform.parent.parent.parent.transform;  
+        myParent = transform.parent.parent.parent.transform;
+
+        List<GameObject> GOs = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
+
+        foreach (GameObject item in GOs)
+        {
+            if(item != myParent.gameObject)
+                targets.Add(item.transform);
+        }
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player != myParent.gameObject)
+        {
+            targets.Add(player.transform);
+        }
+
+        //Debug.Log(targets.Contains(myParent));
     }
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        target = targets[Random.Range(0, targets.Count - 1)];
 
         StartCoroutine(waitBeforeHoming());
     }
@@ -40,7 +60,7 @@ public class LocateAndDamageTargets : MonoBehaviour
     {
         if(shouldHomeIn)
         {
-            if (target != null)
+            if (targets != null)
             {
                 Vector3 direction = target.position - rb.position;
                 direction.Normalize();
@@ -55,7 +75,7 @@ public class LocateAndDamageTargets : MonoBehaviour
     {
         Health tgtHealth = collision.collider.GetComponent<Health>();
 
-        if(tgtHealth != null)
+        if(tgtHealth != null && collision.collider.gameObject != myParent.gameObject)
         {
             tgtHealth.TakeDamage(damage);
             Destroy(gameObject);

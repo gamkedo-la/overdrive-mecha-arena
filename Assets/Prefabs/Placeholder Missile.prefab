@@ -155,11 +155,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a93075c7bdecd064daf9d2f4d6c0bc02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationalForce: 25
-  speed: 70
+  rotationalForce: 15
+  speed: 80
   damage: 20
-  secondsToWaitBeforeHoming: 2.5
-  blastOffForce: 3.5
+  secondsToWaitBeforeHoming: 1
+  blastOffForce: 15
+  myParent: {fileID: 0}
 --- !u!114 &4092338175108253822
 MonoBehaviour:
   m_ObjectHideFlags: 0
