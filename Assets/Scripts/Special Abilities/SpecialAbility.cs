@@ -20,7 +20,7 @@ public class SpecialAbility : MonoBehaviour
 
     public Mecha _mech { get { return mech; } }
 
-    private void Start()
+    protected virtual void Start()
     {
         Health health = GetComponent<Health>();
 

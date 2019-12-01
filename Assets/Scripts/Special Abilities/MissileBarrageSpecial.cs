@@ -4,16 +4,57 @@ using UnityEngine;
 
 public class MissileBarrageSpecial : SpecialAbility
 {
+    [SerializeField] private GameObject missilePrefab;
+    [SerializeField] private List<Transform> missileSpawnPoints; //these are part of the mech prefab GO
+
     private int barrageDamage = 20;
 
-    // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         barrageDamage = _mech.strengthOfSpecialAbility;
+
+        if(gameObject.GetComponent<PlayerMovement>())
+        {
+            AssignPlayerSpecial assignPlayerSpecial = GetComponent<AssignPlayerSpecial>();
+
+            missilePrefab = assignPlayerSpecial._missilePrefab;
+
+            missileSpawnPoints = assignPlayerSpecial._missileSpawnPoints;
+        }
     }
 
     protected override void Update()
     {
         base.Update();
+
+        if (CanUseSpecial())
+        {
+            if (Input.GetButtonDown("Fire3"))
+            {
+                specialCooldownTimer = 0.0f;
+                UseMissileBarrageSpecial();
+            }
+        }
+    }
+
+    public void UseMissileBarrageSpecial()
+    {
+        isSpecialInUse = true;
+
+        Debug.Log("Launching Missiles!");
+
+        StartCoroutine(spawnMissilesOverTime());
+    }
+
+    IEnumerator spawnMissilesOverTime()
+    {
+        while(isSpecialInUse)
+        {
+            Instantiate(missilePrefab, missileSpawnPoints[0]);
+
+            yield return new WaitForSeconds(1.5f);
+        }
     }
 }

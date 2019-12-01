@@ -23,7 +23,7 @@ MonoBehaviour:
   health: 250
   defense: 75
   specialCooldown: 30
-  specialUseTimeLimit: 10
+  specialUseTimeLimit: 12.5
   strengthOfSpecialAbility: 0
   damage: 1
   range: 200

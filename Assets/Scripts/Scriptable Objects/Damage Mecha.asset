@@ -22,15 +22,15 @@ MonoBehaviour:
   mechType: Damage
   health: 150
   defense: 150
-  specialCooldown: 60
-  specialUseTimeLimit: 7.5
+  specialCooldown: 10
+  specialUseTimeLimit: 20
   strengthOfSpecialAbility: 50
   damage: 5
   range: 350
   fireRate: 0.75
   fowardMoveSpeed: 40
   backwardMoveSpeed: 25
-  dashSpeed: 1.35
+  dashSpeed: 1.5
   dashTimeLimit: 7.5
   turnSpeed: 100
   strafingRightMoveSpeed: 40

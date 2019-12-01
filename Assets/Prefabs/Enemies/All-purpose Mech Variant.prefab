@@ -26,6 +26,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: All-purpose Mech Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8841960133733178278, guid: aaf99d2a6f82ca943a32b605f72c1907,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: -7424934990164168292, guid: aaf99d2a6f82ca943a32b605f72c1907,
         type: 3}
       propertyPath: mech
