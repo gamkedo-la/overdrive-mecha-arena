@@ -16,6 +16,7 @@ public class EnemyShooting : Shooting
 
     protected override void Start()
     {
+        //Calls start function of Shooting script
         base.Start();
 
         damage = mech.damage;

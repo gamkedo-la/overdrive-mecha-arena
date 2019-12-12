@@ -1,10 +1,34 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AICharacter : MonoBehaviour
 {
     [SerializeField] private Mecha mech;
+
+    public Transform playerTransform;
+    public Transform enemy;
+
+    public Vector3 playerLastPosition;
+    public Vector3 personalLastSighting;
+
+    public GameObject playerObject;
+
+    public int awarenessRange = 2;
+
+    public bool hasSeenPlayer = false;
+    public bool hasBeenShot = false;
+
+    public float turnSpeed = 0.1f;
+    public float attackRange;
+
+    public bool isAttacking;
+    public bool isDying;
+    public float fieldOfViewAngle = 110f;
+
+    private SphereCollider col;
+    public NavMeshAgent agent;
 
     private State currentState;
     private Animator animator;
@@ -17,7 +41,12 @@ public class AICharacter : MonoBehaviour
 
     private void Start()
     {
+        playerObject = GameObject.Find("Player");
+        playerTransform = playerTransform = playerObject.transform;
+        agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
+
+        isDying = GetComponent<enemyScript>().enemyIsDying;
 
         SetState(new PatrolState(this));
     }
@@ -30,7 +59,9 @@ public class AICharacter : MonoBehaviour
         {
             currentState.Tick();
         }
+
     }
+
     private void FixedUpdate()
     {
         //Debug.Log(gameObject.name + " has this many targets: " + validTargets.Count);
@@ -39,6 +70,16 @@ public class AICharacter : MonoBehaviour
         {
             currentState.FixedTick();
         }
+    }
+
+    public void activateAttack()
+    {
+        isAttacking = true;
+    }
+
+    public void deactivateAttack()
+    {
+        isAttacking = false;
     }
 
     public void SetState(State state)
@@ -56,6 +97,7 @@ public class AICharacter : MonoBehaviour
             currentState.OnStateEnter();
         }
     }
+
 
     public void RemoveTargetFromSuperList(Health tgt)
     {
@@ -80,4 +122,4 @@ public class AICharacter : MonoBehaviour
             }
         }
     }
-}
+} 

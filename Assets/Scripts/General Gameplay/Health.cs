@@ -12,9 +12,9 @@ public class Health : MonoBehaviour
     private float respawnTimer = 0.0f;
 
     private float currentHP;
-
+     
     private string[] priorityValues = new string[] { "high", "medium", "low" };
-
+      
     // Next three lines used to determine how valuable this target is according to how much HP it has left
     private int highPriorityThreshold = 50;
     private int mediumPriorityThreshold = 100;
@@ -54,7 +54,7 @@ public class Health : MonoBehaviour
     private void Start()
     {
         // Set defense, starting HP, priority threshold according to mech type
-        respawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnParticipantIfAble>();
+       // respawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnParticipantIfAble>();
     }
 
     private void OnEnable()
