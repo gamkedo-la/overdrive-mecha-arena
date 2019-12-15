@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -1872641308477468944}
   - component: {fileID: -2573241638059145581}
   - component: {fileID: -4340105851203275179}
+  - component: {fileID: -3250110816464434062}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -185,6 +186,22 @@ MonoBehaviour:
     type: 3}
   missileSpawnPoints:
   - {fileID: 4703917249837025208}
+--- !u!114 &-3250110816464434062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515524012658226926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99df6c5922dd54577a1ae9e49168e8b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabArrayToSpawn:
+  - {fileID: 1641144016500889542, guid: 9e5ad9143e25449daa872068886d3661, type: 3}
+  - {fileID: 1143357576722740403, guid: e29de1f45cfc74a559f40855a280faa8, type: 3}
+  - {fileID: 251996276060726622, guid: f9f830f444b4c43e79b1054ec765614c, type: 3}
 --- !u!1 &1515524012939720657
 GameObject:
   m_ObjectHideFlags: 0
