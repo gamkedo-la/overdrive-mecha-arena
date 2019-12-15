@@ -141,6 +141,11 @@ public class ChaseState : State
 
     private void PlayAnimations()
     {
+        if(agent.getAnimator == null)
+        {
+            Debug.LogWarning("animator not found for agent: " + thisAgent.name);
+            return;
+        }
         if (thisAgent.velocity.sqrMagnitude == 0)
         {
             agent.getAnimator.SetFloat("Speed", 0f);

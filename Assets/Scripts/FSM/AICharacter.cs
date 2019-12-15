@@ -24,7 +24,6 @@ public class AICharacter : MonoBehaviour
     public float attackRange;
 
     public bool isAttacking;
-    public bool isDying;
     public float fieldOfViewAngle = 110f;
 
     private SphereCollider col;
@@ -39,20 +38,42 @@ public class AICharacter : MonoBehaviour
     public Animator getAnimator { get { return animator; } }
     public Mecha _mech { get { return mech; } }
 
-    private void Start()
+    private void InitIfPlayerReadyAndHasntYet()
     {
-        playerObject = GameObject.Find("Player");
+        playerObject = GameObject.Find("Player"); // pre-placed
+        if (playerObject == null)
+        {
+            playerObject = GameObject.Find("Player(Clone)"); // prefab case
+        }
+
+        if (playerObject == null)
+        {
+            Debug.Log("AI tried to start before Player found, retrying...");
+        }
         playerTransform = playerTransform = playerObject.transform;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
 
-        isDying = GetComponent<enemyScript>().enemyIsDying;
-
         SetState(new PatrolState(this));
+    }
+
+    IEnumerator CheckForPlayerAgainToInit()
+    {
+        while (playerObject == null)
+        {
+            yield return new WaitForEndOfFrame();
+            InitIfPlayerReadyAndHasntYet();
+        }
+    }
+
+    private void Start()
+    {
+        StartCoroutine(CheckForPlayerAgainToInit());
     }
 
     private void Update()
     {
+        InitIfPlayerReadyAndHasntYet();
         //Debug.Log(gameObject.name + " has this many targets: " + validTargets.Count);
 
         if (currentState != null)
