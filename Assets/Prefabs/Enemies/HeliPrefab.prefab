@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 86753295}
   - component: {fileID: 86753294}
   - component: {fileID: 86753297}
-  m_Layer: 0
+  - component: {fileID: 1234433126959646113}
+  m_Layer: 15
   m_Name: HeliPrefab
   m_TagString: Non-playables
   m_Icon: {fileID: 0}
@@ -3595,9 +3596,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 3
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -3718,7 +3719,7 @@ ParticleSystem:
     m_EnergyLossOnCollision:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -3773,11 +3774,11 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 32567
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -4806,6 +4807,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caabb360053924a5a9a4fcddfd2b6c26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1234433126959646113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143357576722740403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccadaf47afe02481b9311a202e574bc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1001 &5618070074875054327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4817,6 +4831,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: helicopter
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c388d73d0d6fe41d7966bc81e1469510,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534866581884222612, guid: c388d73d0d6fe41d7966bc81e1469510,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c388d73d0d6fe41d7966bc81e1469510,
         type: 3}

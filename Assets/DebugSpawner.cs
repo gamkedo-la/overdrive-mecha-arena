@@ -59,9 +59,16 @@ public class DebugSpawner : MonoBehaviour
             RaycastHit hitInfo;
             if (Physics.Raycast(ray, out hitInfo))
             {
+                Quaternion faceTowardsMePlanar;
+                Vector3 myFacingFlat = transform.forward;
+                myFacingFlat.y = 0.0f;
+                myFacingFlat.Normalize();
+
+                faceTowardsMePlanar = Quaternion.LookRotation(myFacingFlat, Vector3.up);
+
                 GameObject newGO = GameObject.Instantiate(prefabArrayToSpawn[spawnIdx],
                     hitInfo.point + Vector3.up,
-                    Quaternion.identity);
+                    faceTowardsMePlanar);
                 Debug.Log("Debug spawned: " + newGO.name);
             }
             else {

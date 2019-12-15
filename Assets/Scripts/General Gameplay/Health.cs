@@ -122,7 +122,7 @@ public class Health : MonoBehaviour
     {
         respawnTimer++;
 
-        if (respawnTimer >= respawnManager._respawnRate)
+        if (respawnManager && respawnTimer >= respawnManager._respawnRate)
         {
             respawnManager.Respawn(gameObject);
         }
