@@ -23,7 +23,8 @@ public class EnemyVision : MonoBehaviour
     private SphereCollider col;
     public NavMeshAgent agent;
     //private Animator anim;
-    public int awarenessRange = 2;
+    public int awarenessRange = 20;
+    public float visionRange = 100.0f;
     //public ParticleSystem spawnCloud;
 
     //public AudioSource swordSwing;
@@ -66,17 +67,32 @@ public class EnemyVision : MonoBehaviour
             }
 
             RaycastHit hit;
-            Vector3 direction = player.position - transform.parent.transform.position;
-            float angle = Vector3.Angle(direction, transform.parent.transform.forward);
+            Vector3 targetPt = player.position + Vector3.up * 18.0f; // projecting off feet
+            Vector3 direction = targetPt - transform.position;
+            float angle = Vector3.Angle(direction, transform.forward);
 
+            bool didRayHitPlayer = Physics.Raycast(transform.position, direction, out hit, 1000) && hit.collider.gameObject.tag == "Player";
 
-            if (Physics.Raycast(transform.position, direction, out hit, 1000) &&
-                    Vector3.Distance(player.position, transform.parent.transform.position) < 30 && angle < fieldOfViewAngle && hit.collider.gameObject.tag == "Player" ||
-                    Vector3.Distance(player.position, transform.parent.transform.position) < awarenessRange && hit.collider.gameObject.tag == "Player")
+            bool visionConeSeesPlayer = false;
+            bool nearAwarenessNoticesPlayer = false;
+
+            if(didRayHitPlayer)
+            {
+                Debug.DrawLine(transform.position, hit.point, Color.cyan);
+                visionConeSeesPlayer = Vector3.Distance(targetPt, transform.position) < visionRange && angle < fieldOfViewAngle;
+                Debug.Log(Mathf.RoundToInt(Vector3.Distance(targetPt, transform.position)) + " " + Mathf.RoundToInt(angle) );
+                nearAwarenessNoticesPlayer = Vector3.Distance(targetPt, transform.position) < awarenessRange;
+                // Debug.Log(visionConeSeesPlayer + " " + nearAwarenessNoticesPlayer);
+            }
+            else
+            {
+                Debug.DrawLine(transform.position, transform.position + direction.normalized* visionRange, Color.red);
+            }
+
+            if (visionConeSeesPlayer || nearAwarenessNoticesPlayer)
 
             {
-                Debug.DrawLine(transform.position + Vector3.up * 4.0f, hit.transform.position, Color.red);
-                awarenessRange = 2;
+                playerLastPosition = targetPt;
                 agent.obstacleAvoidanceType = ObstacleAvoidanceType.GoodQualityObstacleAvoidance;
                 hasBeenShot = false;
 
@@ -86,12 +102,12 @@ public class EnemyVision : MonoBehaviour
 
                 // anim.SetBool("isIdle", false);
 
-                if (Vector3.Distance(player.position, transform.parent.transform.position) > attackRange)
+                if (Vector3.Distance(targetPt, transform.position) > attackRange)
                 {
 
                     this.agent.SetDestination(player.position);
                     playerLastPosition = hit.point;
-                    Debug.Log("Last player position" + playerLastPosition);
+                    // Debug.Log("Last player position" + playerLastPosition);
                     hasSeenPlayer = true;
                     //  anim.SetBool("isWalking", true);
                     //  anim.SetBool("isAttacking", false);
@@ -109,7 +125,7 @@ public class EnemyVision : MonoBehaviour
                 if (hasSeenPlayer == true)
                 {
                     //Debug.Log("PLAYER SEEN GO TO PLAYER");
-                    awarenessRange = 5;
+                    // awarenessRange = 5;
                     float distanceToTarget = Vector3.Distance(playerLastPosition, enemyTransform.transform.position);
                     float distanceThreshold = .6f;
                     //if(enemy.position != playerLastPosition.transform.)
@@ -148,12 +164,12 @@ public class EnemyVision : MonoBehaviour
     void OnTriggerEnter(Collider collision)
     {
 
-        if (collision.gameObject.tag == "Player")
+       /*if (collision.gameObject.tag == "Player")
         {
             agent.obstacleAvoidanceType = ObstacleAvoidanceType.GoodQualityObstacleAvoidance;
             playerLastPosition = player.position;
             hasSeenPlayer = true;
-        }
+        }*/
     }
 }
 

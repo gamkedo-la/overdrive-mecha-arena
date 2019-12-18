@@ -9101,9 +9101,9 @@ SphereCollider:
   m_GameObject: {fileID: 5270807313298465393}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 18.890041
+  m_Radius: 10
   m_Center: {x: -0.000000025856238, y: 7.0018005e-15, z: -3.0009158}
 --- !u!114 &5270807313298465395
 MonoBehaviour:
@@ -9130,7 +9130,8 @@ MonoBehaviour:
   hasSeenPlayer: 0
   personalLastSighting: {x: 0, y: 0, z: 0}
   agent: {fileID: 4238611127226125651}
-  awarenessRange: 2
+  awarenessRange: 20
+  visionRange: 100
 --- !u!4 &5426315381259957106
 Transform:
   m_ObjectHideFlags: 0
@@ -9360,7 +9361,6 @@ MonoBehaviour:
   turnSpeed: 0.1
   attackRange: 0
   isAttacking: 0
-  isDying: 0
   fieldOfViewAngle: 110
   agent: {fileID: 0}
 --- !u!4 &6439513919352093571
