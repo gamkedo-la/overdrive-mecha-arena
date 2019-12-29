@@ -36,6 +36,7 @@ public class Shooting : MonoBehaviour
 
     private float speed;
     private Vector3 lastPos;
+    private static GameObject ACTracersEffectPrefab;
 
     public bool isTryingToDash = false;
 
@@ -48,6 +49,10 @@ public class Shooting : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
         shootingMode = GetComponent<ChangeShootingMode>();
+        if(ACTracersEffectPrefab == null)
+        {
+            ACTracersEffectPrefab = Resources.Load("Autocannon Effect") as GameObject;
+        }
         // cache mecha scriptable objects; will be used to setup shooting stats for both modes
     }
 
@@ -96,6 +101,11 @@ public class Shooting : MonoBehaviour
             // TODO: instantiate ray at a higher position; currently it's instantiated at the AI's feet
             ray = new Ray(transform.position, transform.forward);
         }
+
+        GameObject newTracerEffect = GameObject.Instantiate(ACTracersEffectPrefab);
+
+        newTracerEffect.transform.position = ray.origin;
+        newTracerEffect.transform.rotation = Quaternion.LookRotation(ray.direction);
 
         //Debug.DrawRay(ray.origin, ray.direction * range, Color.red, 2.0f);
 
