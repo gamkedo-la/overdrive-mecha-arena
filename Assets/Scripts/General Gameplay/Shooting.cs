@@ -102,11 +102,6 @@ public class Shooting : MonoBehaviour
             ray = new Ray(transform.position, transform.forward);
         }
 
-        GameObject newTracerEffect = GameObject.Instantiate(ACTracersEffectPrefab);
-
-        newTracerEffect.transform.position = ray.origin;
-        newTracerEffect.transform.rotation = Quaternion.LookRotation(ray.direction);
-
         //Debug.DrawRay(ray.origin, ray.direction * range, Color.red, 2.0f);
 
         RaycastHit hitInfo;
@@ -130,8 +125,11 @@ public class Shooting : MonoBehaviour
         int layerMask = 1 << 10;
         layerMask = ~layerMask;
 
+        Vector3 targetPtForEffect;
+
         if (Physics.Raycast(ray, out hitInfo, range, layerMask, QueryTriggerInteraction.Ignore))
         {
+            targetPtForEffect = hitInfo.point;
             foreach (ParticleSystem childParticleSystem in children)
             {
                 if (childParticleSystem.name == "Shot Impact Particles")
@@ -150,6 +148,28 @@ public class Shooting : MonoBehaviour
                 health.TakeDamage(damage);
             }
         }
+        else
+        {
+            targetPtForEffect = ray.origin + ray.direction * 100.0f; // aim effect toward gun direction
+        }
+
+        GameObject newTracerEffect = GameObject.Instantiate(ACTracersEffectPrefab);
+
+        if (animator != null)
+        {
+            newTracerEffect.transform.position = animator.transform.position
+                                                + animator.transform.forward * 25.0f // avoid body
+                                                + animator.transform.right * 2.7f // offcenter hand
+                                                + Vector3.up * 21.0f; // above feet
+            newTracerEffect.transform.rotation =
+                Quaternion.LookRotation(targetPtForEffect - newTracerEffect.transform.position);
+        }
+        else
+        {
+            newTracerEffect.transform.position = ray.origin;
+            newTracerEffect.transform.rotation = Quaternion.LookRotation(ray.direction);
+        }
+
     }
 
     protected float SetAccuracyAccordingToHealthAndMovement(float hpPercentage, float movementSpeed, float baseSpeed, float dashSpeed, bool isDashing)
