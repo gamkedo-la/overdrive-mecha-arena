@@ -31,7 +31,6 @@ public class EnemyVision : MonoBehaviour
         playerObject = GameObject.FindGameObjectWithTag("Player");
         player = playerObject.transform;
         agent = GetComponentInParent<NavMeshAgent>();
-        isDying = GetComponentInParent<enemyScript>().enemyIsDying;
     }
 
     public void activateAttack()
@@ -46,8 +45,8 @@ public class EnemyVision : MonoBehaviour
     void Update()
     {
 
-        isDying = GetComponentInParent<enemyScript>().enemyIsDying;
-        if (!isDying)
+        isDying = GetComponentInParent<Health>().IsDying();
+        if (isDying == false)
         {
 
             if (hasBeenShot == true)
@@ -73,7 +72,7 @@ public class EnemyVision : MonoBehaviour
                 visionConeSeesPlayer = Vector3.Distance(targetPt, transform.position) < visionRange && angle < fieldOfViewAngle;
                 //Debug.Log(Mathf.RoundToInt(Vector3.Distance(targetPt, transform.position)) + " " + Mathf.RoundToInt(angle));
                 nearAwarenessNoticesPlayer = Vector3.Distance(targetPt, transform.position) < awarenessRange;
-                Debug.Log(visionConeSeesPlayer + " " + nearAwarenessNoticesPlayer);
+                //Debug.Log(visionConeSeesPlayer + " " + nearAwarenessNoticesPlayer);
             }
             else
             {

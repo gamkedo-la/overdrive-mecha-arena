@@ -57,6 +57,11 @@ public class Health : MonoBehaviour
        // respawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnParticipantIfAble>();
     }
 
+    public bool IsDying()
+    {
+        return currentHP <= 0;
+    }
+
     private void OnEnable()
     {
         CancelInvoke("SpawnCooldown");

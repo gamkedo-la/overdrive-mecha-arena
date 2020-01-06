@@ -78,9 +78,9 @@ public class AICharacter : MonoBehaviour
 
         if (currentState != null)
         {
+            //Debug.Log(currentState.StateName());
             currentState.Tick();
         }
-
     }
 
     private void FixedUpdate()
