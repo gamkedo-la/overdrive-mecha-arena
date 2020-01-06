@@ -17,6 +17,7 @@ public class InitialParticipantsSpawn : MonoBehaviour
         respawnGOs = GetComponent<SpawnParticipantIfAble>();
 
         respawnGOs._spawnPoints = spawnPointsList;
+        SpawnPlayer();
 
         for (int i = 0; i < numberOfAIParticipants; i++)
         {
@@ -28,7 +29,6 @@ public class InitialParticipantsSpawn : MonoBehaviour
             spawnPointsList.Remove(spawnPoint);
         }
 
-        SpawnPlayer();
     }
 
     private void SpawnPlayer()

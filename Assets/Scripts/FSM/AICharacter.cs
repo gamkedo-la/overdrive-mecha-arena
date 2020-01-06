@@ -38,18 +38,10 @@ public class AICharacter : MonoBehaviour
     public Animator getAnimator { get { return animator; } }
     public Mecha _mech { get { return mech; } }
 
-    private void InitIfPlayerReadyAndHasntYet()
+    private void Start()
     {
-        playerObject = GameObject.Find("Player"); // pre-placed
-        if (playerObject == null)
-        {
-            playerObject = GameObject.Find("Player(Clone)"); // prefab case
-        }
+        playerObject = GameObject.FindGameObjectWithTag("Player"); // pre-placed
 
-        if (playerObject == null)
-        {
-            Debug.Log("AI tried to start before Player found, retrying...");
-        }
         playerTransform = playerTransform = playerObject.transform;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
@@ -57,23 +49,8 @@ public class AICharacter : MonoBehaviour
         SetState(new PatrolState(this));
     }
 
-    IEnumerator CheckForPlayerAgainToInit()
-    {
-        while (playerObject == null)
-        {
-            yield return new WaitForEndOfFrame();
-            InitIfPlayerReadyAndHasntYet();
-        }
-    }
-
-    private void Start()
-    {
-        StartCoroutine(CheckForPlayerAgainToInit());
-    }
-
     private void Update()
     {
-        InitIfPlayerReadyAndHasntYet();
         //Debug.Log(gameObject.name + " has this many targets: " + validTargets.Count);
 
         if (currentState != null)
