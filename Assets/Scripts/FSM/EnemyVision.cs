@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -13,8 +14,6 @@ public class EnemyVision : MonoBehaviour
     public float turnSpeed = 0.1f;
     public float attackRange;
     public float fieldOfViewAngle = 110f;
-    //public GameObject m_Sword;
-    //public GameObject enemyObject;
     public bool isAttacking = false;
     public bool isDying = false;
     public bool hasBeenShot = false;
@@ -22,33 +21,25 @@ public class EnemyVision : MonoBehaviour
     public Vector3 personalLastSighting;
     private SphereCollider col;
     public NavMeshAgent agent;
-    //private Animator anim;
     public int awarenessRange = 20;
     public float visionRange = 100.0f;
-    //public ParticleSystem spawnCloud;
 
-    //public AudioSource swordSwing;
+    private bool isSearching = false;
+
     void Start()
     {
-        //spawnCloud.Play();
-        //swordSwing = GetComponent<AudioSource>();
-        playerObject = GameObject.Find("Player");
+        playerObject = GameObject.FindGameObjectWithTag("Player");
         player = playerObject.transform;
         agent = GetComponentInParent<NavMeshAgent>();
-        //anim = GetComponent<Animator>();
-        //m_Sword.GetComponent<Collider>().enabled = false;
         isDying = GetComponentInParent<enemyScript>().enemyIsDying;
     }
 
     public void activateAttack()
     {
-        // m_Sword.GetComponent<Collider>().enabled = true;
-        // swordSwing.Play();
         isAttacking = true;
     }
     public void deactivateAttack()
     {
-        // m_Sword.GetComponent<Collider>().enabled = false;
         isAttacking = false;
     }
 
@@ -76,21 +67,20 @@ public class EnemyVision : MonoBehaviour
             bool visionConeSeesPlayer = false;
             bool nearAwarenessNoticesPlayer = false;
 
-            if(didRayHitPlayer)
+            if (didRayHitPlayer)
             {
                 Debug.DrawLine(transform.position, hit.point, Color.cyan);
                 visionConeSeesPlayer = Vector3.Distance(targetPt, transform.position) < visionRange && angle < fieldOfViewAngle;
-                Debug.Log(Mathf.RoundToInt(Vector3.Distance(targetPt, transform.position)) + " " + Mathf.RoundToInt(angle) );
+                //Debug.Log(Mathf.RoundToInt(Vector3.Distance(targetPt, transform.position)) + " " + Mathf.RoundToInt(angle));
                 nearAwarenessNoticesPlayer = Vector3.Distance(targetPt, transform.position) < awarenessRange;
-                // Debug.Log(visionConeSeesPlayer + " " + nearAwarenessNoticesPlayer);
+                Debug.Log(visionConeSeesPlayer + " " + nearAwarenessNoticesPlayer);
             }
             else
             {
-                Debug.DrawLine(transform.position, transform.position + direction.normalized* visionRange, Color.red);
+                Debug.DrawLine(transform.position, transform.position + direction.normalized * visionRange, Color.red);
             }
 
             if (visionConeSeesPlayer || nearAwarenessNoticesPlayer)
-
             {
                 playerLastPosition = targetPt;
                 agent.obstacleAvoidanceType = ObstacleAvoidanceType.GoodQualityObstacleAvoidance;
@@ -100,8 +90,6 @@ public class EnemyVision : MonoBehaviour
                 transform.parent.transform.rotation = Quaternion.Slerp(transform.parent.transform.rotation,
                                             Quaternion.LookRotation(direction), turnSpeed * Time.deltaTime);
 
-                // anim.SetBool("isIdle", false);
-
                 if (Vector3.Distance(targetPt, transform.position) > attackRange)
                 {
 
@@ -109,15 +97,11 @@ public class EnemyVision : MonoBehaviour
                     playerLastPosition = hit.point;
                     // Debug.Log("Last player position" + playerLastPosition);
                     hasSeenPlayer = true;
-                    //  anim.SetBool("isWalking", true);
-                    //  anim.SetBool("isAttacking", false);
                 }
 
                 else
                 {
                     this.agent.SetDestination(enemyTransform.position);
-                    //anim.SetBool("isAttacking", true);
-                    //anim.SetBool("isWalking", false);
                 }
             }
             else
@@ -128,29 +112,29 @@ public class EnemyVision : MonoBehaviour
                     // awarenessRange = 5;
                     float distanceToTarget = Vector3.Distance(playerLastPosition, enemyTransform.transform.position);
                     float distanceThreshold = .6f;
-                    //if(enemy.position != playerLastPosition.transform.)
-                    if (distanceToTarget > distanceThreshold)
-                    {
-                        agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
-                        //Debug.Log("DistToTarget " + distanceToTarget);
-                        //Debug.Log("DistToThresh " + distanceThreshold);
-                        //Debug.Log("Searching for player at last position");
-                        this.agent.SetDestination(playerLastPosition);
-                        // anim.SetBool("isWalking", true);
-                        //anim.SetBool("isAttacking", false);
-                    }
-                    else if (distanceToTarget <= distanceThreshold || agent.velocity == Vector3.zero)
-                    {
-                        // Debug.Log("At last player position");
-                        this.agent.SetDestination(enemyTransform.position);
-                        // anim.SetBool("isIdle", true);
-                        // anim.SetBool("isWalking", false);
-                        // anim.SetBool("isAttacking", false);
-                        agent.obstacleAvoidanceType = ObstacleAvoidanceType.GoodQualityObstacleAvoidance;
-                        hasSeenPlayer = false;
-                    }
-                }
+                    //if (distanceToTarget > distanceThreshold)
+                    //{
+                    //    agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
+                    //    //Debug.Log("DistToTarget " + distanceToTarget);
+                    //    //Debug.Log("DistToThresh " + distanceThreshold);
+                    //    Debug.Log("Searching for player at last position");
+                    //    this.agent.SetDestination(playerLastPosition);
+                    //}
+                    //else if (distanceToTarget <= distanceThreshold || agent.velocity == Vector3.zero)
+                    //{
+                    //    // Debug.Log("At last player position");
+                    //    this.agent.SetDestination(enemyTransform.position);
+                    //    agent.obstacleAvoidanceType = ObstacleAvoidanceType.GoodQualityObstacleAvoidance;
+                    //    hasSeenPlayer = false;
+                    //}
 
+                    //SearchForTarget();
+                }
+            }
+
+            if (!didRayHitPlayer && hasSeenPlayer)
+            {
+                SearchForTarget();
             }
 
         }
@@ -161,15 +145,22 @@ public class EnemyVision : MonoBehaviour
         }
 
     }
+
+    private void SearchForTarget()
+    {
+        //Debug.Log("Searching for target");
+        this.agent.SetDestination(playerLastPosition);
+    }
+
     void OnTriggerEnter(Collider collision)
     {
 
-       /*if (collision.gameObject.tag == "Player")
-        {
-            agent.obstacleAvoidanceType = ObstacleAvoidanceType.GoodQualityObstacleAvoidance;
-            playerLastPosition = player.position;
-            hasSeenPlayer = true;
-        }*/
+        /*if (collision.gameObject.tag == "Player")
+         {
+             agent.obstacleAvoidanceType = ObstacleAvoidanceType.GoodQualityObstacleAvoidance;
+             playerLastPosition = player.position;
+             hasSeenPlayer = true;
+         }*/
     }
 }
 

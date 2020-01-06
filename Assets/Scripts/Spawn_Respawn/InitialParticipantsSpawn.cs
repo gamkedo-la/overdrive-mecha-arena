@@ -12,7 +12,7 @@ public class InitialParticipantsSpawn : MonoBehaviour
 
     private SpawnParticipantIfAble respawnGOs;
 
-    void Start()
+    void Awake()
     {
         respawnGOs = GetComponent<SpawnParticipantIfAble>();
 
