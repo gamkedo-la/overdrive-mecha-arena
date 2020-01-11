@@ -9,14 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7847980526227252980}
-  - component: {fileID: 5715507013355492197}
+  - component: {fileID: 8200381097539164513}
   m_Layer: 9
   m_Name: LineOfSight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7847980526227252980
 Transform:
   m_ObjectHideFlags: 0
@@ -31,20 +31,32 @@ Transform:
   m_Father: {fileID: 8841960133733178277}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &5715507013355492197
-CapsuleCollider:
+--- !u!114 &8200381097539164513
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 667600279351309442}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 50
-  m_Height: 150
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 71}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2334309c5f08f8428608f4fe86632b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  tgtLastPosition: {x: 0, y: 0, z: 0}
+  tgtObject: {fileID: 0}
+  enemyTransform: {fileID: 0}
+  turnSpeed: 5
+  attackRange: 50
+  fieldOfViewAngle: 110
+  isDying: 0
+  hasBeenShot: 0
+  hasSeenPlayer: 0
+  personalLastSighting: {x: 0, y: 0, z: 0}
+  agent: {fileID: 0}
+  awarenessRange: 60
+  visionRange: 150
 --- !u!1 &1690176266001544053
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +172,7 @@ NavMeshAgent:
   m_Acceleration: 50
   avoidancePriority: 50
   m_AngularSpeed: 100
-  m_StoppingDistance: 100
+  m_StoppingDistance: 115
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -182,6 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHP: 200
   defense: 100
+  mech: {fileID: 0}
 --- !u!114 &9204702744872670521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,11 +207,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc997928663d814aa2241dd840978e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTryingToDash: 0
   shotImpact: {fileID: 2190712866486071615, guid: c674d909bff111a45affc537017a5d3a,
     type: 3}
   muzzleFlash: {fileID: 7175814859913242126, guid: 42e996ec8f2300345920db10477e9a8b,
     type: 3}
-  mecha: {fileID: 0}
+  mech: {fileID: 0}
   shotOrigin: {fileID: 5777913320556151924}
 --- !u!114 &1425691920792359793
 MonoBehaviour:
@@ -225,6 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mech: {fileID: 0}
+  agent: {fileID: 0}
 --- !u!54 &5587483571316489424
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -270,7 +285,7 @@ PrefabInstance:
     - target: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7042319705362345490, guid: 0ace24755b9c51347a92c2057024f073,
         type: 3}
@@ -330,6 +345,11 @@ PrefabInstance:
     - target: {fileID: 7042319705362345490, guid: 0ace24755b9c51347a92c2057024f073,
         type: 3}
       propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042319705362345493, guid: 0ace24755b9c51347a92c2057024f073,
+        type: 3}
+      propertyPath: prewarm
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

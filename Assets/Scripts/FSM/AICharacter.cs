@@ -7,25 +7,6 @@ public class AICharacter : MonoBehaviour
 {
     [SerializeField] private Mecha mech;
 
-    public Transform playerTransform;
-    public Transform enemy;
-
-    public Vector3 playerLastPosition;
-    public Vector3 personalLastSighting;
-
-    public GameObject playerObject;
-
-    public int awarenessRange = 2;
-
-    public bool hasSeenPlayer = false;
-    public bool hasBeenShot = false;
-
-    public float turnSpeed = 0.1f;
-    public float attackRange;
-
-    public bool isAttacking;
-    public float fieldOfViewAngle = 110f;
-
     private SphereCollider col;
     public NavMeshAgent agent;
 
@@ -40,9 +21,6 @@ public class AICharacter : MonoBehaviour
 
     private void Start()
     {
-        playerObject = GameObject.FindGameObjectWithTag("Player"); // pre-placed
-
-        playerTransform = playerTransform = playerObject.transform;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
 
@@ -68,16 +46,6 @@ public class AICharacter : MonoBehaviour
         {
             currentState.FixedTick();
         }
-    }
-
-    public void activateAttack()
-    {
-        isAttacking = true;
-    }
-
-    public void deactivateAttack()
-    {
-        isAttacking = false;
     }
 
     public void SetState(State state)

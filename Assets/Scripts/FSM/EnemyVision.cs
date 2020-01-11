@@ -7,20 +7,24 @@ using UnityEngine.AI;
 public class EnemyVision : MonoBehaviour
 {
 
-    public Transform player;
-    public Vector3 playerLastPosition;
-    public GameObject playerObject;
+    public Transform target;
+    public Vector3 tgtLastPosition;
+    public GameObject tgtObject;
     public Transform enemyTransform;
+
     public float turnSpeed = 0.1f;
     public float attackRange;
     public float fieldOfViewAngle = 110f;
-    public bool isAttacking = false;
+
     public bool isDying = false;
     public bool hasBeenShot = false;
     public bool hasSeenPlayer = false;
+
     public Vector3 personalLastSighting;
+
     private SphereCollider col;
     public NavMeshAgent agent;
+
     public int awarenessRange = 20;
     public float visionRange = 100.0f;
 
@@ -28,18 +32,9 @@ public class EnemyVision : MonoBehaviour
 
     void Start()
     {
-        playerObject = GameObject.FindGameObjectWithTag("Player");
-        player = playerObject.transform;
+        tgtObject = GameObject.FindGameObjectWithTag("Player");
+        target = tgtObject.transform;
         agent = GetComponentInParent<NavMeshAgent>();
-    }
-
-    public void activateAttack()
-    {
-        isAttacking = true;
-    }
-    public void deactivateAttack()
-    {
-        isAttacking = false;
     }
 
     void Update()
@@ -52,12 +47,12 @@ public class EnemyVision : MonoBehaviour
             if (hasBeenShot == true)
             {
                 agent.obstacleAvoidanceType = ObstacleAvoidanceType.GoodQualityObstacleAvoidance;
-                playerLastPosition = player.position;
+                tgtLastPosition = target.position;
                 hasSeenPlayer = true;
             }
 
             RaycastHit hit;
-            Vector3 targetPt = player.position + Vector3.up * 18.0f; // projecting off feet
+            Vector3 targetPt = target.position + Vector3.up * 18.0f; // projecting off feet
             Vector3 direction = targetPt - transform.position;
             float angle = Vector3.Angle(direction, transform.forward);
 
@@ -81,7 +76,7 @@ public class EnemyVision : MonoBehaviour
 
             if (visionConeSeesPlayer || nearAwarenessNoticesPlayer)
             {
-                playerLastPosition = targetPt;
+                tgtLastPosition = targetPt;
                 agent.obstacleAvoidanceType = ObstacleAvoidanceType.GoodQualityObstacleAvoidance;
                 hasBeenShot = false;
 
@@ -92,8 +87,8 @@ public class EnemyVision : MonoBehaviour
                 if (Vector3.Distance(targetPt, transform.position) > attackRange)
                 {
 
-                    this.agent.SetDestination(player.position);
-                    playerLastPosition = hit.point;
+                    this.agent.SetDestination(target.position);
+                    tgtLastPosition = hit.point;
                     // Debug.Log("Last player position" + playerLastPosition);
                     hasSeenPlayer = true;
                 }
@@ -109,23 +104,23 @@ public class EnemyVision : MonoBehaviour
                 {
                     //Debug.Log("PLAYER SEEN GO TO PLAYER");
                     // awarenessRange = 5;
-                    float distanceToTarget = Vector3.Distance(playerLastPosition, enemyTransform.transform.position);
+                    float distanceToTarget = Vector3.Distance(tgtLastPosition, enemyTransform.transform.position);
                     float distanceThreshold = .6f;
-                    //if (distanceToTarget > distanceThreshold)
-                    //{
-                    //    agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
-                    //    //Debug.Log("DistToTarget " + distanceToTarget);
-                    //    //Debug.Log("DistToThresh " + distanceThreshold);
-                    //    Debug.Log("Searching for player at last position");
-                    //    this.agent.SetDestination(playerLastPosition);
-                    //}
-                    //else if (distanceToTarget <= distanceThreshold || agent.velocity == Vector3.zero)
-                    //{
-                    //    // Debug.Log("At last player position");
-                    //    this.agent.SetDestination(enemyTransform.position);
-                    //    agent.obstacleAvoidanceType = ObstacleAvoidanceType.GoodQualityObstacleAvoidance;
-                    //    hasSeenPlayer = false;
-                    //}
+                    if (distanceToTarget > distanceThreshold)
+                    {
+                        agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
+                        //Debug.Log("DistToTarget " + distanceToTarget);
+                        //Debug.Log("DistToThresh " + distanceThreshold);
+                        Debug.Log("Searching for player at last position");
+                        this.agent.SetDestination(tgtLastPosition);
+                    }
+                    else if (distanceToTarget <= distanceThreshold || agent.velocity == Vector3.zero)
+                    {
+                        // Debug.Log("At last player position");
+                        this.agent.SetDestination(enemyTransform.position);
+                        agent.obstacleAvoidanceType = ObstacleAvoidanceType.GoodQualityObstacleAvoidance;
+                        hasSeenPlayer = false;
+                    }
 
                     //SearchForTarget();
                 }
@@ -140,7 +135,6 @@ public class EnemyVision : MonoBehaviour
         else
         {
             this.GetComponent<CapsuleCollider>().enabled = false;
-            //spawnCloud.Play();
         }
 
     }
@@ -148,18 +142,7 @@ public class EnemyVision : MonoBehaviour
     private void SearchForTarget()
     {
         //Debug.Log("Searching for target");
-        this.agent.SetDestination(playerLastPosition);
-    }
-
-    void OnTriggerEnter(Collider collision)
-    {
-
-        /*if (collision.gameObject.tag == "Player")
-         {
-             agent.obstacleAvoidanceType = ObstacleAvoidanceType.GoodQualityObstacleAvoidance;
-             playerLastPosition = player.position;
-             hasSeenPlayer = true;
-         }*/
+        this.agent.SetDestination(tgtLastPosition);
     }
 }
 

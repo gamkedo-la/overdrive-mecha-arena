@@ -21,6 +21,7 @@ public class ChaseState : State
     private float defaultAiSpeed = 50.0f;
 
     private float minRangeBeforeDashAllowed = 150.0f;
+    private float retreatDistance = 80.0f;
 
     private int highValueTgts, midValueTgts, lowValueTgts = 0;
     private float thisAgentPriorityScore;
@@ -125,18 +126,30 @@ public class ChaseState : State
             {
                 thisAgent.speed = defaultAiSpeed;
             }
+
+            //TODO: polish LookAt code so it's more natural and less instantanious
+            // NOTE: Since the GO consists of several parts stitched together in Blender we could also make specific body parts look at a position through code
+            agent.transform.LookAt(targetTransform.position);
+
+            //if (distance > thisAgent.stoppingDistance)
+            //{
+            //    thisAgent.SetDestination(targetTransform.position);
+            //}
+            //else if(distance < retreatDistance)
+            //{
+            //    Vector3 toTgt = targetTransform.position - agent.transform.position;
+            //    Vector3 tgtPos = toTgt.normalized * -10f;
+
+            //    thisAgent.SetDestination(tgtPos);
+            //}
+
+            // improve set destination so it strafes around its target in a semi-random manner
+            thisAgent.SetDestination(targetTransform.position);
         }
         else
         {
             agent.SetState(new PatrolState(agent));
         }
-
-        // improve set destination so it strafes around its target in a semi-random manner
-        thisAgent.SetDestination(targetTransform.position);
-
-        //TODO: polish LookAt code so it's more natural and less instantanious
-        // NOTE: Since the GO consists of several parts stitched together in Blender we could also make specific body parts look at a position through code
-        agent.transform.LookAt(targetTransform.position);
     }
 
     private void PlayAnimations()
