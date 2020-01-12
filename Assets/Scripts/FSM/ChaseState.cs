@@ -15,10 +15,10 @@ public class ChaseState : State
     private EnemyShooting shootingScript;
     private Health thisAgentHealth;
 
-    private float dashSpeed = 100.0f;
+    private float dashSpeed = 500.0f;
     // dashTimeLimit not implemented yet but should be used to limit dashing ability to prevent infinite dash
     private float dashTimeLimit = 5.0f;
-    private float defaultAiSpeed = 50.0f;
+    private float defaultAiSpeed = 100.0f;
 
     private float minRangeBeforeDashAllowed = 150.0f;
     private float retreatDistance = 80.0f;
@@ -113,6 +113,8 @@ public class ChaseState : State
     {
         var distance = Vector3.Distance(agent.transform.position, targetTransform.position);
 
+        Debug.Log(distance);
+
         // only chase target if it's still withing firing range
         if (distance < shootingScript.getBreakContactRange)
         {
@@ -120,7 +122,7 @@ public class ChaseState : State
 
             if (shootingScript.isTryingToDash)
             {
-                thisAgent.speed = dashSpeed;
+                thisAgent.speed = defaultAiSpeed * dashSpeed;
             }
             else
             {
@@ -129,32 +131,40 @@ public class ChaseState : State
 
             //TODO: polish LookAt code so it's more natural and less instantanious
             // NOTE: Since the GO consists of several parts stitched together in Blender we could also make specific body parts look at a position through code
-            agent.transform.LookAt(targetTransform.position);
+            //agent.transform.LookAt(targetTransform.position);
 
-            //if (distance > thisAgent.stoppingDistance)
-            //{
-            //    thisAgent.SetDestination(targetTransform.position);
-            //}
-            //else if(distance < retreatDistance)
-            //{
-            //    Vector3 toTgt = targetTransform.position - agent.transform.position;
-            //    Vector3 tgtPos = toTgt.normalized * -10f;
+            if (distance > thisAgent.stoppingDistance)
+            {
+                thisAgent.SetDestination(targetTransform.position);
+            }
+            else if (distance < retreatDistance)
+            {
+                Vector3 toTgt = targetTransform.position - agent.transform.position;
+                Vector3 tgtPos = toTgt.normalized * -200f + targetTransform.position;
 
-            //    thisAgent.SetDestination(tgtPos);
-            //}
+                thisAgent.SetDestination(tgtPos);
+
+
+                if (agent.debugPoint)
+                {
+                    agent.debugPoint.position = tgtPos;
+                }
+
+            }
 
             // improve set destination so it strafes around its target in a semi-random manner
-            thisAgent.SetDestination(targetTransform.position);
+            //thisAgent.SetDestination(targetTransform.position);
         }
         else
         {
+            Debug.Log("Entering Patrol State");
             agent.SetState(new PatrolState(agent));
         }
     }
 
     private void PlayAnimations()
     {
-        if(agent.getAnimator == null)
+        if (agent.getAnimator == null)
         {
             Debug.LogWarning("animator not found for agent: " + thisAgent.name);
             return;

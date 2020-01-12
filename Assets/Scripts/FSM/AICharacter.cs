@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class AICharacter : MonoBehaviour
 {
     [SerializeField] private Mecha mech;
+    public Transform debugPoint;
 
     private SphereCollider col;
     public NavMeshAgent agent;
