@@ -6745,7 +6745,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -6778,7 +6778,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -8487,7 +8487,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &544193126
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10290,6 +10290,7 @@ GameObject:
   - component: {fileID: 649225987}
   - component: {fileID: 649225991}
   - component: {fileID: 649225990}
+  - component: {fileID: 649225992}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -10408,6 +10409,26 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &649225992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649225986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_RendererOverrideOption: 1
+  m_RendererData: {fileID: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!4 &655992992 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 90109622726138418, guid: 11751b0b94808284eb9d94ae7a019698,
@@ -10736,6 +10757,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Speed Mech Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4234567098220050998, guid: 0990fce9499226f4d934f018624fbac0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4234567098220050997, guid: 0990fce9499226f4d934f018624fbac0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10796,10 +10822,15 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4234567098220050996, guid: 0990fce9499226f4d934f018624fbac0,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4234567098220050992, guid: 0990fce9499226f4d934f018624fbac0,
         type: 3}
       propertyPath: m_StoppingDistance
-      value: 200
+      value: 115
       objectReference: {fileID: 0}
     - target: {fileID: 6378666372561883148, guid: 0990fce9499226f4d934f018624fbac0,
         type: 3}

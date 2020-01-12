@@ -72,6 +72,9 @@ public class ChaseState : State
         if (targetTransform != null)
         {
             shootingScript.FireWeapon(currentTgt, defaultAiSpeed, dashSpeed);
+
+            agent.transform.LookAt(targetTransform.position);
+            agent.transform.rotation = Quaternion.Slerp(agent.transform.rotation, Quaternion.LookRotation(targetTransform.position - agent.transform.position), 0.05f);
         }
     }
 
@@ -131,7 +134,6 @@ public class ChaseState : State
 
             //TODO: polish LookAt code so it's more natural and less instantanious
             // NOTE: Since the GO consists of several parts stitched together in Blender we could also make specific body parts look at a position through code
-            //agent.transform.LookAt(targetTransform.position);
 
             if (distance > thisAgent.stoppingDistance)
             {
