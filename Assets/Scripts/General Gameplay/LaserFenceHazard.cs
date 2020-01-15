@@ -19,7 +19,7 @@ public class LaserFenceHazard : MonoBehaviour
         if (mechaHealth != null)
         {
             Debug.Log("Mecha hit by dangerous object!");
-            mechaHealth.TakeDamage(damage);
+            mechaHealth.TakeDamage(damage, gameObject.transform);
         }
         else
         {

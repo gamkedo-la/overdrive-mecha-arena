@@ -61,7 +61,7 @@ public class EnemyShooting : Shooting
         }
         else
         {
-            tgt.TakeDamage(damage);
+            tgt.TakeDamage(damage, gameObject.transform);
         }
     }
 
@@ -101,7 +101,7 @@ public class EnemyShooting : Shooting
 
             if (random <= accuracy)
             {
-                tgt.TakeDamage(damage);
+                tgt.TakeDamage(damage, gameObject.transform);
             }
         }
         else

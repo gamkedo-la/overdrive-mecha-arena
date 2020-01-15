@@ -49,6 +49,11 @@ public class ChaseState : State
 
     public override void Tick()
     {
+        if (thisAgentHealth.getCurrentHP <= (thisAgentHealth.getCurrentHP / 3) && !agent.gameObject.CompareTag("Non-playables") && !agent.gameObject.CompareTag("Player"))
+        {
+            agent.SetState(new RetreatState(agent));
+        }
+
         SelectTarget();
         if (validTargets.Count == 0)
         {
@@ -116,7 +121,7 @@ public class ChaseState : State
     {
         var distance = Vector3.Distance(agent.transform.position, targetTransform.position);
 
-        Debug.Log(distance);
+        //Debug.Log(distance);
 
         // only chase target if it's still withing firing range
         if (distance < shootingScript.getBreakContactRange)
@@ -159,7 +164,7 @@ public class ChaseState : State
         }
         else
         {
-            Debug.Log("Entering Patrol State");
+            //Debug.Log("Entering Patrol State");
             agent.SetState(new PatrolState(agent));
         }
     }

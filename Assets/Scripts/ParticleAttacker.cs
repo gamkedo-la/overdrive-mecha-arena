@@ -14,7 +14,7 @@ public class ParticleAttacker : MonoBehaviour
         if (mechaHealth != null)
         {
             // Debug.Log("Mecha hit by dangerous particle!");
-            mechaHealth.TakeDamage(damage);
+            mechaHealth.TakeDamage(damage, gameObject.transform);
         }
     }
 }

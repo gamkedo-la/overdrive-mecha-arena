@@ -9,12 +9,14 @@ public class Health : MonoBehaviour
     [SerializeField] private float defense = 100;
     [SerializeField] private Mecha mech;
 
+    private Transform myAttacker;
+
     private float respawnTimer = 0.0f;
 
     private float currentHP;
-     
+
     private string[] priorityValues = new string[] { "high", "medium", "low" };
-      
+
     // Next three lines used to determine how valuable this target is according to how much HP it has left
     private int highPriorityThreshold = 50;
     private int mediumPriorityThreshold = 100;
@@ -27,6 +29,7 @@ public class Health : MonoBehaviour
     private SpawnParticipantIfAble respawnManager;
     public Mecha _mech { get { return mech; } }
     public bool _isInvulnerable { set { isInvulnerable = value; } }
+    public Transform _myAttacker { get { return myAttacker; } }
 
     public float getPriorityScore
     {
@@ -53,8 +56,10 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
-        // Set defense, starting HP, priority threshold according to mech type
-       // respawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnParticipantIfAble>();
+        startingHP = mech.health;
+        defense = mech.defense;
+
+        respawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnParticipantIfAble>();
     }
 
     public bool IsDying()
@@ -69,12 +74,18 @@ public class Health : MonoBehaviour
         currentHP = startingHP;
     }
 
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(int damageAmount, Transform attacker)
     {
         if (!isInvulnerable)
         {
             currentHP -= damageAmount;
             //Debug.Log(gameObject.name + " took " + damageAmount + " damage, now has hp: " + currentHP);
+
+            //update myAttacker to reflect this agent's current attacker; this will then be available to the Retreat State so this agent can run away from the attacker
+            if (attacker.CompareTag("Player") || attacker.CompareTag("Enemy"))
+            {
+                myAttacker = attacker;
+            }
 
             SetMyValueAsATarget();
 
@@ -106,11 +117,6 @@ public class Health : MonoBehaviour
         }
     }
 
-    private void Retreat()
-    {
-
-    }
-
     private void Die()
     {
         InvokeRepeating("SpawnCooldown", 0.0f, 1.0f);
@@ -127,7 +133,7 @@ public class Health : MonoBehaviour
     {
         respawnTimer++;
 
-        if (respawnManager && respawnTimer >= respawnManager._respawnRate)
+        if (respawnManager != null && respawnTimer >= respawnManager._respawnRate)
         {
             respawnManager.Respawn(gameObject);
         }

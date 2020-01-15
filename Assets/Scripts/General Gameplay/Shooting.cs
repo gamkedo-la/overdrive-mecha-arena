@@ -145,7 +145,7 @@ public class Shooting : MonoBehaviour
             var health = hitInfo.collider.GetComponent<Health>();
             if (health != null)
             {
-                health.TakeDamage(damage);
+                health.TakeDamage(damage, gameObject.transform);
             }
         }
         else
