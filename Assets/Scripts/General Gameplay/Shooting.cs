@@ -58,7 +58,7 @@ public class Shooting : MonoBehaviour
 
     protected virtual void Start()
     {
-        // Initial values are a pseuo-reference for the light mode effects on shooting and do no take mech types into account
+        // Initial values are a pseudo-reference for the light mode effects on shooting and do no take mech types into account
         damage = 1;
         range = 300.0f;
         fireRate = 0.1f;

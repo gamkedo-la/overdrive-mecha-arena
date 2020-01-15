@@ -27,7 +27,7 @@ public class BulletObjectPool : MonoBehaviour
                 // Return a ready one:
                 if(bulletReady == true)
                 {
-                    Debug.Log("Bullet returned from pool: " + childBullet.name);
+                    //Debug.Log("Bullet returned from pool: " + childBullet.name);
                     return childBullet.gameObject;
                 }
             }

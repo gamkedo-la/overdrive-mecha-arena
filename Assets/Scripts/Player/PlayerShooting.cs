@@ -12,6 +12,8 @@ public class PlayerShooting : Shooting
     [SerializeField] private Mecha mecha;
     private Transform bulletPool;
 
+    public float _playerShootingRange { get { return range; } }
+
     protected override void Start()
     {
         base.Start();

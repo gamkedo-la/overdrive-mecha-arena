@@ -51,8 +51,9 @@ public class Health : MonoBehaviour
     }
     public int getBaseHP { get { return startingHP; } }
 
-    // Make it so this returns a percentage based off our starting hp. For example, 250 (speed mech HP) is 100% and 125 is 50%.
-    public float getCurrentHP { get { return currentHP / 2; } }
+    // Make it so the next line returns a percentage based off our starting hp. For example, 250 (speed mech HP) is 100% and 125 is 50%. It will be used by the UI
+    public float getCurrentHealthForUIPurposes { get { return currentHP / 2; } }
+    public float getCurrentHP { get { return currentHP; } }
 
     private void Start()
     {
@@ -85,6 +86,11 @@ public class Health : MonoBehaviour
             if (attacker.CompareTag("Player") || attacker.CompareTag("Enemy"))
             {
                 myAttacker = attacker;
+            }
+
+            if(currentHP <= currentHP/3)
+            {
+                // Set combat mode to heavy mode and prevent this mech from switching until they are no longer low on HP
             }
 
             SetMyValueAsATarget();

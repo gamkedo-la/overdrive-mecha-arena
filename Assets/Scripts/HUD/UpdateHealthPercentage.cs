@@ -17,7 +17,7 @@ public class UpdateHealthPercentage : MonoBehaviour
 
     void Start()
     {
-        //TMProText.SetText(playerHealth.getCurrentHP.ToString() + "%");
+        //TMProText.SetText(playerHealth.getCurrentHealthForUIPurposes.ToString() + "%");
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class UpdateHealthPercentage : MonoBehaviour
     {
         if(playerHealth.getCurrentHP > 0)
         {
-            TMProText.SetText(playerHealth.getCurrentHP.ToString() + "%");
+            TMProText.SetText(playerHealth.getCurrentHealthForUIPurposes.ToString() + "%");
         }
     }
 
