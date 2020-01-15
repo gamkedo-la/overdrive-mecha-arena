@@ -76,6 +76,8 @@ public class RetreatState : State
         {
             if (enemyPos.CompareTag("Player"))
             {
+                // TODO: handle the retreat location code without constantly calling the SetDestination since this currently 
+                // causes the AI to freak out and move to every possible retreat point regardless of distance check
                 navAgent.SetDestination(RandomNavmeshLocation(playerShooting._playerShootingRange + 150f));
             }
             else if (enemyPos.CompareTag("Enemy") && !enemyPos.CompareTag("Non-playables"))
