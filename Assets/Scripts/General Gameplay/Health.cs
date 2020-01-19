@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private int startingHP = 200;
-    private float shields = 100;
     [SerializeField] private Mecha mech;
     [SerializeField] private float shieldToHealthConversionLimitMultiplier = 1.5f;
+    private int startingHP = 200;
+    private float shields = 100;
+
+    private PlayerOverdriveCamControl playerOverdrive;
+    private SetVcamFollowAndLookAt setVcamScript;
 
     private Transform myAttacker;
 
@@ -64,13 +67,23 @@ public class Health : MonoBehaviour
         shields = mech.defense;
 
         respawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnParticipantIfAble>();
+
+        if(gameObject.CompareTag("Player"))
+        {
+            setVcamScript = GetComponent<SetVcamFollowAndLookAt>();
+            playerOverdrive = setVcamScript._vcam.GetComponent<PlayerOverdriveCamControl>();
+        }
     }
 
     private void Update()
     {
         if(gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player has " + currentHP + " out of " + startingHP);
+            //Debug.Log("Player has " + currentHP + " out of " + startingHP);
+            if(currentHP > startingHP)
+            {
+                playerOverdrive.SetDrunkenNoise(true);
+            }
         }
     }
 

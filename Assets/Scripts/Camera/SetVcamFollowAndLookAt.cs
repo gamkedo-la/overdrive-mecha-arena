@@ -9,6 +9,8 @@ public class SetVcamFollowAndLookAt : MonoBehaviour
     [SerializeField] private Transform camLookAt;
     private CinemachineVirtualCamera vcamScript;
 
+    public GameObject _vcam { get { return VcamGO; } }
+
     private void Awake()
     {
         VcamGO = GameObject.Find("CM vcam1");

@@ -20141,6 +20141,7 @@ GameObject:
   - component: {fileID: 1368355441}
   - component: {fileID: 1368355442}
   - component: {fileID: 1368355443}
+  - component: {fileID: 1368355444}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -20241,8 +20242,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 1
-  viewTiltMin: -15
-  viewTiltMax: 15
+  viewTiltMin: -20
+  viewTiltMax: 18
+--- !u!114 &1368355444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368355439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ccac22c4f2c0c444aae4a8e09d9f2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drunkenProfile: {fileID: 11400000, guid: d21121f91acc35e4da7d678cdf3a8852, type: 2}
 --- !u!1001 &1374018653
 PrefabInstance:
   m_ObjectHideFlags: 0
