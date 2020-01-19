@@ -89,7 +89,7 @@ public class Shooting : MonoBehaviour
         //print(speed);
     }
 
-    protected virtual void FireWeapon(Transform bulletPool, bool isPlayer)
+    protected virtual void FireWeapon(Transform bulletPool, bool isPlayer, bool isHealthRegenShot)
     {
         Ray ray;
         if (isPlayer)
@@ -143,9 +143,13 @@ public class Shooting : MonoBehaviour
             //Debug.Log("Shot hit: " + hitInfo.collider.name);
 
             var health = hitInfo.collider.GetComponent<Health>();
-            if (health != null)
+            if (health != null && !isHealthRegenShot)
             {
                 health.TakeDamage(damage, gameObject.transform);
+            }
+            else if(health != null && isHealthRegenShot)
+            {
+                health.StealShieldAndConvertToHP(damage, gameObject.transform, gameObject.GetComponent<Health>());
             }
         }
         else

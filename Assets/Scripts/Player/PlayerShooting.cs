@@ -34,7 +34,12 @@ public class PlayerShooting : Shooting
             if (Input.GetButton("Fire1"))
             {
                 shotTimer = 0f;
-                base.FireWeapon(bulletPool, true);
+                base.FireWeapon(bulletPool, true, false);
+            }
+            else if(Input.GetButton("Fire2"))
+            {
+                shotTimer = 0f;
+                base.FireWeapon(bulletPool, true, true);
             }
         }
     }

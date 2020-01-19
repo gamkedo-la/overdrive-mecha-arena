@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int startingHP = 200;
-    [SerializeField] private float defense = 100;
+    private int startingHP = 200;
+    private float shields = 100;
     [SerializeField] private Mecha mech;
+    [SerializeField] private float shieldToHealthConversionLimitMultiplier = 1.5f;
 
     private Transform myAttacker;
 
@@ -52,15 +53,25 @@ public class Health : MonoBehaviour
     public int getBaseHP { get { return startingHP; } }
 
     // Make it so the next line returns a percentage based off our starting hp. For example, 250 (speed mech HP) is 100% and 125 is 50%. It will be used by the UI
-    public float getCurrentHealthForUIPurposes { get { return currentHP / 2; } }
+    public float getCurrentHealthForUIPurposes { get { return currentHP / startingHP * 100; } }
     public float getCurrentHP { get { return currentHP; } }
+    public float healthRegen { set { currentHP += value; } }
 
     private void Start()
     {
         startingHP = mech.health;
-        defense = mech.defense;
+        currentHP = startingHP;
+        shields = mech.defense;
 
         respawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnParticipantIfAble>();
+    }
+
+    private void Update()
+    {
+        if(gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Player has " + currentHP + " out of " + startingHP);
+        }
     }
 
     public bool IsDying()
@@ -98,6 +109,35 @@ public class Health : MonoBehaviour
             if (currentHP <= 0)
             {
                 Die();
+            }
+        }
+        else
+        {
+            //Debug.Log(gameObject.name + " is INVULNERABLE!!!");
+        }
+    }
+    public void StealShieldAndConvertToHP(int damage, Transform attacker, Health callerHealth)
+    {
+        if (!isInvulnerable)
+        {
+            shields -= damage;
+            //Debug.Log(gameObject.name + " took " + damage + " shield damage, now has: " + shields);
+
+            //update myAttacker to reflect this agent's current attacker; this will then be available to the Retreat State so this agent can run away from the attacker
+            if (attacker.CompareTag("Player") || attacker.CompareTag("Enemy"))
+            {
+                myAttacker = attacker;
+            }
+
+            if (shields <= 0)
+            {
+                //DetonateElectricalCharge();
+            }
+
+            if(callerHealth.getCurrentHP <= callerHealth.getBaseHP * shieldToHealthConversionLimitMultiplier)
+            {
+                callerHealth.healthRegen = damage;
+                //Debug.Log(callerHealth.gameObject.name + " converted " + damage + " enemy shields points for health");
             }
         }
         else
@@ -144,4 +184,5 @@ public class Health : MonoBehaviour
             respawnManager.Respawn(gameObject);
         }
     }
+
 }
