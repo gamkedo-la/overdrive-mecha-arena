@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -19,6 +20,7 @@ public class RetreatState : State
     private bool isFightingBack = false;
 
     private float minDistanceFromEnemyPos;
+    private Vector3 finalRetreatPos;
 
     public RetreatState(AICharacter agent) : base(agent)
     {
@@ -55,17 +57,14 @@ public class RetreatState : State
         }
     }
 
+    public override void FixedTick()
+    {
+
+    }
+
     public override void Tick()
     {
         enemyPos = health._myAttacker;
-
-        var distance = Vector3.Distance(agent.transform.position, enemyPos.position);
-
-        if ((aiAttackerShootingScript != null && distance >= aiAttackerShootingScript.getBreakContactRange && enemyPos.CompareTag("Enemy") && !enemyPos.CompareTag("Non-playables")) ||
-            (enemyPos.CompareTag("Player") && distance >= playerShooting._playerShootingRange))
-        {
-            agent.SetState(new PatrolState(agent));
-        }
 
         // Determine which type of mech this AI is
         // Semi-randomly select whether this AI should run away or stand and fight (mech type will play a role in this behavior)
@@ -74,60 +73,77 @@ public class RetreatState : State
 
         if (!isRunningAway)
         {
-            if (enemyPos.CompareTag("Player"))
-            {
-                // TODO: handle the retreat location code without constantly calling the SetDestination since this currently 
-                // causes the AI to freak out and move to every possible retreat point regardless of distance check
-                navAgent.SetDestination(RandomNavmeshLocation(playerShooting._playerShootingRange + 150f));
-            }
-            else if (enemyPos.CompareTag("Enemy") && !enemyPos.CompareTag("Non-playables"))
-            {
-                navAgent.SetDestination(RandomNavmeshLocation(aiAttackerShootingScript.getBreakContactRange + 150f));
-            }
-            else
-            {
-                Debug.LogError(agent.gameObject.name + "'s " + "attacker is null or unknown!");
-            }
+            RunAway();
+        }
+        else
+        {
+            // AI is running away and is still in contact with attacker or a new attacker enters the mix
+            // Do I continue to run away, face my current attacker, or self-destruct?
         }
 
+        CheckForSuccessfulRetreatViaDistance();
     }
 
-    public override void FixedTick()
+    private void RunAway()
     {
-
+        if (enemyPos.CompareTag("Player") && FindValidRetreatPoint(playerShooting._playerShootingRange + 150f))
+        {
+            navAgent.SetDestination(finalRetreatPos);
+        }
+        else if (enemyPos.CompareTag("Enemy") && !enemyPos.CompareTag("Non-playables") && FindValidRetreatPoint(aiAttackerShootingScript.getBreakContactRange + 150f))
+        {
+            navAgent.SetDestination(finalRetreatPos);
+        }
+        else
+        {
+            Debug.Log(agent.gameObject.name + " cannot retreat due to null attacker or invalid retreat position!");
+        }
     }
 
-    public Vector3 RandomNavmeshLocation(float radius)
+    private void CheckForSuccessfulRetreatViaDistance()
     {
-        Debug.Log("Attempting to find a valid retreat point");
+        var distance = Vector3.Distance(agent.transform.position, enemyPos.position);
 
-        Vector3 randomDirection = Random.insideUnitSphere * radius;
+        if ((aiAttackerShootingScript != null && distance >= aiAttackerShootingScript.getBreakContactRange && enemyPos.CompareTag("Enemy") && !enemyPos.CompareTag("Non-playables")) ||
+            (enemyPos.CompareTag("Player") && distance >= playerShooting._playerShootingRange))
+        {
+            agent.SetState(new PatrolState(agent));
+        }
+    }
+
+
+    public bool FindValidRetreatPoint(float radius)
+    {
+        //Debug.Log("Attempting to find a valid retreat point");
+
+        Vector3 randomDirection = UnityEngine.Random.insideUnitSphere * radius;
         randomDirection += agent.transform.position;
         NavMeshHit hit;
-        Vector3 finalPosition = Vector3.zero;
+        finalRetreatPos = Vector3.zero;
 
         if (NavMesh.SamplePosition(randomDirection, out hit, radius, 1))
         {
             var distance = Vector3.Distance(hit.position, enemyPos.position);
-            Debug.Log("The distance between my attacker and my retreat point is: " + distance);
+            //Debug.Log("The distance between my attacker and my retreat point is: " + distance);
 
             if (distance < minDistanceFromEnemyPos)
             {
                 isRunningAway = false;
+                return false;
             }
             else
             {
-                Debug.Log("Found a valid retreat point");
+                //Debug.Log("Found a valid retreat point");
                 isRunningAway = true;
-                finalPosition = hit.position;
+                finalRetreatPos = hit.position;
+                return true;
             }
-
         }
         else
         {
             isRunningAway = false;
         }
 
-        return finalPosition;
+        return false;
     }
 }
