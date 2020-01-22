@@ -7,6 +7,7 @@ TagManager:
   - Triggers
   - Non-playables
   - Enemy
+  - Crate
   layers:
   - Default
   - TransparentFX
