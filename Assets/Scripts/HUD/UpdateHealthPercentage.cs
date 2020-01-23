@@ -25,7 +25,7 @@ public class UpdateHealthPercentage : MonoBehaviour
     {
         if(playerHealth.getCurrentHP > 0)
         {
-            TMProText.SetText(playerHealth.getCurrentHealthForUIPurposes.ToString() + "%");
+            TMProText.SetText(playerHealth.getCurrentHealthAsPercentage.ToString() + "%");
         }
     }
 

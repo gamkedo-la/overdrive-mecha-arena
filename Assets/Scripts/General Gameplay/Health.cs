@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     [SerializeField] private Mecha mech;
     [SerializeField] private float shieldToHealthConversionLimitMultiplier = 1.5f;
     private int startingHP = 200;
+    private float normalShieldLevels;
     private float shields = 100;
 
     private PlayerOverdriveCamControl playerOverdrive;
@@ -54,16 +55,20 @@ public class Health : MonoBehaviour
         }
     }
     public int getBaseHP { get { return startingHP; } }
-
-    // Make it so the next line returns a percentage based off our starting hp. For example, 250 (speed mech HP) is 100% and 125 is 50%. It will be used by the UI
-    public float getCurrentHealthForUIPurposes { get { return currentHP / startingHP * 100; } }
+    public float getCurrentHealthAsPercentage { get { return currentHP / startingHP * 100; } }
     public float getCurrentHP { get { return currentHP; } }
     public float healthRegen { set { currentHP += value; } }
+    public int _shieldLevels { get { return (int) (shields / normalShieldLevels * 100); } }
+
+    private float timer;
+    [SerializeField] private float shieldRechargeDelay = 7.5f;
+    private bool isUsingShield = false;
 
     private void Start()
     {
         startingHP = mech.health;
         currentHP = startingHP;
+        normalShieldLevels = mech.defense;
         shields = mech.defense;
 
         respawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnParticipantIfAble>();

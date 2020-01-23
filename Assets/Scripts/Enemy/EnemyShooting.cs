@@ -25,7 +25,6 @@ public class EnemyShooting : Shooting
         breakContactAtThisRange = range;
 
         health = GetComponent<Health>();
-        // Set this AI's shooting stats according to it's mecha type
     }
 
 
@@ -56,7 +55,14 @@ public class EnemyShooting : Shooting
 
                 //print(gameObject.name + " accuracy: " + accuracy);
 
-                Attack(tgt);
+                if (ShouldDamageTarget(tgt))
+                {
+                    DamageTarget(tgt);
+                }
+                else
+                {
+                    tgt.StealShieldAndConvertToHP(damage, gameObject.transform, health);
+                }
             }
         }
         else
@@ -65,7 +71,17 @@ public class EnemyShooting : Shooting
         }
     }
 
-    private void Attack(Health tgt)
+    private bool ShouldDamageTarget(Health tgt)
+    {
+        if(health.getCurrentHealthAsPercentage >= tgt.getCurrentHealthAsPercentage / 2)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private void DamageTarget(Health tgt)
     {
         shotTimer = 0;
 
@@ -91,7 +107,7 @@ public class EnemyShooting : Shooting
             print("Could not get " + tgt.name + "'s shooting component");
         }
 
-        if (!Physics.Linecast(shotOrigin.position, tgt.transform.position) && distance <= range) //Only attack if line of sight is clear and target is within range
+        if (!Physics.Linecast(shotOrigin.position + Vector3.up * 18.0f, tgt.transform.position) && distance <= range) //Only attack if line of sight is clear and target is within range
         {
             accuracy = ReduceAccuracyBasedOffTgtMovement(tgtSpeed, tgt._mech.dashSpeed, tgt._mech.fowardMoveSpeed, tgtIsDashing);
 

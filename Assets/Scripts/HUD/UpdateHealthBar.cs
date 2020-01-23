@@ -17,9 +17,9 @@ public class UpdateHealthBar : MonoBehaviour
 
     private void Update()
     {
-        if (playerHealth.getCurrentHealthForUIPurposes > 0)
+        if (playerHealth.getCurrentHealthAsPercentage > 0)
         {
-            healthBar.fillAmount = playerHealth.getCurrentHealthForUIPurposes / 100.0f;
+            healthBar.fillAmount = playerHealth.getCurrentHealthAsPercentage / 100.0f;
         }
     }
     public void SetPlayerHealthScript(Health health)

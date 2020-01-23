@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyVision : MonoBehaviour
+public class EnemyVision : AICharacter
 {
 
     public Transform target;
@@ -22,25 +22,19 @@ public class EnemyVision : MonoBehaviour
 
     public Vector3 personalLastSighting;
 
-    private SphereCollider col;
-    public NavMeshAgent agent;
-
     public int awarenessRange = 20;
     public float visionRange = 100.0f;
-
-    private bool isSearching = false;
 
     void Start()
     {
         tgtObject = GameObject.FindGameObjectWithTag("Player");
         target = tgtObject.transform;
-        agent = GetComponentInParent<NavMeshAgent>();
     }
 
     void Update()
     {
-
         isDying = GetComponentInParent<Health>().IsDying();
+
         if (isDying == false)
         {
 
@@ -56,17 +50,17 @@ public class EnemyVision : MonoBehaviour
             Vector3 direction = targetPt - transform.position;
             float angle = Vector3.Angle(direction, transform.forward);
 
-            bool didRayHitPlayer = Physics.Raycast(transform.position, direction, out hit, 1000) && hit.collider.gameObject.tag == "Player";
+            bool didRayHitValidTarget = Physics.Raycast(transform.position, direction, out hit, _mech.range) && (hit.collider.gameObject.tag == "Player" || hit.collider.gameObject.tag == "Enemy");
 
-            bool visionConeSeesPlayer = false;
-            bool nearAwarenessNoticesPlayer = false;
+            bool visionConeSeesTarget = false;
+            bool nearAwarenessNoticesTarget = false;
 
-            if (didRayHitPlayer)
+            if (didRayHitValidTarget)
             {
                 Debug.DrawLine(transform.position, hit.point, Color.cyan);
-                visionConeSeesPlayer = Vector3.Distance(targetPt, transform.position) < visionRange && angle < fieldOfViewAngle;
+                visionConeSeesTarget = Vector3.Distance(targetPt, transform.position) < visionRange && angle < fieldOfViewAngle;
                 //Debug.Log(Mathf.RoundToInt(Vector3.Distance(targetPt, transform.position)) + " " + Mathf.RoundToInt(angle));
-                nearAwarenessNoticesPlayer = Vector3.Distance(targetPt, transform.position) < awarenessRange;
+                nearAwarenessNoticesTarget = Vector3.Distance(targetPt, transform.position) < awarenessRange;
                 //Debug.Log(visionConeSeesPlayer + " " + nearAwarenessNoticesPlayer);
             }
             else
@@ -74,7 +68,7 @@ public class EnemyVision : MonoBehaviour
                 Debug.DrawLine(transform.position, transform.position + direction.normalized * visionRange, Color.red);
             }
 
-            if (visionConeSeesPlayer || nearAwarenessNoticesPlayer)
+            if (visionConeSeesTarget || nearAwarenessNoticesTarget)
             {
                 tgtLastPosition = targetPt;
                 agent.obstacleAvoidanceType = ObstacleAvoidanceType.GoodQualityObstacleAvoidance;
@@ -87,7 +81,7 @@ public class EnemyVision : MonoBehaviour
                 if (Vector3.Distance(targetPt, transform.position) > attackRange)
                 {
 
-                    this.agent.SetDestination(target.position);
+                    agent.SetDestination(target.position);
                     tgtLastPosition = hit.point;
                     // Debug.Log("Last player position" + playerLastPosition);
                     hasSeenPlayer = true;
@@ -95,7 +89,7 @@ public class EnemyVision : MonoBehaviour
 
                 else
                 {
-                    this.agent.SetDestination(enemyTransform.position);
+                    agent.SetDestination(enemyTransform.position);
                 }
             }
             else
@@ -112,37 +106,22 @@ public class EnemyVision : MonoBehaviour
                         //Debug.Log("DistToTarget " + distanceToTarget);
                         //Debug.Log("DistToThresh " + distanceThreshold);
                         Debug.Log("Searching for player at last position");
-                        this.agent.SetDestination(tgtLastPosition);
+                        agent.SetDestination(tgtLastPosition);
                     }
                     else if (distanceToTarget <= distanceThreshold || agent.velocity == Vector3.zero)
                     {
                         // Debug.Log("At last player position");
-                        this.agent.SetDestination(enemyTransform.position);
+                        agent.SetDestination(enemyTransform.position);
                         agent.obstacleAvoidanceType = ObstacleAvoidanceType.GoodQualityObstacleAvoidance;
                         hasSeenPlayer = false;
                     }
-
-                    //SearchForTarget();
                 }
             }
-
-            if (!didRayHitPlayer && hasSeenPlayer)
-            {
-                SearchForTarget();
-            }
-
         }
         else
         {
             this.GetComponent<CapsuleCollider>().enabled = false;
         }
-
-    }
-
-    private void SearchForTarget()
-    {
-        //Debug.Log("Searching for target");
-        this.agent.SetDestination(tgtLastPosition);
     }
 }
 
