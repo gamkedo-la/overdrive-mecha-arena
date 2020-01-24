@@ -14,7 +14,7 @@ public class TeslaHazard : MonoBehaviour
 
     void Start()
     {
-        ps = GetComponentInParent<ParticleSystem>();
+        ps = GetComponent<ParticleSystem>();
         Physics.IgnoreLayerCollision(12, 13);
 
         StartCoroutine(waitBeforeSurging());
@@ -22,22 +22,22 @@ public class TeslaHazard : MonoBehaviour
 
     void Update()
     {
-        if(canDischargePower)
-        {
-            canDischargePower = false;
-            ParticleSystem.ShapeModule shape = ps.shape;
-            shape.radius = surgeRadius;
-        }
-        else
-        {
-            ParticleSystem.ShapeModule shape = ps.shape;
-            shape.radius = normalRadius;
-        }
+        //if (canDischargePower)
+        //{
+        //    canDischargePower = false;
+        //    ParticleSystem.ShapeModule shape = ps.shape;
+        //    shape.radius = surgeRadius;
+        //}
+        //else
+        //{
+        //    ParticleSystem.ShapeModule shape = ps.shape;
+        //    shape.radius = normalRadius;
+        //}
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if(canDischargePower)
+        if (canDischargePower)
         {
             Health mechaHealth = other.gameObject.GetComponent<Health>();
 
@@ -45,6 +45,7 @@ public class TeslaHazard : MonoBehaviour
             {
                 Debug.Log("Mecha hit by dangerous object!");
                 mechaHealth.TakeDamage(damage, gameObject.transform);
+                canDischargePower = false;
             }
             else
             {
@@ -59,7 +60,14 @@ public class TeslaHazard : MonoBehaviour
 
     IEnumerator waitBeforeSurging()
     {
-        yield return new WaitForSeconds(timeBetweenElectricalSurges);
-        canDischargePower = true;
+        while (true)
+        {
+            yield return new WaitForSeconds(timeBetweenElectricalSurges);
+            canDischargePower = true;
+            //Debug.Log("Buzz");
+            ps.Emit(20);
+            yield return new WaitForSeconds(0.1f);
+            canDischargePower = false;
+        }
     }
 }

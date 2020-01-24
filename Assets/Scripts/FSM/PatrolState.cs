@@ -10,7 +10,7 @@ public class PatrolState : State
     private Health agentHealth;
 
     private float patrolRadius = 300.0f;
-    private float patrolTimer = 5.0f;
+    private float patrolTimer = 3.0f;
 
     private float timerCount;
 
