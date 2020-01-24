@@ -6,6 +6,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] private Mecha mech;
+    [SerializeField] private GameObject shieldGO;
     [SerializeField] private float shieldToHealthConversionLimitMultiplier = 1.5f;
     private int startingHP = 200;
     private float normalShieldLevels;
@@ -58,22 +59,27 @@ public class Health : MonoBehaviour
     public float getCurrentHealthAsPercentage { get { return currentHP / startingHP * 100; } }
     public float getCurrentHP { get { return currentHP; } }
     public float healthRegen { set { currentHP += value; } }
-    public int _shieldLevels { get { return (int) (shields / normalShieldLevels * 100); } }
+    public int _shieldLevels { get { return (int)(shields / normalShieldLevels * 100); } }
 
     private float timer;
     [SerializeField] private float shieldRechargeDelay = 7.5f;
+    private float shieldRechargeRate = 1f;
     private bool isUsingShield = false;
+    public bool _isUsingShield { set { isUsingShield = value; } }// Used by AI to turn shield on or off
 
     private void Start()
     {
-        startingHP = mech.health;
-        currentHP = startingHP;
-        normalShieldLevels = mech.defense;
-        shields = mech.defense;
+        if (!gameObject.CompareTag("Non-playables"))
+        {
+            startingHP = mech.health;
+            currentHP = startingHP;
+            normalShieldLevels = mech.defense;
+            shields = mech.defense;
+        }
 
         respawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnParticipantIfAble>();
 
-        if(gameObject.CompareTag("Player"))
+        if (gameObject.CompareTag("Player"))
         {
             setVcamScript = GetComponent<SetVcamFollowAndLookAt>();
             playerOverdrive = setVcamScript._vcam.GetComponent<PlayerOverdriveCamControl>();
@@ -82,13 +88,83 @@ public class Health : MonoBehaviour
 
     private void Update()
     {
-        if(gameObject.CompareTag("Player"))
+        if (myAttacker != null && !gameObject.CompareTag("Player") && !gameObject.CompareTag("Non-playables"))
+        {
+            var distanceFromAttacker = Vector3.Distance(gameObject.transform.position, myAttacker.position);
+            if (distanceFromAttacker > mech.range)
+            {
+                myAttacker = null;
+            }
+        }
+
+        HandlePlayerShield();
+
+        if (shields <= normalShieldLevels)
+        {
+            RechargeShieldIfAble();
+        }
+
+        TurnDrunkenessOnOrOff();
+    }
+
+    private void HandlePlayerShield()
+    {
+        if (gameObject.CompareTag("Player"))
+        {
+            if (shields > 0)
+            {
+                _isUsingShield = Input.GetButton("Fire3");
+                shieldGO.SetActive(Input.GetButton("Fire3"));
+            }
+            else
+            {
+                _isUsingShield = false;
+                shieldGO.SetActive(false);
+            }
+        }
+    }
+
+    private void TurnDrunkenessOnOrOff()
+    {
+        if (gameObject.CompareTag("Player"))
         {
             //Debug.Log("Player has " + currentHP + " out of " + startingHP);
-            if(currentHP > startingHP)
+            if (currentHP > startingHP)
             {
                 playerOverdrive.SetDrunkenNoise(true);
             }
+            else
+            {
+                playerOverdrive.SetDrunkenNoise(false);
+            }
+        }
+        else if (gameObject.CompareTag("Enemy") && !gameObject.CompareTag("Non-playables"))
+        {
+            if (currentHP > startingHP)
+            {
+                // Enabled drunken behavior for AI mechs
+            }
+            else
+            {
+                // Disable drunken behavior for AI mechs
+            }
+        }
+    }
+
+    private void RechargeShieldIfAble()
+    {
+        if (!isUsingShield)
+        {
+            timer += Time.deltaTime;
+
+            if (timer >= shieldRechargeDelay)
+            {
+                shields += shieldRechargeRate * Time.deltaTime;
+            }
+        }
+        else
+        {
+            timer = 0f;
         }
     }
 
@@ -108,25 +184,37 @@ public class Health : MonoBehaviour
     {
         if (!isInvulnerable)
         {
-            currentHP -= damageAmount;
-            //Debug.Log(gameObject.name + " took " + damageAmount + " damage, now has hp: " + currentHP);
-
             //update myAttacker to reflect this agent's current attacker; this will then be available to the Retreat State so this agent can run away from the attacker
             if (attacker.CompareTag("Player") || attacker.CompareTag("Enemy"))
             {
                 myAttacker = attacker;
             }
 
-            if(currentHP <= currentHP/3)
+            if (currentHP <= currentHP / 3)
             {
                 // Set combat mode to heavy mode and prevent this mech from switching until they are no longer low on HP
             }
 
-            SetMyValueAsATarget();
-
-            if (currentHP <= 0)
+            if (isUsingShield && shields > 0)
             {
-                Die();
+                shields -= damageAmount;
+                if (shields <= 0)
+                {
+                    //DetonateElectricalCharge();
+                }
+            }
+            else
+            {
+                currentHP -= damageAmount;
+                //Debug.Log(gameObject.name + " took " + damageAmount + " damage, now has hp: " + currentHP);
+
+
+                SetMyValueAsATarget();
+
+                if (currentHP <= 0)
+                {
+                    Die();
+                }
             }
         }
         else
@@ -136,7 +224,7 @@ public class Health : MonoBehaviour
     }
     public void StealShieldAndConvertToHP(int damage, Transform attacker, Health callerHealth)
     {
-        if (!isInvulnerable)
+        if (!isInvulnerable && shields > 0)
         {
             shields -= damage;
             //Debug.Log(gameObject.name + " took " + damage + " shield damage, now has: " + shields);
@@ -152,7 +240,7 @@ public class Health : MonoBehaviour
                 //DetonateElectricalCharge();
             }
 
-            if(callerHealth.getCurrentHP <= callerHealth.getBaseHP * shieldToHealthConversionLimitMultiplier)
+            if (callerHealth.getCurrentHP <= callerHealth.getBaseHP * shieldToHealthConversionLimitMultiplier)
             {
                 callerHealth.healthRegen = damage;
                 //Debug.Log(callerHealth.gameObject.name + " converted " + damage + " enemy shields points for health");
@@ -160,7 +248,7 @@ public class Health : MonoBehaviour
         }
         else
         {
-            //Debug.Log(gameObject.name + " is INVULNERABLE!!!");
+            //Debug.Log(gameObject.name + " is INVULNERABLE OR HAS NO SHIELDS!!!");
         }
     }
 
@@ -202,5 +290,4 @@ public class Health : MonoBehaviour
             respawnManager.Respawn(gameObject);
         }
     }
-
 }

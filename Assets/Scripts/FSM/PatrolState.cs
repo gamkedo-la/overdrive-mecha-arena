@@ -7,13 +7,12 @@ using UnityEngine.AI;
 public class PatrolState : State
 {
     private NavMeshAgent thisAgent;
+    private Health agentHealth;
 
     private float patrolRadius = 300.0f;
     private float patrolTimer = 5.0f;
 
     private float timerCount;
-
-    private bool takingFire = false;
 
     public PatrolState(AICharacter agent) : base(agent)
     {
@@ -28,7 +27,7 @@ public class PatrolState : State
     {
         if (UnderAttack())
         {
-            //SetState to ChaseState
+            agent.SetState(new ChaseState(agent));
         }
 
         Patrol();
@@ -36,20 +35,35 @@ public class PatrolState : State
         //PlayAnimations();
 
         Observe();
+        //agent.debugPoint.position = agent.gameObject.transform.position;
     }
 
     public override void FixedTick()
     {
-        
+
     }
 
     private bool UnderAttack()
     {
-        // check if this AI is taking damage
-        // if it is then set takingFire to true
-        // else set takingFire to false
+        Health myAttacker = null;
 
-        return takingFire;
+        if (agentHealth._myAttacker != null)
+        {
+            myAttacker = agentHealth._myAttacker.GetComponent<Health>();
+        }
+
+        if (myAttacker != null && agent.getValidTargets.Contains(myAttacker) == false)
+        {
+            agent.getValidTargets.Add(myAttacker);
+
+            return true;
+        }
+        else if (myAttacker != null)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     private void Observe()
@@ -73,6 +87,8 @@ public class PatrolState : State
     public override void OnStateEnter()
     {
         thisAgent = agent.GetComponent<NavMeshAgent>();
+        agentHealth = agent.GetComponent<Health>();
+
         agent.getValidTargets.Clear();
 
         timerCount = patrolTimer;

@@ -40,7 +40,7 @@ public class EnemyShooting : Shooting
     }
 
     // Called by AI character and it states
-    public void FireWeapon(Health tgt, float baseSpeed, float dashSpeed)
+    public void FireWeapon(Health tgt, float baseSpeed, float dashSpeed, bool shouldEnterOverdrive)
     {
         accuracy = 100.0f; //will be reduce by SetAccuracy and ReduceAccuracy functions
 
@@ -51,11 +51,11 @@ public class EnemyShooting : Shooting
                 shotTimer = 0;
 
                 // check my health and if I'm moving, then set my accuracy according to those parameters
-                accuracy = SetAccuracyAccordingToHealthAndMovement(health.getCurrentHP, _speed, baseSpeed, dashSpeed, isTryingToDash);
+                accuracy = SetAccuracyAccordingToHealthAndMovement(health.getCurrentHealthAsPercentage, _speed, baseSpeed, dashSpeed, isTryingToDash);
 
                 //print(gameObject.name + " accuracy: " + accuracy);
 
-                if (ShouldDamageTarget(tgt))
+                if (ShouldDamageTarget(tgt) && !shouldEnterOverdrive)
                 {
                     DamageTarget(tgt);
                 }

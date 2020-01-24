@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class ChaseState : State
 {
     private List<Health> validTargets;
+    private List<Health> nearTargets = new List<Health>();
 
     private Transform targetTransform;
     private Health currentTgt;
@@ -77,11 +78,16 @@ public class ChaseState : State
     {
         if (targetTransform != null)
         {
-            shootingScript.FireWeapon(currentTgt, defaultAiSpeed, dashSpeed);
+            shootingScript.FireWeapon(currentTgt, defaultAiSpeed, dashSpeed, ShouldUseOverdrive());
 
             agent.transform.LookAt(targetTransform.position);
             agent.transform.rotation = Quaternion.Slerp(agent.transform.rotation, Quaternion.LookRotation(targetTransform.position - agent.transform.position), 0.05f);
         }
+    }
+
+    private bool ShouldUseOverdrive()
+    {
+        return nearTargets.Count >= 4;
     }
 
     private void SelectTarget()
@@ -103,6 +109,16 @@ public class ChaseState : State
 
             var distance = Vector3.Distance(agent.transform.position, tgt.transform.position);
             var thisTgtScore = distance + tgt.getPriorityScore;
+
+            if(distance <= minRangeBeforeDashAllowed)
+            {
+                if(!nearTargets.Contains(tgt))
+                    nearTargets.Add(tgt);
+            }
+            else
+            {
+                nearTargets.Remove(tgt);
+            }
 
             if (thisTgtScore <= bestTgtScore)
             {

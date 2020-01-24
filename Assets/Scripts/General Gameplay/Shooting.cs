@@ -26,6 +26,7 @@ public class Shooting : MonoBehaviour
     /// </summary>
     protected float accuracy;
     protected float healthPenalty;
+    protected float drunkenPenalty;
 
     private int[] healthPenaltyZones = new int[] { 100, 80, 60, 40, 20 };
 
@@ -64,6 +65,7 @@ public class Shooting : MonoBehaviour
         fireRate = 0.1f;
         accuracy = 100.0f;
         healthPenalty = 12.5f;
+        drunkenPenalty = 20.0f;
 
         movementPenalty = 20.0f;
         dashPenalty = 40.0f;
@@ -196,27 +198,27 @@ public class Shooting : MonoBehaviour
 
         if(hpPercentage > healthPenaltyZones[0])//above 100%
         {
-            //Decrease accuracy because we are in overdrive
+            currentAccuracy -= drunkenPenalty;
         }
-        else if(hpPercentage <= healthPenaltyZones[1] && hpPercentage > healthPenaltyZones[2])//Between 80-61%
-        {
-            currentAccuracy -= healthPenalty;
-        }
-        else if(hpPercentage <= healthPenaltyZones[2] && hpPercentage > healthPenaltyZones[3])//Between 60-41%
-        {
-            currentAccuracy -= (healthPenalty * 2);
-        }
-        else if (hpPercentage <= healthPenaltyZones[3] && hpPercentage > healthPenaltyZones[4])//Between 40-21%
-        {
-            currentAccuracy -= (healthPenalty * 3);
-        }
-        else
-        {
-            if(hpPercentage > 0 && hpPercentage <= healthPenaltyZones[4])//Between 20-1%
-            {
-                currentAccuracy -= (healthPenalty * 4);
-            }
-        }
+        //else if(hpPercentage <= healthPenaltyZones[1] && hpPercentage > healthPenaltyZones[2])//Between 80-61%
+        //{
+        //    currentAccuracy -= healthPenalty;
+        //}
+        //else if(hpPercentage <= healthPenaltyZones[2] && hpPercentage > healthPenaltyZones[3])//Between 60-41%
+        //{
+        //    currentAccuracy -= (healthPenalty * 2);
+        //}
+        //else if (hpPercentage <= healthPenaltyZones[3] && hpPercentage > healthPenaltyZones[4])//Between 40-21%
+        //{
+        //    currentAccuracy -= (healthPenalty * 3);
+        //}
+        //else
+        //{
+        //    if(hpPercentage > 0 && hpPercentage <= healthPenaltyZones[4])//Between 20-1%
+        //    {
+        //        currentAccuracy -= (healthPenalty * 4);
+        //    }
+        //}
 
         return currentAccuracy;
     }
