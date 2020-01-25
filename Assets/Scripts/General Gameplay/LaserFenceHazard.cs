@@ -14,16 +14,19 @@ public class LaserFenceHazard : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Health mechaHealth = other.gameObject.GetComponent<Health>();
+        if (!other.isTrigger)
+        {
+            Health mechaHealth = other.gameObject.GetComponent<Health>();
 
-        if (mechaHealth != null)
-        {
-            //Debug.Log("Mecha hit by dangerous object!");
-            mechaHealth.TakeDamage(damage, gameObject.transform);
+            if (mechaHealth != null)
+            {
+                //Debug.Log("Mecha hit by dangerous object!");
+                mechaHealth.TakeDamage(damage, gameObject.transform);
+            }
+            else
+            {
+                Debug.Log("Collider that made contact with me does not have a Health script!");
+            }//end of placeholder code
         }
-        else
-        {
-            Debug.Log("Collider that made contact with me does not have a Health script!");
-        }//end of placeholder code
     }
 }

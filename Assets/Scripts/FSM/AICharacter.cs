@@ -65,13 +65,11 @@ public class AICharacter : MonoBehaviour
         }
     }
 
-
     public void RemoveTargetFromSuperList(Health tgt)
     {
         validTargets.Remove(tgt);
     }
 
-    // For OnTriggerExit we could call the return to PatrolState or enter a new state called EscapeState depending on the situation
     private void OnTriggerStay(Collider other)
     {
         Health target = other.GetComponent<Health>();

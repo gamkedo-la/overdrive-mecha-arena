@@ -37,7 +37,7 @@ public class TeslaHazard : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (canDischargePower)
+        if (canDischargePower && !other.isTrigger)
         {
             Health mechaHealth = other.gameObject.GetComponent<Health>();
 

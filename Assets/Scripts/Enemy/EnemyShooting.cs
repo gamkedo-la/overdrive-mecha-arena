@@ -13,6 +13,8 @@ public class EnemyShooting : Shooting
     [SerializeField] private Transform shotOrigin;
 
     private Health health;
+    private bool hasLostTgt = false;
+    public bool _hasLostTgt { get { return hasLostTgt; } }
 
     protected override void Start()
     {
@@ -55,14 +57,7 @@ public class EnemyShooting : Shooting
 
                 //print(gameObject.name + " accuracy after AI's movement/overdrive: " + accuracy);
 
-                if (ShouldDamageTarget(tgt) && !shouldEnterOverdrive)
-                {
-                    DamageTarget(tgt);
-                }
-                else
-                {
-                    tgt.StealShieldAndConvertToHP(damage, gameObject.transform, health);
-                }
+                AttackTarget(tgt, shouldEnterOverdrive);
             }
         }
         else
@@ -73,7 +68,7 @@ public class EnemyShooting : Shooting
 
     private bool ShouldDamageTarget(Health tgt)
     {
-        if(health.getCurrentHealthAsPercentage >= tgt.getCurrentHealthAsPercentage / 2)
+        if (health.getCurrentHealthAsPercentage >= tgt.getCurrentHealthAsPercentage / 2)
         {
             return true;
         }
@@ -81,7 +76,7 @@ public class EnemyShooting : Shooting
         return false;
     }
 
-    private void DamageTarget(Health tgt)
+    private void AttackTarget(Health tgt, bool shouldEnterOverdrive)
     {
         shotTimer = 0;
 
@@ -107,7 +102,14 @@ public class EnemyShooting : Shooting
             print("Could not get " + tgt.name + "'s shooting component");
         }
 
-        if (!Physics.Linecast(shotOrigin.position + Vector3.up * 18.0f, tgt.transform.position) && distance <= range) //Only attack if line of sight is clear and target is within range
+        // Linecast returns true if the ray is obstructed
+        int layerMask = 1 << 10;
+        layerMask = ~layerMask;
+
+        bool isLineOfSightBlocked = Physics.Linecast(shotOrigin.position + Vector3.up * 18.0f, tgt.transform.position + Vector3.up * 18.0f, layerMask, QueryTriggerInteraction.Ignore); 
+        Debug.DrawLine(shotOrigin.position + Vector3.up * 18.0f, tgt.transform.position, Color.blue);
+
+        if (!isLineOfSightBlocked && distance <= range) //Only attack if line of sight is clear and target is within range
         {
             accuracy = ReduceAccuracyBasedOffTgtMovement(tgtSpeed, tgt._mech.dashSpeed, tgt._mech.fowardMoveSpeed, tgtIsDashing);
 
@@ -117,16 +119,24 @@ public class EnemyShooting : Shooting
 
             if (random <= accuracy)
             {
-                tgt.TakeDamage(damage, gameObject.transform);
+                if (ShouldDamageTarget(tgt) && !shouldEnterOverdrive)
+                {
+                    tgt.TakeDamage(damage, gameObject.transform);
+                }
+                else
+                {
+                    tgt.StealShieldAndConvertToHP(damage, gameObject.transform, health);
+                }
             }
         }
         else
         {
-            if (distance <= range)
-            {
-                // Move to an position free of obstructions if target is within range (hanlde this movement within ChaseState)
-            }
-            // Otherwise, do nothing here because ChaseState will automatically break contact and choose a new target OR it will make AI return to PatrolState
+            hasLostTgt = true;
+            //if (distance <= range)
+            //{
+            //    // Move to an position free of obstructions if target is within range (hanlde this movement within ChaseState)
+            //}
+            //// Otherwise, do nothing here because ChaseState will automatically break contact and choose a new target OR it will make AI return to PatrolState
         }
     }
 }

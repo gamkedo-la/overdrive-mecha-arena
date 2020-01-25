@@ -10,6 +10,7 @@ public class ChaseState : State
     private List<Health> nearTargets = new List<Health>();
 
     private Transform targetTransform;
+    private Transform lastTgtPos;
     private Health currentTgt;
 
     private NavMeshAgent thisAgent;
@@ -50,8 +51,9 @@ public class ChaseState : State
 
     public override void Tick()
     {
-        if (thisAgentHealth.getCurrentHP <= (thisAgentHealth.getBaseHP / 3) && 
-            !agent.gameObject.CompareTag("Non-playables") && 
+        // Check if AI doesn't have enough HP to risk an attack/chase and retreat if true
+        if (thisAgentHealth.getCurrentHP <= (thisAgentHealth.getBaseHP / 3) &&
+            !agent.gameObject.CompareTag("Non-playables") &&
             !thisAgentHealth._myAttacker.CompareTag("Hazards") &&
             thisAgentHealth._myAttacker != null)
         {
@@ -70,16 +72,32 @@ public class ChaseState : State
 
         if (targetTransform != null)
         {
-            ChaseTarget();
+            lastTgtPos = targetTransform;
+
+            if (shootingScript._hasLostTgt == false)
+            {
+                ChaseTarget();
+            }
+            else
+            {
+                MoveToLastKnownTgtPos();
+            }
         }
 
         PlayAnimations();
         DrawDebugLines();
     }
 
+    private void MoveToLastKnownTgtPos()
+    {
+        Debug.Log("Moving to last known tgt pos but this currently function is currently unimplemented! \n" +
+                    "Returning to PatrolState till further upgrades" );
+        agent.SetState(new PatrolState(agent));
+    }
+
     public override void FixedTick()
     {
-        if (targetTransform != null)
+        if (targetTransform != null && shootingScript._hasLostTgt == false)
         {
             shootingScript.FireWeapon(currentTgt, defaultAiSpeed, dashSpeed, ShouldUseOverdrive());
 
@@ -113,9 +131,9 @@ public class ChaseState : State
             var distance = Vector3.Distance(agent.transform.position, tgt.transform.position);
             var thisTgtScore = distance + tgt.getPriorityScore;
 
-            if(distance <= minRangeBeforeDashAllowed)
+            if (distance <= minRangeBeforeDashAllowed)
             {
-                if(!nearTargets.Contains(tgt))
+                if (!nearTargets.Contains(tgt))
                     nearTargets.Add(tgt);
             }
             else
