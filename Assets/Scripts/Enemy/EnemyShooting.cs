@@ -53,7 +53,7 @@ public class EnemyShooting : Shooting
                 // check my health and if I'm moving, then set my accuracy according to those parameters
                 accuracy = SetAccuracyAccordingToHealthAndMovement(health.getCurrentHealthAsPercentage, _speed, baseSpeed, dashSpeed, isTryingToDash);
 
-                //print(gameObject.name + " accuracy: " + accuracy);
+                //print(gameObject.name + " accuracy after AI's movement/overdrive: " + accuracy);
 
                 if (ShouldDamageTarget(tgt) && !shouldEnterOverdrive)
                 {
@@ -113,7 +113,7 @@ public class EnemyShooting : Shooting
 
             float random = UnityEngine.Random.Range(0.0f, 100.0f);
 
-            //print(gameObject.name + " accuracy: " + accuracy);
+            //print(gameObject.name + " accuracy after target's movement: " + accuracy);
 
             if (random <= accuracy)
             {

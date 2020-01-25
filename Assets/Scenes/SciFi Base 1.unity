@@ -10876,7 +10876,7 @@ PrefabInstance:
     - target: {fileID: 4234567098220050998, guid: 0990fce9499226f4d934f018624fbac0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4234567098220050997, guid: 0990fce9499226f4d934f018624fbac0,
         type: 3}
@@ -10943,10 +10943,20 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4234567098220050996, guid: 0990fce9499226f4d934f018624fbac0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4234567098220050992, guid: 0990fce9499226f4d934f018624fbac0,
         type: 3}
       propertyPath: m_StoppingDistance
       value: 115
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234567098220050992, guid: 0990fce9499226f4d934f018624fbac0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6378666372561883148, guid: 0990fce9499226f4d934f018624fbac0,
         type: 3}
@@ -10954,6 +10964,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 544193128}
     - target: {fileID: 3584122700018546929, guid: 0990fce9499226f4d934f018624fbac0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234567098220050994, guid: 0990fce9499226f4d934f018624fbac0,
         type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -37991,6 +38006,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tesla Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 251996276060726622, guid: f9f830f444b4c43e79b1054ec765614c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hazards
+      objectReference: {fileID: 0}
     - target: {fileID: 251996276060726618, guid: f9f830f444b4c43e79b1054ec765614c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38346,6 +38366,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LaserFence1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890627979919315379, guid: f26ef221f6f8cc445b4ab56220d28f60,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hazards
       objectReference: {fileID: 0}
     - target: {fileID: 7636755297396302752, guid: f26ef221f6f8cc445b4ab56220d28f60,
         type: 3}

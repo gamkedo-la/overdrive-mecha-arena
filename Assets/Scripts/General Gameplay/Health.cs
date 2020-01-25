@@ -35,7 +35,7 @@ public class Health : MonoBehaviour
     private SpawnParticipantIfAble respawnManager;
     public Mecha _mech { get { return mech; } }
     public bool _isInvulnerable { set { isInvulnerable = value; } }
-    public Transform _myAttacker { get { return myAttacker; } }
+    public Transform _myAttacker { set { myAttacker = value; } get { return myAttacker; } }
 
     public float getPriorityScore
     {
@@ -88,14 +88,19 @@ public class Health : MonoBehaviour
 
     private void Update()
     {
-        if (myAttacker != null && !gameObject.CompareTag("Player") && !gameObject.CompareTag("Non-playables"))
+        if (!gameObject.CompareTag("Non-playables") && !gameObject.CompareTag("Player") && myAttacker != null)// AI debugging to retreat behavior
         {
-            var distanceFromAttacker = Vector3.Distance(gameObject.transform.position, myAttacker.position);
-            if (distanceFromAttacker > mech.range)
-            {
-                myAttacker = null;
-            }
+            //Debug.Log(gameObject.name + "'s attacker is: " + myAttacker.name);
         }
+
+        //if (myAttacker != null && !gameObject.CompareTag("Player") && !gameObject.CompareTag("Non-playables"))
+        //{
+        //    var distanceFromAttacker = Vector3.Distance(gameObject.transform.position, myAttacker.position);
+        //    if (distanceFromAttacker > myAttacker.GetComponent<Health>()._mech.range)
+        //    {
+        //        myAttacker = null;
+        //    }
+        //}
 
         HandlePlayerShield();
 

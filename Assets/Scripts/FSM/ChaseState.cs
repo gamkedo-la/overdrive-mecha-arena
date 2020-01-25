@@ -50,7 +50,10 @@ public class ChaseState : State
 
     public override void Tick()
     {
-        if (thisAgentHealth.getCurrentHP <= (thisAgentHealth.getBaseHP / 3) && !agent.gameObject.CompareTag("Non-playables"))
+        if (thisAgentHealth.getCurrentHP <= (thisAgentHealth.getBaseHP / 3) && 
+            !agent.gameObject.CompareTag("Non-playables") && 
+            !thisAgentHealth._myAttacker.CompareTag("Hazards") &&
+            thisAgentHealth._myAttacker != null)
         {
             //Debug.Log(agent.gameObject.name + " is entering Retreat State");
             agent.SetState(new RetreatState(agent));

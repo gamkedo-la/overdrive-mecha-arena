@@ -66,22 +66,30 @@ public class RetreatState : State
     {
         enemyPos = health._myAttacker;
 
-        // Determine which type of mech this AI is
-        // Semi-randomly select whether this AI should run away or stand and fight (mech type will play a role in this behavior)
-        // Execute retreat specific functions (again, depending on the AI's mech type semi-randomly choose whether how it run away or fight; 
-        // should it use it's shield, should it just run, should its special move be used)
-
-        if (!isRunningAway)
+        if (enemyPos != null)
         {
-            RunAway();
+            // Determine which type of mech this AI is
+            // Semi-randomly select whether this AI should run away or stand and fight (mech type will play a role in this behavior)
+            // Execute retreat specific functions (again, depending on the AI's mech type semi-randomly choose whether how it run away or fight; 
+            // should it use it's shield, should it just run, should its special move be used)
+
+            if (!isRunningAway)
+            {
+                //Debug.Log(agent.gameObject.name + " is attempting to run away");
+                RunAway();
+            }
+            else
+            {
+                // AI is running away and is still in contact with attacker or a new attacker enters the mix
+                // Do I continue to run away, face my current attacker, or self-destruct?
+            }
+
+            EnterPatrolIfRetreatViaDistanceSucceeds();
         }
         else
         {
-            // AI is running away and is still in contact with attacker or a new attacker enters the mix
-            // Do I continue to run away, face my current attacker, or self-destruct?
+            Debug.Log(agent.gameObject.name + "'s attacker doesn't exist or is a dangerous object");
         }
-
-        CheckForSuccessfulRetreatViaDistance();
     }
 
     private void RunAway()
@@ -100,13 +108,15 @@ public class RetreatState : State
         }
     }
 
-    private void CheckForSuccessfulRetreatViaDistance()
+    private void EnterPatrolIfRetreatViaDistanceSucceeds()
     {
         var distance = Vector3.Distance(agent.transform.position, enemyPos.position);
 
         if ((aiAttackerShootingScript != null && distance >= aiAttackerShootingScript.getBreakContactRange && enemyPos.CompareTag("Enemy") && !enemyPos.CompareTag("Non-playables")) ||
             (enemyPos.CompareTag("Player") && distance >= playerShooting._playerShootingRange))
         {
+            //Debug.Log(agent.gameObject.name + " succeeded with retreat");
+
             agent.SetState(new PatrolState(agent));
         }
     }

@@ -32,7 +32,7 @@ public class PatrolState : State
 
         Patrol();
 
-        //PlayAnimations();
+        PlayAnimations();
 
         Observe();
         //agent.debugPoint.position = agent.gameObject.transform.position;
@@ -86,9 +86,11 @@ public class PatrolState : State
 
     public override void OnStateEnter()
     {
+        //Debug.Log("Entered Patrol state");
         thisAgent = agent.GetComponent<NavMeshAgent>();
         agentHealth = agent.GetComponent<Health>();
 
+        agentHealth._myAttacker = null;
         agent.getValidTargets.Clear();
 
         timerCount = patrolTimer;

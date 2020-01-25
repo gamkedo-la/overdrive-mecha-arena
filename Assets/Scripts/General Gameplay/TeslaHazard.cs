@@ -43,7 +43,7 @@ public class TeslaHazard : MonoBehaviour
 
             if (mechaHealth != null)
             {
-                Debug.Log("Mecha hit by dangerous object!");
+                //Debug.Log("Mecha hit by dangerous object!");
                 mechaHealth.TakeDamage(damage, gameObject.transform);
                 canDischargePower = false;
             }
@@ -54,7 +54,7 @@ public class TeslaHazard : MonoBehaviour
         }
         else
         {
-            // Could do something cool like maybe give a damage boost to the mechs that stay withing danger range
+            // Could do something cool like maybe give a damage boost to the mechs that risk staying within danger range
         }
     }
 
