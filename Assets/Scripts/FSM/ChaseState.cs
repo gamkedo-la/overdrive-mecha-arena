@@ -108,7 +108,7 @@ public class ChaseState : State
 
     private bool ShouldUseOverdrive()
     {
-        return nearTargets.Count >= 4;
+        return nearTargets.Count >= 3;
     }
 
     private void SelectTarget()
