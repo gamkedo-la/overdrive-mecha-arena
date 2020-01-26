@@ -11083,7 +11083,7 @@ PrefabInstance:
     - target: {fileID: 4234567098220050998, guid: 0990fce9499226f4d934f018624fbac0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4234567098220050997, guid: 0990fce9499226f4d934f018624fbac0,
         type: 3}
@@ -38395,6 +38395,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TankPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1641144016500889542, guid: 9e5ad9143e25449daa872068886d3661,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1641144016500889541, guid: 9e5ad9143e25449daa872068886d3661,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38523,6 +38528,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HeliPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143357576722740403, guid: e29de1f45cfc74a559f40855a280faa8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8460408691203550987, guid: e29de1f45cfc74a559f40855a280faa8,
         type: 3}

@@ -14,7 +14,7 @@ public class EnemyShooting : Shooting
 
     private Health health;
     private bool hasLostTgt = false;
-    public bool _hasLostTgt { get { return hasLostTgt; } }
+    public bool _hasLostTgt { get { return hasLostTgt; } set { hasLostTgt = value; } }
 
     protected override void Start()
     {

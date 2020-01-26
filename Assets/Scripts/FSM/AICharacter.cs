@@ -10,6 +10,8 @@ public class AICharacter : MonoBehaviour
 
     private SphereCollider col;
     public NavMeshAgent agent;
+    private EnemyShooting shootingScript;
+
 
     private State currentState;
     private Animator animator;
@@ -24,6 +26,7 @@ public class AICharacter : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
+        shootingScript = GetComponent<EnemyShooting>();
 
         SetState(new PatrolState(this));
     }
@@ -78,6 +81,7 @@ public class AICharacter : MonoBehaviour
         if (target != null && validTargets.Contains(target) == false)
         {
             //Debug.Log(target.name + " entered " + gameObject.name + " detection radius");
+            shootingScript._hasLostTgt = false;
 
             validTargets.Add(target);
 

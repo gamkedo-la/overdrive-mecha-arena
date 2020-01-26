@@ -52,7 +52,7 @@ public class ChaseState : State
     public override void Tick()
     {
         // Check if AI doesn't have enough HP to risk an attack/chase and retreat if true
-        if (thisAgentHealth.getCurrentHP <= (thisAgentHealth.getBaseHP / 3) &&
+        if (thisAgentHealth.getCurrentHP <= (thisAgentHealth.getBaseHP / 4) &&
             !agent.gameObject.CompareTag("Non-playables") &&
             !thisAgentHealth._myAttacker.CompareTag("Hazards") &&
             thisAgentHealth._myAttacker != null)
@@ -90,8 +90,8 @@ public class ChaseState : State
 
     private void MoveToLastKnownTgtPos()
     {
-        Debug.Log("Moving to last known tgt pos but this currently function is currently unimplemented! \n" +
-                    "Returning to PatrolState till further upgrades" );
+        //Debug.Log("Moving to last known tgt pos but this currently function is currently unimplemented! \n" +
+        //            "Returning to PatrolState till further upgrades" );
         agent.SetState(new PatrolState(agent));
     }
 

@@ -8,9 +8,9 @@ public class PatrolState : State
 {
     private NavMeshAgent thisAgent;
     private Health agentHealth;
-
+    private EnemyShooting shootingScript;
     private float patrolRadius = 300.0f;
-    private float patrolTimer = 3.0f;
+    private float patrolTimer = 4.0f;
 
     private float timerCount;
 
@@ -27,6 +27,7 @@ public class PatrolState : State
     {
         if (UnderAttack())
         {
+            shootingScript._hasLostTgt = false;
             agent.SetState(new ChaseState(agent));
         }
 
@@ -50,17 +51,17 @@ public class PatrolState : State
         if (agentHealth._myAttacker != null)
         {
             myAttacker = agentHealth._myAttacker.GetComponent<Health>();
-        }
 
-        if (myAttacker != null && agent.getValidTargets.Contains(myAttacker) == false)
-        {
-            agent.getValidTargets.Add(myAttacker);
+            if (myAttacker != null && agent.getValidTargets.Contains(myAttacker) == false)
+            {
+                agent.getValidTargets.Add(myAttacker);
 
-            return true;
-        }
-        else if (myAttacker != null)
-        {
-            return true;
+                return true;
+            }
+            else if (myAttacker != null)
+            {
+                return true;
+            }
         }
 
         return false;
@@ -91,6 +92,7 @@ public class PatrolState : State
         //Debug.Log("Entered Patrol state");
         thisAgent = agent.GetComponent<NavMeshAgent>();
         agentHealth = agent.GetComponent<Health>();
+        shootingScript = agent.GetComponent<EnemyShooting>();
 
         agentHealth._myAttacker = null;
         agent.getValidTargets.Clear();
