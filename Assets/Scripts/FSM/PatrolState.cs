@@ -72,6 +72,8 @@ public class PatrolState : State
 
         // Have AI choose which look left, right, back, and forward in semi-random fashion
         // Use capsule trigger as "cone of vision" and attack the target if it has a Health script
+
+
     }
 
     private void Patrol()
