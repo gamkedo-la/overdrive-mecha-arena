@@ -5277,7 +5277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 374525062}
   m_Layer: 0
-  m_Name: Scaffolding
+  m_Name: Scaffoldings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
