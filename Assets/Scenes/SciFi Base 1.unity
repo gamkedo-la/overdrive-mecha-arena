@@ -21077,8 +21077,8 @@ GameObject:
   - component: {fileID: 1384907157}
   - component: {fileID: 1384907156}
   m_Layer: 8
-  m_Name: PostProcessingVolume
-  m_TagString: Untagged
+  m_Name: PPV
+  m_TagString: PostProcessing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
