@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Mecha mech;
 
     private PlayerShooting playerShooting;
+    public GameObject PPV;
+    private IEnumerator coroutine;
 
     private void Awake()
     {
@@ -43,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
         strafingRightMoveSpeed = mech.strafingRightMoveSpeed;
         dashSpeed = mech.dashSpeed;
         dashTimeLimit = mech.dashTimeLimit;
+        PPV = GameObject.FindGameObjectWithTag("PostProcessing");
+        PPV.SetActive(false);
     }
 
     private void Update()
@@ -66,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
             if (playerShooting.isTryingToDash)
             {
                 characterController.SimpleMove(transform.forward * (moveSpeedToUse * dashSpeed) * vertical);
+                StartCoroutine(coroutine);
             }
             else
             {
@@ -87,5 +92,13 @@ public class PlayerMovement : MonoBehaviour
                 characterController.SimpleMove(transform.right * strafeSpeedToUse * horizontalStrafe);
             }
         }
-    }
+     }
+        private IEnumerator DashWait(float dashSpeed)
+        {
+                while(true)
+            {
+                yield return new WaitForSeconds(dashSpeed);
+                PPV.SetActive(true);
+            }
+        }
 }

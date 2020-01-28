@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Crate
   - Hazards
+  - PostProcessing
   layers:
   - Default
   - TransparentFX
