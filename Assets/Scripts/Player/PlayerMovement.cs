@@ -61,16 +61,24 @@ public class PlayerMovement : MonoBehaviour
 
         transform.Rotate(Vector3.up, horizontalRot * turnSpeed * Time.deltaTime);
 
+        bool wasDashing = playerShooting.isTryingToDash;
+        playerShooting.isTryingToDash = Input.GetButton("Dash") && (vertical != 0 || horizontalStrafe != 0);
+        if (wasDashing == false && playerShooting.isTryingToDash)
+        {
+            PPV.SetActive(true);
+        }
+        if(wasDashing && playerShooting.isTryingToDash == false)
+        {
+            PPV.SetActive(false);
+        }
         if (vertical != 0)
         {
             float moveSpeedToUse = vertical > 0 ? fowardMoveSpeed : backwardMoveSpeed;
-
-            playerShooting.isTryingToDash = Input.GetButton("Dash");
+          
 
             if (playerShooting.isTryingToDash)
             {
                 characterController.SimpleMove(transform.forward * (moveSpeedToUse * dashSpeed) * vertical);
-                StartCoroutine(coroutine);
             }
             else
             {
@@ -80,8 +88,6 @@ public class PlayerMovement : MonoBehaviour
         if (horizontalStrafe != 0)
         {
             float strafeSpeedToUse = horizontalStrafe > 0 ? strafingRightMoveSpeed : strafingLeftMoveSpeed;
-
-            playerShooting.isTryingToDash = Input.GetButton("Dash");
 
             if (playerShooting.isTryingToDash)
             {
@@ -93,12 +99,4 @@ public class PlayerMovement : MonoBehaviour
             }
         }
      }
-        private IEnumerator DashWait(float dashSpeed)
-        {
-                while(true)
-            {
-                yield return new WaitForSeconds(dashSpeed);
-                PPV.SetActive(true);
-            }
-        }
 }
