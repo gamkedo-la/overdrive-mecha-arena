@@ -21,6 +21,7 @@ public class AICharacter : MonoBehaviour
 
     public Animator getAnimator { get { return animator; } }
     public Mecha _mech { get { return mech; } }
+    public State _currentState { get { return currentState; } }
 
     private void Start()
     {

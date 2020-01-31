@@ -17221,6 +17221,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 13.001572
       objectReference: {fileID: 0}
+    - target: {fileID: 7154759515403266033, guid: 0990fce9499226f4d934f018624fbac0,
+        type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1424370802, guid: 0990fce9499226f4d934f018624fbac0, type: 3}
     - {fileID: 4551047594982380861, guid: 0990fce9499226f4d934f018624fbac0, type: 3}

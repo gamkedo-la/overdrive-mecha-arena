@@ -93,11 +93,27 @@ public class Health : MonoBehaviour
             playerOverdrive = setVcamScript._vcam.GetComponent<PlayerOverdriveCamControl>();
         }
 
+        isUsingShield = false;
         ShouldUseShield(false);
     }
 
     private void Update()
     {
+
+        if (!gameObject.CompareTag("Non-playables") && !gameObject.CompareTag("Player") && myAttacker != null)// AI debugging to retreat behavior
+        {
+            //Debug.Log(gameObject.name + "'s attacker is: " + myAttacker.name);
+        }
+
+        //if (myAttacker != null && !gameObject.CompareTag("Player") && !gameObject.CompareTag("Non-playables"))
+        //{
+        //    var distanceFromAttacker = Vector3.Distance(gameObject.transform.position, myAttacker.position);
+        //    if (distanceFromAttacker > myAttacker.GetComponent<Health>()._mech.range)
+        //    {
+        //        myAttacker = null;
+        //    }
+        //}
+
         if(isUsingShield)
         {
             shieldTimer -= Time.deltaTime;
@@ -115,20 +131,6 @@ public class Health : MonoBehaviour
                 shieldRechargingLocked = false;
             }
         }
-
-        if (!gameObject.CompareTag("Non-playables") && !gameObject.CompareTag("Player") && myAttacker != null)// AI debugging to retreat behavior
-        {
-            //Debug.Log(gameObject.name + "'s attacker is: " + myAttacker.name);
-        }
-
-        //if (myAttacker != null && !gameObject.CompareTag("Player") && !gameObject.CompareTag("Non-playables"))
-        //{
-        //    var distanceFromAttacker = Vector3.Distance(gameObject.transform.position, myAttacker.position);
-        //    if (distanceFromAttacker > myAttacker.GetComponent<Health>()._mech.range)
-        //    {
-        //        myAttacker = null;
-        //    }
-        //}
 
         HandlePlayerShield();
 
@@ -252,7 +254,7 @@ public class Health : MonoBehaviour
             else
             {
                 currentHP -= damageAmount;
-                Debug.Log(gameObject.name + " took " + damageAmount + " damage, now has hp: " + currentHP);
+                //Debug.Log(gameObject.name + " took " + damageAmount + " damage, now has hp: " + currentHP);
                 ShouldUseShield(true);
 
                 SetMyValueAsATarget();
