@@ -84,6 +84,8 @@ public class Health : MonoBehaviour
             setVcamScript = GetComponent<SetVcamFollowAndLookAt>();
             playerOverdrive = setVcamScript._vcam.GetComponent<PlayerOverdriveCamControl>();
         }
+
+        ShouldUseShield(false);
     }
 
     private void Update()
@@ -118,15 +120,19 @@ public class Health : MonoBehaviour
         {
             if (shields > 0)
             {
-                _isUsingShield = Input.GetButton("Fire3");
-                shieldGO.SetActive(Input.GetButton("Fire3"));
+                ShouldUseShield(Input.GetButton("Fire3"));
             }
             else
             {
-                _isUsingShield = false;
-                shieldGO.SetActive(false);
+                ShouldUseShield(false);
             }
         }
+    }
+
+    private void ShouldUseShield(bool isOn)
+    {
+        _isUsingShield = isOn;
+        shieldGO.SetActive(isOn);
     }
 
     private void TurnDrunkenessOnOrOff()
@@ -211,7 +217,7 @@ public class Health : MonoBehaviour
             else
             {
                 currentHP -= damageAmount;
-                //Debug.Log(gameObject.name + " took " + damageAmount + " damage, now has hp: " + currentHP);
+                Debug.Log(gameObject.name + " took " + damageAmount + " damage, now has hp: " + currentHP);
 
 
                 SetMyValueAsATarget();
