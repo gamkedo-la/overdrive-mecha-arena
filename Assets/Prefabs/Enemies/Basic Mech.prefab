@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: -7424934990164168292}
   - component: {fileID: 5587483571316489424}
   - component: {fileID: 597618655819105836}
+  - component: {fileID: 1799088289397407869}
   m_Layer: 9
   m_Name: Basic Mech
   m_TagString: Untagged
@@ -398,6 +399,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heavyModeVFX: {fileID: 6645419204856425229}
   lightModeVFX: {fileID: 2538350604814091875}
+--- !u!114 &1799088289397407869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8841960133733178278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b70aca9c05c564a9f4c375bb943228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mech: {fileID: 0}
+  viewAngle: 130
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 1536
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 69632
 --- !u!1001 &4792199546594437236
 PrefabInstance:
   m_ObjectHideFlags: 0
