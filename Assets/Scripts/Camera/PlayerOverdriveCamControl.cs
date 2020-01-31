@@ -7,6 +7,7 @@ public class PlayerOverdriveCamControl : MonoBehaviour
 {
     // Will need for later implementation of drunk noise profile for vcam
     [SerializeField] private NoiseSettings drunkenProfile;
+    [SerializeField] private NoiseSettings soberProfile;
 
     private CinemachineVirtualCamera vcam;
 
@@ -25,7 +26,7 @@ public class PlayerOverdriveCamControl : MonoBehaviour
         }
         else
         {
-            // TODO: Figure out how stop drunken camera noise if the player is not above their base HP
+            vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_NoiseProfile = soberProfile;
         }
     }
 }

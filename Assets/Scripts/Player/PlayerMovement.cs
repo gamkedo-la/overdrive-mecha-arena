@@ -45,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
         strafingRightMoveSpeed = mech.strafingRightMoveSpeed;
         dashSpeed = mech.dashSpeed;
         dashTimeLimit = mech.dashTimeLimit;
+
         PPV = GameObject.FindGameObjectWithTag("PostProcessing");
         PPV.SetActive(false);
     }
@@ -61,16 +62,17 @@ public class PlayerMovement : MonoBehaviour
 
         transform.Rotate(Vector3.up, horizontalRot * turnSpeed * Time.deltaTime);
 
-        bool wasDashing = playerShooting.isTryingToDash;
         playerShooting.isTryingToDash = Input.GetButton("Dash") && (vertical != 0 || horizontalStrafe != 0);
-        if (wasDashing == false && playerShooting.isTryingToDash)
+
+        if (playerShooting.isTryingToDash)
         {
             PPV.SetActive(true);
         }
-        if(wasDashing && playerShooting.isTryingToDash == false)
+        else
         {
             PPV.SetActive(false);
         }
+
         if (vertical != 0)
         {
             float moveSpeedToUse = vertical > 0 ? fowardMoveSpeed : backwardMoveSpeed;
