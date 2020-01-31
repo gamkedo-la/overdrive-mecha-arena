@@ -9,8 +9,7 @@ public class Health : MonoBehaviour
     [SerializeField] private GameObject shieldGO;
     [SerializeField] private float shieldToHealthConversionLimitMultiplier = 1.5f;
     private int startingHP = 200;
-    private float normalShieldLevels;
-    private float shields = 100;
+
 
     private PlayerOverdriveCamControl playerOverdrive;
     private SetVcamFollowAndLookAt setVcamScript;
@@ -64,6 +63,15 @@ public class Health : MonoBehaviour
     private float timer;
     [SerializeField] private float shieldRechargeDelay = 7.5f;
     private float shieldRechargeRate = 1f;
+    private float normalShieldLevels;
+    private float shields = 100;
+
+    private float shieldRegenTimeLimit = 1.5f;
+    private float shieldTimer = 0.5f;
+    private bool shieldRechargingLocked = false;
+    private float rechargeSlower = 0.5f;
+    private int shieldsChargesLeft = 2;
+
     private bool isUsingShield = false;
     public bool _isUsingShield { set { isUsingShield = value; } }// Used by AI to turn shield on or off
 
@@ -90,6 +98,24 @@ public class Health : MonoBehaviour
 
     private void Update()
     {
+        if(isUsingShield)
+        {
+            shieldTimer -= Time.deltaTime;
+            if(shieldTimer <= 0)
+            {
+                ShouldUseShield(false);
+            }
+        }
+        else
+        {
+            shieldTimer += Time.deltaTime * rechargeSlower;
+            if(shieldTimer >= shieldRegenTimeLimit)
+            {
+                shieldTimer = shieldRegenTimeLimit;
+                shieldRechargingLocked = false;
+            }
+        }
+
         if (!gameObject.CompareTag("Non-playables") && !gameObject.CompareTag("Player") && myAttacker != null)// AI debugging to retreat behavior
         {
             //Debug.Log(gameObject.name + "'s attacker is: " + myAttacker.name);
@@ -131,8 +157,17 @@ public class Health : MonoBehaviour
 
     private void ShouldUseShield(bool isOn)
     {
+        if((shieldRechargingLocked || shieldsChargesLeft <= 0) && isOn)
+        {
+            return;
+        }
         _isUsingShield = isOn;
         shieldGO.SetActive(isOn);
+        if(isOn)
+        {
+            shieldsChargesLeft--;
+            shieldRechargingLocked = true;
+        }
     }
 
     private void TurnDrunkenessOnOrOff()
@@ -218,7 +253,7 @@ public class Health : MonoBehaviour
             {
                 currentHP -= damageAmount;
                 Debug.Log(gameObject.name + " took " + damageAmount + " damage, now has hp: " + currentHP);
-
+                ShouldUseShield(true);
 
                 SetMyValueAsATarget();
 
