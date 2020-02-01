@@ -54,7 +54,7 @@ public class PatrolState : State
 
             if (myAttacker != null && agent.getValidTargets.Contains(myAttacker) == false)
             {
-                agent.getValidTargets.Add(myAttacker);
+                agent.AddTgtToSuperList(myAttacker);
 
                 return true;
             }

@@ -24,6 +24,7 @@ public class FieldOfView : MonoBehaviour
         fsm = GetComponent<AICharacter>();
 
         viewRadius = mech.range;
+
         StartCoroutine("SearchForTgts", searchDelay);
     }
 
@@ -59,14 +60,14 @@ public class FieldOfView : MonoBehaviour
 
                             if (validTgt != null && fsm.getValidTargets.Contains(validTgt) == false)
                             {
-                                fsm.getValidTargets.Add(validTgt);
+                                fsm.AddTgtToSuperList(validTgt);
                                 shootingScript._hasLostTgt = false;
-                                fsm.SetState(new ChaseState(fsm));
+                                fsm.SetChaseStateViaFieldOfView();
                             }
                             else if (validTgt != null)
                             {
                                 shootingScript._hasLostTgt = false;
-                                fsm.SetState(new ChaseState(fsm));
+                                fsm.SetChaseStateViaFieldOfView();
                             }
                         }
                     }

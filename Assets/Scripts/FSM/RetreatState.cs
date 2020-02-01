@@ -104,7 +104,7 @@ public class RetreatState : State
         }
         else
         {
-            Debug.Log(agent.gameObject.name + " cannot retreat due to null attacker or invalid retreat position!");
+            Debug.Log(agent.gameObject.name + " cannot retreat due to invalid retreat position!");
         }
     }
 

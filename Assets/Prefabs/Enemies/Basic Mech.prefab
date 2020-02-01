@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mech: {fileID: 0}
-  viewAngle: 130
+  viewAngle: 100
   targetMask:
     serializedVersion: 2
     m_Bits: 1536
@@ -328,6 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6abc3de3b7563c14aaef220c9694a1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mech: {fileID: 0}
 --- !u!1001 &4792199546594437236
 PrefabInstance:
   m_ObjectHideFlags: 0

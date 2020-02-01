@@ -1,4 +1,4 @@
-﻿ using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -74,22 +74,45 @@ public class AICharacter : MonoBehaviour
         validTargets.Remove(tgt);
     }
 
+    public void AddTgtToSuperList(Health tgt)
+    {
+        validTargets.Add(tgt);
+    }
+
+    public void SetChaseStateViaFieldOfView ()
+    {
+        if (currentState != null)
+        {
+            currentState.OnStateExit();
+        }
+
+        currentState = new ChaseState(this);
+
+        if (currentState != null)
+        {
+            currentState.OnStateEnter();
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
-        Health target = other.GetComponent<Health>();
-
-        // Ignore collisions with non-killable objects
-        if (target != null && validTargets.Contains(target) == false)
+        if (other.transform.position.y == transform.position.y)
         {
-            //Debug.Log(target.name + " entered " + gameObject.name + " detection radius");
-            shootingScript._hasLostTgt = false;
+            Health target = other.GetComponent<Health>();
 
-            validTargets.Add(target);
-
-            if (currentState == null || currentState.StateName() != "chase state")
+            // Ignore collisions with non-killable objects
+            if (target != null && validTargets.Contains(target) == false)
             {
-                SetState(new ChaseState(this));
+                //Debug.Log(target.name + " entered " + gameObject.name + " detection radius");
+                shootingScript._hasLostTgt = false;
+
+                validTargets.Add(target);
+
+                if (currentState == null || currentState.StateName() != "chase state")
+                {
+                    SetState(new ChaseState(this));
+                }
             }
         }
     }
-} 
+}
