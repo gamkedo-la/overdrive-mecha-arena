@@ -21,6 +21,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1010802245681831634, guid: aaf99d2a6f82ca943a32b605f72c1907,
+        type: 3}
+      propertyPath: mech
+      value: 
+      objectReference: {fileID: 11400000, guid: b208076f6f69bc14bb2474c54ac024bf,
+        type: 2}
     - target: {fileID: 8841960133733178278, guid: aaf99d2a6f82ca943a32b605f72c1907,
         type: 3}
       propertyPath: m_Name
@@ -31,6 +37,12 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1799088289397407869, guid: aaf99d2a6f82ca943a32b605f72c1907,
+        type: 3}
+      propertyPath: mech
+      value: 
+      objectReference: {fileID: 11400000, guid: b208076f6f69bc14bb2474c54ac024bf,
+        type: 2}
     - target: {fileID: -7424934990164168292, guid: aaf99d2a6f82ca943a32b605f72c1907,
         type: 3}
       propertyPath: mech
@@ -124,12 +136,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1799088289397407869, guid: aaf99d2a6f82ca943a32b605f72c1907,
-        type: 3}
-      propertyPath: mech
-      value: 
-      objectReference: {fileID: 11400000, guid: b208076f6f69bc14bb2474c54ac024bf,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaf99d2a6f82ca943a32b605f72c1907, type: 3}
 --- !u!1 &4234567098220050998 stripped
