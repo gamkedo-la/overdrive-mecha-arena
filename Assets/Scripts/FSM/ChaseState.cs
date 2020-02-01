@@ -39,9 +39,12 @@ public class ChaseState : State
 
     public override void OnStateEnter()
     {
+        Debug.Log("Entered Chase state");
         thisAgent = agent.GetComponent<NavMeshAgent>();
         shootingScript = agent.GetComponent<EnemyShooting>();
         thisAgentHealth = agent.GetComponent<Health>();
+
+        thisAgent.SetDestination(agent.transform.position);
 
         dashSpeed = agent._mech.dashSpeed;
         dashTimeLimit = agent._mech.dashTimeLimit;

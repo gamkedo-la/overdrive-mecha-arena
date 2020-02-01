@@ -32,11 +32,14 @@ public class RetreatState : State
 
     public override void OnStateEnter()
     {
-        //Debug.Log(agent.gameObject.name + " is entered Retreat State");
+        Debug.Log(agent.gameObject.name + " is entered Retreat State");
 
         navAgent = agent.GetComponent<NavMeshAgent>();
         thisAgentShootingScript = agent.GetComponent<EnemyShooting>();
         health = agent.GetComponent<Health>();
+
+        navAgent.SetDestination(agent.transform.position);
+
         mech = agent._mech;
 
         enemyPos = health._myAttacker;

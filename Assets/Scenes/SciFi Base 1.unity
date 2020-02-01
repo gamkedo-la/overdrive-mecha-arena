@@ -2462,6 +2462,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: All-purpose Mech Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5320919325789254278, guid: 4ac21b834438d534ea2c1d9e208e3028,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5320919325789254277, guid: 4ac21b834438d534ea2c1d9e208e3028,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5005,9 +5010,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d18b271baa0024da7734819a45e5d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfAIParticipants: 0
+  numberOfAIParticipants: 1
   spawnPointsList:
   - {fileID: 1973670412}
+  - {fileID: 1165262994}
   enemyCharacters:
   - {fileID: 4234567098220050998, guid: 0990fce9499226f4d934f018624fbac0, type: 3}
   - {fileID: 4238611126876636925, guid: 51e6eaee4c804e247bc5f05a6931e97d, type: 3}
@@ -14505,7 +14511,7 @@ PrefabInstance:
     - target: {fileID: 4238611126876636925, guid: 51e6eaee4c804e247bc5f05a6931e97d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4238611126876636926, guid: 51e6eaee4c804e247bc5f05a6931e97d,
         type: 3}
@@ -17188,7 +17194,7 @@ PrefabInstance:
     - target: {fileID: 4234567098220050998, guid: 0990fce9499226f4d934f018624fbac0,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4234567098220050997, guid: 0990fce9499226f4d934f018624fbac0,
         type: 3}
