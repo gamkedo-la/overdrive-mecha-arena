@@ -55,7 +55,7 @@ public class FieldOfView : MonoBehaviour
                         float distToTgt = Vector3.Distance(transform.position, tgt.position);
                         if (!Physics.Raycast((transform.position + (Vector3.up * 18.0f)), dirToTgt, distToTgt, obstacleMask, QueryTriggerInteraction.Ignore))
                         {
-                            Debug.Log(gameObject.name + " sees " + tgt.name);
+                            //Debug.Log(gameObject.name + " sees " + tgt.name);
                             Health validTgt = tgt.GetComponent<Health>();
 
                             if (validTgt != null && fsm.getValidTargets.Contains(validTgt) == false)

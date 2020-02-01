@@ -28,6 +28,9 @@ public class ChaseState : State
     private int highValueTgts, midValueTgts, lowValueTgts = 0;
     private float thisAgentPriorityScore;
 
+    private float targetUpdateDelay = 20f;
+    private float targetUpdateTimer = 0f;
+
     public ChaseState(AICharacter agent) : base(agent)
     {
     }
@@ -44,12 +47,12 @@ public class ChaseState : State
         shootingScript = agent.GetComponent<EnemyShooting>();
         thisAgentHealth = agent.GetComponent<Health>();
 
-        thisAgent.SetDestination(agent.transform.position);
-
         dashSpeed = agent._mech.dashSpeed;
         dashTimeLimit = agent._mech.dashTimeLimit;
         defaultAiSpeed = agent._mech.fowardMoveSpeed;
         minRangeBeforeDashAllowed = agent._mech.range / 2;
+
+        thisAgent.SetDestination(agent.transform.position);
     }
 
     public override void Tick()

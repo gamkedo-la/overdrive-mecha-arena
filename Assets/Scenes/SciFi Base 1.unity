@@ -5010,10 +5010,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d18b271baa0024da7734819a45e5d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfAIParticipants: 1
+  numberOfAIParticipants: 15
   spawnPointsList:
   - {fileID: 1973670412}
   - {fileID: 1165262994}
+  - {fileID: 780134247}
+  - {fileID: 686688088}
+  - {fileID: 1228941349}
+  - {fileID: 2034137878}
+  - {fileID: 575100816}
+  - {fileID: 478932361}
+  - {fileID: 1304467947}
+  - {fileID: 242680732}
+  - {fileID: 1285902244}
+  - {fileID: 1366585695}
+  - {fileID: 2131111232}
+  - {fileID: 793392746}
+  - {fileID: 443537547}
+  - {fileID: 1737920837}
   enemyCharacters:
   - {fileID: 4234567098220050998, guid: 0990fce9499226f4d934f018624fbac0, type: 3}
   - {fileID: 4238611126876636925, guid: 51e6eaee4c804e247bc5f05a6931e97d, type: 3}
