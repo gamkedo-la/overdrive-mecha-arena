@@ -10,6 +10,7 @@ TagManager:
   - Crate
   - Hazards
   - PostProcessing
+  - ScoreManager
   layers:
   - Default
   - TransparentFX

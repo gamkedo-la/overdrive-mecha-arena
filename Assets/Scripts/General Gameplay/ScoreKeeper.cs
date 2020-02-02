@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class ScoreKeeper : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public class ScoreKeeper : MonoBehaviour
                                     "Any death incurred after gaining the kill bonus will reset the bonus to 0%. All points gained during the killstreak will not be affected.\n" +
                                     "The first kill will add a bonus of 50% to any score gained after the kill. Each subsequent kill will increase the bonus by 25% until the maximum of 300% is reached.\n" +
                                     "At the end of the battle, the victor will be the mecha that holds the highest score.";
+
+    [SerializeField] private TextMeshProUGUI playerRanking;
 
     // Start is called before the first frame update
     void Start()

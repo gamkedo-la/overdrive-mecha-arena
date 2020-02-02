@@ -148,7 +148,7 @@ public class Health : MonoBehaviour
         {
             if (shields > 0)
             {
-                ShouldUseShield(Input.GetButton("Fire3"));
+                ShouldUseShield(Input.GetButton("Shield"));
             }
             else
             {

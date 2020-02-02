@@ -89,7 +89,7 @@ public class PatrolState : State
 
     public override void OnStateEnter()
     {
-        Debug.Log("Entered Patrol state");
+        //Debug.Log("Entered Patrol state");
         thisAgent = agent.GetComponent<NavMeshAgent>();
         agentHealth = agent.GetComponent<Health>();
         shootingScript = agent.GetComponent<EnemyShooting>();
