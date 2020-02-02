@@ -15,6 +15,7 @@ public class ScoreKeeper : MonoBehaviour
                                     "At the end of the battle, the victor will be the mecha that holds the highest score.";
 
     [SerializeField] private TextMeshProUGUI playerRanking;
+    [SerializeField] private List<GameObject> rankIndicators;
 
     // Start is called before the first frame update
     void Start()
