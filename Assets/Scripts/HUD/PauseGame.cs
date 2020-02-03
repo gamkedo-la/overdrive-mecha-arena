@@ -10,11 +10,18 @@ public class PauseGame : MonoBehaviour
     public static bool GameIsPaused;
     public GameObject pauseUI;
     public GameObject gameUI;
+    FMOD.Studio.Bus MasterBus;
+
+    private void Start()
+    {
+        MasterBus = FMODUnity.RuntimeManager.GetBus("Bus:/");
+    }
 
     private void Update()
     {
         if(Input.GetButtonDown("Pause"))
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/UI_Back");
             if(GameIsPaused)
             {
                 Resume();
@@ -49,6 +56,7 @@ public class PauseGame : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(0);
+        MasterBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     public void Quit()
