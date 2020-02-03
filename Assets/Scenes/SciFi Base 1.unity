@@ -656,6 +656,7 @@ GameObject:
   - component: {fileID: 15490542}
   - component: {fileID: 15490541}
   - component: {fileID: 15490540}
+  - component: {fileID: 15490543}
   m_Layer: 5
   m_Name: Audio Options
   m_TagString: Untagged
@@ -784,6 +785,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 15490538}
   m_CullTransparentMesh: 0
+--- !u!114 &15490543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15490538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1473506347}
+          m_MethodName: PlaySoundWhenMouseEnterButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1473506347}
+          m_MethodName: PlaySoundWhenPressingButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &16444216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5881,52 +5925,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 16
       objectReference: {fileID: 0}
-    - target: {fileID: -8791462977255172696, guid: b7c33e68c5337dd43b194dee27946d5a,
+    - target: {fileID: 2502203975881118265, guid: b7c33e68c5337dd43b194dee27946d5a,
         type: 3}
       propertyPath: m_Layer
       value: 16
       objectReference: {fileID: 0}
-    - target: {fileID: -8470045053010906745, guid: b7c33e68c5337dd43b194dee27946d5a,
+    - target: {fileID: 4695666576454475813, guid: b7c33e68c5337dd43b194dee27946d5a,
         type: 3}
       propertyPath: m_Layer
       value: 16
       objectReference: {fileID: 0}
-    - target: {fileID: -7673886404300160364, guid: b7c33e68c5337dd43b194dee27946d5a,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0c45217145bd4484ea79332686d8731f, type: 2}
-    - target: {fileID: -7391105858175201956, guid: b7c33e68c5337dd43b194dee27946d5a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: -6860305590714054535, guid: b7c33e68c5337dd43b194dee27946d5a,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0c45217145bd4484ea79332686d8731f, type: 2}
-    - target: {fileID: -6787611782507106137, guid: b7c33e68c5337dd43b194dee27946d5a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: -6575189934397235291, guid: b7c33e68c5337dd43b194dee27946d5a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: -6054058774237248251, guid: b7c33e68c5337dd43b194dee27946d5a,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0bbd027fd7606b64888bb6095962c87f, type: 2}
-    - target: {fileID: -5259225927154676129, guid: b7c33e68c5337dd43b194dee27946d5a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: -4609285134700015667, guid: b7c33e68c5337dd43b194dee27946d5a,
+    - target: {fileID: 7469484624682501897, guid: b7c33e68c5337dd43b194dee27946d5a,
         type: 3}
       propertyPath: m_Layer
       value: 16
@@ -5936,6 +5945,86 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: -5259225927154676129, guid: b7c33e68c5337dd43b194dee27946d5a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: -8470045053010906745, guid: b7c33e68c5337dd43b194dee27946d5a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 748748645750174535, guid: b7c33e68c5337dd43b194dee27946d5a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: -7391105858175201956, guid: b7c33e68c5337dd43b194dee27946d5a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4304232019670195337, guid: b7c33e68c5337dd43b194dee27946d5a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7602279746381541769, guid: b7c33e68c5337dd43b194dee27946d5a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562367068721807943, guid: b7c33e68c5337dd43b194dee27946d5a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028042972331259927, guid: b7c33e68c5337dd43b194dee27946d5a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419509613375243657, guid: b7c33e68c5337dd43b194dee27946d5a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: -4609285134700015667, guid: b7c33e68c5337dd43b194dee27946d5a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: -6787611782507106137, guid: b7c33e68c5337dd43b194dee27946d5a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: -8791462977255172696, guid: b7c33e68c5337dd43b194dee27946d5a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: -6575189934397235291, guid: b7c33e68c5337dd43b194dee27946d5a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: -7673886404300160364, guid: b7c33e68c5337dd43b194dee27946d5a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0c45217145bd4484ea79332686d8731f, type: 2}
+    - target: {fileID: -6860305590714054535, guid: b7c33e68c5337dd43b194dee27946d5a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0c45217145bd4484ea79332686d8731f, type: 2}
+    - target: {fileID: -6054058774237248251, guid: b7c33e68c5337dd43b194dee27946d5a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0bbd027fd7606b64888bb6095962c87f, type: 2}
     - target: {fileID: -4422021379620015346, guid: b7c33e68c5337dd43b194dee27946d5a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -6036,11 +6125,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a8f21c3ba967aec4487b97ca93b34fb3, type: 2}
-    - target: {fileID: 748748645750174535, guid: b7c33e68c5337dd43b194dee27946d5a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 16
-      objectReference: {fileID: 0}
     - target: {fileID: 1066910053003865102, guid: b7c33e68c5337dd43b194dee27946d5a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -6051,16 +6135,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0bbd027fd7606b64888bb6095962c87f, type: 2}
-    - target: {fileID: 2502203975881118265, guid: b7c33e68c5337dd43b194dee27946d5a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 3028042972331259927, guid: b7c33e68c5337dd43b194dee27946d5a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 16
-      objectReference: {fileID: 0}
     - target: {fileID: 3726339050020320484, guid: b7c33e68c5337dd43b194dee27946d5a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -6081,16 +6155,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0c45217145bd4484ea79332686d8731f, type: 2}
-    - target: {fileID: 4304232019670195337, guid: b7c33e68c5337dd43b194dee27946d5a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 4695666576454475813, guid: b7c33e68c5337dd43b194dee27946d5a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 16
-      objectReference: {fileID: 0}
     - target: {fileID: 5208976528939402559, guid: b7c33e68c5337dd43b194dee27946d5a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -6101,26 +6165,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0c45217145bd4484ea79332686d8731f, type: 2}
-    - target: {fileID: 7469484624682501897, guid: b7c33e68c5337dd43b194dee27946d5a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 7602279746381541769, guid: b7c33e68c5337dd43b194dee27946d5a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 8419509613375243657, guid: b7c33e68c5337dd43b194dee27946d5a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 8562367068721807943, guid: b7c33e68c5337dd43b194dee27946d5a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 16
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7c33e68c5337dd43b194dee27946d5a, type: 3}
 --- !u!4 &277475524 stripped
@@ -20317,6 +20361,7 @@ GameObject:
   - component: {fileID: 779646604}
   - component: {fileID: 779646603}
   - component: {fileID: 779646602}
+  - component: {fileID: 779646605}
   m_Layer: 5
   m_Name: Back Button
   m_TagString: Untagged
@@ -20445,6 +20490,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 779646600}
   m_CullTransparentMesh: 0
+--- !u!114 &779646605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779646600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1473506347}
+          m_MethodName: PlaySoundWhenMouseEnterButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1473506347}
+          m_MethodName: PlaySoundWhenBackButtonPressed
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &780134246
 GameObject:
   m_ObjectHideFlags: 0
@@ -35234,7 +35322,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1473506344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40328,12 +40416,27 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: 
+        - m_Target: {fileID: 1473506347}
+          m_MethodName: PlaySoundWhenMouseEnterButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1473506347}
+          m_MethodName: PlaySoundWhenPressingButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -51865,6 +51968,7 @@ GameObject:
   - component: {fileID: 1930491411}
   - component: {fileID: 1930491410}
   - component: {fileID: 1930491409}
+  - component: {fileID: 1930491412}
   m_Layer: 5
   m_Name: Menu Button
   m_TagString: Untagged
@@ -51982,6 +52086,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1930491407}
   m_CullTransparentMesh: 0
+--- !u!114 &1930491412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930491407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1473506347}
+          m_MethodName: PlaySoundWhenMouseEnterButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1473506347}
+          m_MethodName: PlaySoundWhenPressingButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1931634883
 GameObject:
   m_ObjectHideFlags: 0
@@ -54931,6 +55078,7 @@ GameObject:
   - component: {fileID: 2090856533}
   - component: {fileID: 2090856532}
   - component: {fileID: 2090856531}
+  - component: {fileID: 2090856534}
   m_Layer: 5
   m_Name: Quit Button
   m_TagString: Untagged
@@ -55048,6 +55196,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2090856529}
   m_CullTransparentMesh: 0
+--- !u!114 &2090856534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090856529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1473506347}
+          m_MethodName: PlaySoundWhenMouseEnterButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1473506347}
+          m_MethodName: PlaySoundWhenQuitButtonPressed
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2099078903 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: b7c33e68c5337dd43b194dee27946d5a,

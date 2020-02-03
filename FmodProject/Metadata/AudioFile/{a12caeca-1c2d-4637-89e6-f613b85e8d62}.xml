@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{a12caeca-1c2d-4637-89e6-f613b85e8d62}">
+		<property name="assetPath">
+			<value>UI_HoverOverButton.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.33747916666666666</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7aca56a0-0add-449c-b0e6-13fd68bfb612}</destination>
+		</relationship>
+	</object>
+</objects>
