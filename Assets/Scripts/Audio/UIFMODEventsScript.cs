@@ -12,11 +12,11 @@ public class UIFMODEventsScript : MonoBehaviour
 
     private void Awake()
     {
-        UI_MenuSelection = FMODUnity.RuntimeManager.CreateInstance("event:/UI_MenuSelection");
-        UI_QuitGame = FMODUnity.RuntimeManager.CreateInstance("event:/UI_QuitGame");
-        UI_StartGame = FMODUnity.RuntimeManager.CreateInstance("event:/UI_StartGame");
-        UI_HoverOverButton = FMODUnity.RuntimeManager.CreateInstance("event:/UI_HoverOverButton");
-        UI_Back = FMODUnity.RuntimeManager.CreateInstance("event:/UI_Back");
+        UI_MenuSelection = FMODUnity.RuntimeManager.CreateInstance("event:/UI/UI_MenuSelection");
+        UI_QuitGame = FMODUnity.RuntimeManager.CreateInstance("event:/UI/UI_QuitGame");
+        UI_StartGame = FMODUnity.RuntimeManager.CreateInstance("event:/UI/UI_StartGame");
+        UI_HoverOverButton = FMODUnity.RuntimeManager.CreateInstance("event:/UI/UI_HoverOverButton");
+        UI_Back = FMODUnity.RuntimeManager.CreateInstance("event:/UI/UI_Back");
     }
 
     public void PlaySoundWhenMouseEnterButton()

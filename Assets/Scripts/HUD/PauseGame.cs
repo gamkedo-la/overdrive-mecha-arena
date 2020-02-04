@@ -21,7 +21,7 @@ public class PauseGame : MonoBehaviour
     {
         if(Input.GetButtonDown("Pause"))
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/UI_Back");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/UI_Back");
             if(GameIsPaused)
             {
                 Resume();

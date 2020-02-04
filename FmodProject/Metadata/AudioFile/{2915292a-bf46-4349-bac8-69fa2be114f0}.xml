@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{2915292a-bf46-4349-bac8-69fa2be114f0}">
+		<property name="assetPath">
+			<value>Gunshot_Laser.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7aca56a0-0add-449c-b0e6-13fd68bfb612}</destination>
+		</relationship>
+	</object>
+</objects>
