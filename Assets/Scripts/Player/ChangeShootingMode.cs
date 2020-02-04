@@ -9,8 +9,6 @@ public class ChangeShootingMode : MonoBehaviour
     // TODO: Update ChangeMode() to check if health is above 50% and only change modes if it is. Additionally, have ChangeMode set heavyModeOn to false if it's not.
 
     //NOTE: Light mode is on by default
-    //light mode is a longer range 
-    //heavy mode is shorter range
     private bool heavyModeOn = false;
     [SerializeField] GameObject heavyModeVFX;
     [SerializeField] GameObject lightModeVFX;
@@ -30,7 +28,7 @@ public class ChangeShootingMode : MonoBehaviour
     {
         if (gameObject.tag == "Player")
         {
-            if (Input.GetButtonDown("Transform"))
+            if (Input.GetButtonDown("Change Ammo"))
             {
                 ChangeMode();
             }

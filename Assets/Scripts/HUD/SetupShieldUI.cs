@@ -10,11 +10,7 @@ public class SetupShieldUI : MonoBehaviour
     void Start()
     {
         HUD = Canvas.FindObjectOfType<Canvas>();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
         shieldLevelsUI = HUD.GetComponentInChildren<UpdateShieldLevels>();
         shieldLevelsUI.SetPlayerHealthScript(gameObject.GetComponent<Health>());
     }
