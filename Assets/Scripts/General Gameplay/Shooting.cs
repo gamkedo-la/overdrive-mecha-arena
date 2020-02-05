@@ -5,7 +5,6 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     private Animator animator;
-    protected ChangeShootingMode shootingMode;
 
     // NOTE: Light mode features lower damage, faster fire rate, and increased range
     // NOTE: Heavy mode features higher damage, slower fire rate, and decreased range
@@ -49,7 +48,6 @@ public class Shooting : MonoBehaviour
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
-        shootingMode = GetComponent<ChangeShootingMode>();
         if(ACTracersEffectPrefab == null)
         {
             ACTracersEffectPrefab = Resources.Load("Autocannon Effect") as GameObject;

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1515524012658226924}
   - component: {fileID: 1515524012658226915}
   - component: {fileID: 1515524012658226913}
-  - component: {fileID: 1515524012658226912}
   - component: {fileID: -7531149912251045396}
   - component: {fileID: 7048220341263063037}
   - component: {fileID: -1872641308477468944}
@@ -104,20 +103,6 @@ MonoBehaviour:
   shieldGO: {fileID: 7975748967430070120}
   shieldToHealthConversionLimitMultiplier: 1.5
   shieldRechargeDelay: 7.5
---- !u!114 &1515524012658226912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1515524012658226926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a36c26be4aa65cd4b833315158c14232, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heavyModeVFX: {fileID: 1515524012608998402}
-  lightModeVFX: {fileID: 1504765820584364589}
 --- !u!114 &-7531149912251045396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37903ed1ba79146d9ba9244735220113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GunshotEvent: event:/SFX_GunshotLaser
 --- !u!1 &1515524012939720657
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,12 +464,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3273fbd5994a79429fdf02731ee0664, type: 3}
---- !u!1 &1515524012608998402 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 137985985447422236, guid: d3273fbd5994a79429fdf02731ee0664,
-    type: 3}
-  m_PrefabInstance: {fileID: 1504765820795954462}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1515524012608998407 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 137985985447422233, guid: d3273fbd5994a79429fdf02731ee0664,
@@ -734,11 +712,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1515524012658226925}
     m_Modifications:
-    - target: {fileID: 4424797610369792175, guid: 8125a117969f2024894dd3befd26bed3,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayerBulletPool
-      objectReference: {fileID: 0}
     - target: {fileID: 6282793150120327142, guid: 8125a117969f2024894dd3befd26bed3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -794,6 +767,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4424797610369792175, guid: 8125a117969f2024894dd3befd26bed3,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerBulletPool
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8125a117969f2024894dd3befd26bed3, type: 3}
 --- !u!4 &1011597262748595139 stripped
@@ -809,21 +787,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1515524012658226925}
     m_Modifications:
-    - target: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
-        type: 3}
-      propertyPath: m_Name
-      value: Light Mode VFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7042319705362345490, guid: 0ace24755b9c51347a92c2057024f073,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -879,6 +842,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
+        type: 3}
+      propertyPath: m_Name
+      value: Light Mode VFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7042319705362345493, guid: 0ace24755b9c51347a92c2057024f073,
         type: 3}
       propertyPath: prewarm
@@ -889,12 +867,6 @@ PrefabInstance:
 --- !u!4 &1504765820584364584 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7042319705362345490, guid: 0ace24755b9c51347a92c2057024f073,
-    type: 3}
-  m_PrefabInstance: {fileID: 8455887629195387962}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1504765820584364589 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
     type: 3}
   m_PrefabInstance: {fileID: 8455887629195387962}
   m_PrefabAsset: {fileID: 0}
