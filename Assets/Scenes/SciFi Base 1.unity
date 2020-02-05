@@ -5239,7 +5239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AiStateDebugText: {fileID: 1093782339}
-  numberOfAIParticipants: 2
+  numberOfAIParticipants: 3
   spawnPointsList:
   - {fileID: 1973670412}
   - {fileID: 1165262994}

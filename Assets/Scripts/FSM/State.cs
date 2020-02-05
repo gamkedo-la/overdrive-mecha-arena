@@ -17,7 +17,7 @@ public abstract class State
     {
         this.agent = agent;
         reasonForLastStateChange = reasonForChange;
-        Debug.Log(agent.name + reasonForLastStateChange);
+        //Debug.Log(agent.name + reasonForLastStateChange);
     }
 
     public virtual string StateName() { return "undefined state"; }

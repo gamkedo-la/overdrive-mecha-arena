@@ -42,7 +42,7 @@ public class ChaseState : State
 
     public override void OnStateEnter()
     {
-        Debug.Log("Entered Chase state");
+        //Debug.Log("Entered Chase state");
         thisAgent = agent.GetComponent<NavMeshAgent>();
         shootingScript = agent.GetComponent<EnemyShooting>();
         thisAgentHealth = agent.GetComponent<Health>();
@@ -94,7 +94,7 @@ public class ChaseState : State
 
     private void MoveToLastKnownTgtPos()
     {
-        agent.SetState(new PatrolState(agent, " lost target. going patrol (MoveToLastKnownTgtPos)"));
+        agent.SetState(new PatrolState(agent, " lost target. going to patrol (MoveToLastKnownTgtPos)"));
     }
 
     public override void FixedTick()
@@ -115,6 +115,11 @@ public class ChaseState : State
 
     private void SelectTarget()
     {
+        if(currentTgt != null)
+        {
+            return;
+        }
+
         validTargets = agent.getValidTargets;
         List<Health> toRemove = new List<Health>();
 
