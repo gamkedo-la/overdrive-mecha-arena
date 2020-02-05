@@ -28,6 +28,7 @@ public class PatrolState : State
         if (UnderAttack())
         {
             shootingScript._hasLostTgt = false;
+            Debug.Log(agent.name + " chasing target after being attacked");
             agent.SetState(new ChaseState(agent));
         }
 
@@ -89,7 +90,7 @@ public class PatrolState : State
 
     public override void OnStateEnter()
     {
-        //Debug.Log("Entered Patrol state");
+        Debug.Log("Entered Patrol state");
         thisAgent = agent.GetComponent<NavMeshAgent>();
         agentHealth = agent.GetComponent<Health>();
         shootingScript = agent.GetComponent<EnemyShooting>();

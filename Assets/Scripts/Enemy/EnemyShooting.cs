@@ -13,6 +13,7 @@ public class EnemyShooting : Shooting
     [SerializeField] private Transform shotOrigin;
 
     private Health health;
+    private ScoreHandler scoreHandler;
     private bool hasLostTgt = false;
     public bool _hasLostTgt { get { return hasLostTgt; } set { hasLostTgt = value; } }
 
@@ -27,6 +28,7 @@ public class EnemyShooting : Shooting
         breakContactAtThisRange = range;
 
         health = GetComponent<Health>();
+        scoreHandler = health._scoreHandler;
     }
 
 

@@ -32,7 +32,7 @@ public class RetreatState : State
 
     public override void OnStateEnter()
     {
-        //Debug.Log(agent.gameObject.name + " is entered Retreat State");
+        Debug.Log(agent.gameObject.name + " is entered Retreat State");
 
         navAgent = agent.GetComponent<NavMeshAgent>();
         thisAgentShootingScript = agent.GetComponent<EnemyShooting>();
@@ -118,7 +118,7 @@ public class RetreatState : State
         if ((aiAttackerShootingScript != null && distance >= aiAttackerShootingScript.getBreakContactRange && enemyPos.CompareTag("Enemy") && !enemyPos.CompareTag("Non-playables")) ||
             (enemyPos.CompareTag("Player") && distance >= playerShooting._playerShootingRange))
         {
-            //Debug.Log(agent.gameObject.name + " succeeded with retreat");
+            Debug.Log(agent.gameObject.name + " succeeded with retreat");
 
             agent.SetState(new PatrolState(agent));
         }

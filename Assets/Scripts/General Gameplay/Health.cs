@@ -13,6 +13,8 @@ public class Health : MonoBehaviour
 
     private PlayerOverdriveCamControl playerOverdrive;
     private SetVcamFollowAndLookAt setVcamScript;
+    private ScoreHandler scoreHandler;
+    public ScoreHandler _scoreHandler { get { return scoreHandler; } }
 
     private Transform myAttacker;
 
@@ -83,6 +85,8 @@ public class Health : MonoBehaviour
             currentHP = startingHP;
             normalShieldLevels = mech.defense;
             shields = mech.defense;
+
+            scoreHandler = GetComponent<ScoreHandler>();
         }
 
         respawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnParticipantIfAble>();

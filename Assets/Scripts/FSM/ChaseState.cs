@@ -42,7 +42,7 @@ public class ChaseState : State
 
     public override void OnStateEnter()
     {
-        //Debug.Log("Entered Chase state");
+        Debug.Log("Entered Chase state");
         thisAgent = agent.GetComponent<NavMeshAgent>();
         shootingScript = agent.GetComponent<EnemyShooting>();
         thisAgentHealth = agent.GetComponent<Health>();
@@ -70,7 +70,7 @@ public class ChaseState : State
         SelectTarget();
         if (validTargets.Count == 0)
         {
-            // We have no targets so go back to patrolling the arena
+            Debug.Log(agent.name + " patrolling due to lack of targets");
             agent.SetState(new PatrolState(agent));
         }
 
@@ -96,8 +96,8 @@ public class ChaseState : State
 
     private void MoveToLastKnownTgtPos()
     {
-        //Debug.Log("Moving to last known tgt pos but this currently function is currently unimplemented! \n" +
-        //            "Returning to PatrolState till further upgrades" );
+        Debug.Log(agent.name + " moving to last known tgt pos but this currently function is currently unimplemented! \n" +
+                    "Returning to PatrolState till further upgrades");
         agent.SetState(new PatrolState(agent));
     }
 
@@ -208,7 +208,7 @@ public class ChaseState : State
         }
         else
         {
-            //Debug.Log("Entering Patrol State");
+            Debug.Log(agent.name + " patrolling due to target being out of range");
             agent.SetState(new PatrolState(agent));
         }
     }

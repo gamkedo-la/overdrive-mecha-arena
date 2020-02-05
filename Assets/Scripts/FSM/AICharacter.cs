@@ -81,6 +81,7 @@ public class AICharacter : MonoBehaviour
 
     public void SetChaseStateViaFieldOfView ()
     {
+        Debug.Log(gameObject.name + " chasing target since it entered field of view");
         if (currentState != null)
         {
             currentState.OnStateExit();
@@ -110,6 +111,8 @@ public class AICharacter : MonoBehaviour
 
                 if (currentState == null || currentState.StateName() != "chase state")
                 {
+                    Debug.Log(gameObject.name + " chasing target since it entered near awareness range");
+
                     SetState(new ChaseState(this));
                 }
             }

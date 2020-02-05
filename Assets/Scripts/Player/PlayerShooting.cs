@@ -10,6 +10,8 @@ public class PlayerShooting : Shooting
     // Scriptable objects could be a great solution for this
 
     [SerializeField] private Mecha mecha;
+    private Health health;
+    private ScoreHandler scoreHandler;
     private Transform bulletPool;
 
     public float _playerShootingRange { get { return range; } }
@@ -23,7 +25,9 @@ public class PlayerShooting : Shooting
         fireRate = mecha.fireRate;
 
         bulletPool = transform.Find("PlayerBulletPool");
-        // Set shooting according to which mecha the player is
+        health = GetComponent<Health>();
+
+        scoreHandler = health._scoreHandler;
     }
 
     protected override void Update()
