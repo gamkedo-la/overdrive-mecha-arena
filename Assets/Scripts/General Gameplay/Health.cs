@@ -23,12 +23,6 @@ public class Health : MonoBehaviour
     private float currentHP;
 
     private string[] priorityValues = new string[] { "high", "medium", "low" };
-
-    // Next three lines used to determine how valuable this target is according to how much HP it has left
-    private int highPriorityThreshold = 50;
-    private int mediumPriorityThreshold = 100;
-    private int lowPriorityThreshold = 150;
-
     private string targetPriority;
 
     private bool isInvulnerable = false;
@@ -48,11 +42,11 @@ public class Health : MonoBehaviour
             }
             else if (targetPriority == "medium")
             {
-                return 50.0f;
+                return 100.0f;
             }
             else
             {
-                return 100.0f;
+                return 200.0f;
             }
         }
     }
@@ -306,11 +300,11 @@ public class Health : MonoBehaviour
 
     private void SetMyValueAsATarget()
     {
-        if (currentHP >= lowPriorityThreshold)
+        if (currentHP >= startingHP / 3)
         {
             targetPriority = priorityValues[2];
         }
-        else if (currentHP >= mediumPriorityThreshold && currentHP < lowPriorityThreshold)
+        else if (currentHP >= startingHP / 2 && currentHP < startingHP / 3)
         {
             targetPriority = priorityValues[1];
         }

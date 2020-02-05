@@ -24,8 +24,9 @@ public class ChaseState : State
 
     private float minRangeBeforeDashAllowed = 150.0f;
     private float retreatDistance = 80.0f;
+    private float minStoppingDist = 115.0f;
+    private float maxStoppingDist;
 
-    private int highValueTgts, midValueTgts, lowValueTgts = 0;
     private float thisAgentPriorityScore;
 
     private float targetUpdateDelay = 20f;
@@ -51,6 +52,7 @@ public class ChaseState : State
         dashTimeLimit = agent._mech.dashTimeLimit;
         defaultAiSpeed = agent._mech.fowardMoveSpeed;
         minRangeBeforeDashAllowed = agent._mech.range / 2;
+        maxStoppingDist = agent._mech.range - 10f;
 
         thisAgent.SetDestination(agent.transform.position);
     }
@@ -165,6 +167,7 @@ public class ChaseState : State
     private void ChaseTarget()
     {
         var distance = Vector3.Distance(agent.transform.position, targetTransform.position);
+        //var stoppingDistRandomizer = UnityEngine.Random.Range(minStoppingDist, maxStoppingDist);
 
         //Debug.Log(distance);
 
@@ -182,10 +185,12 @@ public class ChaseState : State
                 thisAgent.speed = defaultAiSpeed;
             }
 
+            //thisAgent.stoppingDistance = stoppingDistRandomizer;
+
             //TODO: polish LookAt code so it's more natural and less instantanious
             // NOTE: Since the GO consists of several parts stitched together in Blender we could also make specific body parts look at a position through code
 
-            if (distance > thisAgent.stoppingDistance)
+            if (distance > thisAgent.stoppingDistance) // target selection criteria is being skewed by this if block since it makes multiple mechs always be within 100ish meters of their tgt
             {
                 thisAgent.SetDestination(targetTransform.position);
             }

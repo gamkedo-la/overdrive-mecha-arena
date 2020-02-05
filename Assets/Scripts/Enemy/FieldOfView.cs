@@ -37,6 +37,7 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
+    // This block of code is causing inteference with chase and retreat states if the AI has less than 25% HP
     private void FindVisibleTargets()
     {
         if (fsm._currentState.StateName() != "chase state")

@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class EnemyShooting : Shooting
 {
+    [SerializeField] private LayerMask ignoreForViewObstructionCheck;
     [SerializeField] private ParticleSystem shotImpact;
     [SerializeField] private ParticleSystem muzzleFlash;
     [SerializeField] private Mecha mech;
@@ -104,11 +105,7 @@ public class EnemyShooting : Shooting
             print("Could not get " + tgt.name + "'s shooting component");
         }
 
-        // Linecast returns true if the ray is obstructed
-        int layerMask = 1 << 10;
-        layerMask = ~layerMask;
-
-        bool isLineOfSightBlocked = Physics.Linecast(shotOrigin.position + Vector3.up * 18.0f, tgt.transform.position + Vector3.up * 18.0f, layerMask, QueryTriggerInteraction.Ignore); 
+        bool isLineOfSightBlocked = Physics.Linecast(shotOrigin.position + Vector3.up * 18.0f, tgt.transform.position + Vector3.up * 18.0f, ~ignoreForViewObstructionCheck, QueryTriggerInteraction.Ignore); 
         Debug.DrawLine(shotOrigin.position + Vector3.up * 18.0f, tgt.transform.position, Color.blue);
 
         if (!isLineOfSightBlocked && distance <= range) //Only attack if line of sight is clear and target is within range
