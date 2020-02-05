@@ -93,16 +93,19 @@
 	<object class="MixerBusPanner" id="{943e7065-ff3f-4e7f-bd1b-39cba9452890}" />
 	<object class="SingleSound" id="{b0dcaa55-7dac-42ac-bcf4-fdc72d6aa959}">
 		<property name="length">
-			<value>2</value>
+			<value>1.1000000000000001</value>
 		</property>
 		<relationship name="audioFile">
-			<destination>{2915292a-bf46-4349-bac8-69fa2be114f0}</destination>
+			<destination>{713cad1c-6cc3-4f81-8ecf-c223a1130949}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{897ba80d-f77f-48ff-a238-a919054ed9a5}">
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{3282218d-cb97-4fd5-8eb2-9d57a18a1f4c}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{4d56de69-2cea-4141-b9c7-dc0339a86dc2}</destination>
 		</relationship>
@@ -119,8 +122,41 @@
 			<destination>{112a63a4-c37c-4dd8-af47-97ed2fca8ab4}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusPanner" id="{219bca7e-4ea2-49cb-b2cb-759d5a1f69d0}" />
+	<object class="MixerBusPanner" id="{219bca7e-4ea2-49cb-b2cb-759d5a1f69d0}">
+		<property name="surroundPanDirection">
+			<value>4.76516724</value>
+		</property>
+		<property name="surroundPanExtent">
+			<value>125.423256</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{411ed45f-b4fc-4981-b3b6-688371171016}" />
+	<object class="ADSRModulator" id="{3282218d-cb97-4fd5-8eb2-9d57a18a1f4c}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="attackTime">
+			<value>0</value>
+		</property>
+		<property name="holdTime">
+			<value>860</value>
+		</property>
+		<property name="sustainValue">
+			<value>-80</value>
+		</property>
+		<property name="releaseTime">
+			<value>800</value>
+		</property>
+		<property name="releaseShape">
+			<value>-0.179758608</value>
+		</property>
+		<property name="finalValue">
+			<value>-80</value>
+		</property>
+	</object>
 	<object class="MixerBusEffectChain" id="{4d56de69-2cea-4141-b9c7-dc0339a86dc2}">
 		<relationship name="effects">
 			<destination>{c1c519b7-dfd7-4728-8d04-84cb630484a0}</destination>

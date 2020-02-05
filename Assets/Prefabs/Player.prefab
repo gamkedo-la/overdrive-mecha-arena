@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37903ed1ba79146d9ba9244735220113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GunshotEvent: event:/SFX/SFX_GunshotLaser
 --- !u!1 &1515524012939720657
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,6 +713,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1515524012658226925}
     m_Modifications:
+    - target: {fileID: 4424797610369792175, guid: 8125a117969f2024894dd3befd26bed3,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerBulletPool
+      objectReference: {fileID: 0}
     - target: {fileID: 6282793150120327142, guid: 8125a117969f2024894dd3befd26bed3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -767,11 +773,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4424797610369792175, guid: 8125a117969f2024894dd3befd26bed3,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayerBulletPool
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8125a117969f2024894dd3befd26bed3, type: 3}
 --- !u!4 &1011597262748595139 stripped
@@ -787,6 +788,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1515524012658226925}
     m_Modifications:
+    - target: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
+        type: 3}
+      propertyPath: m_Name
+      value: Light Mode VFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7042319705362345490, guid: 0ace24755b9c51347a92c2057024f073,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -841,21 +857,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
-        type: 3}
-      propertyPath: m_Name
-      value: Light Mode VFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7042319705362345493, guid: 0ace24755b9c51347a92c2057024f073,
         type: 3}

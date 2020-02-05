@@ -137,6 +137,8 @@ public class Shooting : MonoBehaviour
                     childParticleSystem.transform.position = hitInfo.point;
                     childParticleSystem.Clear();
                     childParticleSystem.Play();
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/SFX_ElectricImpact", childParticleSystem.transform.position);
+
                 }
             }
 

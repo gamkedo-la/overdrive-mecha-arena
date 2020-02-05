@@ -7,6 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class PauseGame : MonoBehaviour
 {
+
+
+    GameObject audiomanagerScript;
+
     public static bool GameIsPaused;
     public GameObject pauseUI;
     public GameObject gameUI;
@@ -15,6 +19,8 @@ public class PauseGame : MonoBehaviour
     private void Start()
     {
         MasterBus = FMODUnity.RuntimeManager.GetBus("Bus:/");
+        audiomanagerScript = GameObject.Find("AudioManager");
+
     }
 
     private void Update()
@@ -22,12 +28,15 @@ public class PauseGame : MonoBehaviour
         if(Input.GetButtonDown("Pause"))
         {
             FMODUnity.RuntimeManager.PlayOneShot("event:/UI/UI_Back");
+            
             if(GameIsPaused)
             {
+                audiomanagerScript.GetComponent<UIFMODEventsScript>().StopMusicSnapshot();
                 Resume();
             }
             else
             {
+                audiomanagerScript.GetComponent<UIFMODEventsScript>().StartMusicFilterSnapshot();
                 Pause();
             }
         }
@@ -57,6 +66,7 @@ public class PauseGame : MonoBehaviour
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(0);
         MasterBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+
     }
 
     public void Quit()

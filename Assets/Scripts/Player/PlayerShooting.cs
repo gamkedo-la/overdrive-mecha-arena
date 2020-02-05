@@ -40,7 +40,7 @@ public class PlayerShooting : Shooting
                 shotTimer = 0f;
                 base.FireWeapon(bulletPool, true, false);
                 FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/SFX_GunshotLaser", transform.position);
-                
+
             }
             else if(Input.GetButton("Fire2"))
             {

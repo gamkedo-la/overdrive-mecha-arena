@@ -9,6 +9,8 @@ public class UIFMODEventsScript : MonoBehaviour
     FMOD.Studio.EventInstance UI_StartGame;
     FMOD.Studio.EventInstance UI_MenuSelection;
     FMOD.Studio.EventInstance UI_Back;
+    FMOD.Studio.EventInstance pauseSnapshotInstance;
+
 
     private void Awake()
     {
@@ -43,4 +45,17 @@ public class UIFMODEventsScript : MonoBehaviour
     {
         UI_Back.start();
     }
+
+    public void StartMusicFilterSnapshot()
+    {
+        pauseSnapshotInstance = FMODUnity.RuntimeManager.CreateInstance("snapshot:/FilterMusic");
+        pauseSnapshotInstance.start();
+    }
+
+    public void StopMusicSnapshot()
+    {
+        pauseSnapshotInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        pauseSnapshotInstance.release();
+    }
+
 }
