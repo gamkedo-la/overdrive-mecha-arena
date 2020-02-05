@@ -22,7 +22,7 @@ public class RetreatState : State
     private float minDistanceFromEnemyPos;
     private Vector3 finalRetreatPos;
 
-    public RetreatState(AICharacter agent) : base(agent)
+    public RetreatState(AICharacter agent, string reasonForChange) : base(agent, reasonForChange)
     {
     }
     public override string StateName()
@@ -118,9 +118,8 @@ public class RetreatState : State
         if ((aiAttackerShootingScript != null && distance >= aiAttackerShootingScript.getBreakContactRange && enemyPos.CompareTag("Enemy") && !enemyPos.CompareTag("Non-playables")) ||
             (enemyPos.CompareTag("Player") && distance >= playerShooting._playerShootingRange))
         {
-            Debug.Log(agent.gameObject.name + " succeeded with retreat");
 
-            agent.SetState(new PatrolState(agent));
+            agent.SetState(new PatrolState(agent, " succeeded with retreat"));
         }
     }
 

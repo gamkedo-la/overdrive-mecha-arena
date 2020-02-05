@@ -48,7 +48,7 @@ public class InitialParticipantsSpawn : MonoBehaviour
         string aiText = "";
         for (int i = 0; i < spawnedEnemies.Count; i++)
         {
-            aiText += spawnedEnemies[i].name;
+            aiText += spawnedEnemies[i].name + " " + spawnedEnemies[i].GetComponent<AICharacter>()._currentState.reasonForLastStateChange + "\n";
         }
         AiStateDebugText.text = aiText;
     }

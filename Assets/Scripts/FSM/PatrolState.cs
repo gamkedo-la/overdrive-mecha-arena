@@ -14,7 +14,7 @@ public class PatrolState : State
 
     private float timerCount;
 
-    public PatrolState(AICharacter agent) : base(agent)
+    public PatrolState(AICharacter agent, string reasonForChange) : base(agent, reasonForChange)
     {
     }
 
@@ -28,8 +28,7 @@ public class PatrolState : State
         if (UnderAttack())
         {
             shootingScript._hasLostTgt = false;
-            Debug.Log(agent.name + " chasing target after being attacked");
-            agent.SetState(new ChaseState(agent));
+            agent.SetState(new ChaseState(agent, " chasing target after being attacked"));
         }
 
         Patrol();

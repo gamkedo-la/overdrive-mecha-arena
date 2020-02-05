@@ -29,7 +29,7 @@ public class AICharacter : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         shootingScript = GetComponent<EnemyShooting>();
 
-        SetState(new PatrolState(this));
+        SetState(new PatrolState(this, "initial state is patrol"));
     }
 
     private void Update()
@@ -81,13 +81,12 @@ public class AICharacter : MonoBehaviour
 
     public void SetChaseStateViaFieldOfView ()
     {
-        Debug.Log(gameObject.name + " chasing target since it entered field of view");
         if (currentState != null)
         {
             currentState.OnStateExit();
         }
 
-        currentState = new ChaseState(this);
+        currentState = new ChaseState(this, "chasing target since it entered field of view");
 
         if (currentState != null)
         {
@@ -111,9 +110,8 @@ public class AICharacter : MonoBehaviour
 
                 if (currentState == null || currentState.StateName() != "chase state")
                 {
-                    Debug.Log(gameObject.name + " chasing target since it entered near awareness range");
 
-                    SetState(new ChaseState(this));
+                    SetState(new ChaseState(this, " chasing target since it entered near awareness range"));
                 }
             }
         }

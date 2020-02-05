@@ -31,7 +31,7 @@ public class ChaseState : State
     private float targetUpdateDelay = 20f;
     private float targetUpdateTimer = 0f;
 
-    public ChaseState(AICharacter agent) : base(agent)
+    public ChaseState(AICharacter agent, string reasonForChange) : base(agent, reasonForChange)
     {
     }
 
@@ -63,15 +63,13 @@ public class ChaseState : State
             !thisAgentHealth._myAttacker.CompareTag("Hazards") &&
             thisAgentHealth._myAttacker != null)
         {
-            //Debug.Log(agent.gameObject.name + " is entering Retreat State");
-            agent.SetState(new RetreatState(agent));
+            agent.SetState(new RetreatState(agent, " not enough health"));
         }
 
         SelectTarget();
         if (validTargets.Count == 0)
         {
-            Debug.Log(agent.name + " patrolling due to lack of targets");
-            agent.SetState(new PatrolState(agent));
+            agent.SetState(new PatrolState(agent, " patrolling due to lack of targets"));
         }
 
         shootingScript.isTryingToDash = false; // ChaseTarget may override on frame by frame basis
@@ -96,9 +94,7 @@ public class ChaseState : State
 
     private void MoveToLastKnownTgtPos()
     {
-        Debug.Log(agent.name + " moving to last known tgt pos but this currently function is currently unimplemented! \n" +
-                    "Returning to PatrolState till further upgrades");
-        agent.SetState(new PatrolState(agent));
+        agent.SetState(new PatrolState(agent, " lost target. going patrol (MoveToLastKnownTgtPos)"));
     }
 
     public override void FixedTick()
@@ -208,8 +204,7 @@ public class ChaseState : State
         }
         else
         {
-            Debug.Log(agent.name + " patrolling due to target being out of range");
-            agent.SetState(new PatrolState(agent));
+            agent.SetState(new PatrolState(agent, " patrolling due to target being out of range"));
         }
     }
 
