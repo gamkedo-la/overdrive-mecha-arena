@@ -8,6 +8,7 @@ public class ScoreHandler : MonoBehaviour
     private Health health;
 
     private float score = 0;
+    public float _score { get { return score; } }
 
     private float totalKills = 0;
     public float _totalKills { get { return totalKills; } set { totalKills = value; } }
