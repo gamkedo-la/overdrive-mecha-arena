@@ -26,6 +26,9 @@ public class ScoreHandler : MonoBehaviour
     private float deathPenalty;
     private float deathPenaltyMultiplier = 0.66f;
 
+    private bool shouldSubtractScore = true;
+    public bool _shouldSubtractScore { set { shouldSubtractScore = value; } }
+
     private void Awake()
     {
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
@@ -45,7 +48,7 @@ public class ScoreHandler : MonoBehaviour
     public void AddToScore(float damage)
     {
         float scoreToAdd = 0.0f;
-        if(currentKillstreak >= 1)
+        if (currentKillstreak >= 1)
         {
             scoreToAdd = damage * currentKillstreakBonus;
         }
@@ -59,19 +62,23 @@ public class ScoreHandler : MonoBehaviour
 
     public void SubtractFromScore()
     {
-        score -= deathPenalty * totalDeaths * deathPenaltyMultiplier;
-        currentKillstreak = 0;
-        currentKillstreakBonus = 0.0f;
+        if (shouldSubtractScore)
+        {
+            totalDeaths++;
+            score -= deathPenalty * totalDeaths * deathPenaltyMultiplier;
+            currentKillstreak = 0;
+            currentKillstreakBonus = 0.0f;
+        }
     }
 
     public void IncreaseKillstreak()
     {
         currentKillstreak++;
-        if(currentKillstreak == 1)
+        if (currentKillstreak == 1)
         {
             currentKillstreakBonus = initialKillstreakBonus;
         }
-        else if(currentKillstreak > 1 && currentKillstreakBonus < maxKillstreakBonus)
+        else if (currentKillstreak > 1 && currentKillstreakBonus < maxKillstreakBonus)
         {
             currentKillstreakBonus += additiveKillstreakBonus;
         }

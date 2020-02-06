@@ -25,7 +25,7 @@ public class PatrolState : State
 
     public override void Tick()
     {
-        if (UnderAttack())
+        if (UnderAttack() && agentHealth.getCurrentHP >= agentHealth.getBaseHP/4)
         {
             shootingScript._hasLostTgt = false;
             agent.SetState(new ChaseState(agent, " chasing target after being attacked"));
@@ -89,7 +89,7 @@ public class PatrolState : State
 
     public override void OnStateEnter()
     {
-        Debug.Log("Entered Patrol state");
+        //Debug.Log("Entered Patrol state");
         thisAgent = agent.GetComponent<NavMeshAgent>();
         agentHealth = agent.GetComponent<Health>();
         shootingScript = agent.GetComponent<EnemyShooting>();

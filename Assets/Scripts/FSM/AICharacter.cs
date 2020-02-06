@@ -11,7 +11,7 @@ public class AICharacter : MonoBehaviour
     private SphereCollider col;
     public NavMeshAgent agent;
     private EnemyShooting shootingScript;
-
+    private Health agentHealth;
 
     private State currentState;
     private Animator animator;
@@ -28,6 +28,7 @@ public class AICharacter : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
         shootingScript = GetComponent<EnemyShooting>();
+        agentHealth = GetComponent<Health>();
 
         SetState(new PatrolState(this, "initial state is patrol"));
     }
@@ -79,18 +80,21 @@ public class AICharacter : MonoBehaviour
         validTargets.Add(tgt);
     }
 
-    public void SetChaseStateViaFieldOfView ()
+    public void SetChaseStateViaFieldOfView()
     {
-        if (currentState != null)
+        if (agentHealth.getCurrentHP >= agentHealth.getBaseHP / 4 && currentState.StateName() != "chase state")
         {
-            currentState.OnStateExit();
-        }
+            if (currentState != null)
+            {
+                currentState.OnStateExit();
+            }
 
-        currentState = new ChaseState(this, "chasing target since it entered field of view");
+            currentState = new ChaseState(this, "chasing target since it entered field of view");
 
-        if (currentState != null)
-        {
-            currentState.OnStateEnter();
+            if (currentState != null)
+            {
+                currentState.OnStateEnter();
+            }
         }
     }
 
@@ -108,9 +112,15 @@ public class AICharacter : MonoBehaviour
 
                 validTargets.Add(target);
 
-                if (currentState == null || currentState.StateName() != "chase state")
+                if (currentState == null || currentState.StateName() != "chase state" && agentHealth.getCurrentHP >= agentHealth.getBaseHP / 4)
                 {
-
+                    SetState(new ChaseState(this, " chasing target since it entered near awareness range"));
+                }
+            }
+            else
+            {
+                if (currentState == null || currentState.StateName() != "chase state" && agentHealth.getCurrentHP >= agentHealth.getBaseHP / 4)
+                {
                     SetState(new ChaseState(this, " chasing target since it entered near awareness range"));
                 }
             }

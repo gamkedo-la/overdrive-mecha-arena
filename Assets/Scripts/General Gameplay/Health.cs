@@ -66,7 +66,7 @@ public class Health : MonoBehaviour
     private float shieldTimer = 0.5f;
     private bool shieldRechargingLocked = false;
     private float rechargeSlower = 0.5f;
-    private int shieldsChargesLeft = 2;
+    [SerializeField] private int shieldsChargesLeft = 2;
 
     private bool isUsingShield = false;
     public bool _isUsingShield { set { isUsingShield = value; } }// Used by AI to turn shield on or off
@@ -230,10 +230,13 @@ public class Health : MonoBehaviour
     {
         if (!isInvulnerable)
         {
+            ScoreHandler attackerScore = null;
+
             //update myAttacker to reflect this agent's current attacker; this will then be available to the Retreat State so this agent can run away from the attacker
             if (attacker.CompareTag("Player") || attacker.CompareTag("Enemy"))
             {
                 myAttacker = attacker;
+                attackerScore = attacker.GetComponent<ScoreHandler>();
             }
 
             if (currentHP <= currentHP / 3)
@@ -252,6 +255,12 @@ public class Health : MonoBehaviour
             else
             {
                 currentHP -= damageAmount;
+
+                if (attackerScore != null)
+                {
+                    attackerScore.AddToScore(damageAmount);
+                }
+
                 //Debug.Log(gameObject.name + " took " + damageAmount + " damage, now has hp: " + currentHP);
                 if (gameObject.CompareTag("Enemy"))
                 {
@@ -262,7 +271,7 @@ public class Health : MonoBehaviour
 
                 if (currentHP <= 0)
                 {
-                    scoreHandler._totalDeaths++;
+                    attackerScore.IncreaseKillstreak();
                     Die();
                 }
             }
@@ -272,6 +281,7 @@ public class Health : MonoBehaviour
             //Debug.Log(gameObject.name + " is INVULNERABLE!!!");
         }
     }
+
     public void StealShieldAndConvertToHP(int damage, Transform attacker, Health callerHealth)
     {
         if (!isInvulnerable && shields > 0)
@@ -321,12 +331,17 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
+        scoreHandler.SubtractFromScore();
+        scoreHandler._shouldSubtractScore = false;
+
         InvokeRepeating("SpawnCooldown", 0.0f, 1.0f);
         gameObject.SetActive(false);
     }
 
     public void ResetCharacter(Transform spawnPoint)
     {
+        scoreHandler._shouldSubtractScore = true;
+
         gameObject.transform.position = spawnPoint.position;
         gameObject.SetActive(true);
     }

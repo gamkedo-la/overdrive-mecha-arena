@@ -59,15 +59,6 @@ public class ChaseState : State
 
     public override void Tick()
     {
-        // Check if AI doesn't have enough HP to risk an attack/chase and retreat if true
-        if (thisAgentHealth.getCurrentHP <= (thisAgentHealth.getBaseHP / 4) &&
-            !agent.gameObject.CompareTag("Non-playables") &&
-            !thisAgentHealth._myAttacker.CompareTag("Hazards") &&
-            thisAgentHealth._myAttacker != null)
-        {
-            agent.SetState(new RetreatState(agent, " not enough health"));
-        }
-
         SelectTarget();
         if (validTargets.Count == 0)
         {

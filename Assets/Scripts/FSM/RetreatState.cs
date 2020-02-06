@@ -67,9 +67,9 @@ public class RetreatState : State
 
     public override void Tick()
     {
-        enemyPos = health._myAttacker;
+        //enemyPos = health._myAttacker;
 
-        if (enemyPos != null)
+        if (enemyPos != null && enemyPos.CompareTag("Non-playables") == false)
         {
             // Determine which type of mech this AI is
             // Semi-randomly select whether this AI should run away or stand and fight (mech type will play a role in this behavior)
@@ -83,11 +83,11 @@ public class RetreatState : State
             }
             else
             {
+                EnterPatrolIfRetreatViaDistanceSucceeds();
+
                 // AI is running away and is still in contact with attacker or a new attacker enters the mix
                 // Do I continue to run away, face my current attacker, or self-destruct?
             }
-
-            EnterPatrolIfRetreatViaDistanceSucceeds();
         }
         else
         {
@@ -101,7 +101,7 @@ public class RetreatState : State
         {
             navAgent.SetDestination(finalRetreatPos);
         }
-        else if (enemyPos.CompareTag("Enemy") && !enemyPos.CompareTag("Non-playables") && FindValidRetreatPoint(aiAttackerShootingScript.getBreakContactRange + 150f))
+        else if (enemyPos.CompareTag("Enemy") && FindValidRetreatPoint(aiAttackerShootingScript.getBreakContactRange + 150f))
         {
             navAgent.SetDestination(finalRetreatPos);
         }
@@ -115,8 +115,8 @@ public class RetreatState : State
     {
         var distance = Vector3.Distance(agent.transform.position, enemyPos.position);
 
-        if ((aiAttackerShootingScript != null && distance >= aiAttackerShootingScript.getBreakContactRange && enemyPos.CompareTag("Enemy") && !enemyPos.CompareTag("Non-playables")) ||
-            (enemyPos.CompareTag("Player") && distance >= playerShooting._playerShootingRange))
+        if ((aiAttackerShootingScript != null && distance >= aiAttackerShootingScript.getBreakContactRange && enemyPos.CompareTag("Enemy") ||
+            (enemyPos.CompareTag("Player") && distance >= playerShooting._playerShootingRange)))
         {
 
             agent.SetState(new PatrolState(agent, " succeeded with retreat"));
