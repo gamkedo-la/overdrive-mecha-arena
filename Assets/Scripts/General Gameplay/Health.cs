@@ -112,10 +112,10 @@ public class Health : MonoBehaviour
         //    }
         //}
 
-        if(isUsingShield)
+        if (isUsingShield)
         {
             shieldTimer -= Time.deltaTime;
-            if(shieldTimer <= 0)
+            if (shieldTimer <= 0)
             {
                 ShouldUseShield(false);
             }
@@ -123,7 +123,7 @@ public class Health : MonoBehaviour
         else
         {
             shieldTimer += Time.deltaTime * rechargeSlower;
-            if(shieldTimer >= shieldRegenTimeLimit)
+            if (shieldTimer >= shieldRegenTimeLimit)
             {
                 shieldTimer = shieldRegenTimeLimit;
                 shieldRechargingLocked = false;
@@ -157,13 +157,13 @@ public class Health : MonoBehaviour
 
     private void ShouldUseShield(bool isOn)
     {
-        if((shieldRechargingLocked || shieldsChargesLeft <= 0) && isOn)
+        if ((shieldRechargingLocked || shieldsChargesLeft <= 0) && isOn)
         {
             return;
         }
         _isUsingShield = isOn;
         shieldGO.SetActive(isOn);
-        if(isOn)
+        if (isOn)
         {
             shieldsChargesLeft--;
             shieldRechargingLocked = true;
@@ -253,12 +253,16 @@ public class Health : MonoBehaviour
             {
                 currentHP -= damageAmount;
                 //Debug.Log(gameObject.name + " took " + damageAmount + " damage, now has hp: " + currentHP);
-                ShouldUseShield(true);
+                if (gameObject.CompareTag("Enemy"))
+                {
+                    ShouldUseShield(true);
+                }
 
                 SetMyValueAsATarget();
 
                 if (currentHP <= 0)
                 {
+                    scoreHandler._totalDeaths++;
                     Die();
                 }
             }

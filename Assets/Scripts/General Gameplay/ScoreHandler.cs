@@ -8,13 +8,19 @@ public class ScoreHandler : MonoBehaviour
     private Health health;
 
     private float score = 0;
+
     private float totalKills = 0;
+    public float _totalKills { get { return totalKills; } set { totalKills = value; } }
+
     private float totalDeaths = 0;
+    public float _totalDeaths { get { return totalDeaths; } set { totalDeaths = value; } }
 
-    private bool isFirstKillInStreak = false;
-    public bool _isFirtstKillInStreak { set { isFirstKillInStreak = value; } }
+    private int currentKillstreak = 0;
 
+    private float maxKillstreakBonus = 3.0f;
     private float initialKillstreakBonus = 1.5f;
+    private float additiveKillstreakBonus = 0.25f;
+
     private float currentKillstreakBonus = 0.0f;
 
     private float deathPenalty;
@@ -38,6 +44,36 @@ public class ScoreHandler : MonoBehaviour
 
     public void AddToScore(float damage)
     {
-        
+        float scoreToAdd = 0.0f;
+        if(currentKillstreak >= 1)
+        {
+            scoreToAdd = damage * currentKillstreakBonus;
+        }
+        else
+        {
+            scoreToAdd = damage;
+        }
+
+        score += scoreToAdd;
+    }
+
+    public void SubtractFromScore()
+    {
+        score -= deathPenalty * totalDeaths * deathPenaltyMultiplier;
+        currentKillstreak = 0;
+        currentKillstreakBonus = 0.0f;
+    }
+
+    public void IncreaseKillstreak()
+    {
+        currentKillstreak++;
+        if(currentKillstreak == 1)
+        {
+            currentKillstreakBonus = initialKillstreakBonus;
+        }
+        else if(currentKillstreak > 1 && currentKillstreakBonus < maxKillstreakBonus)
+        {
+            currentKillstreakBonus += additiveKillstreakBonus;
+        }
     }
 }
