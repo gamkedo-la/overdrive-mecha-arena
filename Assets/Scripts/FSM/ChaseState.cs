@@ -29,8 +29,9 @@ public class ChaseState : State
 
     private float thisAgentPriorityScore;
 
-    private float targetUpdateDelay = 20f;
+    private float targetUpdateDelay = 30f;
     private float targetUpdateTimer = 0f;
+    private bool selectedInitialTgt = false;
 
     public ChaseState(AICharacter agent, string reasonForChange) : base(agent, reasonForChange)
     {
@@ -59,7 +60,22 @@ public class ChaseState : State
 
     public override void Tick()
     {
-        SelectTarget();
+        // TODO: bypass target selection delay whenever a new target is added to this AI's valid targets list
+        if (!selectedInitialTgt)
+        {
+            SelectTarget();
+        }
+        else
+        {
+            targetUpdateTimer += Time.deltaTime;
+            if (targetUpdateTimer >= targetUpdateDelay)
+            {
+                targetUpdateTimer = 0f;
+                Debug.Log(agent.name + " selecting updating to best target");
+                SelectTarget();
+            }
+        }
+
         if (validTargets.Count == 0)
         {
             agent.SetState(new PatrolState(agent, " patrolling due to lack of targets"));
@@ -87,6 +103,7 @@ public class ChaseState : State
 
     private void MoveToLastKnownTgtPos()
     {
+        //thisAgent.SetDestination(lastTgtPos.position);
         agent.SetState(new PatrolState(agent, " lost target. going to patrol (MoveToLastKnownTgtPos)"));
     }
 
@@ -108,10 +125,10 @@ public class ChaseState : State
 
     private void SelectTarget()
     {
-        if(currentTgt != null)
-        {
-            return;
-        }
+        //if (currentTgt != null)
+        //{
+        //    return;
+        //}
 
         validTargets = agent.getValidTargets;
         List<Health> toRemove = new List<Health>();
@@ -152,6 +169,11 @@ public class ChaseState : State
         foreach (Health tgt in toRemove)
         {
             agent.RemoveTargetFromSuperList(tgt);
+        }
+        
+        if(currentTgt != null)
+        {
+            selectedInitialTgt = true;
         }
     }
 
@@ -197,7 +219,6 @@ public class ChaseState : State
                 {
                     agent.debugPoint.position = tgtPos;
                 }
-
             }
 
             // improve set destination so it strafes around its target in a semi-random manner
