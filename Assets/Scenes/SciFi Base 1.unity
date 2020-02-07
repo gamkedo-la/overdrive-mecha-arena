@@ -35747,7 +35747,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1473506344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44512,6 +44512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d51bffc16626f41af92bfafe813381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreManager: {fileID: 1682520651}
+  AudioManager: {fileID: 1473506343}
   tmProText: {fileID: 2055214643}
   timeLimit: 600
 --- !u!4 &1795615306
