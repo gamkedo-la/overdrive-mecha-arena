@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{42a265fb-17ca-4dcb-8c5c-60a527f5656d}">
+		<property name="name">
+			<value>EndDash</value>
+		</property>
+		<relationship name="folder">
+			<destination>{a2874f59-7f31-4c30-9b4f-fbb39266d34a}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{3097a69a-7571-41b7-b3a0-486c666c77cb}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{3097a69a-7571-41b7-b3a0-486c666c77cb}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

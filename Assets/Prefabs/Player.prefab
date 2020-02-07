@@ -104,6 +104,7 @@ MonoBehaviour:
   shieldGO: {fileID: 7975748967430070120}
   shieldToHealthConversionLimitMultiplier: 1.5
   shieldRechargeDelay: 7.5
+  shieldsChargesLeft: 2
 --- !u!114 &-7531149912251045396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,6 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 051b961ebf33bb044a3b7adc95312776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreKeeper: {fileID: 0}
 --- !u!1 &1515524012939720657
 GameObject:
   m_ObjectHideFlags: 0

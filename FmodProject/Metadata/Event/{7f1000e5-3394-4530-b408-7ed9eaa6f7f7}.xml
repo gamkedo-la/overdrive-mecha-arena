@@ -92,6 +92,9 @@
 		<property name="length">
 			<value>2</value>
 		</property>
+		<property name="volume">
+			<value>6.5</value>
+		</property>
 		<relationship name="modulators">
 			<destination>{444240a6-9495-44cb-bf87-b30032d4d67f}</destination>
 		</relationship>
@@ -106,7 +109,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{38fb1f66-07a6-489b-a1e5-c25a82b4695b}">
 		<property name="volume">
-			<value>0.5</value>
+			<value>5</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -126,6 +129,7 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{5089d22a-9d29-4aea-a448-961a96ffa8d1}">
 		<relationship name="effects">
+			<destination>{c0d083bb-7aed-42ef-93f8-99c668f474b5}</destination>
 			<destination>{1c7483e8-1587-4611-90ae-b82c61cb5b20}</destination>
 			<destination>{8bfd038c-ed6f-47a5-ad12-379f7b6fb73c}</destination>
 		</relationship>
@@ -142,36 +146,48 @@
 	</object>
 	<object class="SingleSound" id="{e9fd2271-445e-4fbf-b966-c8107064ce6a}">
 		<property name="volume">
-			<value>-10.5</value>
+			<value>8</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{6ffa2112-3c13-4d9c-a531-9e58a203dc2a}</destination>
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{6c21dc74-ba1e-432e-b89c-04205653823e}">
+		<property name="volume">
+			<value>8</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{e257b345-71ae-49a3-8223-d6530429f9d5}</destination>
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{88c0a474-f34c-4d34-8f63-497d0920f4a8}">
 		<property name="volume">
-			<value>-10</value>
+			<value>8</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{913d8784-91d6-421b-9960-71704906219e}</destination>
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{17f9cc08-9cb5-4564-801e-87764bd48d44}">
+		<property name="volume">
+			<value>8</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{4a4543db-e32f-4883-b6b1-47349eec3502}</destination>
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{43ee2201-6ccb-4375-ae95-42185de9ddbe}">
+		<property name="volume">
+			<value>8</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{a0671d12-dbec-49d0-951a-7983b5453f39}</destination>
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{7519450d-6918-4905-9425-1de0c88c1758}">
+		<property name="volume">
+			<value>8</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{e5efb43d-f039-4d67-99e1-1e92d00cf99c}</destination>
 		</relationship>
@@ -200,16 +216,31 @@
 			<destination>{1e67ae49-cae3-46eb-a0e7-2966fac40da7}</destination>
 			<destination>{2242efee-2e49-4124-b220-3bb833e32082}</destination>
 			<destination>{2ecdc71e-712a-48e5-b755-ac325919ad31}</destination>
+			<destination>{d418b4e8-cf5a-41ae-a63a-e47b47008ad6}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{0e4af873-4759-4eb4-a9ed-2afa37a2d0a5}" />
+	<object class="CompressorEffect" id="{c0d083bb-7aed-42ef-93f8-99c668f474b5}">
+		<property name="threshold">
+			<value>-60</value>
+		</property>
+		<property name="attackTime">
+			<value>0.849999964</value>
+		</property>
+		<property name="releaseTime">
+			<value>520</value>
+		</property>
+		<property name="gain">
+			<value>21.5</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{1c7483e8-1587-4611-90ae-b82c61cb5b20}" />
 	<object class="SpatialiserEffect" id="{8bfd038c-ed6f-47a5-ad12-379f7b6fb73c}">
 		<property name="minimumDistance">
 			<value>3</value>
 		</property>
 		<property name="maximumDistance">
-			<value>500</value>
+			<value>800</value>
 		</property>
 	</object>
 	<object class="LowpassEffect" id="{76540f7c-0924-4edf-b697-7fc604346023}">
@@ -223,7 +254,7 @@
 	<object class="MixerBusFader" id="{22e97084-3687-49cf-97df-83d0c6dbd0bc}" />
 	<object class="HighpassEffect" id="{1e67ae49-cae3-46eb-a0e7-2966fac40da7}">
 		<property name="cutoff">
-			<value>640</value>
+			<value>700</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{e52f7e0b-d4de-48fa-be61-b7e384638bc0}</destination>
@@ -231,25 +262,48 @@
 	</object>
 	<object class="CompressorEffect" id="{2242efee-2e49-4124-b220-3bb833e32082}">
 		<property name="threshold">
-			<value>-26</value>
+			<value>-60</value>
 		</property>
 		<property name="ratio">
 			<value>4.89999962</value>
 		</property>
+		<property name="attackTime">
+			<value>0.599999964</value>
+		</property>
 		<property name="gain">
-			<value>5</value>
+			<value>30</value>
 		</property>
 	</object>
 	<object class="MultibandEqEffect" id="{2ecdc71e-712a-48e5-b755-ac325919ad31}">
 		<property name="filterTypeA">
 			<value>9</value>
 		</property>
+		<property name="filterTypeB">
+			<value>5</value>
+		</property>
 		<property name="frequencyA">
 			<value>1908.24695</value>
+		</property>
+		<property name="frequencyB">
+			<value>69.3301544</value>
+		</property>
+		<property name="qualityB">
+			<value>0.234158188</value>
 		</property>
 		<property name="gainA">
 			<value>-2.76273155</value>
 		</property>
+	</object>
+	<object class="MixerSend" id="{d418b4e8-cf5a-41ae-a63a-e47b47008ad6}">
+		<property name="level">
+			<value>-39</value>
+		</property>
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{a7b0e9d8-c65f-401b-ba4c-853d213732b1}</destination>
+		</relationship>
 	</object>
 	<object class="RandomizerModulator" id="{f5f937c8-10e0-4a5f-85b4-78f1ba413bd3}">
 		<property name="nameOfPropertyBeingModulated">

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{b6874cbd-5579-4152-8c2b-3cbf2ac1eb13}">
+		<property name="assetPath">
+			<value>SFX_DashAttack.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.3333333333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7aca56a0-0add-449c-b0e6-13fd68bfb612}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -24,6 +24,10 @@ public class PlayerMovement : MonoBehaviour
     public GameObject PPV;
     private IEnumerator coroutine;
 
+    private GameObject audioManager;
+    PlayerFMODEvents playerEventsScript;
+    bool start = true;
+
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -48,6 +52,9 @@ public class PlayerMovement : MonoBehaviour
 
         PPV = GameObject.FindGameObjectWithTag("PostProcessing");
         PPV.SetActive(false);
+
+        playerEventsScript = gameObject.GetComponent<PlayerFMODEvents>();
+
     }
 
     private void Update()
@@ -100,5 +107,17 @@ public class PlayerMovement : MonoBehaviour
                 characterController.SimpleMove(transform.right * strafeSpeedToUse * horizontalStrafe);
             }
         }
-     }
+
+
+        //Audio related stuff
+        if (Input.GetButtonDown("Dash") && (vertical != 0 || horizontalStrafe != 0))
+        {
+            playerEventsScript.PlayDashSound();
+        }
+        if (Input.GetButtonUp("Dash"))
+        {
+            playerEventsScript.StopDashSound();
+        }
+
+    }
 }
