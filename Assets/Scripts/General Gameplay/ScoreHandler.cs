@@ -1,11 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ScoreHandler : MonoBehaviour
 {
     [SerializeField] private ScoreKeeper scoreKeeper;
     private Health health;
+
+    private Canvas HUD;
+    private UpdatePlayerScore playerRank;
 
     private float score = 0;
     public float _score { get { return score; } }
@@ -30,9 +35,18 @@ public class ScoreHandler : MonoBehaviour
     private bool shouldSubtractScore = true;
     public bool _shouldSubtractScore { set { shouldSubtractScore = value; } }
 
+    private GameObject topFourRankIndicator;
+
     private void Awake()
     {
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
+
+        if (gameObject.CompareTag("Player"))
+        {
+            HUD = FindObjectOfType<Canvas>();
+
+            playerRank = HUD.GetComponentInChildren<UpdatePlayerScore>();
+        }
     }
 
     private void Start()
@@ -44,6 +58,14 @@ public class ScoreHandler : MonoBehaviour
 
         health = GetComponent<Health>();
         deathPenalty = health.getBaseHP;
+    }
+
+    private void Update()
+    {
+        if (gameObject.CompareTag("Player"))
+        {
+            playerRank.UpdatePlayerScoreStuff(score, totalKills, totalDeaths, scoreKeeper._rankings.FindIndex(x => x.CompareTag("Player")) + 1);
+        }
     }
 
     public void AddToScore(float damage)
@@ -69,6 +91,11 @@ public class ScoreHandler : MonoBehaviour
             score -= deathPenalty * totalDeaths * deathPenaltyMultiplier;
             currentKillstreak = 0;
             currentKillstreakBonus = 0.0f;
+
+            GameObject oldRank = topFourRankIndicator;
+            Destroy(oldRank);
+
+            topFourRankIndicator = null;
         }
     }
 
@@ -82,6 +109,22 @@ public class ScoreHandler : MonoBehaviour
         else if (currentKillstreak > 1 && currentKillstreakBonus < maxKillstreakBonus)
         {
             currentKillstreakBonus += additiveKillstreakBonus;
+        }
+    }
+
+    public void SetTopFourIndicator(GameObject rankIndicator)
+    {
+        if (!gameObject.CompareTag("Player"))
+        {
+            if (topFourRankIndicator != null)
+            {
+                GameObject oldRank = topFourRankIndicator;
+                Destroy(oldRank);
+
+                topFourRankIndicator = null;
+            }
+
+            topFourRankIndicator = Instantiate(rankIndicator, transform.position + (Vector3.up * 35f), Quaternion.identity);
         }
     }
 }

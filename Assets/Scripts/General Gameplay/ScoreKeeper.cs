@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Linq;
+using System;
 
 public class ScoreKeeper : MonoBehaviour
 {
@@ -22,17 +23,28 @@ public class ScoreKeeper : MonoBehaviour
     public List<ScoreHandler> _participants { get { return participants; } }
 
     private List<ScoreHandler> rankings = new List<ScoreHandler>();
+    public List<ScoreHandler> _rankings { get { return rankings; } }
 
     private void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         var sortedRankingsDescending = participants.OrderByDescending(x => x._score);
-        
-        // TODO: Figure out how to take the results of sortedRankingsDescending and added them to the rankings list
+
+        rankings = sortedRankingsDescending.ToList<ScoreHandler>();
+
+        MarkTopFourRanks();
+    }
+
+    private void MarkTopFourRanks()
+    {
+        for(int i = 0; i < rankIndicators.Count - 1; i++)
+        {
+            rankings[i].SetTopFourIndicator(rankIndicators[i]);
+        }
     }
 }

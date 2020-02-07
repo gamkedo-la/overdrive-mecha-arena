@@ -25,7 +25,7 @@ MonoBehaviour:
   specialCooldown: 45
   specialUseTimeLimit: 10
   strengthOfSpecialAbility: 0
-  damage: 3
+  damage: 4
   range: 275
   fireRate: 0.5
   fowardMoveSpeed: 50
