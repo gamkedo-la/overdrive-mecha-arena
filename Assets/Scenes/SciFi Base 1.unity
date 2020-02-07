@@ -18917,7 +18917,7 @@ GameObject:
   - component: {fileID: 745330025}
   - component: {fileID: 745330024}
   m_Layer: 5
-  m_Name: Kills
+  m_Name: Killstreak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21579,8 +21579,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rankText: {fileID: 1486229845}
   scoreText: {fileID: 1564308235}
-  totalKillsText: {fileID: 745330024}
   totalDeathsText: {fileID: 1032943116}
+  killstreakText: {fileID: 745330024}
 --- !u!1 &845770948
 GameObject:
   m_ObjectHideFlags: 0
@@ -25073,7 +25073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09825563, g: 0.9056604, b: 0.17580514, a: 0.72156864}
+  m_Color: {r: 0.065681726, g: 0.33962262, b: 0.09227793, a: 0.72156864}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -36955,7 +36955,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_textAlignment: 514
-  m_characterSpacing: 0
+  m_characterSpacing: 5
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -43624,7 +43624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21106264, g: 0.8773585, b: 0.8699138, a: 0.7137255}
+  m_Color: {r: 0.09732112, g: 0.764151, b: 0.75482464, a: 0.9098039}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:

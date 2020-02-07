@@ -271,7 +271,11 @@ public class Health : MonoBehaviour
 
                 if (currentHP <= 0)
                 {
-                    attackerScore.IncreaseKillstreak();
+                    if (attackerScore != null)
+                    {
+                        attackerScore.IncreaseKillstreak();
+                    }
+
                     Die();
                 }
             }

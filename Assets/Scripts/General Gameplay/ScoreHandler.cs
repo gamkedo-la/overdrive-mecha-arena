@@ -64,7 +64,7 @@ public class ScoreHandler : MonoBehaviour
     {
         if (gameObject.CompareTag("Player"))
         {
-            playerRank.UpdatePlayerScoreStuff(score, totalKills, totalDeaths, scoreKeeper._rankings.FindIndex(x => x.CompareTag("Player")) + 1);
+            playerRank.UpdatePlayerScoreStuff(score, currentKillstreak, totalDeaths, scoreKeeper._rankings.FindIndex(x => x.CompareTag("Player")) + 1);
         }
     }
 
