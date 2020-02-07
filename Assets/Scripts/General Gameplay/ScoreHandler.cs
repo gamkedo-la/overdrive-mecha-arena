@@ -87,8 +87,16 @@ public class ScoreHandler : MonoBehaviour
     {
         if (shouldSubtractScore)
         {
+            if (totalDeaths == 0)
+            {
+                score -= deathPenalty * deathPenaltyMultiplier;
+            }
+            else
+            {
+                score -= deathPenalty * totalDeaths * deathPenaltyMultiplier;
+            }
+
             totalDeaths++;
-            score -= deathPenalty * totalDeaths * deathPenaltyMultiplier;
             currentKillstreak = 0;
             currentKillstreakBonus = 0.0f;
 
