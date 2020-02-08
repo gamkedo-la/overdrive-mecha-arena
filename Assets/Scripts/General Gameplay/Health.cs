@@ -82,6 +82,9 @@ public class Health : MonoBehaviour
             shieldsChargesLeft = mech.shieldCharges;
 
             scoreHandler = GetComponent<ScoreHandler>();
+
+            isUsingShield = false;
+            ShouldUseShield(false);
         }
 
         respawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnParticipantIfAble>();
@@ -91,9 +94,6 @@ public class Health : MonoBehaviour
             setVcamScript = GetComponent<SetVcamFollowAndLookAt>();
             playerOverdrive = setVcamScript._vcam.GetComponent<PlayerOverdriveCamControl>();
         }
-
-        isUsingShield = false;
-        ShouldUseShield(false);
     }
 
     private void Update()
@@ -104,32 +104,35 @@ public class Health : MonoBehaviour
             //Debug.Log(gameObject.name + "'s attacker is: " + myAttacker.name);
         }
 
-        if (isUsingShield)
+        if (!gameObject.CompareTag("Non-playables"))
         {
-            shieldTimer -= Time.deltaTime;
-            if (shieldTimer <= 0)
+            if (isUsingShield)
             {
-                ShouldUseShield(false);
+                shieldTimer -= Time.deltaTime;
+                if (shieldTimer <= 0)
+                {
+                    ShouldUseShield(false);
+                }
             }
-        }
-        else
-        {
-            shieldTimer += Time.deltaTime * rechargeSlower;
-            if (shieldTimer >= shieldRegenTimeLimit)
+            else
             {
-                shieldTimer = shieldRegenTimeLimit;
-                shieldRechargingLocked = false;
+                shieldTimer += Time.deltaTime * rechargeSlower;
+                if (shieldTimer >= shieldRegenTimeLimit)
+                {
+                    shieldTimer = shieldRegenTimeLimit;
+                    shieldRechargingLocked = false;
+                }
             }
+
+            HandlePlayerShield();
+
+            if (shields <= normalShieldLevels)
+            {
+                RechargeShieldIfAble();
+            }
+
+            TurnDrunkenessOnOrOff();
         }
-
-        HandlePlayerShield();
-
-        if (shields <= normalShieldLevels)
-        {
-            RechargeShieldIfAble();
-        }
-
-        TurnDrunkenessOnOrOff();
     }
 
     private void HandlePlayerShield()
@@ -213,11 +216,14 @@ public class Health : MonoBehaviour
 
     private void OnEnable()
     {
-        CancelInvoke("SpawnCooldown");
-        respawnTimer = 0;
-        currentHP = startingHP;
-        shields = normalShieldLevels;
-        shieldsChargesLeft = mech.shieldCharges;
+        if (!gameObject.CompareTag("Non-playables"))
+        {
+            CancelInvoke("SpawnCooldown");
+            respawnTimer = 0;
+            currentHP = startingHP;
+            shields = normalShieldLevels;
+            shieldsChargesLeft = mech.shieldCharges;
+        }
     }
 
     public void TakeDamage(int damageAmount, Transform attacker)

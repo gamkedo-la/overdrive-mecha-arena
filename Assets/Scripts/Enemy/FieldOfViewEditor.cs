@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor (typeof (FieldOfView))]
+[CustomEditor(typeof(FieldOfView))]
 public class FieldOfViewEditor : Editor
 {
     private void OnSceneGUI()

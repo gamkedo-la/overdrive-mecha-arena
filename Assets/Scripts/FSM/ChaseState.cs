@@ -33,6 +33,12 @@ public class ChaseState : State
     private float targetUpdateTimer = 0f;
     private bool selectedInitialTgt = false;
 
+    private float timeUntilStrafe = 10.0f;
+    private int randomStrafeDir;
+    private float minTimeTillStrafe = 5.0f;
+    private float maxTimeTillStrafe = 15.0f;
+    private float randomStrafeTime;
+
     public ChaseState(AICharacter agent, string reasonForChange) : base(agent, reasonForChange)
     {
     }
@@ -113,9 +119,18 @@ public class ChaseState : State
         {
             shootingScript.FireWeapon(currentTgt, defaultAiSpeed, dashSpeed, ShouldUseOverdrive());
 
-            agent.transform.LookAt(targetTransform.position);
-            agent.transform.rotation = Quaternion.Slerp(agent.transform.rotation, Quaternion.LookRotation(targetTransform.position - agent.transform.position), 0.05f);
+            SmoothLookAt();
         }
+    }
+
+    private void SmoothLookAt()
+    {
+        // NOTE: Since the GO consists of several parts stitched together in Blender we could also make specific body parts look at a position through code
+
+        Vector3 lookAtPos = targetTransform.position - agent.transform.position;
+        lookAtPos.y = 0;
+        Quaternion rot = Quaternion.LookRotation(lookAtPos);
+        agent.transform.rotation = Quaternion.Slerp(agent.transform.rotation, rot, 0.05f);
     }
 
     private bool ShouldUseOverdrive()
@@ -200,9 +215,6 @@ public class ChaseState : State
 
             //thisAgent.stoppingDistance = stoppingDistRandomizer;
 
-            //TODO: polish LookAt code so it's more natural and less instantanious
-            // NOTE: Since the GO consists of several parts stitched together in Blender we could also make specific body parts look at a position through code
-
             if (distance > thisAgent.stoppingDistance) // target selection criteria is being skewed by this if block since it makes multiple mechs always be within 100ish meters of their tgt
             {
                 thisAgent.SetDestination(targetTransform.position);
@@ -220,13 +232,57 @@ public class ChaseState : State
                     agent.debugPoint.position = tgtPos;
                 }
             }
-
-            // improve set destination so it strafes around its target in a semi-random manner
-            //thisAgent.SetDestination(targetTransform.position);
+            else
+            {
+                randomStrafeDir = UnityEngine.Random.Range(0, 2);
+                randomStrafeTime = UnityEngine.Random.Range(minTimeTillStrafe, maxTimeTillStrafe);
+                
+                if(timeUntilStrafe <= 0)
+                {
+                    if (randomStrafeDir == 0)
+                    {
+                        StrafeRightOrLeft(true);
+                    }
+                    else
+                    {
+                        StrafeRightOrLeft(false);
+                    }
+                    timeUntilStrafe = randomStrafeTime;
+                }
+                else
+                {
+                    timeUntilStrafe -= Time.deltaTime;
+                }
+            }
         }
         else
         {
             agent.SetState(new PatrolState(agent, " patrolling due to target being out of range"));
+        }
+    }
+
+    private void StrafeRightOrLeft(bool strafeRight)
+    {
+        Debug.Log(agent.name + " attempting to strafe right? " + strafeRight);
+
+        Vector3 offset;
+        if(strafeRight)
+        {
+            offset = targetTransform.position - agent.transform.position;
+        }
+        else
+        {
+            offset = agent.transform.position - targetTransform.position;
+        }
+
+        var dir = Vector3.Cross(offset, Vector3.up);
+
+        Debug.Log(agent.transform.position + dir);
+        thisAgent.SetDestination(agent.transform.position + dir);
+
+        if (agent.debugPoint)
+        {
+            agent.debugPoint.position = agent.transform.position + dir;
         }
     }
 

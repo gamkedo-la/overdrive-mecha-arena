@@ -27,7 +27,7 @@ public class ScoreKeeper : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -42,9 +42,16 @@ public class ScoreKeeper : MonoBehaviour
 
     private void MarkTopFourRanks()
     {
-        for(int i = 0; i < rankIndicators.Count - 1; i++)
+        for (int i = 0; i < rankIndicators.Count - 1; i++)
         {
-            rankings[i].SetTopFourIndicator(rankIndicators[i]);
+            try
+            {
+                rankings[i].SetTopFourIndicator(rankIndicators[i]);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                continue;
+            }
         }
     }
 }
