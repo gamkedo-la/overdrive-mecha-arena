@@ -37,7 +37,7 @@ public class PlayerShooting : Shooting
         base.Update();
         if (shotTimer >= fireRate)
         {
-            if (Input.GetButton("Fire1"))
+            if (Input.GetButton("Fire1") || Input.GetAxis("Fire4") == 1)
             {
                 shotTimer = 0f;
 
@@ -47,7 +47,7 @@ public class PlayerShooting : Shooting
                     FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/SFX_GunshotLaser", transform.position);
                 }
             }
-            else if (Input.GetButton("Fire2"))
+            else if (Input.GetButton("Fire2") || Input.GetAxis("Fire5") == 1)
             {
                 shotTimer = 0f;
 

@@ -5239,7 +5239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AiStateDebugText: {fileID: 1093782339}
-  numberOfAIParticipants: 0
+  numberOfAIParticipants: 3
   spawnPointsList:
   - {fileID: 1973670412}
   - {fileID: 1165262994}
@@ -14261,7 +14261,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &544193126
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17657,7 +17657,7 @@ PrefabInstance:
     - target: {fileID: 4234567098220050998, guid: 0990fce9499226f4d934f018624fbac0,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4234567098220050997, guid: 0990fce9499226f4d934f018624fbac0,
         type: 3}

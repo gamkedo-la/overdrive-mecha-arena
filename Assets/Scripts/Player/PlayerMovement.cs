@@ -59,9 +59,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        var horizontalRot = Input.GetAxis("Mouse X");
-        var horizontalStrafe = Input.GetAxis("Horizontal");
-        var vertical = Input.GetAxis("Vertical");
+        var horizontalRot = 0.0f;
+        var horizontalStrafe = 0.0f;
+        var vertical = 0.0f;
+        if (Input.GetJoystickNames() == null)
+        {
+            horizontalRot = Input.GetAxis("Mouse X");
+            horizontalStrafe = Input.GetAxis("Horizontal");
+            vertical = Input.GetAxis("Vertical");
+        }
+        else
+        {
+            horizontalRot = Input.GetAxis("JoyRotX");
+            horizontalStrafe = Input.GetAxis("HorizontalJoy");
+            vertical = Input.GetAxis("VerticalJoy");
+            //Debug.Log(Input.GetAxis("HorizontalJoy"));
+        }
 
         var movement = new Vector3(horizontalRot, 0, vertical);
 
@@ -83,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
         if (vertical != 0)
         {
             float moveSpeedToUse = vertical > 0 ? fowardMoveSpeed : backwardMoveSpeed;
-          
+
 
             if (playerShooting.isTryingToDash)
             {

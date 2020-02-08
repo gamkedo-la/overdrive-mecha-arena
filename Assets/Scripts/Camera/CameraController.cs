@@ -20,7 +20,17 @@ public class CameraController : MonoBehaviour
     {
         if (Time.timeScale > 0f)
         {
-            float vertical = Input.GetAxis("Mouse Y") * sensitivity;
+            float vertical;
+            if (Input.GetJoystickNames() == null)
+            {
+                vertical = Input.GetAxis("Mouse Y") * sensitivity;
+            }
+            else
+            {
+                vertical = Input.GetAxis("JoyRotY");
+                //Debug.Log(vertical);
+            }
+
             composer.m_TrackedObjectOffset.y += vertical;
             composer.m_TrackedObjectOffset.y = Mathf.Clamp(composer.m_TrackedObjectOffset.y, viewTiltMin, viewTiltMax);
         }
