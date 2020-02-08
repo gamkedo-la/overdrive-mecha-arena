@@ -15,6 +15,9 @@ public class EnemyShooting : Shooting
 
     private Health health;
     private ScoreHandler scoreHandler;
+    private AmmoHandling ammo;
+    public AmmoHandling _ammo { get { return ammo; } }
+
     private bool hasLostTgt = false;
     public bool _hasLostTgt { get { return hasLostTgt; } set { hasLostTgt = value; } }
 
@@ -29,6 +32,7 @@ public class EnemyShooting : Shooting
         breakContactAtThisRange = range;
 
         health = GetComponent<Health>();
+        ammo = GetComponent<AmmoHandling>();
         scoreHandler = health._scoreHandler;
     }
 
@@ -106,7 +110,7 @@ public class EnemyShooting : Shooting
         }
 
         Debug.DrawLine(shotOrigin.position + Vector3.up * 18.0f, tgt.transform.position, Color.cyan);
-        bool isLineOfSightBlocked = Physics.Linecast(shotOrigin.position + Vector3.up * 18.0f, tgt.transform.position + Vector3.up * 18.0f, ~ignoreForViewObstructionCheck, QueryTriggerInteraction.Ignore); 
+        bool isLineOfSightBlocked = Physics.Linecast(shotOrigin.position + Vector3.up * 18.0f, tgt.transform.position + Vector3.up * 18.0f, ~ignoreForViewObstructionCheck, QueryTriggerInteraction.Ignore);
 
         if (!isLineOfSightBlocked && distance <= range) //Only attack if line of sight is clear and target is within range
         {
@@ -120,11 +124,25 @@ public class EnemyShooting : Shooting
             {
                 if (ShouldDamageTarget(tgt) && !shouldEnterOverdrive)
                 {
-                    tgt.TakeDamage(damage, gameObject.transform);
+                    if (ammo._currentAmmoType == ammo._ammoTypes[0])
+                    {
+                        tgt.TakeDamage(damage, gameObject.transform);
+                    }
+                    else if(ammo._isAmmoLoaded)
+                    {
+                        ammo.ChangeAmmo(ammo._ammoTypes[0]);
+                    }
                 }
                 else
                 {
-                    tgt.StealShieldAndConvertToHP(damage, gameObject.transform, health);
+                    if (ammo._currentAmmoType == ammo._ammoTypes[1])
+                    {
+                        tgt.StealShieldAndConvertToHP(damage, gameObject.transform, health);
+                    }
+                    else if(ammo._isAmmoLoaded)
+                    {
+                        ammo.ChangeAmmo(ammo._ammoTypes[1]);
+                    }
                 }
             }
         }

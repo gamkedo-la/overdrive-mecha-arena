@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +15,9 @@ public class AmmoHandling : MonoBehaviour
     public int[] _ammoTypes { get { return ammoTypes; } }
 
     private int currentAmmoType = 1;
+    public int _currentAmmoType { get { return currentAmmoType; } }
+
+    private int ammoToBeLoaded;
 
     [SerializeField] private float ammoChangeDelay = 2.5f;
     private float delayTimer = 0.0f;
@@ -29,13 +33,43 @@ public class AmmoHandling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(gameObject.CompareTag("Player") && Input.GetButton("Change Ammo") && isAmmoLoaded)
+        {
+            if(currentAmmoType == ammoTypes[0])
+            {
+                ChangeAmmo(ammoTypes[1]);
+            }
+            else
+            {
+                ChangeAmmo(ammoTypes[0]);
+            }
+        }
+
+        LoadAmmoIfChanged();
+    }
+
+    private void LoadAmmoIfChanged()
+    {
+        if (isAmmoLoaded == false)
+        {
+            //Debug.Log("Time until is ammo change: " + delayTimer);
+
+            delayTimer -= Time.deltaTime;
+            if (delayTimer <= 0.0f)
+            {
+                isAmmoLoaded = true;
+                currentAmmoType = ammoToBeLoaded;
+                delayTimer = ammoChangeDelay;
+            }
+        }
     }
 
     public void ChangeAmmo(int ammoType)
     {
-        // Change to ammoType
         // Set isAmmoLoaded to false
+        isAmmoLoaded = false;
+        // Change to ammoType
+        ammoToBeLoaded = ammoType;
         // Start ammo change delay countdown and decrease it by Time.deltaTime
         // Once countdown is complete set isAmmoLoaded to true
         // In the AI and Player shooting scripts allow shots to occur if isAmmoLoaded is true

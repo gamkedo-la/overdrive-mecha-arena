@@ -13,6 +13,7 @@ public class PlayerShooting : Shooting
     private Health health;
     private ScoreHandler scoreHandler;
     private Transform bulletPool;
+    private AmmoHandling ammo;
 
     public float _playerShootingRange { get { return range; } }
 
@@ -26,6 +27,7 @@ public class PlayerShooting : Shooting
 
         bulletPool = transform.Find("PlayerBulletPool");
         health = GetComponent<Health>();
+        ammo = GetComponent<AmmoHandling>();
 
         scoreHandler = health._scoreHandler;
     }
@@ -33,19 +35,26 @@ public class PlayerShooting : Shooting
     protected override void Update()
     {
         base.Update();
-        if(shotTimer >= fireRate)
+        if (shotTimer >= fireRate)
         {
             if (Input.GetButton("Fire1"))
             {
                 shotTimer = 0f;
-                base.FireWeapon(bulletPool, true, false);
-                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/SFX_GunshotLaser", transform.position);
 
+                if (ammo._currentAmmoType == ammo._ammoTypes[0])
+                {
+                    base.FireWeapon(bulletPool, true, false);
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/SFX_GunshotLaser", transform.position);
+                }
             }
-            else if(Input.GetButton("Fire2"))
+            else if (Input.GetButton("Fire2"))
             {
                 shotTimer = 0f;
-                base.FireWeapon(bulletPool, true, true);
+
+                if (ammo._currentAmmoType == ammo._ammoTypes[1])
+                {
+                    base.FireWeapon(bulletPool, true, true);
+                }
             }
         }
     }
