@@ -22,6 +22,7 @@ MonoBehaviour:
   mechType: All-purpose
   health: 200
   defense: 100
+  shieldCharges: 7
   specialCooldown: 45
   specialUseTimeLimit: 10
   strengthOfSpecialAbility: 0

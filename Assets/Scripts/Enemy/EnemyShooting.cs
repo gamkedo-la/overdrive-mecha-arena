@@ -105,8 +105,8 @@ public class EnemyShooting : Shooting
             print("Could not get " + tgt.name + "'s shooting component");
         }
 
+        Debug.DrawLine(shotOrigin.position + Vector3.up * 18.0f, tgt.transform.position, Color.cyan);
         bool isLineOfSightBlocked = Physics.Linecast(shotOrigin.position + Vector3.up * 18.0f, tgt.transform.position + Vector3.up * 18.0f, ~ignoreForViewObstructionCheck, QueryTriggerInteraction.Ignore); 
-        Debug.DrawLine(shotOrigin.position + Vector3.up * 18.0f, tgt.transform.position, Color.blue);
 
         if (!isLineOfSightBlocked && distance <= range) //Only attack if line of sight is clear and target is within range
         {
@@ -131,11 +131,6 @@ public class EnemyShooting : Shooting
         else
         {
             hasLostTgt = true;
-            //if (distance <= range)
-            //{
-            //    // Move to an position free of obstructions if target is within range (hanlde this movement within ChaseState)
-            //}
-            //// Otherwise, do nothing here because ChaseState will automatically break contact and choose a new target OR it will make AI return to PatrolState
         }
     }
 }

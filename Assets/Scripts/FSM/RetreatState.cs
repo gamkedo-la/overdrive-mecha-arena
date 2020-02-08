@@ -118,7 +118,7 @@ public class RetreatState : State
         if ((aiAttackerShootingScript != null && distance >= aiAttackerShootingScript.getBreakContactRange && enemyPos.CompareTag("Enemy") ||
             (enemyPos.CompareTag("Player") && distance >= playerShooting._playerShootingRange)))
         {
-
+            health._myAttacker = null;
             agent.SetState(new PatrolState(agent, " succeeded with retreat"));
         }
     }

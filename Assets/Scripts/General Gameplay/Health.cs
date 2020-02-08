@@ -66,7 +66,7 @@ public class Health : MonoBehaviour
     private float shieldTimer = 0.5f;
     private bool shieldRechargingLocked = false;
     private float rechargeSlower = 0.5f;
-    [SerializeField] private int shieldsChargesLeft = 2;
+    private int shieldsChargesLeft = 2;
 
     private bool isUsingShield = false;
     public bool _isUsingShield { set { isUsingShield = value; } }// Used by AI to turn shield on or off
@@ -79,6 +79,7 @@ public class Health : MonoBehaviour
             currentHP = startingHP;
             normalShieldLevels = mech.defense;
             shields = mech.defense;
+            shieldsChargesLeft = mech.shieldCharges;
 
             scoreHandler = GetComponent<ScoreHandler>();
         }
@@ -102,15 +103,6 @@ public class Health : MonoBehaviour
         {
             //Debug.Log(gameObject.name + "'s attacker is: " + myAttacker.name);
         }
-
-        //if (myAttacker != null && !gameObject.CompareTag("Player") && !gameObject.CompareTag("Non-playables"))
-        //{
-        //    var distanceFromAttacker = Vector3.Distance(gameObject.transform.position, myAttacker.position);
-        //    if (distanceFromAttacker > myAttacker.GetComponent<Health>()._mech.range)
-        //    {
-        //        myAttacker = null;
-        //    }
-        //}
 
         if (isUsingShield)
         {
@@ -224,6 +216,8 @@ public class Health : MonoBehaviour
         CancelInvoke("SpawnCooldown");
         respawnTimer = 0;
         currentHP = startingHP;
+        shields = normalShieldLevels;
+        shieldsChargesLeft = mech.shieldCharges;
     }
 
     public void TakeDamage(int damageAmount, Transform attacker)

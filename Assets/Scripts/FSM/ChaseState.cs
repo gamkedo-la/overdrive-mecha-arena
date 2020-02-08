@@ -29,7 +29,7 @@ public class ChaseState : State
 
     private float thisAgentPriorityScore;
 
-    private float targetUpdateDelay = 30f;
+    private float targetUpdateDelay = 20f;
     private float targetUpdateTimer = 0f;
     private bool selectedInitialTgt = false;
 

@@ -22,6 +22,7 @@ MonoBehaviour:
   mechType: Damage
   health: 150
   defense: 150
+  shieldCharges: 10
   specialCooldown: 10
   specialUseTimeLimit: 20
   strengthOfSpecialAbility: 50

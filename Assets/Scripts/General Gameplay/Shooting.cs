@@ -6,8 +6,6 @@ public class Shooting : MonoBehaviour
 {
     private Animator animator;
 
-    // NOTE: Light mode features lower damage, faster fire rate, and increased range
-    // NOTE: Heavy mode features higher damage, slower fire rate, and decreased range
     protected int damage;
     protected float range;
     protected float fireRate;
@@ -43,7 +41,7 @@ public class Shooting : MonoBehaviour
     public float getBreakContactRange { get { return breakContactAtThisRange; } }
     public float _movementPenalty { get { return movementPenalty; } }
     public float _dashPenalty { get { return dashPenalty; } }
-    public float _speed { get { return speed; } }
+    public float _speed { get { return speed; } } 
 
     private void Awake()
     {

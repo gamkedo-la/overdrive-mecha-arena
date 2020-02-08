@@ -16,6 +16,7 @@ public class Mecha : ScriptableObject
     [Header("Health Properties")]
     public int health;
     public int defense;
+    public int shieldCharges;
 
     [Header("Special Ability Properties")]
     public float specialCooldown;
