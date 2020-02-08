@@ -33,10 +33,10 @@ public class ChaseState : State
     private float targetUpdateTimer = 0f;
     private bool selectedInitialTgt = false;
 
-    private float timeUntilStrafe = 10.0f;
+    private float timeUntilStrafe = 7.0f;
     private int randomStrafeDir;
     private float minTimeTillStrafe = 5.0f;
-    private float maxTimeTillStrafe = 15.0f;
+    private float maxTimeTillStrafe = 7.0f;
     private float randomStrafeTime;
 
     public ChaseState(AICharacter agent, string reasonForChange) : base(agent, reasonForChange)
@@ -130,7 +130,7 @@ public class ChaseState : State
         Vector3 lookAtPos = targetTransform.position - agent.transform.position;
         lookAtPos.y = 0;
         Quaternion rot = Quaternion.LookRotation(lookAtPos);
-        agent.transform.rotation = Quaternion.Slerp(agent.transform.rotation, rot, 0.05f);
+        agent.transform.rotation = Quaternion.Slerp(agent.transform.rotation, rot, 0.075f);
     }
 
     private bool ShouldUseOverdrive()
@@ -185,8 +185,8 @@ public class ChaseState : State
         {
             agent.RemoveTargetFromSuperList(tgt);
         }
-        
-        if(currentTgt != null)
+
+        if (currentTgt != null)
         {
             selectedInitialTgt = true;
         }
@@ -226,7 +226,6 @@ public class ChaseState : State
 
                 thisAgent.SetDestination(tgtPos);
 
-
                 if (agent.debugPoint)
                 {
                     agent.debugPoint.position = tgtPos;
@@ -236,8 +235,8 @@ public class ChaseState : State
             {
                 randomStrafeDir = UnityEngine.Random.Range(0, 2);
                 randomStrafeTime = UnityEngine.Random.Range(minTimeTillStrafe, maxTimeTillStrafe);
-                
-                if(timeUntilStrafe <= 0)
+
+                if (timeUntilStrafe <= 0)
                 {
                     if (randomStrafeDir == 0)
                     {
@@ -266,7 +265,7 @@ public class ChaseState : State
         Debug.Log(agent.name + " attempting to strafe right? " + strafeRight);
 
         Vector3 offset;
-        if(strafeRight)
+        if (strafeRight)
         {
             offset = targetTransform.position - agent.transform.position;
         }
@@ -277,13 +276,21 @@ public class ChaseState : State
 
         var dir = Vector3.Cross(offset, Vector3.up);
 
-        Debug.Log(agent.transform.position + dir);
-        thisAgent.SetDestination(agent.transform.position + dir);
-
-        if (agent.debugPoint)
+        //Debug.Log(agent.transform.position + dir);
+        NavMeshHit hit;
+        if (NavMesh.FindClosestEdge(agent.transform.position + dir, out hit, NavMesh.AllAreas))
         {
-            agent.debugPoint.position = agent.transform.position + dir;
+            thisAgent.SetDestination(hit.position);
+            if (agent.debugPoint)
+            {
+                agent.debugPoint.position = hit.position;
+            }
         }
+        //thisAgent.SetDestination(agent.transform.position + dir);
+        //if (agent.debugPoint)
+        //{
+        //    agent.debugPoint.position = hit.position;
+        //}
     }
 
     private void PlayAnimations()

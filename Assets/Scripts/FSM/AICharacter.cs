@@ -100,7 +100,7 @@ public class AICharacter : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.transform.position.y == transform.position.y)
+        if (other.CompareTag("Player") || other.CompareTag("Enemy"))
         {
             Health target = other.GetComponent<Health>();
 
@@ -119,6 +119,8 @@ public class AICharacter : MonoBehaviour
             }
             else
             {
+                shootingScript._hasLostTgt = false;
+
                 if (currentState == null || currentState.StateName() != "chase state" && agentHealth.getCurrentHP >= agentHealth.getBaseHP / 4)
                 {
                     SetState(new ChaseState(this, " chasing target since it entered near awareness range"));
