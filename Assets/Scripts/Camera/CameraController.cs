@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour
     public float viewTiltMax = 30.0f;
 
     private CinemachineComposer composer;
+    private bool usingGamepad = false;
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class CameraController : MonoBehaviour
         if (Time.timeScale > 0f)
         {
             float vertical;
-            if (Input.GetJoystickNames() == null)
+            if (!usingGamepad)
             {
                 vertical = Input.GetAxis("Mouse Y") * sensitivity;
             }

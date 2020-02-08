@@ -28,5 +28,7 @@ public class PlayerOverdriveCamControl : MonoBehaviour
         {
             vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_NoiseProfile = soberProfile;
         }
+
+        //vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_NoiseProfile.PositionNoise.
     }
 }

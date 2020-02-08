@@ -16864,8 +16864,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 5000
-  field of view: 40
+  far clip plane: 1500
+  field of view: 50
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -16957,7 +16957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RenderShadows: 1
+  m_RenderShadows: 0
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_RendererOverrideOption: 1
@@ -16972,7 +16972,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649225986}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
@@ -32330,10 +32330,10 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 50
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 5000
+    FarClipPlane: 1500
     Dutch: 0
     LensShift: {x: 0, y: 0}
   m_Transitions:
@@ -35807,7 +35807,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1473506344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44575,7 +44575,7 @@ MonoBehaviour:
   ScoreManager: {fileID: 1682520651}
   AudioManager: {fileID: 1473506343}
   tmProText: {fileID: 2055214643}
-  timeLimit: 600
+  timeLimit: 6000
 --- !u!4 &1795615306
 Transform:
   m_ObjectHideFlags: 0

@@ -226,10 +226,20 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damageAmount, Transform attacker)
+    public void TakeDamage(int damageAmount, Transform attacker, bool attackerInOverdrive = false)
     {
         if (!isInvulnerable)
         {
+            int finalDamageAmount;
+            if (attackerInOverdrive)
+            {
+                finalDamageAmount = damageAmount * 2;
+            }
+            else
+            {
+                finalDamageAmount = damageAmount;
+            }
+
             ScoreHandler attackerScore = null;
 
             //update myAttacker to reflect this agent's current attacker; this will then be available to the Retreat State so this agent can run away from the attacker
@@ -246,7 +256,7 @@ public class Health : MonoBehaviour
 
             if (isUsingShield && shields > 0)
             {
-                shields -= damageAmount;
+                shields -= finalDamageAmount;
                 if (shields <= 0)
                 {
                     //DetonateElectricalCharge();
@@ -254,11 +264,11 @@ public class Health : MonoBehaviour
             }
             else
             {
-                currentHP -= damageAmount;
+                currentHP -= finalDamageAmount;
 
                 if (attackerScore != null)
                 {
-                    attackerScore.AddToScore(damageAmount);
+                    attackerScore.AddToScore(finalDamageAmount);
                 }
 
                 //Debug.Log(gameObject.name + " took " + damageAmount + " damage, now has hp: " + currentHP);
@@ -284,6 +294,11 @@ public class Health : MonoBehaviour
         {
             //Debug.Log(gameObject.name + " is INVULNERABLE!!!");
         }
+    }
+
+    public bool isInOverdrive()
+    {
+        return currentHP > startingHP;
     }
 
     public void StealShieldAndConvertToHP(int damage, Transform attacker, Health callerHealth)

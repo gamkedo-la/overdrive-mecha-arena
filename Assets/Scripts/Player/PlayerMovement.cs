@@ -28,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
     PlayerFMODEvents playerEventsScript;
     bool start = true;
 
+    private bool usingGamepad = false;
+
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -62,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         var horizontalRot = 0.0f;
         var horizontalStrafe = 0.0f;
         var vertical = 0.0f;
-        if (Input.GetJoystickNames() == null)
+        if (!usingGamepad)
         {
             horizontalRot = Input.GetAxis("Mouse X");
             horizontalStrafe = Input.GetAxis("Horizontal");

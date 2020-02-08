@@ -126,7 +126,7 @@ public class EnemyShooting : Shooting
                 {
                     if (ammo._currentAmmoType == ammo._ammoTypes[0])
                     {
-                        tgt.TakeDamage(damage, gameObject.transform);
+                        tgt.TakeDamage(damage, gameObject.transform, health.isInOverdrive());
                     }
                     else if(ammo._isAmmoLoaded)
                     {

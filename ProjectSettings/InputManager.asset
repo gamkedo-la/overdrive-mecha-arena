@@ -295,7 +295,7 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: JoyRotX
-    descriptiveName: Joystick Aim X
+    descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 
@@ -311,7 +311,7 @@ InputManager:
     joyNum: 1
   - serializedVersion: 3
     m_Name: JoyRotY
-    descriptiveName: Joystick Aim Y
+    descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 

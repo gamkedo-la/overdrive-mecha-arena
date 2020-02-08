@@ -87,7 +87,7 @@ public class Shooting : MonoBehaviour
         //print(speed);
     }
 
-    protected virtual void FireWeapon(Transform bulletPool, bool isPlayer, bool isHealthRegenShot)
+    protected virtual void FireWeapon(Transform bulletPool, bool isPlayer, bool isHealthRegenShot, bool playerInOverdrive = false)
     {
         Ray ray;
         if (isPlayer)
@@ -145,7 +145,7 @@ public class Shooting : MonoBehaviour
             var health = hitInfo.collider.GetComponent<Health>();
             if (health != null && !isHealthRegenShot)
             {
-                health.TakeDamage(damage, gameObject.transform);
+                health.TakeDamage(damage, gameObject.transform, playerInOverdrive);
             }
             else if(health != null && isHealthRegenShot)
             {
