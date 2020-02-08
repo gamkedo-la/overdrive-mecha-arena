@@ -24,8 +24,15 @@ public class ChaseState : State
 
     private float minRangeBeforeDashAllowed = 150.0f;
     private float retreatDistance = 80.0f;
+
     private float minStoppingDist = 115.0f;
     private float maxStoppingDist;
+    private float stoppingDistRandom;
+
+    private float chooseNewStopDistTimer = 7.0f;
+    private float newStopDistTimerMax = 15.0f;
+    private float newStopDistTimerMin = 5.0f;
+    private float randomNewDistTimer;
 
     private float thisAgentPriorityScore;
 
@@ -33,10 +40,10 @@ public class ChaseState : State
     private float targetUpdateTimer = 0f;
     private bool selectedInitialTgt = false;
 
-    private float timeUntilStrafe = 7.0f;
+    private float timeUntilStrafe = 2.5f;
     private int randomStrafeDir;
-    private float minTimeTillStrafe = 5.0f;
-    private float maxTimeTillStrafe = 7.0f;
+    private float minTimeTillStrafe = 1.0f;
+    private float maxTimeTillStrafe = 5.0f;
     private float randomStrafeTime;
 
     public ChaseState(AICharacter agent, string reasonForChange) : base(agent, reasonForChange)
@@ -77,7 +84,7 @@ public class ChaseState : State
             if (targetUpdateTimer >= targetUpdateDelay)
             {
                 targetUpdateTimer = 0f;
-                Debug.Log(agent.name + " selecting updating to best target");
+                //Debug.Log(agent.name + " updating target to best target possible");
                 SelectTarget();
             }
         }
@@ -195,7 +202,6 @@ public class ChaseState : State
     private void ChaseTarget()
     {
         var distance = Vector3.Distance(agent.transform.position, targetTransform.position);
-        //var stoppingDistRandomizer = UnityEngine.Random.Range(minStoppingDist, maxStoppingDist);
 
         //Debug.Log(distance);
 
@@ -213,7 +219,7 @@ public class ChaseState : State
                 thisAgent.speed = defaultAiSpeed;
             }
 
-            //thisAgent.stoppingDistance = stoppingDistRandomizer;
+            RandomizeStoppingDist();
 
             if (distance > thisAgent.stoppingDistance) // target selection criteria is being skewed by this if block since it makes multiple mechs always be within 100ish meters of their tgt
             {
@@ -221,37 +227,11 @@ public class ChaseState : State
             }
             else if (distance < retreatDistance)
             {
-                Vector3 toTgt = targetTransform.position - agent.transform.position;
-                Vector3 tgtPos = toTgt.normalized * -200f + targetTransform.position;
-
-                thisAgent.SetDestination(tgtPos);
-
-                if (agent.debugPoint)
-                {
-                    agent.debugPoint.position = tgtPos;
-                }
+                MoveBackwards();
             }
             else
             {
-                randomStrafeDir = UnityEngine.Random.Range(0, 2);
-                randomStrafeTime = UnityEngine.Random.Range(minTimeTillStrafe, maxTimeTillStrafe);
-
-                if (timeUntilStrafe <= 0)
-                {
-                    if (randomStrafeDir == 0)
-                    {
-                        StrafeRightOrLeft(true);
-                    }
-                    else
-                    {
-                        StrafeRightOrLeft(false);
-                    }
-                    timeUntilStrafe = randomStrafeTime;
-                }
-                else
-                {
-                    timeUntilStrafe -= Time.deltaTime;
-                }
+                HandleStrafing();
             }
         }
         else
@@ -260,25 +240,87 @@ public class ChaseState : State
         }
     }
 
+    private void MoveBackwards()
+    {
+        Vector3 toTgt = targetTransform.position - agent.transform.position;
+        Vector3 tgtPos = toTgt.normalized * -200f + targetTransform.position;
+
+        NavMeshHit hit;
+        if(NavMesh.FindClosestEdge(tgtPos, out hit, NavMesh.AllAreas))
+        {
+            thisAgent.SetDestination(hit.position);
+
+            if (agent.debugPoint)
+            {
+                agent.debugPoint.position = hit.position;
+            }
+        }
+        //thisAgent.SetDestination(tgtPos);
+
+        //if (agent.debugPoint)
+        //{
+        //    agent.debugPoint.position = tgtPos;
+        //}
+    }
+
+    private void HandleStrafing()
+    {
+        randomStrafeDir = UnityEngine.Random.Range(0, 2);
+        randomStrafeTime = UnityEngine.Random.Range(minTimeTillStrafe, maxTimeTillStrafe);
+
+        if (timeUntilStrafe <= 0)
+        {
+            if (randomStrafeDir == 0)
+            {
+                StrafeRightOrLeft(true);
+            }
+            else
+            {
+                StrafeRightOrLeft(false);
+            }
+            timeUntilStrafe = randomStrafeTime;
+        }
+        else
+        {
+            timeUntilStrafe -= Time.deltaTime;
+        }
+    }
+
+    private void RandomizeStoppingDist()
+    {
+        stoppingDistRandom = UnityEngine.Random.Range(minStoppingDist, maxStoppingDist);
+        randomNewDistTimer = UnityEngine.Random.Range(newStopDistTimerMin, newStopDistTimerMax);
+
+        if (chooseNewStopDistTimer <= 0)
+        {
+            chooseNewStopDistTimer = randomNewDistTimer;
+            thisAgent.stoppingDistance = stoppingDistRandom;
+        }
+        else
+        {
+            chooseNewStopDistTimer -= Time.deltaTime;
+        }
+    }
+
     private void StrafeRightOrLeft(bool strafeRight)
     {
-        Debug.Log(agent.name + " attempting to strafe right? " + strafeRight);
+        //Debug.Log(agent.name + " attempting to strafe right? " + strafeRight);
 
         Vector3 offset;
         if (strafeRight)
         {
-            offset = targetTransform.position - agent.transform.position;
+            offset = targetTransform.position - agent.transform.position * -200f;
         }
         else
         {
-            offset = agent.transform.position - targetTransform.position;
+            offset = agent.transform.position - targetTransform.position * -200f;
         }
 
         var dir = Vector3.Cross(offset, Vector3.up);
 
         //Debug.Log(agent.transform.position + dir);
         NavMeshHit hit;
-        if (NavMesh.FindClosestEdge(agent.transform.position + dir, out hit, NavMesh.AllAreas))
+        if (NavMesh.FindClosestEdge((agent.transform.position + dir).normalized, out hit, NavMesh.AllAreas))// using .normalized and * -200f in offset assignment seems to works decently
         {
             thisAgent.SetDestination(hit.position);
             if (agent.debugPoint)
