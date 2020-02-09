@@ -6,8 +6,9 @@ using FMODUnity;
 public class AudioSettingsMenu : MonoBehaviour
 {
     //TODO: Preserves audio settings for other scenes
+    [EventRef]
+    private string soundsVolTest;
 
-    //FMOD.Studio.EventInstance soundsVolTest;
     FMOD.Studio.Bus MasterBus;
     FMOD.Studio.Bus MusicBus;
     FMOD.Studio.Bus SoundsBus;
@@ -18,11 +19,11 @@ public class AudioSettingsMenu : MonoBehaviour
 
     private void Start()
     {
-        MasterBus = FMODUnity.RuntimeManager.GetBus("bus:/Master");
-        MusicBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/Music");
-        SoundsBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/Sounds");
+        MasterBus = RuntimeManager.GetBus("bus:/Master");
+        MusicBus = RuntimeManager.GetBus("bus:/Master/Music");
+        SoundsBus = RuntimeManager.GetBus("bus:/Master/Sounds");
 
-        //soundsVolTest = FMODUnity.RuntimeManager.CreateInstance("event:/Sounds/testSound");
+        soundsVolTest = "event:/UI/UI_MenuSelection";
     }
 
     // Update is called once per frame
@@ -46,13 +47,7 @@ public class AudioSettingsMenu : MonoBehaviour
         SoundsBusVol = newSoundsVol;
 
         // next code block used for testing sounds volume slider changes when we get some sound event done
-        /* FMOD.Studio.PLAYBACK_STATE pbState;
-         * soundsVolTest.getPlaybackState(out pbState);
-         * if(pbState != FMOD.Studio.PLAYBACK_STATE.PLAYING)
-         * {
-         *      soundsVolTest.start();
-         * }
-         */
+        RuntimeManager.PlayOneShot(soundsVolTest);
     }
 
     public void MuteAudio(bool isMuted)

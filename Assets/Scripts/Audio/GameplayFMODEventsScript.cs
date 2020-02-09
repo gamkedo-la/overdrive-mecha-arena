@@ -47,10 +47,4 @@ public class GameplayFMODEventsScript : MonoBehaviour
         menuState.setParameterByID(mainLayerID, 1f);
         menuState.setParameterByID(creditsLayerID, 1f);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

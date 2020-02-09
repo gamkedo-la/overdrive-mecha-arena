@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{ec1d56c0-0acb-426a-82de-b67a74f5bc8f}">
+		<property name="name">
+			<value>VariationToPlay</value>
+		</property>
+		<relationship name="folder">
+			<destination>{a2874f59-7f31-4c30-9b4f-fbb39266d34a}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{cab84dd1-95bb-4551-af68-ab41d6194cd7}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{cab84dd1-95bb-4551-af68-ab41d6194cd7}">
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<relationship name="automators">
+			<destination>{fe3c2316-31a5-4aff-be5a-4d4f6ebf47cc}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{fe3c2316-31a5-4aff-be5a-4d4f6ebf47cc}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>cursorPosition</value>
+		</property>
+	</object>
+</objects>
