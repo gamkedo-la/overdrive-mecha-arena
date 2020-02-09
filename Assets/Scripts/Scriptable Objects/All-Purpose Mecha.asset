@@ -31,7 +31,7 @@ MonoBehaviour:
   fireRate: 0.5
   fowardMoveSpeed: 50
   backwardMoveSpeed: 30
-  dashSpeed: 1.75
+  dashSpeed: 2
   dashTimeLimit: 5.5
   turnSpeed: 100
   strafingRightMoveSpeed: 50
