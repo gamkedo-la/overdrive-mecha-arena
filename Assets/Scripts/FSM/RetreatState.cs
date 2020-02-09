@@ -69,10 +69,25 @@ public class RetreatState : State
 
     public override void Tick()
     {
-        enemyPos = health._myAttacker;
+        //enemyPos = health._myAttacker;
 
         if (enemyPos != null && enemyPos.CompareTag("Non-playables") == false)
         {
+            //if (enemyPos.CompareTag("Player"))
+            //{
+            //    playerShooting = enemyPos.GetComponent<PlayerShooting>();
+            //    minDistanceFromEnemyPos = playerShooting._playerShootingRange;
+            //}
+            //else if (enemyPos.CompareTag("Enemy") && !enemyPos.CompareTag("Non-playables"))
+            //{
+            //    aiAttackerShootingScript = enemyPos.GetComponent<EnemyShooting>();
+            //    minDistanceFromEnemyPos = aiAttackerShootingScript.getBreakContactRange;
+            //}
+            //else
+            //{
+            //    Debug.LogError(agent.gameObject.name + "'s " + "attacker is null or unknown!");
+            //}
+
             // Determine which type of mech this AI is
             // Semi-randomly select whether this AI should run away or stand and fight (mech type will play a role in this behavior)
             // Execute retreat specific functions (again, depending on the AI's mech type semi-randomly choose whether how it run away or fight; 
