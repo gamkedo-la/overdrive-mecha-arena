@@ -25,19 +25,24 @@ public class PatrolState : State
 
     public override void Tick()
     {
-        if (UnderAttack() && agentHealth.getCurrentHP >= agentHealth.getBaseHP/4)
+        if (UnderAttack())
         {
-            shootingScript._hasLostTgt = false;
-            agent.SetState(new ChaseState(agent, " chasing target after being attacked"));
+            if (agentHealth.getCurrentHP >= agentHealth.getBaseHP / 4)
+            {
+                shootingScript._hasLostTgt = false;
+                agent.SetState(new ChaseState(agent, " chasing my attacker either due to HP >= 25%"));
+            }
+            else
+            {
+                agent.SetState(new RetreatState(agent, " not enough HP to merit target pursuit or I'm drunk and illogical"));
+            }
         }
 
         Patrol();
 
         PlayAnimations();
-
-        Observe();
-        //agent.debugPoint.position = agent.gameObject.transform.position;
     }
+
 
     public override void FixedTick()
     {
@@ -65,16 +70,6 @@ public class PatrolState : State
         }
 
         return false;
-    }
-
-    private void Observe()
-    {
-        // Debug.Log("Observing for threats");
-
-        // Have AI choose which look left, right, back, and forward in semi-random fashion
-        // Use capsule trigger as "cone of vision" and attack the target if it has a Health script
-
-
     }
 
     private void Patrol()

@@ -41,22 +41,24 @@ public class RetreatState : State
         navAgent.SetDestination(agent.transform.position);
 
         mech = agent._mech;
-
         enemyPos = health._myAttacker;
 
-        if (enemyPos.CompareTag("Player"))
+        if (enemyPos != null)
         {
-            playerShooting = enemyPos.GetComponent<PlayerShooting>();
-            minDistanceFromEnemyPos = playerShooting._playerShootingRange;
-        }
-        else if (enemyPos.CompareTag("Enemy") && !enemyPos.CompareTag("Non-playables"))
-        {
-            aiAttackerShootingScript = enemyPos.GetComponent<EnemyShooting>();
-            minDistanceFromEnemyPos = aiAttackerShootingScript.getBreakContactRange;
-        }
-        else
-        {
-            Debug.LogError(agent.gameObject.name + "'s " + "attacker is null or unknown!");
+            if (enemyPos.CompareTag("Player"))
+            {
+                playerShooting = enemyPos.GetComponent<PlayerShooting>();
+                minDistanceFromEnemyPos = playerShooting._playerShootingRange;
+            }
+            else if (enemyPos.CompareTag("Enemy") && !enemyPos.CompareTag("Non-playables"))
+            {
+                aiAttackerShootingScript = enemyPos.GetComponent<EnemyShooting>();
+                minDistanceFromEnemyPos = aiAttackerShootingScript.getBreakContactRange;
+            }
+            else
+            {
+                Debug.LogError(agent.gameObject.name + "'s " + "attacker is null or unknown!");
+            }
         }
     }
 
@@ -67,7 +69,7 @@ public class RetreatState : State
 
     public override void Tick()
     {
-        //enemyPos = health._myAttacker;
+        enemyPos = health._myAttacker;
 
         if (enemyPos != null && enemyPos.CompareTag("Non-playables") == false)
         {
@@ -91,8 +93,23 @@ public class RetreatState : State
         }
         else
         {
-            Debug.Log(agent.gameObject.name + "'s attacker doesn't exist or is a dangerous object");
+            Vector3 newDest = RandomNavSphere(agent.transform.position, 300f, -1);
+            navAgent.SetDestination(newDest);
+
+            agent.SetState(new PatrolState(agent, " there's no enemy attacking me or I'm being attacked by a dangerous object"));
         }
+    }
+
+    private Vector3 RandomNavSphere(Vector3 origin, float patrolRadius, int layerMask)
+    {
+        Vector3 randDir = UnityEngine.Random.insideUnitSphere * patrolRadius;
+        randDir += origin;
+
+        NavMeshHit navHit;
+
+        NavMesh.SamplePosition(randDir, out navHit, patrolRadius, layerMask);
+
+        return navHit.position;
     }
 
     private void RunAway()

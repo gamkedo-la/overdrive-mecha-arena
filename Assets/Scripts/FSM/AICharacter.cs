@@ -98,7 +98,7 @@ public class AICharacter : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") || other.CompareTag("Enemy"))
         {
@@ -112,7 +112,7 @@ public class AICharacter : MonoBehaviour
 
                 validTargets.Add(target);
 
-                if (currentState == null || currentState.StateName() != "chase state" && agentHealth.getCurrentHP >= agentHealth.getBaseHP / 4)
+                if (currentState == null || currentState.StateName() != "chase state" && currentState.StateName() != "retreat state" && agentHealth.getCurrentHP >= agentHealth.getBaseHP / 4)
                 {
                     SetState(new ChaseState(this, " chasing target since it entered near awareness range"));
                 }
@@ -121,7 +121,7 @@ public class AICharacter : MonoBehaviour
             {
                 shootingScript._hasLostTgt = false;
 
-                if (currentState == null || currentState.StateName() != "chase state" && agentHealth.getCurrentHP >= agentHealth.getBaseHP / 4)
+                if (currentState == null || currentState.StateName() != "chase state" && currentState.StateName() != "retreat state" && agentHealth.getCurrentHP >= agentHealth.getBaseHP / 4)
                 {
                     SetState(new ChaseState(this, " chasing target since it entered near awareness range"));
                 }

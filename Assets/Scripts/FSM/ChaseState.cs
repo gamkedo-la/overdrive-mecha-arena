@@ -29,7 +29,7 @@ public class ChaseState : State
     private float maxStoppingDist;
     private float stoppingDistRandom;
 
-    private float chooseNewStopDistTimer = 7.0f;
+    private float chooseNewStopDistTimer = 10.0f;
     private float newStopDistTimerMax = 15.0f;
     private float newStopDistTimerMin = 5.0f;
     private float randomNewDistTimer;
@@ -39,12 +39,14 @@ public class ChaseState : State
     private float targetUpdateDelay = 20f;
     private float targetUpdateTimer = 0f;
     private bool selectedInitialTgt = false;
+    private float drunkTargetUpdateDelay = 10.0f;
 
     private float timeUntilStrafe = 2.5f;
     private int randomStrafeDir;
-    private float minTimeTillStrafe = 1.0f;
-    private float maxTimeTillStrafe = 5.0f;
+    private float minTimeTillStrafe = 2.0f;
+    private float maxTimeTillStrafe = 6.0f;
     private float randomStrafeTime;
+    private float drunkStrafeTimer = 10.0f;
 
     public ChaseState(AICharacter agent, string reasonForChange) : base(agent, reasonForChange)
     {
@@ -66,7 +68,7 @@ public class ChaseState : State
         dashTimeLimit = agent._mech.dashTimeLimit;
         defaultAiSpeed = agent._mech.fowardMoveSpeed;
         minRangeBeforeDashAllowed = agent._mech.range / 2;
-        maxStoppingDist = agent._mech.range - 10f;
+        maxStoppingDist = agent._mech.range - 20f;
 
         thisAgent.SetDestination(agent.transform.position);
     }
@@ -81,7 +83,16 @@ public class ChaseState : State
         else
         {
             targetUpdateTimer += Time.deltaTime;
-            if (targetUpdateTimer >= targetUpdateDelay)
+            if (!thisAgentHealth.isInOverdrive())
+            {
+                if (targetUpdateTimer >= targetUpdateDelay)
+                {
+                    targetUpdateTimer = 0f;
+                    //Debug.Log(agent.name + " updating target to best target possible");
+                    SelectTarget();
+                }
+            }
+            else if (targetUpdateTimer >= drunkTargetUpdateDelay)
             {
                 targetUpdateTimer = 0f;
                 //Debug.Log(agent.name + " updating target to best target possible");
@@ -114,6 +125,17 @@ public class ChaseState : State
         DrawDebugLines();
     }
 
+    private void RandomRetreat()
+    {
+        float random = UnityEngine.Random.Range(0f, 100f);
+
+        if(random <= 10.0f)
+        {
+            shootingScript._hasLostTgt = true;
+            agent.SetState(new RetreatState(agent, " running away (drunk and acting funny)"));
+        }
+    }
+
     private void MoveToLastKnownTgtPos()
     {
         //thisAgent.SetDestination(lastTgtPos.position);
@@ -122,6 +144,15 @@ public class ChaseState : State
 
     public override void FixedTick()
     {
+        if (thisAgentHealth.isInOverdrive())
+        {
+            RandomRetreat();
+        }
+        else if(thisAgentHealth.getCurrentHP < thisAgentHealth.getBaseHP/4)
+        {
+            agent.SetState(new RetreatState(agent, " lost too much health"));
+        }
+
         if (targetTransform != null && shootingScript._hasLostTgt == false)
         {
             shootingScript.FireWeapon(currentTgt, defaultAiSpeed, dashSpeed, ShouldUseOverdrive());
@@ -142,7 +173,7 @@ public class ChaseState : State
 
     private bool ShouldUseOverdrive()
     {
-        return nearTargets.Count >= 3;
+        return nearTargets.Count >= 2;
     }
 
     private void SelectTarget()
@@ -246,7 +277,7 @@ public class ChaseState : State
         Vector3 tgtPos = toTgt.normalized * -200f + targetTransform.position;
 
         NavMeshHit hit;
-        if(NavMesh.FindClosestEdge(tgtPos, out hit, NavMesh.AllAreas))
+        if (NavMesh.FindClosestEdge(tgtPos, out hit, NavMesh.AllAreas))
         {
             thisAgent.SetDestination(hit.position);
 
@@ -278,7 +309,15 @@ public class ChaseState : State
             {
                 StrafeRightOrLeft(false);
             }
-            timeUntilStrafe = randomStrafeTime;
+
+            if (!thisAgentHealth.isInOverdrive())
+            {
+                timeUntilStrafe = randomStrafeTime;
+            }
+            else
+            {
+                timeUntilStrafe = drunkStrafeTimer;
+            }
         }
         else
         {

@@ -98,6 +98,10 @@ public class Health : MonoBehaviour
 
     private void Update()
     {
+        if(gameObject.CompareTag("Enemy"))
+        {
+            //Debug.Log(gameObject.name + " is drunk? " + isInOverdrive());
+        }
 
         if (!gameObject.CompareTag("Non-playables") && !gameObject.CompareTag("Player") && myAttacker != null)// AI debugging to retreat behavior
         {
@@ -131,7 +135,7 @@ public class Health : MonoBehaviour
                 RechargeShieldIfAble();
             }
 
-            TurnDrunkenessOnOrOff();
+            HandleDrunkenBehavior();
         }
     }
 
@@ -165,7 +169,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    private void TurnDrunkenessOnOrOff()
+    private void HandleDrunkenBehavior()
     {
         if (gameObject.CompareTag("Player"))
         {

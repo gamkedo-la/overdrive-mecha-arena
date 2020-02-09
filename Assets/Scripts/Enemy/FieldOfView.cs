@@ -37,10 +37,9 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
-    // This block of code is causing inteference with chase and retreat states if the AI has less than 25% HP
     private void FindVisibleTargets()
     {
-        if (fsm._currentState.StateName() != "chase state")
+        if (fsm._currentState.StateName() != "chase state" && fsm._currentState.StateName() != "retreat state")
         {
             Collider[] possibleTgts = Physics.OverlapSphere(transform.position + Vector3.up * 18.0f, viewRadius, targetMask, QueryTriggerInteraction.Ignore);
 
