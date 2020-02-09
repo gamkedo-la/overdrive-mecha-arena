@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
     private int startingHP = 200;
 
 
-    private PlayerOverdriveCamControl playerOverdrive;
+    private PlayerCamNoise playerCamNoise;
     private SetVcamFollowAndLookAt setVcamScript;
     private ScoreHandler scoreHandler;
     public ScoreHandler _scoreHandler { get { return scoreHandler; } }
@@ -92,7 +92,7 @@ public class Health : MonoBehaviour
         if (gameObject.CompareTag("Player"))
         {
             setVcamScript = GetComponent<SetVcamFollowAndLookAt>();
-            playerOverdrive = setVcamScript._vcam.GetComponent<PlayerOverdriveCamControl>();
+            playerCamNoise = setVcamScript._vcam.GetComponent<PlayerCamNoise>();
         }
     }
 
@@ -172,11 +172,11 @@ public class Health : MonoBehaviour
             //Debug.Log("Player has " + currentHP + " out of " + startingHP);
             if (currentHP > startingHP)
             {
-                playerOverdrive.SetDrunkenNoise(true);
+                playerCamNoise.SetCamNoise(true);
             }
             else
             {
-                playerOverdrive.SetDrunkenNoise(false);
+                playerCamNoise.SetCamNoise(false);
             }
         }
         else if (gameObject.CompareTag("Enemy") && !gameObject.CompareTag("Non-playables"))

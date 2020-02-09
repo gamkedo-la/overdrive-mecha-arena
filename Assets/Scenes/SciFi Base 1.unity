@@ -32403,6 +32403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drunkenProfile: {fileID: 11400000, guid: d21121f91acc35e4da7d678cdf3a8852, type: 2}
   soberProfile: {fileID: 11400000, guid: d9d654c31e4e93a45b7c270bb81591ac, type: 2}
+  dashProfile: {fileID: 11400000, guid: 97aa157548f7f3945aef664223ebf2b0, type: 2}
 --- !u!1001 &1374018653
 PrefabInstance:
   m_ObjectHideFlags: 0

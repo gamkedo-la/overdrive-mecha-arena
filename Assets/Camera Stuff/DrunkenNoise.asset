@@ -12,7 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f59e54f2bfd184b9dd451a678d089b, type: 3}
   m_Name: DrunkenNoise
   m_EditorClassIdentifier: 
-  PositionNoise: []
+  PositionNoise:
+  - X:
+      Frequency: 0.5
+      Amplitude: 10
+      Constant: 0
+    Y:
+      Frequency: 0
+      Amplitude: 0
+      Constant: 0
+    Z:
+      Frequency: 0.25
+      Amplitude: 20
+      Constant: 0
+  - X:
+      Frequency: 1
+      Amplitude: 5
+      Constant: 0
+    Y:
+      Frequency: 0
+      Amplitude: 0
+      Constant: 0
+    Z:
+      Frequency: 0.1
+      Amplitude: 50
+      Constant: 0
   OrientationNoise:
   - X:
       Frequency: 0.6
@@ -27,14 +51,26 @@ MonoBehaviour:
       Amplitude: 6
       Constant: 0
   - X:
-      Frequency: 0.2
+      Frequency: 1
       Amplitude: 8
       Constant: 0
     Y:
-      Frequency: 0.15
+      Frequency: 0.3
       Amplitude: 20
       Constant: 0
     Z:
       Frequency: 0.5
       Amplitude: 10
+      Constant: 0
+  - X:
+      Frequency: 5
+      Amplitude: 0.5
+      Constant: 0
+    Y:
+      Frequency: 0.1
+      Amplitude: 10
+      Constant: 0
+    Z:
+      Frequency: 0.25
+      Amplitude: 25
       Constant: 0
