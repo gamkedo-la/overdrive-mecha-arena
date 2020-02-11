@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 1010802245681831634}
   - component: {fileID: -3866168813394404882}
   - component: {fileID: -7351509353517031913}
+  - component: {fileID: 4242507030695877617}
   m_Layer: 9
   m_Name: Basic Mech
   m_TagString: Untagged
@@ -345,6 +346,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoChangeDelay: 2.5
+--- !u!114 &4242507030695877617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8841960133733178278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cece7b31dc5d04e259a5256730e28027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4792199546594437236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -352,6 +365,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8841960133733178277}
     m_Modifications:
+    - target: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
+        type: 3}
+      propertyPath: m_Name
+      value: Light Mode VFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7042319705362345490, guid: 0ace24755b9c51347a92c2057024f073,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -412,16 +435,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
-        type: 3}
-      propertyPath: m_Name
-      value: Light Mode VFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7042319705362345493, guid: 0ace24755b9c51347a92c2057024f073,
         type: 3}
       propertyPath: prewarm
@@ -442,6 +455,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8841960133733178277}
     m_Modifications:
+    - target: {fileID: 137985985447422236, guid: d3273fbd5994a79429fdf02731ee0664,
+        type: 3}
+      propertyPath: m_Name
+      value: Heavy Mode VFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 137985985447422236, guid: d3273fbd5994a79429fdf02731ee0664,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 137985985447422233, guid: d3273fbd5994a79429fdf02731ee0664,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -502,16 +525,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 137985985447422236, guid: d3273fbd5994a79429fdf02731ee0664,
-        type: 3}
-      propertyPath: m_Name
-      value: Heavy Mode VFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 137985985447422236, guid: d3273fbd5994a79429fdf02731ee0664,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3273fbd5994a79429fdf02731ee0664, type: 3}
 --- !u!4 &6645419204856425224 stripped
@@ -527,6 +540,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8841960133733178277}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 6cba4283b86255947ac5e675b4603955,
+        type: 3}
+      propertyPath: m_Name
+      value: ProtoMecha
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6cba4283b86255947ac5e675b4603955,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -581,11 +599,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 6cba4283b86255947ac5e675b4603955,
-        type: 3}
-      propertyPath: m_Name
-      value: ProtoMecha
       objectReference: {fileID: 0}
     - target: {fileID: 4341065987587142778, guid: 6cba4283b86255947ac5e675b4603955,
         type: 3}

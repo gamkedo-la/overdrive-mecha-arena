@@ -17,6 +17,18 @@ MonoBehaviour:
   missilePrefab: {fileID: 8076694858744518431, guid: 805d291029776c4469affec0817a3f32,
     type: 3}
   missileSpawnPoints: []
+--- !u!114 &8367131084661756972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4238611126876636925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cece7b31dc5d04e259a5256730e28027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4640503916601335131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24,12 +36,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1010802245681831634, guid: aaf99d2a6f82ca943a32b605f72c1907,
-        type: 3}
-      propertyPath: mech
-      value: 
-      objectReference: {fileID: 11400000, guid: 95e684e9b36c3b44e8459eb7c01efd97,
-        type: 2}
     - target: {fileID: 8841960133733178278, guid: aaf99d2a6f82ca943a32b605f72c1907,
         type: 3}
       propertyPath: m_Name
@@ -47,6 +53,12 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 95e684e9b36c3b44e8459eb7c01efd97,
         type: 2}
     - target: {fileID: -7424934990164168292, guid: aaf99d2a6f82ca943a32b605f72c1907,
+        type: 3}
+      propertyPath: mech
+      value: 
+      objectReference: {fileID: 11400000, guid: 95e684e9b36c3b44e8459eb7c01efd97,
+        type: 2}
+    - target: {fileID: 1010802245681831634, guid: aaf99d2a6f82ca943a32b605f72c1907,
         type: 3}
       propertyPath: mech
       value: 

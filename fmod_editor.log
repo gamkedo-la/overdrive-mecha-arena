@@ -1,27 +1,1031 @@
 [LOG] System::create                           : Header version = 2.00.03. Current version = 2.00.03.
-[LOG] Manager::init                            : maxchannels = 256 studioflags = 00000006 flags 00000000 extradriverdata 0000000000000000.
+[LOG] Manager::init                            : maxchannels = 256 studioflags = 00000006 flags 00000000 extradriverdata 0x0.
 [LOG] SystemI::init                            : Initialize version=20003 (103912), maxchannels=256, flags=0x00020000
-[LOG] SystemI::setOutputInternal               : Setting output to 'FMOD WASAPI Output'
-[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEX): wFormatTag=0xFFFE, nChannels=2, nSamplesPerSec=48000, nAvgBytesPerSec=384000, nBlockAlign=8, wBitsPerSample=32, cbSize=22.
-[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEXTENSIBLE): wValidBitsPerSample=32, dwChannelMask=0x00000003, SubFormat=00000003-0000-0010-8000-00AA00389B71.
-[LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
+[LOG] SystemI::setOutputInternal               : Setting output to 'FMOD Core Audio Output'
+[LOG] OutputCoreAudio::init                    : Output running 2 channels at 44100Hz sample rate.
+[LOG] OutputCoreAudio::init                    : Maximum hardware read size: 1024 samples, Software buffer size: 512 samples, Number of software buffers: 4.
+[WRN] SystemI::init                            : Output requires a sample rate of 44100Hz, resampling will occur.
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
-[LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0000024C1FD082C8 isAsync 0 updatePeriod 0.02
+[LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 81920, Semaphore: Yes, Sleep Time: 0, Looping: Yes.
+[LOG] AsyncManager::init                       : manager 0x7f82ecb36408 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] PlaybackSystem::init                     : done
 [LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Priority: 0, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] Manager::init                            : done.
-[LOG] Manager::readBank                        : fileversion = 121, compatVersion = 119 (oldest = 44, newest = 121)
-[LOG] Manager::readBank                        : fileversion = 121, compatVersion = 119 (oldest = 44, newest = 121)
-[LOG] Manager::readBank                        : fileversion = 121, compatVersion = 119 (oldest = 44, newest = 121)
+[LOG] Manager::readBank                        : fileversion = 119, compatVersion = 119 (oldest = 44, newest = 121)
+[LOG] Manager::readBank                        : fileversion = 119, compatVersion = 119 (oldest = 44, newest = 121)
+[LOG] Manager::readBank                        : fileversion = 119, compatVersion = 119 (oldest = 44, newest = 121)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82f49902e8)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82ed982538)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82ed9826c8)
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82f9982768 : node = 0x7f82f99801a0
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f9982768
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f99802b0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f9982768
+[LOG] SoundI::getSubSound                      : sound 0x7f82f9982768.  Subsound index 0 / 1
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82f9982768)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f1e003c8)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f1e00558)
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82f9983af8 : node = 0x7f82f99829b0
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f9983af8
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f9982ac0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f9983af8
+[LOG] SoundI::getSubSound                      : sound 0x7f82f9983af8.  Subsound index 0 / 1
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000065848cc
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x14cf35ede
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x14cf35f95
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x14cf35fc5
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x14cf36066
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7f82f9986868
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Gunshot_Laser_2', format=2, channels=2, frequency=48000, lengthbytes=16128, lengthpcm=64000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.498260.
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82f8673458 : node = 0x7f82f8528cf0
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82f8673a18 : node = 0x7f82eb74f8e0
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f8673458
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f8528e00
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7000065848cc
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->useropen           = 0x14cf35ede
+[LOG] SystemI::createSoundInternal             :     exinfo->userclose          = 0x14cf35f95
+[LOG] SystemI::createSoundInternal             :     exinfo->userread           = 0x14cf35fc5
+[LOG] SystemI::createSoundInternal             :     exinfo->userseek           = 0x14cf36066
+[LOG] SystemI::createSoundInternal             :     exinfo->fileuserdata       = 0x7f82f1c02f38
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            :     register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             :     Sample 0/1: name='Electricity, Spark, Impact, Short 05 SND13438 1', format=2, channels=2, frequency=48000, lengthbytes=11808, lengthpcm=44806, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.489211.
+[LOG] SystemI::createSoundInternal             :     Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7000065848cc
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->useropen           = 0x14cf35ede
+[LOG] SystemI::createSoundInternal             :     exinfo->userclose          = 0x14cf35f95
+[LOG] SystemI::createSoundInternal             :     exinfo->userread           = 0x14cf35fc5
+[LOG] SystemI::createSoundInternal             :     exinfo->userseek           = 0x14cf36066
+[LOG] SystemI::createSoundInternal             :     exinfo->fileuserdata       = 0x7f82f1c02f38
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            :     register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             :     Sample 0/1: name='Electricity, Spark, Impact, Short 02 SND13440 1', format=2, channels=2, frequency=48000, lengthbytes=12160, lengthpcm=43386, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.707946.
+[LOG] SystemI::createSoundInternal             :     Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7000065848cc
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->useropen           = 0x14cf35ede
+[LOG] SystemI::createSoundInternal             :     exinfo->userclose          = 0x14cf35f95
+[LOG] SystemI::createSoundInternal             :     exinfo->userread           = 0x14cf35fc5
+[LOG] SystemI::createSoundInternal             :     exinfo->userseek           = 0x14cf36066
+[LOG] SystemI::createSoundInternal             :     exinfo->fileuserdata       = 0x7f82f1c02f38
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            :     register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             :     Sample 0/1: name='Electricity, Spark, Impact, Short 10 SND13434 1', format=2, channels=2, frequency=48000, lengthbytes=10752, lengthpcm=31120, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.708874.
+[LOG] SystemI::createSoundInternal             :     Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7000065848cc
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->useropen           = 0x14cf35ede
+[LOG] SystemI::createSoundInternal             :     exinfo->userclose          = 0x14cf35f95
+[LOG] SystemI::createSoundInternal             :     exinfo->userread           = 0x14cf35fc5
+[LOG] SystemI::createSoundInternal             :     exinfo->userseek           = 0x14cf36066
+[LOG] SystemI::createSoundInternal             :     exinfo->fileuserdata       = 0x7f82f1c02f38
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            :     register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             :     Sample 0/1: name='Electricity, Spark, Impact, Short 01 SND13441 2', format=2, channels=2, frequency=48000, lengthbytes=20768, lengthpcm=70536, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.618789.
+[LOG] SystemI::createSoundInternal             :     Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7000065848cc
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->useropen           = 0x14cf35ede
+[LOG] SystemI::createSoundInternal             :     exinfo->userclose          = 0x14cf35f95
+[LOG] SystemI::createSoundInternal             :     exinfo->userread           = 0x14cf35fc5
+[LOG] SystemI::createSoundInternal             :     exinfo->userseek           = 0x14cf36066
+[LOG] SystemI::createSoundInternal             :     exinfo->fileuserdata       = 0x7f82f1c02f38
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            :     register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             :     Sample 0/1: name='Electricity, Spark, Impact, Short 03 SND20299 1', format=2, channels=2, frequency=48000, lengthbytes=10272, lengthpcm=38120, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.707946.
+[LOG] SystemI::createSoundInternal             :     Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7000065848cc
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->useropen           = 0x14cf35ede
+[LOG] SystemI::createSoundInternal             :     exinfo->userclose          = 0x14cf35f95
+[LOG] SystemI::createSoundInternal             :     exinfo->userread           = 0x14cf35fc5
+[LOG] SystemI::createSoundInternal             :     exinfo->userseek           = 0x14cf36066
+[LOG] SystemI::createSoundInternal             :     exinfo->fileuserdata       = 0x7f82f1c02f38
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            :     register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             :     Sample 0/1: name='Electricity, Spark, Impact, Short 04 SND13439', format=2, channels=2, frequency=48000, lengthbytes=6304, lengthpcm=22847, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.707946.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f8673458
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f8673a18
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82eb74f9f0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f8673a18
+[LOG] SoundI::getSubSound                      : sound 0x7f82f8673458.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : sound 0x7f82f8673a18.  Subsound index 0 / 1
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82f9983af8)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82ed991138)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82ed9912c8)
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82f8673a18)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f8674878)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f8674a08)
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82f8673458)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f8674188)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f8674318)
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82f9983f28 : node = 0x7f82f9980ba0
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f9983f28
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f9980cb0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f9983f28
+[LOG] SoundI::getSubSound                      : sound 0x7f82f9983f28.  Subsound index 0 / 1
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82f9983f28)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82eb4a8a48)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82eb5665a8)
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82f3df9218 : node = 0x7f82f4987f00
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f3df9218
+[LOG] SystemI::createSound                     :     filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f4988010
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     :     setdata soundi = 0x7f82eb5665a8 : node = 0x7f82f4989b20
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f3df9218
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82eb5665a8
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f4989c30
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82eb5665a8
+[LOG] SoundI::getSubSound                      : sound 0x7f82f3df9218.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : sound 0x7f82eb5665a8.  Subsound index 0 / 1
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82f3df4868 : node = 0x7f82f3ddb4c0
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f3df4868
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f3ddb5d0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     :     setdata soundi = 0x7f82f3df4a08 : node = 0x7f82f3dbe9f0
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f3df4868
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f3df4a08
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f3dbeb00
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f3df4a08
+[LOG] SoundI::getSubSound                      : sound 0x7f82f3df4868.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : sound 0x7f82f3df4a08.  Subsound index 0 / 1
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82f4cc9c88 : node = 0x7f82f4c90940
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f4cc9c88
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f4c90a50
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0x7f82eda4c3a8 : node = 0x7f82eda4c560
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] SystemI::createSound                     :     filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] SystemI::createSound                     :     setdata soundi = 0x7f82eda53e68 : node = 0x7f82eda54020
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x7f82f9919c78.  list count = 1
+[LOG] SystemI::createSound                     :     filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0x7f82eda54358 : node = 0x7f82eda54510
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x7f82f9919c78.  list count = 2
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f4cc9c88
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82eda4c3a8
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82eda4c670
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82eda4c3a8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82eda53e68
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82eda54130
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82eda53e68
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82eda54358
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82eda54620
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82eda54358
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82eda4c3a8)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82ed8380e8)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82ed838278)
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82f4cc9c88)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82ed868378)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82ed86ec48)
+[LOG] SoundI::getSubSound                      : sound 0x7f82eda53e68.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : sound 0x7f82eda54358.  Subsound index 0 / 1
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82f8670a98 : node = 0x7f82f8671ff0
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f8670a98
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f8672100
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f8670a98
+[LOG] SoundI::getSubSound                      : sound 0x7f82f8670a98.  Subsound index 0 / 1
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82eb5665a8)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82eda55668)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82eda5b098)
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82f3df9218)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f4cc9548)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f4c89838)
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82f3df4a08)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82eda60ed8)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82eda50228)
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82f3df4868)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82eda55088)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82eda55218)
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82eda54358)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f871c398)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f871c528)
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82eda53e68)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f9981508)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f9982b18)
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82ed9882d8 : node = 0x7f82ed981020
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82ed9882d8
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82ed981130
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82ed9882d8
+[LOG] SoundI::getSubSound                      : sound 0x7f82ed9882d8.  Subsound index 0 / 1
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82f8670a98)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f9983a08)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f9984018)
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82eda55668 : node = 0x7f82eda52b10
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82eda55668
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82eda52c20
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82eda55668
+[LOG] SoundI::getSubSound                      : sound 0x7f82eda55668.  Subsound index 0 / 1
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82eda55668)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82ed86ec48)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82ed868378)
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82f1e00008 : node = 0x7f82f1e001c0
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f1e00008
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f1e002d0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f1e00008
+[LOG] SoundI::getSubSound                      : sound 0x7f82f1e00008.  Subsound index 0 / 1
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82ed9882d8)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f9982d28)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f9985ee8)
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82f3df8f18 : node = 0x7f82f3db3aa0
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f3df8f18
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSound                     :     setdata soundi = 0x7f82ed9882d8 : node = 0x7f82ed981020
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f3db3bb0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     :     filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0x7f82ed98f728 : node = 0x7f82ed98de40
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x7f82f9919c78.  list count = 1
+[LOG] SystemI::createSound                     :     filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0x7f82ed98fad8 : node = 0x7f82ed97b090
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x7f82f9919c78.  list count = 2
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f3df8f18
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82ed9882d8
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82ed981130
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82ed9882d8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82ed98f728
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82ed98df50
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82ed98f728
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82ed98fad8
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82ed97b1a0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82ed98fad8
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82ed9882d8)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f4c8d688)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f4c8e2b8)
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82f3df8f18)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f4c8d4f8)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f4c8db58)
+[LOG] SoundI::getSubSound                      : sound 0x7f82ed98f728.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : sound 0x7f82ed98fad8.  Subsound index 0 / 1
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82f8667958 : node = 0x7f82f8528cf0
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f8667958
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f8528e00
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0x7f82f866b3f8 : node = 0x7f82eb74f8e0
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f1e00008)
+[LOG] SystemI::createSoundInternal             :         Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] SoundI::release                          :         ForcefieldLoop (0x7f82f9985ad8)
+[LOG] SoundI::release                          :         ForcefieldLoop (0x7f82f9985c68)
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f8667958
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f866b3f8
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82eb74f9f0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f866b3f8
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82f866b3f8)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f4c9bcb8)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f4c8ce98)
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82f9982b18 : node = 0x7f82f9928410
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f9982b18
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0x7f82f99840c8 : node = 0x7f82f9984280
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SoundI::getSubSound                      :     sound 0x7f82f8667958.  Subsound index 0 / 1
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f9928520
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f9982b18
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f99840c8
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f9984390
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f99840c8
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82f9982b18)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82ed98fe88)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82ed98ea08)
+[LOG] SoundI::getSubSound                      : sound 0x7f82f99840c8.  Subsound index 0 / 1
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82f4c18fd8 : node = 0x7f82f4c905b0
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f4c18fd8
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f4c906c0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     :     setdata soundi = 0x7f82f4c8d0a8 : node = 0x7f82f4cc9e00
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] SystemI::createSound                     :     filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0x7f82f4978e48 : node = 0x7f82f3ddb4c0
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x7f82f9919c78.  list count = 1
+[LOG] SystemI::createSound                     :     filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0x7f82eb4a9ad8 : node = 0x7f82f4987f00
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x7f82f9919c78.  list count = 2
+[LOG] SystemI::createSound                     :     filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0x7f82eb5ae798 : node = 0x7f82f4989b20
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x7f82f9919c78.  list count = 3
+[LOG] SystemI::createSound                     :     filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0x7f82eb534da8 : node = 0x7f82eb4a9c90
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x7f82f9919c78.  list count = 4
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Rust_Insert 3', format=2, channels=2, frequency=48000, lengthbytes=315648, lengthpcm=1063385, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.209267.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f4c18fd8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f4c8d0a8
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f4cc9f10
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Rust_Insert 2', format=2, channels=2, frequency=48000, lengthbytes=286080, lengthpcm=1063385, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.296417.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f4c8d0a8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f4978e48
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f3ddb5d0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Rust_Insert 1', format=2, channels=2, frequency=48000, lengthbytes=193792, lengthpcm=1063385, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.742980.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f4978e48
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82eb4a9ad8
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f4988010
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Rust_Insert 5', format=2, channels=2, frequency=48000, lengthbytes=358016, lengthpcm=1063385, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.289394.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82eb4a9ad8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82eb5ae798
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f4989c30
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Rust_Insert 6', format=2, channels=2, frequency=48000, lengthbytes=291744, lengthpcm=1063385, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.447251.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82eb5ae798
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82eb534da8
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82eb4a9da0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Rust_Insert 4', format=2, channels=2, frequency=48000, lengthbytes=307904, lengthpcm=1063385, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.186420.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82eb534da8
+[LOG] SoundI::getSubSound                      : sound 0x7f82f4c18fd8.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : sound 0x7f82f4c8d0a8.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : sound 0x7f82f4978e48.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : sound 0x7f82eb4a9ad8.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : sound 0x7f82eb5ae798.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : sound 0x7f82eb534da8.  Subsound index 0 / 1
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82ed98fad8)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f4c9b988)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f4c9bb18)
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82ed98f728)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82ed98a738)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82ed98a8c8)
+[LOG] SoundI::release                          : Rust_Insert 4 (0x7f82f991b3b8)
+[LOG] SoundI::release                          :     Rust_Insert 4 (0x7f82ed981c48)
+[LOG] SoundI::release                          :     Rust_Insert 4 (0x7f82ed981dd8)
+[LOG] SoundI::release                          : Rust_Insert 6 (0x7f82f991aec8)
+[LOG] SoundI::release                          :     Rust_Insert 6 (0x7f82ed981358)
+[LOG] SoundI::release                          :     Rust_Insert 6 (0x7f82ed9814e8)
+[LOG] SoundI::release                          : Rust_Insert 5 (0x7f82f991a9d8)
+[LOG] SoundI::release                          :     Rust_Insert 5 (0x7f82ed979b38)
+[LOG] SoundI::release                          :     Rust_Insert 5 (0x7f82ed97ee88)
+[LOG] SoundI::release                          : Rust_Insert 1 (0x7f82f991a4e8)
+[LOG] SoundI::release                          :     Rust_Insert 1 (0x7f82f85228d8)
+[LOG] SoundI::release                          :     Rust_Insert 1 (0x7f82f854ef78)
+[LOG] SoundI::release                          : Rust_Insert 2 (0x7f82f9919ff8)
+[LOG] SoundI::release                          :     Rust_Insert 2 (0x7f82f86677c8)
+[LOG] SoundI::release                          :     Rust_Insert 2 (0x7f82f852a7b8)
+[LOG] SoundI::release                          : Rust_Insert 3 (0x7f82eb6581e8)
+[LOG] SoundI::release                          :     Rust_Insert 3 (0x7f82eb710868)
+[LOG] SoundI::release                          :     Rust_Insert 3 (0x7f82eb774578)
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82f99840c8)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82ed990018)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82ed98f168)
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82f8667958)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f99839f8)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f9982978)
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82f854ef78 : node = 0x7f82f8528cf0
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f854ef78
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f8528e00
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f854ef78
+[LOG] SoundI::getSubSound                      : sound 0x7f82f854ef78.  Subsound index 0 / 1
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82f8532048 : node = 0x7f82eb74f8e0
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f8532048
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82eb74f9f0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f8532048
+[LOG] SoundI::getSubSound                      : sound 0x7f82f8532048.  Subsound index 0 / 1
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82ed891c88 : node = 0x7f82ed868390
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82ed891c88
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82ed8684a0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82ed891c88
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82ed86ec48 : node = 0x7f82ed838100
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82ed86ec48
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0x7f82f871ba98 : node = 0x7f82f871bc50
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82ed838210
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SoundI::getSubSound                      :     sound 0x7f82ed891c88.  Subsound index 0 / 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82ed86ec48
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f871ba98
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f871bd60
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f871ba98
+[LOG] SoundI::getSubSound                      : sound 0x7f82ed86ec48.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : sound 0x7f82f871ba98.  Subsound index 0 / 1
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82f854ef78)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82edb50ee8)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82edb51078)
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82f8532048)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f4c8e5e8)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f4c8e778)
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82ed891c88)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f9919988)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f9980b28)
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82ed891c88 : node = 0x7f82ed868390
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82ed891c88
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0x7f82edb50198 : node = 0x7f82edb3de70
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82ed8684a0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82ed891c88
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82edb50198
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82edb3df80
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82edb50198
+[LOG] SoundI::getSubSound                      : sound 0x7f82ed891c88.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : sound 0x7f82edb50198.  Subsound index 0 / 1
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82ed86ec48)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f9982d28)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f9982eb8)
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82f871ba98)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f3df4908)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f3df4a98)
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82edb50198)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82eb4a8c58)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f3db3508)
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82ed891c88)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f3df9178)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82f3df9308)
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82f4c9b988 : node = 0x7f82f4c90aa0
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f4c9b988
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f4c90bb0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f4c9b988
+[LOG] SoundI::getSubSound                      : sound 0x7f82f4c9b988.  Subsound index 0 / 1
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82ed868378 : node = 0x7f82ed86ec60
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82ed868378
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82ed86ed70
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82ed868378
+[LOG] SoundI::getSubSound                      : sound 0x7f82ed868378.  Subsound index 0 / 1
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7f82f3df9308 : node = 0x7f82eb4a8ec0
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f3df9308
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSound                     : filename = /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0x7f82f4c9bb28 : node = 0x7f82f4c8c620
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82eb4a8fd0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x7f82f9919c78.  list count = 0
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f3df9308
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82f4c9bb28
+[LOG] SystemI::createSoundInternal             :     Create name='/Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2932352
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 28192
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7f82f4c8c730
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='ForcefieldLoop', format=2, channels=2, frequency=48000, lengthbytes=379840, lengthpcm=1216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.607117.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82f4c9bb28
+[LOG] SoundI::getSubSound                      : sound 0x7f82f3df9308.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : sound 0x7f82f4c9bb28.  Subsound index 0 / 1
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82f4c9b988)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82edb528d8)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82edb52a68)
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f82eb5c8e58
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f82eb5c8e58
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82ed868378)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82eb5c8cc8)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82eb5c8e58)
+[LOG] SoundI::release                          :  (0x7f82f9986ca8)
+[LOG] SoundI::release                          :     Gunshot_Laser_2 (0x7f82f9986e18)
+[LOG] SoundI::release                          :  (0x7f82f4987d78)
+[LOG] SoundI::release                          :     Electricity, Spark, Impact, Short 02 SND13440 1 (0x7f82f49f7fd8)
+[LOG] SoundI::release                          :  (0x7f82f49e0408)
+[LOG] SoundI::release                          :     Electricity, Spark, Impact, Short 01 SND13441 2 (0x7f82f49e0578)
+[LOG] SoundI::release                          :  (0x7f82f49e08b8)
+[LOG] SoundI::release                          :     Electricity, Spark, Impact, Short 03 SND20299 1 (0x7f82eb448478)
+[LOG] SoundI::release                          :  (0x7f82eb4487b8)
+[LOG] SoundI::release                          :     Electricity, Spark, Impact, Short 04 SND13439 (0x7f82eb448928)
+[LOG] SoundI::release                          :  (0x7f82f3dc9898)
+[LOG] SoundI::release                          :     Electricity, Spark, Impact, Short 05 SND13438 1 (0x7f82f3deb008)
+[LOG] SoundI::release                          :  (0x7f82f49f8318)
+[LOG] SoundI::release                          :     Electricity, Spark, Impact, Short 10 SND13434 1 (0x7f82f49f8488)
+[LOG] SoundI::release                          :  (0x7f82f4c88eb8)
+[LOG] SoundI::release                          :     UI_Select (0x7f82f4c89028)
+[LOG] SoundI::release                          :  (0x7f82f4c7fcb8)
+[LOG] SoundI::release                          :     UI_StartGame (0x7f82f4c7fe28)
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82f4c9bb28)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82ed98dee8)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82ed98e078)
+[LOG] SoundI::release                          : ForcefieldLoop (0x7f82f3df9308)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82ed9882d8)
+[LOG] SoundI::release                          :     ForcefieldLoop (0x7f82ed97ee88)
+[LOG] SoundI::release                          : Rust_Insert 4 (0x7f82eb534da8)
+[LOG] SoundI::release                          :     Rust_Insert 4 (0x7f82edb06808)
+[LOG] SoundI::release                          :     Rust_Insert 4 (0x7f82edb06998)
+[LOG] SoundI::release                          : Rust_Insert 6 (0x7f82eb5ae798)
+[LOG] SoundI::release                          :     Rust_Insert 6 (0x7f82f8672938)
+[LOG] SoundI::release                          :     Rust_Insert 6 (0x7f82f8672ac8)
+[LOG] SoundI::release                          : Rust_Insert 5 (0x7f82eb4a9ad8)
+[LOG] SoundI::release                          :     Rust_Insert 5 (0x7f82f855cce8)
+[LOG] SoundI::release                          :     Rust_Insert 5 (0x7f82f8671d18)
+[LOG] SoundI::release                          : Rust_Insert 1 (0x7f82f4978e48)
+[LOG] SoundI::release                          :     Rust_Insert 1 (0x7f82f9985d98)
+[LOG] SoundI::release                          :     Rust_Insert 1 (0x7f82f9985f28)
+[LOG] SoundI::release                          : Rust_Insert 2 (0x7f82f4c8d0a8)
+[LOG] SoundI::release                          :     Rust_Insert 2 (0x7f82f99854a8)
+[LOG] SoundI::release                          :     Rust_Insert 2 (0x7f82f9985638)
+[LOG] SoundI::release                          : Rust_Insert 3 (0x7f82f4c18fd8)
+[LOG] SoundI::release                          :     Rust_Insert 3 (0x7f82edb57b68)
+[LOG] SoundI::release                          :     Rust_Insert 3 (0x7f82edb57cf8)
+[LOG] SoundI::release                          :  (0x7f82f4c7d448)
+[LOG] SoundI::release                          :     UI_QuitGame (0x7f82f4c7f0f8)
+[LOG] SoundI::release                          :  (0x7f82f4c64118)
+[LOG] SoundI::release                          :     UI_HoverOverButton (0x7f82f4c46228)
+[LOG] SoundI::release                          :  (0x7f82f4c46568)
+[LOG] SoundI::release                          :     SFX_DashLoop (0x7f82f4c466d8)
+[LOG] SoundI::release                          :  (0x7f82f4c94758)
+[LOG] SoundI::release                          :     SFX_DashRelease (0x7f82f4c948c8)
+[LOG] SoundI::release                          :  (0x7f82f4c94078)
+[LOG] SoundI::release                          :     SFX_DashAttack (0x7f82f4c941e8)
+[LOG] SoundI::release                          :  (0x7f82f4c7f808)
+[LOG] SoundI::release                          :     Electricity, Electric Arc SND34826 1 (0x7f82f4c7f978)
+[LOG] SoundI::release                          :  (0x7f82f4c60dc8)
+[LOG] SoundI::release                          :     UI_Back (0x7f82f4c60f38)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
 [LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
 [LOG] SystemI::close                           : Closed.

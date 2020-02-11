@@ -14,6 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specialAbilityVFX: {fileID: 0}
   mech: {fileID: 11400000, guid: b208076f6f69bc14bb2474c54ac024bf, type: 2}
+--- !u!114 &-8888099391036418543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4234567098220050998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cece7b31dc5d04e259a5256730e28027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4643430783332295056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21,12 +33,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1010802245681831634, guid: aaf99d2a6f82ca943a32b605f72c1907,
-        type: 3}
-      propertyPath: mech
-      value: 
-      objectReference: {fileID: 11400000, guid: b208076f6f69bc14bb2474c54ac024bf,
-        type: 2}
     - target: {fileID: 8841960133733178278, guid: aaf99d2a6f82ca943a32b605f72c1907,
         type: 3}
       propertyPath: m_Name
@@ -44,6 +50,12 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: b208076f6f69bc14bb2474c54ac024bf,
         type: 2}
     - target: {fileID: -7424934990164168292, guid: aaf99d2a6f82ca943a32b605f72c1907,
+        type: 3}
+      propertyPath: mech
+      value: 
+      objectReference: {fileID: 11400000, guid: b208076f6f69bc14bb2474c54ac024bf,
+        type: 2}
+    - target: {fileID: 1010802245681831634, guid: aaf99d2a6f82ca943a32b605f72c1907,
         type: 3}
       propertyPath: mech
       value: 
