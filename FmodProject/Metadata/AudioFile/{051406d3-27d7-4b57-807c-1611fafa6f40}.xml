@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{051406d3-27d7-4b57-807c-1611fafa6f40}">
+		<property name="assetPath">
+			<value>Electronic, Electromagnetic Field, Tesla Coil, Electro Shock, Science, Centre, Singapore 1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>192</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>6.3569791666666671</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7aca56a0-0add-449c-b0e6-13fd68bfb612}</destination>
+		</relationship>
+	</object>
+</objects>
