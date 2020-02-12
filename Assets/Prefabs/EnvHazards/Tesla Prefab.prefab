@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 251996276060726621}
   - component: {fileID: 251996276060726620}
   - component: {fileID: 251996276060726623}
+  - component: {fileID: -1479013611404669570}
+  - component: {fileID: 2271482494043993807}
   m_Layer: 0
   m_Name: Tesla Prefab
   m_TagString: Untagged
@@ -4769,6 +4771,30 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &-1479013611404669570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251996276060726622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce16103e244f4c688b957594fccc267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2271482494043993807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251996276060726622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a6f3cdad2014253a1bb2579ba10426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1844371062707122186
 GameObject:
   m_ObjectHideFlags: 0
@@ -4837,7 +4863,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   timeBetweenElectricalSurges: 5
-  particleSystem: {fileID: 251996276060726620}
+  surgeRadius: 40
+  normalRadius: 10
 --- !u!1001 &251996277252370126
 PrefabInstance:
   m_ObjectHideFlags: 0
