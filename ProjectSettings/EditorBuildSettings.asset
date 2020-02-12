@@ -8,7 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 937903fe3e6a11c4f9a2c6bacc2c3f81
+  - enabled: 0
+    path: Assets/Scenes/Mecha Selection.unity
+    guid: bc4d24ad2c677d34e97c1dac2346c70d
   - enabled: 1
     path: Assets/Scenes/SciFi Base 1.unity
     guid: 6d7a3465c0de0ad42a6fa5640caf3111
+  - enabled: 1
+    path: Assets/Scenes/Final Results.unity
+    guid: 1562546ea88083842b231334c413be00
   m_configObjects: {}
