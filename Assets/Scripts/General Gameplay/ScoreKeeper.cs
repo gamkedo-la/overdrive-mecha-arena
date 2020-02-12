@@ -46,7 +46,14 @@ public class ScoreKeeper : MonoBehaviour
         {
             try
             {
-                rankings[i].SetTopFourIndicator(rankIndicators[i]);
+                if (rankings[i] != null)
+                {
+                    rankings[i].SetTopFourIndicator(rankIndicators[i]);
+                }
+                else
+                {
+                    continue;
+                }
             }
             catch (ArgumentOutOfRangeException)
             {

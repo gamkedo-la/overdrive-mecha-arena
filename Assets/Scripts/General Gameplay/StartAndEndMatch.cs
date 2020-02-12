@@ -60,6 +60,6 @@ public class StartAndEndMatch : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         DontDestroyOnLoad(ScoreManager);
         DontDestroyOnLoad(AudioManager);
-        SceneManager.LoadScene(0);//Change to results scene once it's implemented
+        SceneManager.LoadScene("Final Results", LoadSceneMode.Single);//Change to results scene once it's implemented
     }
 }
