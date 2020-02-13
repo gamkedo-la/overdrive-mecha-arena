@@ -13,7 +13,7 @@ public class AudioOcclusion : MonoBehaviour
     FMOD.Studio.PARAMETER_ID LPFParameterID;
 
     Transform SlLocation;
-
+    Transform emitterPosition;
     [Header("Occlusion Options")]
     [Range(0f, 1f)]
     public float VolumeValue = 0.5f;
@@ -21,12 +21,13 @@ public class AudioOcclusion : MonoBehaviour
     public float LPFCutoff = 10000f;
     public LayerMask OcclusionLayer = 1;
 
+    Vector3 elevateYMecha;
+    Vector3 elevateYTesla;
     //GameObject Player;
     // Start is called before the first frame update
     void Awake()
     {
         //Find StudioListener.
-        SlLocation = FindObjectOfType<StudioListener>().transform;
         //Instantiate Event
         Audio = RuntimeManager.CreateInstance(SelectAudio);
         FMOD.Studio.EventDescription AudioEventDescription;
@@ -45,6 +46,11 @@ public class AudioOcclusion : MonoBehaviour
 
     private void Start()
     {
+        SlLocation = FindObjectOfType<StudioListener>().transform;
+  
+
+        elevateYMecha = new Vector3(0, 20, 0);
+        elevateYTesla = new Vector3(0, 15, 0);
         FMOD.Studio.PLAYBACK_STATE pbState;
         Audio.getPlaybackState(out pbState);
         if (pbState != FMOD.Studio.PLAYBACK_STATE.PLAYING)
@@ -60,17 +66,17 @@ public class AudioOcclusion : MonoBehaviour
 
         RaycastHit hit;
 
-        Physics.Linecast(gameObject.transform.position, SlLocation.position, out hit, OcclusionLayer);
+        Physics.Linecast(gameObject.transform.position + elevateYTesla, SlLocation.position + elevateYMecha, out hit, OcclusionLayer);
 
         if (hit.collider != null && hit.collider.tag == "Player")
         {
             NotOccluded();
-            Debug.DrawLine(transform.position, SlLocation.position, Color.magenta);
+            Debug.DrawLine(gameObject.transform.position + elevateYTesla, SlLocation.position + elevateYMecha, Color.magenta);
         }
         else
         {
             Occluded();
-            Debug.DrawLine(transform.position, hit.point, Color.white);
+            Debug.DrawLine(gameObject.transform.position + elevateYTesla, hit.point, Color.white);
         }
     }
 
