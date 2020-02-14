@@ -98,7 +98,7 @@ public class Health : MonoBehaviour
 
     private void Update()
     {
-        if(gameObject.CompareTag("Enemy"))
+        if (gameObject.CompareTag("Enemy"))
         {
             //Debug.Log(gameObject.name + " is drunk? " + isInOverdrive());
         }
@@ -253,11 +253,6 @@ public class Health : MonoBehaviour
                 attackerScore = attacker.GetComponent<ScoreHandler>();
             }
 
-            if (currentHP <= currentHP / 3)
-            {
-                // Set combat mode to heavy mode and prevent this mech from switching until they are no longer low on HP
-            }
-
             if (isUsingShield && shields > 0)
             {
                 shields -= finalDamageAmount;
@@ -290,7 +285,14 @@ public class Health : MonoBehaviour
                         attackerScore.IncreaseKillstreak();
                     }
 
-                    Die();
+                    if (!gameObject.CompareTag("Non-playables"))
+                    {
+                        Die();
+                    }
+                    else
+                    {
+                        Destroy(gameObject);
+                    }
                 }
             }
         }

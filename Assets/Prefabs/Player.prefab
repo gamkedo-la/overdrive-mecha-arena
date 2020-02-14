@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: -7044386142174227393}
   - component: {fileID: -6383047149986641429}
   - component: {fileID: -8818503280086372997}
-  - component: {fileID: 4441914895350271430}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -259,20 +258,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ListenerNumber: -1
---- !u!136 &4441914895350271430
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1515524012658226926}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 6.1390257
-  m_Height: 25.069897
-  m_Direction: 1
-  m_Center: {x: 0, y: 11, z: 1.1528349}
 --- !u!1 &1515524012939720657
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,11 +754,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1515524012658226925}
     m_Modifications:
-    - target: {fileID: 4424797610369792175, guid: 8125a117969f2024894dd3befd26bed3,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayerBulletPool
-      objectReference: {fileID: 0}
     - target: {fileID: 6282793150120327142, guid: 8125a117969f2024894dd3befd26bed3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -829,6 +809,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4424797610369792175, guid: 8125a117969f2024894dd3befd26bed3,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerBulletPool
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8125a117969f2024894dd3befd26bed3, type: 3}
 --- !u!4 &1011597262748595139 stripped
@@ -844,21 +829,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1515524012658226925}
     m_Modifications:
-    - target: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
-        type: 3}
-      propertyPath: m_Name
-      value: Light Mode VFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7042319705362345490, guid: 0ace24755b9c51347a92c2057024f073,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -913,6 +883,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
+        type: 3}
+      propertyPath: m_Name
+      value: Light Mode VFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042319705362345495, guid: 0ace24755b9c51347a92c2057024f073,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7042319705362345493, guid: 0ace24755b9c51347a92c2057024f073,
         type: 3}

@@ -7,7 +7,7 @@ public class AudioOcclusion : MonoBehaviour
 {
     [Header("FMOD Event")]
     [EventRef]
-    public string SelectAudio;
+    [SerializeField] private string SelectAudio;
     FMOD.Studio.EventInstance Audio;
     FMOD.Studio.PARAMETER_ID VolumeParameterID;
     FMOD.Studio.PARAMETER_ID LPFParameterID;
@@ -16,10 +16,10 @@ public class AudioOcclusion : MonoBehaviour
     Transform emitterPosition;
     [Header("Occlusion Options")]
     [Range(0f, 1f)]
-    public float VolumeValue = 0.5f;
+    [SerializeField] private float VolumeValue = 0.5f;
     [Range(10f, 22000f)]
-    public float LPFCutoff = 10000f;
-    public LayerMask OcclusionLayer = 1;
+    [SerializeField] private float LPFCutoff = 10000f;
+    [SerializeField] private LayerMask OcclusionLayer;
 
     Vector3 elevateYMecha;
     Vector3 elevateYTesla;
@@ -62,7 +62,7 @@ public class AudioOcclusion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RuntimeManager.AttachInstanceToGameObject(Audio, GetComponent<Transform>(), GetComponent<Rigidbody>());
+        RuntimeManager.AttachInstanceToGameObject(Audio, gameObject.transform, GetComponent<Rigidbody>());
 
         RaycastHit hit;
 
@@ -88,7 +88,7 @@ public class AudioOcclusion : MonoBehaviour
 
     void NotOccluded()
     {
-        Audio.setParameterByID(VolumeParameterID, 1f);
+        Audio.setParameterByID(VolumeParameterID, .75f);
         Audio.setParameterByID(LPFParameterID, 22000f);
     }
 
