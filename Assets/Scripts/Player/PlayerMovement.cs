@@ -100,13 +100,21 @@ public class PlayerMovement : MonoBehaviour
         {
             float moveSpeedToUse = vertical > 0 ? fowardMoveSpeed : backwardMoveSpeed;
 
+            //Raycast and vector code here is 2nd attempt at fixing player floating bug (doesn't work but it's a start)
+            RaycastHit rhInfo;
+            Vector3 groundFwd = transform.forward;
+            if(Physics.Raycast(transform.position, Vector3.down, out rhInfo))
+            {
+                groundFwd = Quaternion.AngleAxis(90.0f, transform.right) * rhInfo.normal;
+            }
+
             if (playerShooting.isTryingToDash)
             {
-                moveVect += (transform.forward * (moveSpeedToUse * dashSpeed) * vertical);
+                moveVect += (groundFwd * (moveSpeedToUse * dashSpeed) * vertical);
             }
             else
             {
-                moveVect += (transform.forward * moveSpeedToUse * vertical);
+                moveVect += (groundFwd * moveSpeedToUse * vertical);
             }
         }
         if (horizontalStrafe != 0)
