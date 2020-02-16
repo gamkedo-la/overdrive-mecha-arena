@@ -25,9 +25,10 @@ public class ScoreKeeper : MonoBehaviour
     private List<ScoreHandler> rankings = new List<ScoreHandler>();
     public List<ScoreHandler> _rankings { get { return rankings; } }
 
-    private void Start()
+    [SerializeField] private List<string> mechScoreData = new List<string>();
+    public List<string> _mechScoreData
     {
-
+        get { return mechScoreData; }
     }
 
     // Update is called once per frame
@@ -38,6 +39,20 @@ public class ScoreKeeper : MonoBehaviour
         rankings = sortedRankingsDescending.ToList<ScoreHandler>();
 
         MarkTopFourRanks();
+    }
+
+    public void PopulateMechScoreDataList()
+    {
+        //Debug.Log("Attempting to populate mech data list");
+        for (int i = 0; i < rankings.Count; i++)
+        {
+            mechScoreData.Add(rankings[i].StringifyScoreForThisMech());
+        }
+    }
+
+    public string[] ReturnMechData(int mechIndex)
+    {
+        return mechScoreData[mechIndex].Split('@');
     }
 
     private void MarkTopFourRanks()

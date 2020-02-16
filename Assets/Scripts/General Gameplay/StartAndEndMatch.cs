@@ -14,6 +14,8 @@ public class StartAndEndMatch : MonoBehaviour
     [SerializeField] private TextMeshProUGUI tmProText;
     [SerializeField] private float timeLimit;
 
+    private ScoreKeeper scoreKeeper;
+
     private float timer;
     private bool allowCountdown = true;
     private bool countdownOnce = false;
@@ -22,6 +24,7 @@ public class StartAndEndMatch : MonoBehaviour
     void Start()
     {
         timer = timeLimit;
+        scoreKeeper = ScoreManager.GetComponent<ScoreKeeper>();
     }
 
     // Update is called once per frame
@@ -60,6 +63,8 @@ public class StartAndEndMatch : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         DontDestroyOnLoad(ScoreManager);
         DontDestroyOnLoad(AudioManager);
+        scoreKeeper.PopulateMechScoreDataList();
+
         SceneManager.LoadScene("Final Results", LoadSceneMode.Single);//Change to results scene once it's implemented
     }
 }

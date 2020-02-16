@@ -49,6 +49,11 @@ public class ScoreHandler : MonoBehaviour
         }
     }
 
+    public string StringifyScoreForThisMech()
+    {
+        return gameObject.name + "@" + score + "@" + totalKills + "@" + totalDeaths; //figure out rank data transfer later
+    }
+
     private void Start()
     {
         if (!scoreKeeper._participants.Contains(this))

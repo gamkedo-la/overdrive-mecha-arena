@@ -56,7 +56,9 @@ public class InitialParticipantsSpawn : MonoBehaviour
     private void SpawnPlayer()
     {
         Transform spawnPoint = SelectSpawnPoint();
-        Instantiate(playerMech, spawnPoint);
+        GameObject playerMecha = Instantiate(playerMech, spawnPoint);
+
+        playerMecha.name = "Steve";
     }
 
     private void SpawnMechAt(Transform spawnPoint)
