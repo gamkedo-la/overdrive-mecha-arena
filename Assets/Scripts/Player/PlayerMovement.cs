@@ -95,18 +95,18 @@ public class PlayerMovement : MonoBehaviour
             PPV.SetActive(false);
         }
 
+        Vector3 moveVect = Vector3.zero;
         if (vertical != 0)
         {
             float moveSpeedToUse = vertical > 0 ? fowardMoveSpeed : backwardMoveSpeed;
 
-
             if (playerShooting.isTryingToDash)
             {
-                characterController.SimpleMove(transform.forward * (moveSpeedToUse * dashSpeed) * vertical);
+                moveVect += (transform.forward * (moveSpeedToUse * dashSpeed) * vertical);
             }
             else
             {
-                characterController.SimpleMove(transform.forward * moveSpeedToUse * vertical);
+                moveVect += (transform.forward * moveSpeedToUse * vertical);
             }
         }
         if (horizontalStrafe != 0)
@@ -115,14 +115,15 @@ public class PlayerMovement : MonoBehaviour
 
             if (playerShooting.isTryingToDash)
             {
-                characterController.SimpleMove(transform.right * (strafeSpeedToUse * dashSpeed) * horizontalStrafe);
+                moveVect += (transform.right * (strafeSpeedToUse * dashSpeed) * horizontalStrafe);
             }
             else
             {
-                characterController.SimpleMove(transform.right * strafeSpeedToUse * horizontalStrafe);
+                moveVect += (transform.right * strafeSpeedToUse * horizontalStrafe);
             }
         }
 
+        characterController.SimpleMove(moveVect);
 
         //Audio related stuff
         if (Input.GetButtonDown("Dash") && (vertical != 0 || horizontalStrafe != 0))
