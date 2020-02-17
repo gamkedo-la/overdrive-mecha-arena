@@ -57,6 +57,9 @@ public class AudioOcclusion : MonoBehaviour
         {
             Audio.start();
         }
+
+        //points
+        
     }
 
     // Update is called once per frame

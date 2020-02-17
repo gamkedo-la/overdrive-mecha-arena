@@ -6359,15 +6359,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 279271977}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 866e329f7318f4094b0e18d396d234bb, type: 3}
+  m_Script: {fileID: 11500000, guid: 702589a54e17d4ff1b3d317a8c49a182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SelectAudio: event:/SFX/SFX_TeslaCoil
-  VolumeValue: 0.5
-  LPFCutoff: 10000
+  SoundOcclusionWidening: 5.9
+  PlayerOcclusionWidening: 4.5
   OcclusionLayer:
     serializedVersion: 2
-    m_Bits: 69120
+    m_Bits: 67584
+  listenerPositionPoints: {x: 0, y: 20, z: 5}
+  emitterPositionPoints: {x: 0, y: 15, z: 0}
 --- !u!1001 &281552799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36113,7 +36115,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3206985928275318344}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1490950169
+--- !u!114 &1490950168
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -36122,15 +36124,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1490950167}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 866e329f7318f4094b0e18d396d234bb, type: 3}
+  m_Script: {fileID: 11500000, guid: 702589a54e17d4ff1b3d317a8c49a182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SelectAudio: event:/SFX/SFX_LaserFence
-  VolumeValue: 0.368
-  LPFCutoff: 4367
+  SoundOcclusionWidening: 14.2
+  PlayerOcclusionWidening: 7.36
   OcclusionLayer:
     serializedVersion: 2
-    m_Bits: 68608
+    m_Bits: 67584
+  listenerPositionPoints: {x: 0, y: 20, z: 5}
+  emitterPositionPoints: {x: 0, y: 15, z: -30}
 --- !u!4 &1505086361 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 90109622726138418, guid: 11751b0b94808284eb9d94ae7a019698,

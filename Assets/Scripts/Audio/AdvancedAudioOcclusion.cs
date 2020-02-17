@@ -15,13 +15,19 @@ public class AdvancedAudioOcclusion : MonoBehaviour
 
     [Header("Occlusion Options")]
     [SerializeField]
-    [Range(0f, 10f)]
+    [Range(0f, 50f)]
     private float SoundOcclusionWidening = 1f;
     [SerializeField]
     [Range(0f, 10f)]
     private float PlayerOcclusionWidening = 1f;
     [SerializeField]
     private LayerMask OcclusionLayer;
+
+    [Header("Coordinate Fine Tunning")]
+    [SerializeField]
+    private Vector3 listenerPositionPoints;
+    [SerializeField]
+    private Vector3 emitterPositionPoints;
 
     private bool AudioIsVirtual;
     private float MaxDistance;
@@ -49,7 +55,7 @@ public class AdvancedAudioOcclusion : MonoBehaviour
         ListenerDistance = Vector3.Distance(transform.position, Listener.transform.position);
 
         if (!AudioIsVirtual && pb == PLAYBACK_STATE.PLAYING && ListenerDistance <= MaxDistance)
-            OccludeBetween(transform.position, Listener.transform.position);
+            OccludeBetween(transform.position + emitterPositionPoints, Listener.transform.position + listenerPositionPoints);
 
         lineCastHitCount = 0f;
     }
