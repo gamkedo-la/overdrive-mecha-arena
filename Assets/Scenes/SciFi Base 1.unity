@@ -35806,7 +35806,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1473506344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36107,6 +36107,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1486229843}
   m_CullTransparentMesh: 0
+--- !u!1 &1490950167 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6890627979919315379, guid: f26ef221f6f8cc445b4ab56220d28f60,
+    type: 3}
+  m_PrefabInstance: {fileID: 3206985928275318344}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1490950169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490950167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 866e329f7318f4094b0e18d396d234bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SelectAudio: event:/SFX/SFX_LaserFence
+  VolumeValue: 0.368
+  LPFCutoff: 4367
+  OcclusionLayer:
+    serializedVersion: 2
+    m_Bits: 68608
 --- !u!4 &1505086361 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 90109622726138418, guid: 11751b0b94808284eb9d94ae7a019698,
