@@ -546,7 +546,7 @@ MonoBehaviour:
   - {fileID: -3560089962884193490}
   - {fileID: -3517487952546699924}
   - {fileID: 4272723569329086120}
-  - {fileID: -4532294134098078856}
+  - {fileID: 3250424164582130988}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -676,12 +676,12 @@ MonoBehaviour:
   Banks:
   - {fileID: -3517487952546699924}
   - {fileID: 4272723569329086120}
-  - {fileID: -4532294134098078856}
+  - {fileID: 3250424164582130988}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: -3488743511030390781}
+  - {fileID: 2735546646174916931}
   MinDistance: 1
   MaxDistance: 650
   Length: 5500
@@ -994,7 +994,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -3517487952546699924}
   - {fileID: 4272723569329086120}
-  - {fileID: -4532294134098078856}
+  - {fileID: 3250424164582130988}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1493,7 +1493,7 @@ MonoBehaviour:
   - {fileID: -3560089962884193490}
   - {fileID: -3517487952546699924}
   - {fileID: 4272723569329086120}
-  - {fileID: -4532294134098078856}
+  - {fileID: 3250424164582130988}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1653,7 +1653,7 @@ MonoBehaviour:
   guid: 4c507e213dfaee489f8c7ce5a0758edd
   Banks:
   - {fileID: 4272723569329086120}
-  - {fileID: -4532294134098078856}
+  - {fileID: 3250424164582130988}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -1900,7 +1900,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -3517487952546699924}
   - {fileID: 4272723569329086120}
-  - {fileID: -4532294134098078856}
+  - {fileID: 3250424164582130988}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -2492,7 +2492,7 @@ MonoBehaviour:
   - {fileID: -3560089962884193490}
   - {fileID: -3517487952546699924}
   - {fileID: 4272723569329086120}
-  - {fileID: -4532294134098078856}
+  - {fileID: 3250424164582130988}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -3706,6 +3706,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-2078639946054078525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MenuTest/Main Menu Layer On
+  m_EditorClassIdentifier: 
+  Name: Main Menu Layer On
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-2013568758352643530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4421,6 +4438,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-717675147139941860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MenuTest/Credits Layer On
+  m_EditorClassIdentifier: 
+  Name: Credits Layer On
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-698706974879923055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4472,6 +4506,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-593445586733349387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SFX_TeslaCoil/LPF
+  m_EditorClassIdentifier: 
+  Name: LPF
+  Min: 0
+  Max: 22000
+  Default: 0
+  Exists: 1
 --- !u!114 &-573932752713076744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4823,8 +4874,8 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 4789381255481878910}
-  - {fileID: -4532294134098078856}
+  - {fileID: 2713341479060792671}
+  - {fileID: 3250424164582130988}
   EditorEvents:
   - {fileID: -4473464035059249631}
   - {fileID: 2608341253895932773}
@@ -4842,10 +4893,10 @@ MonoBehaviour:
   - {fileID: 2175169336870894391}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -4532294134098078856}
+  - {fileID: 3250424164582130988}
   StringsBanks:
-  - {fileID: 4789381255481878910}
-  stringsBankWriteTime: 637172564977053226
+  - {fileID: 2713341479060792671}
+  stringsBankWriteTime: 637172050936057948
   cacheVersion: 3
 --- !u!114 &45804011545043032
 MonoBehaviour:
@@ -5466,7 +5517,7 @@ MonoBehaviour:
   - {fileID: -3560089962884193490}
   - {fileID: -3517487952546699924}
   - {fileID: 4272723569329086120}
-  - {fileID: -4532294134098078856}
+  - {fileID: 3250424164582130988}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5699,13 +5750,13 @@ MonoBehaviour:
   Path: event:/SFX/SFX_TeslaCoil
   guid: c61e77d6b9d2c44882ee27d70a46b984
   Banks:
-  - {fileID: -4532294134098078856}
+  - {fileID: 3250424164582130988}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 3879243270682570732}
-  - {fileID: -8415270814802191955}
+  - {fileID: 6379736664921953132}
+  - {fileID: -593445586733349387}
   MinDistance: 1
   MaxDistance: 150
   Length: 2200
@@ -5901,14 +5952,14 @@ MonoBehaviour:
   - {fileID: -3560089962884193490}
   - {fileID: -3517487952546699924}
   - {fileID: 4272723569329086120}
-  - {fileID: -4532294134098078856}
+  - {fileID: 3250424164582130988}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 5892912403234144762}
-  - {fileID: -8309711247312622625}
-  - {fileID: -1310786605613399131}
+  - {fileID: -717675147139941860}
+  - {fileID: 8104003062767169773}
+  - {fileID: -2078639946054078525}
   MinDistance: 0
   MaxDistance: 0
   Length: 22153
@@ -5929,6 +5980,43 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &2713341479060792671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: D:/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.strings.bank
+  SubDir: 
+  lastModified: 637172050936057948
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1834
+  Exists: 1
+--- !u!114 &2735546646174916931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SFX_Dash/EndDash
+  m_EditorClassIdentifier: 
+  Name: EndDash
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 1
 --- !u!114 &2811068019623929290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6164,6 +6252,26 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &3250424164582130988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: D:/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637172050936047951
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 2714176
+  Exists: 1
 --- !u!114 &3331078213203991816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6522,7 +6630,7 @@ MonoBehaviour:
   - {fileID: -3560089962884193490}
   - {fileID: -3517487952546699924}
   - {fileID: 4272723569329086120}
-  - {fileID: -4532294134098078856}
+  - {fileID: 3250424164582130988}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -7129,7 +7237,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -3517487952546699924}
   - {fileID: 4272723569329086120}
-  - {fileID: -4532294134098078856}
+  - {fileID: 3250424164582130988}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -7701,6 +7809,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &6379736664921953132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SFX_TeslaCoil/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &6450578570178316069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8161,7 +8286,7 @@ MonoBehaviour:
   - {fileID: -3560089962884193490}
   - {fileID: -3517487952546699924}
   - {fileID: 4272723569329086120}
-  - {fileID: -4532294134098078856}
+  - {fileID: 3250424164582130988}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -8717,6 +8842,23 @@ MonoBehaviour:
   - Name: Desktop
     Value: 2503488
   Exists: 1
+--- !u!114 &8104003062767169773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MenuTest/Options Layer On
+  m_EditorClassIdentifier: 
+  Name: Options Layer On
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &8108389539067618728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9174,7 +9316,7 @@ MonoBehaviour:
   - {fileID: -3560089962884193490}
   - {fileID: -3517487952546699924}
   - {fileID: 4272723569329086120}
-  - {fileID: -4532294134098078856}
+  - {fileID: 3250424164582130988}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
