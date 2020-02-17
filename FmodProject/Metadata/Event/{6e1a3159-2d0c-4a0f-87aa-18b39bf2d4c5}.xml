@@ -255,6 +255,9 @@
 		<property name="value">
 			<value>0</value>
 		</property>
+		<property name="curveShape">
+			<value>-0.368497282</value>
+		</property>
 	</object>
 	<object class="Automator" id="{ce673e8e-0338-4396-a97f-1f9a24d81f68}">
 		<property name="nameOfPropertyBeingAutomated">
@@ -278,7 +281,7 @@
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>600</value>
+			<value>900</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{39d24289-28a1-4fb1-bf58-6b490f011b2d}">
@@ -287,6 +290,9 @@
 		</property>
 		<property name="value">
 			<value>22000</value>
+		</property>
+		<property name="curveShape">
+			<value>-0.200886324</value>
 		</property>
 	</object>
 </objects>

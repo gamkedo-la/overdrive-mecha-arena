@@ -24375,6 +24375,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11751b0b94808284eb9d94ae7a019698, type: 3}
+--- !u!1 &1013944311 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1143357576722740403, guid: e29de1f45cfc74a559f40855a280faa8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2722323119083408829}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1013944319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013944311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 866e329f7318f4094b0e18d396d234bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SelectAudio: event:/SFX/SFX_Drone
+  VolumeValue: 0.5
+  LPFCutoff: 10000
+  OcclusionLayer:
+    serializedVersion: 2
+    m_Bits: 67584
 --- !u!1001 &1017431658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57378,6 +57402,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Hazards
+      objectReference: {fileID: 0}
+    - target: {fileID: 251996276060726622, guid: f9f830f444b4c43e79b1054ec765614c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 251996276060726618, guid: f9f830f444b4c43e79b1054ec765614c,
         type: 3}
