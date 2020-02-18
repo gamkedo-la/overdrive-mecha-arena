@@ -32,6 +32,7 @@ public class Health : MonoBehaviour
     public bool _isInvulnerable { set { isInvulnerable = value; } }
     public Transform _myAttacker { set { myAttacker = value; } get { return myAttacker; } }
 
+    AudioOcclusion AOScript;
     public float getPriorityScore
     {
         get
@@ -73,6 +74,7 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
+        AOScript = gameObject.GetComponent<AudioOcclusion>();
         if (!gameObject.CompareTag("Non-playables"))
         {
             startingHP = mech.health;
@@ -291,7 +293,10 @@ public class Health : MonoBehaviour
                     }
                     else
                     {
+                        AOScript.Audio.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                        AOScript.Audio.release();
                         Destroy(gameObject);
+
                     }
                 }
             }

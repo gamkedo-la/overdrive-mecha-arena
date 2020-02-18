@@ -8,7 +8,7 @@ public class AudioOcclusion : MonoBehaviour
     [Header("FMOD Event")]
     [EventRef]
     [SerializeField] private string SelectAudio;
-    FMOD.Studio.EventInstance Audio;
+    public FMOD.Studio.EventInstance Audio;
     FMOD.Studio.PARAMETER_ID VolumeParameterID;
     FMOD.Studio.PARAMETER_ID LPFParameterID;
 
