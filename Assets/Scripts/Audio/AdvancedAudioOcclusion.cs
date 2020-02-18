@@ -16,10 +16,16 @@ public class AdvancedAudioOcclusion : MonoBehaviour
     [Header("Occlusion Options")]
     [SerializeField]
     [Range(0f, 50f)]
-    private float SoundOcclusionWidening = 1f;
+    private float SoundOcclusionWideningX = 1f;
+    [SerializeField]
+    [Range(0f, 50f)]
+    private float SoundOcclusionWideningY = 1f;
     [SerializeField]
     [Range(0f, 10f)]
-    private float PlayerOcclusionWidening = 1f;
+    private float PlayerOcclusionWideningX = 1f;
+    [SerializeField]
+    [Range(0f, 10f)]
+    private float PlayerOcclusionWideningY = 1f;
     [SerializeField]
     private LayerMask OcclusionLayer;
 
@@ -62,17 +68,17 @@ public class AdvancedAudioOcclusion : MonoBehaviour
 
     private void OccludeBetween(Vector3 sound, Vector3 listener)
     {
-        Vector3 SoundLeft = CalculatePoint(sound, listener, SoundOcclusionWidening, true);
-        Vector3 SoundRight = CalculatePoint(sound, listener, SoundOcclusionWidening, false);
+        Vector3 SoundLeft = CalculatePoint(sound, listener, SoundOcclusionWideningX, true);
+        Vector3 SoundRight = CalculatePoint(sound, listener, SoundOcclusionWideningX, false);
 
-        Vector3 SoundAbove = new Vector3(sound.x, sound.y + SoundOcclusionWidening, sound.z);
-        Vector3 SoundBelow = new Vector3(sound.x, sound.y - SoundOcclusionWidening, sound.z);
+        Vector3 SoundAbove = new Vector3(sound.x, sound.y + SoundOcclusionWideningY, sound.z);
+        Vector3 SoundBelow = new Vector3(sound.x, sound.y - SoundOcclusionWideningY, sound.z);
 
-        Vector3 ListenerLeft = CalculatePoint(listener, sound, PlayerOcclusionWidening, true);
-        Vector3 ListenerRight = CalculatePoint(listener, sound, PlayerOcclusionWidening, false);
+        Vector3 ListenerLeft = CalculatePoint(listener, sound, PlayerOcclusionWideningX, true);
+        Vector3 ListenerRight = CalculatePoint(listener, sound, PlayerOcclusionWideningX, false);
 
-        Vector3 ListenerAbove = new Vector3(listener.x, listener.y + PlayerOcclusionWidening * 0.5f, listener.z);
-        Vector3 ListenerBelow = new Vector3(listener.x, listener.y - PlayerOcclusionWidening * 0.5f, listener.z);
+        Vector3 ListenerAbove = new Vector3(listener.x, listener.y + PlayerOcclusionWideningY * 0.5f, listener.z);
+        Vector3 ListenerBelow = new Vector3(listener.x, listener.y - PlayerOcclusionWideningY * 0.5f, listener.z);
 
         CastLine(SoundLeft, ListenerLeft);
         CastLine(SoundLeft, listener);
@@ -89,7 +95,7 @@ public class AdvancedAudioOcclusion : MonoBehaviour
         CastLine(SoundAbove, ListenerAbove);
         CastLine(SoundBelow, ListenerBelow);
 
-        if (PlayerOcclusionWidening == 0f || SoundOcclusionWidening == 0f)
+        if (PlayerOcclusionWideningX == 0f || SoundOcclusionWideningX == 0f)
         {
             colour = Color.blue;
         }
