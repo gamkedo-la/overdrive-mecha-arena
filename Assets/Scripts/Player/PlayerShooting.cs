@@ -41,7 +41,7 @@ public class PlayerShooting : Shooting
             {
                 shotTimer = 0f;
 
-                if (ammo._currentAmmoType == ammo._ammoTypes[0])
+                if (ammo._currentAmmoType == ammo._ammoTypes[0] && Time.deltaTime != 0)
                 {
                     base.FireWeapon(bulletPool, true, false, health.isInOverdrive());
                     FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/SFX_GunshotLaser", transform.position);

@@ -26,12 +26,16 @@ public class PlayerFMODEvents : MonoBehaviour
         Shield = new GameObject();
     }
 
+    private void Start()
+    {
+        Shield = gameObject.transform.Find("Shield").gameObject;
+    }
+
     // Update is called once per frame
     void Update()
     {
         SFX_Dash.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
         SFX_Forcefield.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
-        Shield = gameObject.transform.Find("Shield").gameObject;
 
         if (Shield.activeSelf && (PlaybackState(SFX_Forcefield) != FMOD.Studio.PLAYBACK_STATE.PLAYING))
         {
