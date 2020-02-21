@@ -7,9 +7,11 @@ public class PlayerFMODEvents : MonoBehaviour
     FMOD.Studio.EventInstance SFX_Dash;
     FMOD.Studio.PARAMETER_ID dashParameterID;
     FMOD.Studio.EventInstance SFX_MechaVoice;
+    FMOD.Studio.EventInstance SFX_Random_MechaVoice;
     FMOD.Studio.EventInstance SFX_Forcefield;
 
-   
+    Timer mechaSpeechTimer;
+    float mechaSpeechTimerDuration;
 
     GameObject Shield;
     // Start is called before the first frame update
@@ -29,6 +31,7 @@ public class PlayerFMODEvents : MonoBehaviour
 
         //Mecha Voice Sound
         SFX_MechaVoice = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/SFX_MechaVoice");
+        SFX_Random_MechaVoice = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/SFX_Random_MechaVoice");
     }
 
     private void Start()
@@ -36,6 +39,11 @@ public class PlayerFMODEvents : MonoBehaviour
         Shield = gameObject.transform.Find("Shield").gameObject;
         SFX_MechaVoice.start();
         SFX_MechaVoice.release();
+
+        //Timer setup
+        mechaSpeechTimer = gameObject.AddComponent<Timer>();
+        mechaSpeechTimer.Duration = Random.Range(8, 15);
+        mechaSpeechTimer.Run();
     }
 
     // Update is called once per frame
@@ -43,6 +51,7 @@ public class PlayerFMODEvents : MonoBehaviour
     {
         SFX_Dash.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
         SFX_Forcefield.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        SFX_Random_MechaVoice.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
 
         if (Shield.activeSelf && (PlaybackState(SFX_Forcefield) != FMOD.Studio.PLAYBACK_STATE.PLAYING))
         {
@@ -54,6 +63,12 @@ public class PlayerFMODEvents : MonoBehaviour
             StopForcefieldSound();
         }
 
+        if(mechaSpeechTimer.Finished)
+        {
+            mechaSpeechTimer.Stop();
+            SFX_Random_MechaVoice.start();
+            ResetTimer();
+        }
     }
 
     public void PlayDashSound()
@@ -82,5 +97,11 @@ public class PlayerFMODEvents : MonoBehaviour
         FMOD.Studio.PLAYBACK_STATE pS;
         instance.getPlaybackState(out pS);
         return pS;
+    }
+
+    void ResetTimer()
+    {
+        mechaSpeechTimer.Duration = Random.Range(8, 15);
+        mechaSpeechTimer.Run();
     }
 }

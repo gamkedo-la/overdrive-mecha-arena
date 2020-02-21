@@ -698,6 +698,29 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1086
   Exists: 1
+--- !u!114 &-8232602859152582317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SFX_Random_MechaVoice
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/SFX_Random_MechaVoice
+  guid: 3fe875a8b6224c49a440f8ef999e1dbd
+  Banks:
+  - {fileID: 6483904986828239267}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &-8196916766318863794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -924,7 +947,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: -1393486737397695247}
+  - {fileID: -396024756601190606}
   MinDistance: 1
   MaxDistance: 650
   Length: 5500
@@ -1906,6 +1929,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &-6546723972309132774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SFX_TeslaCoil/Occlusion
+  m_EditorClassIdentifier: 
+  Name: Occlusion
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-6546478346918186244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2725,6 +2765,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-5362518114906129218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MenuTest/Main Menu Layer On
+  m_EditorClassIdentifier: 
+  Name: Main Menu Layer On
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-5342740209539282435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4135,7 +4192,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 7742209077738713289}
+  - {fileID: -2221660749641636361}
   MinDistance: 8
   MaxDistance: 350
   Length: 10666
@@ -4525,6 +4582,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &-2591619852492687871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SFX_Drone/Pitch
+  m_EditorClassIdentifier: 
+  Name: Pitch
+  Min: -1
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-2519683718234745011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4753,6 +4827,23 @@ MonoBehaviour:
   m_Name: parameter:/MenuTest/Credits Layer On
   m_EditorClassIdentifier: 
   Name: Credits Layer On
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &-2221660749641636361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SFX_LaserFence/Occlusion
+  m_EditorClassIdentifier: 
+  Name: Occlusion
   Min: 0
   Max: 1
   Default: 0
@@ -5971,6 +6062,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &-396024756601190606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SFX_Dash/EndDash
+  m_EditorClassIdentifier: 
+  Name: EndDash
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 1
 --- !u!114 &-351212589490202090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6190,7 +6298,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: -2046868757612222813}
+  - {fileID: -2591619852492687871}
   MinDistance: 5.6
   MaxDistance: 90
   Length: 10543
@@ -6296,12 +6404,13 @@ MonoBehaviour:
   - {fileID: -175387224961501955}
   - {fileID: 7225998681813246734}
   - {fileID: 8212305327206095010}
+  - {fileID: -8232602859152582317}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6483904986828239267}
   StringsBanks:
   - {fileID: 6347007066512920125}
-  stringsBankWriteTime: 637178889370000000
+  stringsBankWriteTime: 637178900350000000
   cacheVersion: 3
 --- !u!114 &23864025863343952
 MonoBehaviour:
@@ -7519,7 +7628,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 308529341449731693}
+  - {fileID: -6546723972309132774}
   MinDistance: 25
   MaxDistance: 600
   Length: 2200
@@ -7789,9 +7898,9 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 1401825975925097815}
-  - {fileID: 428591420892437514}
-  - {fileID: 5771725550045370488}
+  - {fileID: 5147988063204021485}
+  - {fileID: 7740956156299880420}
+  - {fileID: -5362518114906129218}
   MinDistance: 0
   MaxDistance: 0
   Length: 22153
@@ -9492,6 +9601,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &5147988063204021485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MenuTest/Credits Layer On
+  m_EditorClassIdentifier: 
+  Name: Credits Layer On
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &5202714953412248290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10285,11 +10411,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637178889370000000
+  lastModified: 637178900350000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1978
+    Value: 2026
   Exists: 1
 --- !u!114 &6379736664921953132
 MonoBehaviour:
@@ -10446,11 +10572,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: /Users/A1014/Documents/GitHub/overdrive-mecha-arena/FmodProject/Build/Desktop/Master.bank
   SubDir: 
-  lastModified: 637178889370000000
+  lastModified: 637178900350000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 3116928
+    Value: 3381056
   Exists: 1
 --- !u!114 &6516510973829209187
 MonoBehaviour:
@@ -11495,6 +11621,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &7740956156299880420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MenuTest/Options Layer On
+  m_EditorClassIdentifier: 
+  Name: Options Layer On
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &7742209077738713289
 MonoBehaviour:
   m_ObjectHideFlags: 0

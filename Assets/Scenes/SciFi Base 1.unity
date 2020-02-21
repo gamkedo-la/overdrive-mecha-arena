@@ -6441,7 +6441,7 @@ MonoBehaviour:
   SelectAudio: event:/SFX/SFX_TeslaCoil
   SoundOcclusionWideningX: 10
   SoundOcclusionWideningY: 10
-  PlayerOcclusionWideningX: 2
+  PlayerOcclusionWideningX: 4
   PlayerOcclusionWideningY: 8.45
   OcclusionLayer:
     serializedVersion: 2
