@@ -6,8 +6,10 @@ public class PlayerFMODEvents : MonoBehaviour
 {
     FMOD.Studio.EventInstance SFX_Dash;
     FMOD.Studio.PARAMETER_ID dashParameterID;
-
+    FMOD.Studio.EventInstance SFX_MechaVoice;
     FMOD.Studio.EventInstance SFX_Forcefield;
+
+   
 
     GameObject Shield;
     // Start is called before the first frame update
@@ -24,11 +26,16 @@ public class PlayerFMODEvents : MonoBehaviour
         //Forcefield Sound
         SFX_Forcefield = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/SFX_Forcefield");
         Shield = new GameObject();
+
+        //Mecha Voice Sound
+        SFX_MechaVoice = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/SFX_MechaVoice");
     }
 
     private void Start()
     {
         Shield = gameObject.transform.Find("Shield").gameObject;
+        SFX_MechaVoice.start();
+        SFX_MechaVoice.release();
     }
 
     // Update is called once per frame

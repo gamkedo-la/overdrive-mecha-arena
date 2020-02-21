@@ -48,7 +48,7 @@ public class UIFMODEventsScript : MonoBehaviour
 
     public void StartMusicFilterSnapshot()
     {
-        pauseSnapshotInstance = FMODUnity.RuntimeManager.CreateInstance("snapshot:/FilterMusic");
+        pauseSnapshotInstance = FMODUnity.RuntimeManager.CreateInstance("snapshot:/Filtersound");
         pauseSnapshotInstance.start();
     }
 

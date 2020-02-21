@@ -56,7 +56,7 @@
 			<destination>{c038f3e1-b2b2-49e5-9d07-fd1365059c73}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{0bd1ac30-ebc0-4dce-824c-0810233b76f3}</destination>
+			<destination>{d350ea0d-6204-422d-8652-dede69b1ef6d}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{439b6f0d-55ff-4b5a-9e6e-4947cc0d0209}" />
@@ -208,7 +208,7 @@
 			<value>25</value>
 		</property>
 		<property name="maximumDistance">
-			<value>900</value>
+			<value>600</value>
 		</property>
 	</object>
 	<object class="AutomationCurve" id="{3feedef3-b459-4b69-90cc-26b2e507ab25}">
