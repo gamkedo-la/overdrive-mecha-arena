@@ -87,6 +87,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{c17c57e4-133f-41cd-8faa-66015e8662dc}">
+		<property name="volume">
+			<value>-10</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{fc5e91dd-c0b8-4894-9835-5c409bb616dc}</destination>
 		</relationship>
@@ -200,11 +203,14 @@
 	<object class="MixerBusPanner" id="{4afb9fbd-416d-4f2d-9eec-e0b4ca146e97}" />
 	<object class="MixerBusFader" id="{5f27d0db-5d2c-4450-adf0-ac235be2ad46}" />
 	<object class="SpatialiserEffect" id="{0c0553b1-1818-4404-a3f5-8cd3095fa0ca}">
+		<property name="distanceRolloffType">
+			<value>3</value>
+		</property>
 		<property name="minimumDistance">
 			<value>8</value>
 		</property>
 		<property name="maximumDistance">
-			<value>350</value>
+			<value>150</value>
 		</property>
 	</object>
 	<object class="AutomationCurve" id="{66fb3a32-1842-4132-a35c-7a6b2a4f4c49}">
@@ -242,7 +248,7 @@
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>-7.89999962</value>
+			<value>-10</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{cbf51390-f627-4a5f-8d35-c193753084bf}">
@@ -253,7 +259,7 @@
 			<value>0</value>
 		</property>
 		<property name="curveShape">
-			<value>0.63976413</value>
+			<value>0.37999317</value>
 		</property>
 	</object>
 	<object class="Automator" id="{ce673e8e-0338-4396-a97f-1f9a24d81f68}">
@@ -278,7 +284,7 @@
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>900</value>
+			<value>700</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{39d24289-28a1-4fb1-bf58-6b490f011b2d}">
@@ -289,7 +295,7 @@
 			<value>22000</value>
 		</property>
 		<property name="curveShape">
-			<value>0.537652373</value>
+			<value>0.361225814</value>
 		</property>
 	</object>
 </objects>

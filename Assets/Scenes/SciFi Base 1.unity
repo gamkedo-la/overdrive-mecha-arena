@@ -6439,9 +6439,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectAudio: event:/SFX/SFX_TeslaCoil
-  SoundOcclusionWideningX: 10
+  SoundOcclusionWideningX: 20
   SoundOcclusionWideningY: 10
-  PlayerOcclusionWideningX: 4
+  PlayerOcclusionWideningX: 8
   PlayerOcclusionWideningY: 8.45
   OcclusionLayer:
     serializedVersion: 2
@@ -24545,7 +24545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SelectAudio: event:/SFX/SFX_Drone
   VolumeValue: 0.5
-  LPFCutoff: 10000
+  LPFCutoff: 1059
   OcclusionLayer:
     serializedVersion: 2
     m_Bits: 67584
@@ -36380,7 +36380,7 @@ MonoBehaviour:
   SelectAudio: event:/SFX/SFX_LaserFence
   SoundOcclusionWideningX: 14.6
   SoundOcclusionWideningY: 11.9
-  PlayerOcclusionWideningX: 2
+  PlayerOcclusionWideningX: 8
   PlayerOcclusionWideningY: 8.45
   OcclusionLayer:
     serializedVersion: 2
