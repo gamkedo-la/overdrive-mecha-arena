@@ -47,7 +47,7 @@ public class AudioSettingsMenu : MonoBehaviour
         SoundsBusVol = newSoundsVol;
 
         // next code block used for testing sounds volume slider changes when we get some sound event done
-        RuntimeManager.PlayOneShot(soundsVolTest);
+        //RuntimeManager.PlayOneShot(soundsVolTest);
     }
 
     public void MuteAudio(bool isMuted)
