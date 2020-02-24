@@ -24544,11 +24544,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectAudio: event:/SFX/SFX_Drone
-  VolumeValue: 0.5
-  LPFCutoff: 1059
   OcclusionLayer:
     serializedVersion: 2
-    m_Bits: 67584
+    m_Bits: 68608
 --- !u!1001 &1017431658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58307,17 +58305,17 @@ PrefabInstance:
     - target: {fileID: 8460408691203550987, guid: e29de1f45cfc74a559f40855a280faa8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -57.18
+      value: -198
       objectReference: {fileID: 0}
     - target: {fileID: 8460408691203550987, guid: e29de1f45cfc74a559f40855a280faa8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 58
+      value: 64.4
       objectReference: {fileID: 0}
     - target: {fileID: 8460408691203550987, guid: e29de1f45cfc74a559f40855a280faa8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -60
+      value: -14
       objectReference: {fileID: 0}
     - target: {fileID: 8460408691203550987, guid: e29de1f45cfc74a559f40855a280faa8,
         type: 3}

@@ -216,6 +216,15 @@
 		<property name="maximumDistance">
 			<value>550</value>
 		</property>
+		<property name="extentMode">
+			<value>1</value>
+		</property>
+		<property name="soundSize">
+			<value>84</value>
+		</property>
+		<property name="minimumExtent">
+			<value>190</value>
+		</property>
 	</object>
 	<object class="AutomationCurve" id="{3feedef3-b459-4b69-90cc-26b2e507ab25}">
 		<relationship name="parameter">

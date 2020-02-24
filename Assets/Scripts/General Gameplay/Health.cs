@@ -293,8 +293,8 @@ public class Health : MonoBehaviour
                     }
                     else
                     {
-                        AOScript.Audio.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-                        AOScript.Audio.release();
+                        AOScript.audio.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                        AOScript.audio.release();
                         Destroy(gameObject);
 
                     }
