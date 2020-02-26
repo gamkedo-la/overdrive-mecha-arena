@@ -14,6 +14,6 @@ public class SpotlightToMech : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.LookAt(mechs[1].transform);
     }
 }
