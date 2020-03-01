@@ -116,9 +116,6 @@ public class Shooting : MonoBehaviour
             }
         }
 
-        if(animator != null)
-            animator.SetBool("isShooting", true);
-
         // Might have a bug here with the layerMask and AI's not shooting both AI's and player properly
         int layerMask = 1 << 10;
         layerMask = ~layerMask;

@@ -26,6 +26,7 @@ MonoBehaviour:
   specialCooldown: 10
   specialUseTimeLimit: 20
   strengthOfSpecialAbility: 50
+  specialName: Homing Missiles
   damage: 5
   range: 350
   fireRate: 0.75

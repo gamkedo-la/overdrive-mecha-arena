@@ -80,8 +80,6 @@ public class PlayerMovement : MonoBehaviour
 
         var movement = new Vector3(horizontalRot, 0, vertical);
 
-        animator.SetFloat("Speed", vertical);
-
         transform.Rotate(Vector3.up, horizontalRot * turnSpeed * Time.deltaTime);
 
         playerShooting.isTryingToDash = Input.GetButton("Dash") && (vertical != 0 || horizontalStrafe != 0);

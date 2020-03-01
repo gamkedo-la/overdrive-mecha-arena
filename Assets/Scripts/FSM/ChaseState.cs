@@ -121,7 +121,7 @@ public class ChaseState : State
             }
         }
 
-        PlayAnimations();
+        //PlayAnimations();
         DrawDebugLines();
     }
 

@@ -26,6 +26,7 @@ MonoBehaviour:
   specialCooldown: 45
   specialUseTimeLimit: 10
   strengthOfSpecialAbility: 0
+  specialName: Double Stats
   damage: 4
   range: 275
   fireRate: 0.5

@@ -26,6 +26,7 @@ MonoBehaviour:
   specialCooldown: 30
   specialUseTimeLimit: 12.5
   strengthOfSpecialAbility: 0
+  specialName: Invulnerability
   damage: 3
   range: 200
   fireRate: 0.3

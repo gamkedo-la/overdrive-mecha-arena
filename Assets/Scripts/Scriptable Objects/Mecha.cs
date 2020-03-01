@@ -23,6 +23,7 @@ public class Mecha : ScriptableObject
     public float specialUseTimeLimit;
     [Tooltip("How much damage will this ability cause, if any at all?")]
     public int strengthOfSpecialAbility;
+    public string specialName;
 
     [Header("Shooting Properties")]
     [Range(1.0f, 5.0f)] public int damage;

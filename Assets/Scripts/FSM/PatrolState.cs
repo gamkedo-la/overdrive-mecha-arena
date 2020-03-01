@@ -40,7 +40,7 @@ public class PatrolState : State
 
         Patrol();
 
-        PlayAnimations();
+        //PlayAnimations();
     }
 
 
