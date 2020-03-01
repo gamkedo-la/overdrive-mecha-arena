@@ -155,3 +155,78 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4640503916601335131}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &4238611126876636926 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8841960133733178277, guid: aaf99d2a6f82ca943a32b605f72c1907,
+    type: 3}
+  m_PrefabInstance: {fileID: 4640503916601335131}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4902411229254232697
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4238611126876636926}
+    m_Modifications:
+    - target: {fileID: 7844629466414344287, guid: c489bec42165ee54fb0656305ba54fb1,
+        type: 3}
+      propertyPath: m_Name
+      value: Damage Mech Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844629466414344272, guid: c489bec42165ee54fb0656305ba54fb1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844629466414344272, guid: c489bec42165ee54fb0656305ba54fb1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844629466414344272, guid: c489bec42165ee54fb0656305ba54fb1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844629466414344272, guid: c489bec42165ee54fb0656305ba54fb1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844629466414344272, guid: c489bec42165ee54fb0656305ba54fb1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844629466414344272, guid: c489bec42165ee54fb0656305ba54fb1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844629466414344272, guid: c489bec42165ee54fb0656305ba54fb1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844629466414344272, guid: c489bec42165ee54fb0656305ba54fb1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844629466414344272, guid: c489bec42165ee54fb0656305ba54fb1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844629466414344272, guid: c489bec42165ee54fb0656305ba54fb1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844629466414344272, guid: c489bec42165ee54fb0656305ba54fb1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c489bec42165ee54fb0656305ba54fb1, type: 3}
