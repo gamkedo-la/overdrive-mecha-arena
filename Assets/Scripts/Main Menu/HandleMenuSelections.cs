@@ -13,18 +13,15 @@ public class HandleMenuSelections : MonoBehaviour
 
     public void MoveCameraAndSwitchToOptionsMenu()
     {
-        CinemachineTrackedDolly vcamTrackedDolly = virtualCamera.GetCinemachineComponent<CinemachineTrackedDolly>();
-        vcamTrackedDolly.m_PathPosition = 1;
+        
     }
     public void MoveCameraAndSwitchToCreditsMenu()
     {
-        CinemachineTrackedDolly vcamTrackedDolly = virtualCamera.GetCinemachineComponent<CinemachineTrackedDolly>();
-        vcamTrackedDolly.m_PathPosition = 2;
+        
     }
     public void MoveCameraAndSwitchToMainMenu()
     {
-        CinemachineTrackedDolly vcamTrackedDolly = virtualCamera.GetCinemachineComponent<CinemachineTrackedDolly>();
-        vcamTrackedDolly.m_PathPosition = 0;
+        
     }
 
     public void StartGame()
