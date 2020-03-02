@@ -10,7 +10,7 @@ public class UIFMODEventsScript : MonoBehaviour
     FMOD.Studio.EventInstance UI_MenuSelection;
     FMOD.Studio.EventInstance UI_Back;
     FMOD.Studio.EventInstance pauseSnapshotInstance;
-
+    FMOD.Studio.EventInstance UI_MechaSelection;
 
     private void Awake()
     {
@@ -19,6 +19,7 @@ public class UIFMODEventsScript : MonoBehaviour
         UI_StartGame = FMODUnity.RuntimeManager.CreateInstance("event:/UI/UI_StartGame");
         UI_HoverOverButton = FMODUnity.RuntimeManager.CreateInstance("event:/UI/UI_HoverOverButton");
         UI_Back = FMODUnity.RuntimeManager.CreateInstance("event:/UI/UI_Back");
+        UI_MechaSelection = FMODUnity.RuntimeManager.CreateInstance("event:/UI/UI_MechaSelection");
     }
 
     public void PlaySoundWhenMouseEnterButton()
@@ -56,6 +57,11 @@ public class UIFMODEventsScript : MonoBehaviour
     {
         pauseSnapshotInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         pauseSnapshotInstance.release();
+    }
+
+    public void PlaySoundWhenMechaSelection()
+    {
+        UI_MechaSelection.start();
     }
 
 }

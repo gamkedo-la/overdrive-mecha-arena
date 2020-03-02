@@ -64,6 +64,11 @@ public class AdvancedAudioOcclusion : MonoBehaviour
             OccludeBetween(transform.position + emitterPositionPoints, Listener.transform.position + listenerPositionPoints);
 
         lineCastHitCount = 0f;
+
+        if (Listener == null)
+        {
+            Audio.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
     }
 
     private void OccludeBetween(Vector3 sound, Vector3 listener)

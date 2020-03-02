@@ -31,9 +31,6 @@
 		</property>
 	</object>
 	<object class="MixerSend" id="{2bc574c0-9919-459d-aded-d988be54b1f1}">
-		<property name="level">
-			<value>0</value>
-		</property>
 		<property name="inputFormat">
 			<value>2</value>
 		</property>

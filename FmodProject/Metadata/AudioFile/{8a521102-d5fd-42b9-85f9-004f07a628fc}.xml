@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{8a521102-d5fd-42b9-85f9-004f07a628fc}">
+		<property name="assetPath">
+			<value>Design, Punch, Body 04 SND14125.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.27473958333333331</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7aca56a0-0add-449c-b0e6-13fd68bfb612}</destination>
+		</relationship>
+	</object>
+</objects>
