@@ -75,6 +75,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{872353e6-23b3-4948-bc1c-fc57e6ed4e0b}">
+		<property name="volume">
+			<value>-2.5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{4e62be92-11f1-454e-8e68-7eed69ce2462}</destination>
 		</relationship>
@@ -95,6 +98,9 @@
 		<property name="length">
 			<value>63.885718750000002</value>
 		</property>
+		<relationship name="fadeInCurve">
+			<destination>{2a748fbc-5f2c-4638-aa77-ecd76c046080}</destination>
+		</relationship>
 		<relationship name="audioFile">
 			<destination>{c6d64822-e58b-4e3f-881c-02b7e0463c93}</destination>
 		</relationship>
@@ -134,6 +140,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{e82921a3-95a8-446f-ac4b-209bcf41da03}" />
 	<object class="MixerBusFader" id="{7fc46c16-de49-4bd4-8365-e38e18c2c6cf}" />
+	<object class="FadeCurve" id="{2a748fbc-5f2c-4638-aa77-ecd76c046080}">
+		<relationship name="startPoint">
+			<destination>{79be40b2-aab4-4de5-97db-5ecdfb02c3a9}</destination>
+		</relationship>
+		<relationship name="endPoint">
+			<destination>{0b2bfd5d-61fc-457e-9a08-e7ae3a1bb03e}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{f9fbd27d-eec3-473d-b299-8e4e6bd4e76a}">
 		<relationship name="effects">
 			<destination>{bf761c03-d35d-42fe-afbd-6afad26eac09}</destination>
@@ -142,6 +156,25 @@
 	</object>
 	<object class="MixerBusPanner" id="{f1c3c38b-ede1-422f-8436-9cdb866aeba6}" />
 	<object class="MixerBusFader" id="{4fb11642-f29e-4b10-9e2a-f51a7defe852}" />
+	<object class="AutomationPoint" id="{79be40b2-aab4-4de5-97db-5ecdfb02c3a9}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+		<property name="curveShape">
+			<value>-0.2547189</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{0b2bfd5d-61fc-457e-9a08-e7ae3a1bb03e}">
+		<property name="position">
+			<value>0.20000000000000001</value>
+		</property>
+		<property name="value">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="MultibandEqEffect" id="{bf761c03-d35d-42fe-afbd-6afad26eac09}">
 		<property name="frequencyA">
 			<value>799.300476</value>
