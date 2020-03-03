@@ -126,10 +126,20 @@ public class PlayerMovement : MonoBehaviour
         characterController.SimpleMove(moveVect);
 
         //Audio related stuff
-        if (Input.GetButtonDown("Dash") && (vertical != 0 || horizontalStrafe != 0))
+        if (vertical != 0 || horizontalStrafe != 0 || horizontalRot != 0)
         {
-            playerEventsScript.PlayDashSound();
+            playerEventsScript.PlayMechaMovementSound();
+
+            if (Input.GetButtonDown("Dash"))
+            {
+                playerEventsScript.PlayDashSound();
+            }
         }
+        else if (vertical == 0 && horizontalStrafe == 0 && horizontalRot == 0)
+        {
+            playerEventsScript.StopMechaMovementSound();
+        }
+
         if (Input.GetButtonUp("Dash"))
         {
             playerEventsScript.StopDashSound();

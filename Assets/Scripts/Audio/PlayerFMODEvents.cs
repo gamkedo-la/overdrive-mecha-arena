@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMOD.Studio;
 
 public class PlayerFMODEvents : MonoBehaviour
 {
-    FMOD.Studio.EventInstance SFX_Dash;
-    FMOD.Studio.PARAMETER_ID dashParameterID;
-    FMOD.Studio.EventInstance SFX_MechaVoice;
-    FMOD.Studio.EventInstance SFX_Random_MechaVoice;
-    FMOD.Studio.EventInstance SFX_Forcefield;
+    EventInstance SFX_Dash;
+    PARAMETER_ID dashParameterID;
+    EventInstance SFX_MechaVoice;
+    EventInstance SFX_Random_MechaVoice;
+    EventInstance SFX_Forcefield;
+    EventInstance SFX_MechaMoves;
+    PARAMETER_ID mechaMovementParameterID;
 
     Timer mechaSpeechTimer;
     float mechaSpeechTimerDuration;
@@ -19,11 +22,19 @@ public class PlayerFMODEvents : MonoBehaviour
     {
         //Dash sound
         SFX_Dash = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/SFX_Dash");
-        FMOD.Studio.EventDescription dashEventDescription;
+        EventDescription dashEventDescription;
         SFX_Dash.getDescription(out dashEventDescription);
-        FMOD.Studio.PARAMETER_DESCRIPTION dashParameterDescription;
+        PARAMETER_DESCRIPTION dashParameterDescription;
         dashEventDescription.getParameterDescriptionByName("EndDash", out dashParameterDescription);
         dashParameterID = dashParameterDescription.id;
+
+        // Mecha movement sounds
+        SFX_MechaMoves = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/SFX_MechaMoves");
+        EventDescription mechaMovementEventDescription;
+        SFX_MechaMoves.getDescription(out mechaMovementEventDescription);
+        PARAMETER_DESCRIPTION mechaMovementParameterDescription;
+        mechaMovementEventDescription.getParameterDescriptionByName("MechaStop", out mechaMovementParameterDescription);
+        mechaMovementParameterID = mechaMovementParameterDescription.id;
 
         //Forcefield Sound
         SFX_Forcefield = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/SFX_Forcefield");
@@ -52,13 +63,14 @@ public class PlayerFMODEvents : MonoBehaviour
         SFX_Dash.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
         SFX_Forcefield.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
         SFX_Random_MechaVoice.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        SFX_MechaMoves.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
 
-        if (Shield.activeSelf && (PlaybackState(SFX_Forcefield) != FMOD.Studio.PLAYBACK_STATE.PLAYING))
+        if (Shield.activeSelf && (PlaybackState(SFX_Forcefield) != PLAYBACK_STATE.PLAYING))
         {
             PlayForcefieldSound();
         }
 
-        else if (!Shield.activeSelf && (PlaybackState(SFX_Forcefield) == FMOD.Studio.PLAYBACK_STATE.PLAYING))
+        else if (!Shield.activeSelf && (PlaybackState(SFX_Forcefield) == PLAYBACK_STATE.PLAYING))
         {
             StopForcefieldSound();
         }
@@ -74,14 +86,22 @@ public class PlayerFMODEvents : MonoBehaviour
     public void PlayDashSound()
     {
         SFX_Dash.setParameterByID(dashParameterID, 0);
+        if (PlaybackState(SFX_MechaMoves) == PLAYBACK_STATE.PLAYING)
+        {
+            PauseUnpause(SFX_MechaMoves, true);
+        }
         SFX_Dash.start();
+
     }
 
     public void StopDashSound()
     {
         SFX_Dash.setParameterByID(dashParameterID, 1);
+        if (PlaybackState(SFX_MechaMoves) == PLAYBACK_STATE.PLAYING)
+        {
+            PauseUnpause(SFX_MechaMoves, false);
+        }
     }
-
     public void PlayForcefieldSound()
     {
         SFX_Forcefield.start();   
@@ -92,9 +112,36 @@ public class PlayerFMODEvents : MonoBehaviour
         SFX_Forcefield.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
-    FMOD.Studio.PLAYBACK_STATE PlaybackState(FMOD.Studio.EventInstance instance)
+    public void PlayMechaMovementSound()
     {
-        FMOD.Studio.PLAYBACK_STATE pS;
+        Debug.Log("Play mecha sound");
+        if (PlaybackState(SFX_MechaMoves) != PLAYBACK_STATE.PLAYING)
+        {
+            SFX_MechaMoves.setParameterByID(mechaMovementParameterID, 0);
+            SFX_MechaMoves.start();
+        }
+    }
+
+    public void StopMechaMovementSound()
+    {
+        SFX_MechaMoves.setParameterByID(mechaMovementParameterID, 1);
+    }
+
+    public void PauseUnpause (EventInstance eventToPause, bool pause)
+    {
+        if (pause)
+        {
+            eventToPause.setPaused(true);
+        }
+        else
+        {
+            eventToPause.setPaused(false);
+        }
+    }
+
+    PLAYBACK_STATE PlaybackState(EventInstance instance)
+    {
+        PLAYBACK_STATE pS;
         instance.getPlaybackState(out pS);
         return pS;
     }

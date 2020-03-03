@@ -44726,7 +44726,7 @@ MonoBehaviour:
   ScoreManager: {fileID: 1682520651}
   AudioManager: {fileID: 1473506343}
   tmProText: {fileID: 2055214643}
-  timeLimit: 10
+  timeLimit: 60
 --- !u!4 &1795615306
 Transform:
   m_ObjectHideFlags: 0
