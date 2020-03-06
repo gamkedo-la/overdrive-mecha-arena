@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 300
+  speed: 2500
   stopFollowingRange: 85
 --- !u!114 &197046217980663025
 MonoBehaviour:
@@ -159,21 +159,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7217496425535232110}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 01cd85a05e00313439deb4dc7ab378d0,
-        type: 3}
-      propertyPath: m_Name
-      value: flying_saucer
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 01cd85a05e00313439deb4dc7ab378d0,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: -8506599590338887096, guid: 01cd85a05e00313439deb4dc7ab378d0,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 01cd85a05e00313439deb4dc7ab378d0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -228,6 +213,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 01cd85a05e00313439deb4dc7ab378d0,
+        type: 3}
+      propertyPath: m_Name
+      value: flying_saucer
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 01cd85a05e00313439deb4dc7ab378d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -8506599590338887096, guid: 01cd85a05e00313439deb4dc7ab378d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01cd85a05e00313439deb4dc7ab378d0, type: 3}
