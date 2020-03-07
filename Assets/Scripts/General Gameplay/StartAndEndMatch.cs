@@ -9,7 +9,6 @@ using UnityEngine.SceneManagement;
 public class StartAndEndMatch : MonoBehaviour
 {
     [SerializeField] private GameObject ScoreManager;
-    [SerializeField] private GameObject AudioManager;
 
     [SerializeField] private TextMeshProUGUI tmProText;
     [SerializeField] private float timeLimit;
@@ -62,7 +61,6 @@ public class StartAndEndMatch : MonoBehaviour
         // 0 is the Main Menu scene and should never be changed
         Cursor.lockState = CursorLockMode.None;
         DontDestroyOnLoad(ScoreManager);
-        DontDestroyOnLoad(AudioManager);
         scoreKeeper.PopulateMechScoreDataList();
 
         SceneManager.LoadScene("Final Results", LoadSceneMode.Single);//Change to results scene once it's implemented
