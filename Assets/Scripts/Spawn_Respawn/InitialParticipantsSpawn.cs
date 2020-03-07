@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class InitialParticipantsSpawn : MonoBehaviour
 {
-    public Text AiStateDebugText;
+    //public Text AiStateDebugText;
     [SerializeField] private int numberOfAIParticipants = 7;
     [SerializeField] private List<Transform> spawnPointsList;
     [SerializeField] private List<GameObject> enemyCharacters;
@@ -50,7 +50,7 @@ public class InitialParticipantsSpawn : MonoBehaviour
         {
             aiText += spawnedEnemies[i].name + " " + spawnedEnemies[i].GetComponent<AICharacter>()._currentState.reasonForLastStateChange + "\n";
         }
-        AiStateDebugText.text = aiText;
+        //AiStateDebugText.text = aiText;
     }
 
     private void SpawnPlayer()

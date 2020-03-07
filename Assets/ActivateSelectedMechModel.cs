@@ -8,7 +8,7 @@ public class ActivateSelectedMechModel : MonoBehaviour
     [SerializeField] private GameObject damage;
     [SerializeField] private GameObject allPurpose;
 
-    void Awake()
+    void Start()
     {
         speed.SetActive(false);
         damage.SetActive(false);

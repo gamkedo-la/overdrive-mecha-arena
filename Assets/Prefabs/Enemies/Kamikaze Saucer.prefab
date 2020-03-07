@@ -43,7 +43,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 60
+  m_Radius: 100
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7217496424679966266
 MonoBehaviour:
@@ -135,8 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 2500
-  stopFollowingRange: 85
+  speed: 4000
+  stopFollowingRange: 115
 --- !u!114 &197046217980663025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41dc0f066bb974f4fb57db6340f41597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 18
   blastMaxAffectedObjects: 6
   blastRadius: 30
 --- !u!1001 &7217496425765002766
@@ -159,6 +159,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7217496425535232110}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 01cd85a05e00313439deb4dc7ab378d0,
+        type: 3}
+      propertyPath: m_Name
+      value: flying_saucer
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 01cd85a05e00313439deb4dc7ab378d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -8506599590338887096, guid: 01cd85a05e00313439deb4dc7ab378d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 01cd85a05e00313439deb4dc7ab378d0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -213,21 +228,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 01cd85a05e00313439deb4dc7ab378d0,
-        type: 3}
-      propertyPath: m_Name
-      value: flying_saucer
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 01cd85a05e00313439deb4dc7ab378d0,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: -8506599590338887096, guid: 01cd85a05e00313439deb4dc7ab378d0,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01cd85a05e00313439deb4dc7ab378d0, type: 3}

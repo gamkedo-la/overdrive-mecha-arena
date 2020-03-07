@@ -13,9 +13,9 @@ public class DetectPlayer : MonoBehaviour
 
     private void OnTriggerEnter(Collider _other)
     {
-        PlayerMovement movement = _other.GetComponent<PlayerMovement>();
-
-        if (movement != null)
-            followPlayer.target = movement.transform;
+        if(_other.CompareTag("Player") || _other.CompareTag("Enemy"))
+        {
+            followPlayer.target = _other.transform;
+        }
     }
 }

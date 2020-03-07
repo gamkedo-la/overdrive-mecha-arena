@@ -296,7 +296,6 @@ public class Health : MonoBehaviour
                         AOScript.audio.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                         AOScript.audio.release();
                         Destroy(gameObject);
-
                     }
                 }
             }
