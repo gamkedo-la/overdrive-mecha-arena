@@ -38,6 +38,8 @@ public class LookAtMechSelection : MonoBehaviour
         special.text = "Special: " + mechaStats[selectionIndex].specialName;
         shieldCharges.text = "Shield Charges: " + mechaStats[selectionIndex].shieldCharges;
         damage.text = "Damage: " + mechaStats[selectionIndex].damage;
+
+        Debug.Log(mechs.Count);
     }
 
     public void ViewRight()

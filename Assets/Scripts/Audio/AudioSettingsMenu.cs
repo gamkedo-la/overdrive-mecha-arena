@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
-using UnityEngine.SceneManagement;
 
 public class AudioSettingsMenu : MonoBehaviour
 {
+    //TODO: Preserves audio settings for other scenes
     [EventRef]
     private string soundsVolTest;
 
@@ -17,15 +17,6 @@ public class AudioSettingsMenu : MonoBehaviour
     float MusicBusVol = 1.0f;
     float SoundsBusVol = 1.0f;
 
-    private GameplayFMODEventsScript gameplayAudio;
-    private FinalResultsFMODEvents finalResultsAudio;
-
-    private void Awake()
-    {
-        gameplayAudio = GetComponent<GameplayFMODEventsScript>();
-        finalResultsAudio = GetComponent<FinalResultsFMODEvents>();
-    }
-
     private void Start()
     {
         MasterBus = RuntimeManager.GetBus("bus:/Master");
@@ -33,28 +24,11 @@ public class AudioSettingsMenu : MonoBehaviour
         SoundsBus = RuntimeManager.GetBus("bus:/Master/Sounds");
 
         soundsVolTest = "event:/UI/UI_MenuSelection";
-
-        DontDestroyOnLoad(this);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            gameplayAudio.enabled = false;
-            finalResultsAudio.enabled = false;
-        }
-        else if(SceneManager.GetActiveScene().buildIndex == 2)
-        {
-            gameplayAudio.enabled = true;
-        }
-        else if(SceneManager.GetActiveScene().buildIndex == 3)
-        {
-            gameplayAudio.enabled = false;
-            finalResultsAudio.enabled = true;
-        }
-
         MasterBus.setVolume(MasterBusVol);
         MusicBus.setVolume(MusicBusVol);
         SoundsBus.setVolume(SoundsBusVol);

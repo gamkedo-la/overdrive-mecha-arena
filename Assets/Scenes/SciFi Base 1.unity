@@ -802,7 +802,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1473506347}
           m_MethodName: PlaySoundWhenMouseEnterButton
           m_Mode: 1
           m_Arguments:
@@ -817,7 +817,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1473506347}
           m_MethodName: PlaySoundWhenPressingButton
           m_Mode: 1
           m_Arguments:
@@ -2815,7 +2815,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1473506347}
           m_MethodName: PlaySoundWhenMouseEnterButton
           m_Mode: 1
           m_Arguments:
@@ -2830,7 +2830,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1473506347}
           m_MethodName: PlaySoundWhenPressingButton
           m_Mode: 1
           m_Arguments:
@@ -3987,59 +3987,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1182306125}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &126183501
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 126183502}
-  - component: {fileID: 126183504}
-  - component: {fileID: 126183503}
-  m_Layer: 16
-  m_Name: KamikazeZone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &126183502
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 126183501}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -67, y: 18, z: -73}
-  m_LocalScale: {x: 200, y: 35, z: 175}
-  m_Children: []
-  m_Father: {fileID: 918781032}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &126183503
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 126183501}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &126183504
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 126183501}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &134172754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6336,7 +6283,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &217279743
 MonoBehaviour:
@@ -13445,7 +13392,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.0000001, z: 0.99999994}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &451525271
 PrefabInstance:
@@ -15103,7 +15050,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1473506344}
         m_MethodName: MasterVolumeLevel
         m_Mode: 0
         m_Arguments:
@@ -15741,7 +15688,7 @@ Transform:
   - {fileID: 918781032}
   - {fileID: 1154810972}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &494840557
 MonoBehaviour:
@@ -21522,7 +21469,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &552941347
 PrefabInstance:
@@ -24990,7 +24937,7 @@ Transform:
   m_Children:
   - {fileID: 1384907157}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &649225991
 MonoBehaviour:
@@ -29296,7 +29243,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1473506347}
           m_MethodName: PlaySoundWhenMouseEnterButton
           m_Mode: 1
           m_Arguments:
@@ -29311,7 +29258,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1473506347}
           m_MethodName: PlaySoundWhenBackButtonPressed
           m_Mode: 1
           m_Arguments:
@@ -29723,7 +29670,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &789698835
 PrefabInstance:
@@ -30049,7 +29996,7 @@ Transform:
   - {fileID: 1964301934}
   - {fileID: 36909723}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &807621013
 PrefabInstance:
@@ -32168,7 +32115,6 @@ Transform:
   - {fileID: 518270247}
   - {fileID: 238346911}
   - {fileID: 1148337333}
-  - {fileID: 126183502}
   m_Father: {fileID: 494840556}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -35988,7 +35934,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1083763323
 MonoBehaviour:
@@ -42418,7 +42364,7 @@ RectTransform:
   - {fileID: 844692431}
   - {fileID: 1038763472}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -43752,7 +43698,7 @@ Transform:
   m_Children:
   - {fileID: 594174446}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1368355441
 MonoBehaviour:
@@ -47998,6 +47944,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1472503071}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1473506343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1473506345}
+  - component: {fileID: 1473506346}
+  - component: {fileID: 1473506344}
+  - component: {fileID: 1473506347}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1473506344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473506343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc78ba1f0a83d24ca1febff5fb2b4b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1473506345
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473506343}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9, y: 26, z: -110.51}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1473506346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473506343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea82d6201a79fbf4ab574fb8576b3d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1473506347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473506343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49eebc00eb43d3341adf437d1019fbd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1476773614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49243,7 +49258,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1473506344}
         m_MethodName: MusicVolumeLevel
         m_Mode: 0
         m_Arguments:
@@ -50504,7 +50519,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1586384293
 PrefabInstance:
@@ -54081,7 +54096,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1473506347}
         m_MethodName: StopMusicSnapshot
         m_Mode: 1
         m_Arguments:
@@ -54145,7 +54160,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1473506347}
           m_MethodName: PlaySoundWhenMouseEnterButton
           m_Mode: 1
           m_Arguments:
@@ -54160,7 +54175,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1473506347}
           m_MethodName: PlaySoundWhenPressingButton
           m_Mode: 1
           m_Arguments:
@@ -58304,8 +58319,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreManager: {fileID: 1682520651}
+  AudioManager: {fileID: 1473506343}
   tmProText: {fileID: 2055214643}
-  timeLimit: 6
+  timeLimit: 60
 --- !u!4 &1795615306
 Transform:
   m_ObjectHideFlags: 0
@@ -58318,7 +58334,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1796227791
 PrefabInstance:
@@ -67100,7 +67116,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1473506347}
         m_MethodName: StopMusicSnapshot
         m_Mode: 1
         m_Arguments:
@@ -67164,7 +67180,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1473506347}
           m_MethodName: PlaySoundWhenMouseEnterButton
           m_Mode: 1
           m_Arguments:
@@ -67179,7 +67195,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1473506347}
           m_MethodName: PlaySoundWhenPressingButton
           m_Mode: 1
           m_Arguments:
@@ -69147,7 +69163,7 @@ Transform:
   - {fileID: 443537547}
   - {fileID: 1737920837}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1985632352
 PrefabInstance:
@@ -70673,7 +70689,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1473506347}
           m_MethodName: PlaySoundWhenMouseEnterButton
           m_Mode: 1
           m_Arguments:
@@ -70688,7 +70704,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1473506347}
           m_MethodName: PlaySoundWhenBackButtonPressed
           m_Mode: 1
           m_Arguments:
@@ -71753,7 +71769,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1473506347}
           m_MethodName: PlaySoundWhenMouseEnterButton
           m_Mode: 1
           m_Arguments:
@@ -71768,7 +71784,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1473506347}
           m_MethodName: PlaySoundWhenQuitButtonPressed
           m_Mode: 1
           m_Arguments:
@@ -72956,7 +72972,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1473506344}
         m_MethodName: SoundsVolumeLevel
         m_Mode: 0
         m_Arguments:
@@ -73237,7 +73253,7 @@ PrefabInstance:
     - target: {fileID: 1641144016500889541, guid: 9e5ad9143e25449daa872068886d3661,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1641144016500889541, guid: 9e5ad9143e25449daa872068886d3661,
         type: 3}
@@ -73371,7 +73387,7 @@ PrefabInstance:
     - target: {fileID: 8460408691203550987, guid: e29de1f45cfc74a559f40855a280faa8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8460408691203550987, guid: e29de1f45cfc74a559f40855a280faa8,
         type: 3}
