@@ -12,7 +12,7 @@ public class UIFMODEventsScript : MonoBehaviour
     FMOD.Studio.EventInstance pauseSnapshotInstance;
     FMOD.Studio.EventInstance UI_MechaSelection;
 
-    private void Awake()
+    private void Start()
     {
         UI_MenuSelection = FMODUnity.RuntimeManager.CreateInstance("event:/UI/UI_MenuSelection");
         UI_QuitGame = FMODUnity.RuntimeManager.CreateInstance("event:/UI/UI_QuitGame");
