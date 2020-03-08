@@ -13,6 +13,9 @@ public class PatrolState : State
     private float patrolTimer = 4.0f;
 
     private float timerCount;
+    private float defaultAiSpeed = 100.0f;
+
+    private DoubleStatsSpecial doubleStats;
 
     public PatrolState(AICharacter agent, string reasonForChange) : base(agent, reasonForChange)
     {
@@ -25,6 +28,17 @@ public class PatrolState : State
 
     public override void Tick()
     {
+        if (doubleStats != null && doubleStats._areStatsBuffed)
+        {
+            defaultAiSpeed = agent._mech.fowardMoveSpeed * 2;
+            thisAgent.speed = defaultAiSpeed;
+        }
+        else
+        {
+            defaultAiSpeed = agent._mech.fowardMoveSpeed;
+            thisAgent.speed = defaultAiSpeed;
+        }
+
         if (UnderAttack())
         {
             if (agentHealth.getCurrentHP >= agentHealth.getBaseHP / 4)
@@ -85,9 +99,20 @@ public class PatrolState : State
     public override void OnStateEnter()
     {
         //Debug.Log("Entered Patrol state");
+
         thisAgent = agent.GetComponent<NavMeshAgent>();
         agentHealth = agent.GetComponent<Health>();
         shootingScript = agent.GetComponent<EnemyShooting>();
+        doubleStats = agent.GetComponent<DoubleStatsSpecial>();
+
+        if (doubleStats != null && doubleStats._areStatsBuffed)
+        {
+            defaultAiSpeed = agent._mech.fowardMoveSpeed * 2;
+        }
+        else
+        {
+            defaultAiSpeed = agent._mech.fowardMoveSpeed;
+        }
 
         thisAgent.SetDestination(agent.transform.position);
 

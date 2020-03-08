@@ -22,6 +22,9 @@ public class RetreatState : State
     private float minDistanceFromEnemyPos;
     private Vector3 finalRetreatPos;
 
+    private float defaultAiSpeed = 100.0f;
+    private DoubleStatsSpecial doubleStats;
+
     public RetreatState(AICharacter agent, string reasonForChange) : base(agent, reasonForChange)
     {
     }
@@ -37,6 +40,16 @@ public class RetreatState : State
         navAgent = agent.GetComponent<NavMeshAgent>();
         thisAgentShootingScript = agent.GetComponent<EnemyShooting>();
         health = agent.GetComponent<Health>();
+        doubleStats = agent.GetComponent<DoubleStatsSpecial>();
+
+        if (doubleStats != null && doubleStats._areStatsBuffed)
+        {
+            defaultAiSpeed = agent._mech.fowardMoveSpeed * 2;
+        }
+        else
+        {
+            defaultAiSpeed = agent._mech.fowardMoveSpeed;
+        }
 
         navAgent.SetDestination(agent.transform.position);
 
@@ -69,29 +82,18 @@ public class RetreatState : State
 
     public override void Tick()
     {
-        //enemyPos = health._myAttacker;
-
         if (enemyPos != null && enemyPos.CompareTag("Non-playables") == false)
         {
-            //if (enemyPos.CompareTag("Player"))
-            //{
-            //    playerShooting = enemyPos.GetComponent<PlayerShooting>();
-            //    minDistanceFromEnemyPos = playerShooting._playerShootingRange;
-            //}
-            //else if (enemyPos.CompareTag("Enemy") && !enemyPos.CompareTag("Non-playables"))
-            //{
-            //    aiAttackerShootingScript = enemyPos.GetComponent<EnemyShooting>();
-            //    minDistanceFromEnemyPos = aiAttackerShootingScript.getBreakContactRange;
-            //}
-            //else
-            //{
-            //    Debug.LogError(agent.gameObject.name + "'s " + "attacker is null or unknown!");
-            //}
-
-            // Determine which type of mech this AI is
-            // Semi-randomly select whether this AI should run away or stand and fight (mech type will play a role in this behavior)
-            // Execute retreat specific functions (again, depending on the AI's mech type semi-randomly choose whether how it run away or fight; 
-            // should it use it's shield, should it just run, should its special move be used)
+            if (doubleStats != null && doubleStats._areStatsBuffed)
+            {
+                defaultAiSpeed = agent._mech.fowardMoveSpeed * 2;
+                navAgent.speed = defaultAiSpeed;
+            }
+            else
+            {
+                defaultAiSpeed = agent._mech.fowardMoveSpeed;
+                navAgent.speed = defaultAiSpeed;
+            }
 
             if (!isRunningAway)
             {

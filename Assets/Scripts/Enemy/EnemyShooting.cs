@@ -20,6 +20,7 @@ public class EnemyShooting : Shooting
 
     private bool hasLostTgt = false;
     public bool _hasLostTgt { get { return hasLostTgt; } set { hasLostTgt = value; } }
+    private DoubleStatsSpecial doubleStats;
 
     protected override void Start()
     {
@@ -31,6 +32,7 @@ public class EnemyShooting : Shooting
         fireRate = mech.fireRate;
         breakContactAtThisRange = range;
 
+        doubleStats = GetComponent<DoubleStatsSpecial>();
         health = GetComponent<Health>();
         ammo = GetComponent<AmmoHandling>();
         scoreHandler = health._scoreHandler;
@@ -41,6 +43,18 @@ public class EnemyShooting : Shooting
     {
         // Update shotTimer in Shooting.cs
         base.Update();
+        if (doubleStats != null && doubleStats._areStatsBuffed)
+        {
+            damage = mech.damage * 2;
+            range = mech.range * 2;
+            fireRate = mech.fireRate * 2;
+        }
+        else
+        {
+            damage = mech.damage;
+            range = mech.range;
+            fireRate = mech.fireRate;
+        }
     }
 
     private bool CanAttack()

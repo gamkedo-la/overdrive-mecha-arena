@@ -48,6 +48,8 @@ public class ChaseState : State
     private float randomStrafeTime;
     private float drunkStrafeTimer = 10.0f;
 
+    private DoubleStatsSpecial doubleStats;
+
     public ChaseState(AICharacter agent, string reasonForChange) : base(agent, reasonForChange)
     {
     }
@@ -64,9 +66,21 @@ public class ChaseState : State
         shootingScript = agent.GetComponent<EnemyShooting>();
         thisAgentHealth = agent.GetComponent<Health>();
 
-        dashSpeed = agent._mech.dashSpeed;
-        dashTimeLimit = agent._mech.dashTimeLimit;
-        defaultAiSpeed = agent._mech.fowardMoveSpeed;
+        doubleStats = agent.GetComponent<DoubleStatsSpecial>();
+
+        if (doubleStats != null && doubleStats._areStatsBuffed)
+        {
+            dashSpeed = agent._mech.dashSpeed * 2;
+            dashTimeLimit = agent._mech.dashTimeLimit * 2;
+            defaultAiSpeed = agent._mech.fowardMoveSpeed * 2;
+        }
+        else
+        {
+            dashSpeed = agent._mech.dashSpeed;
+            dashTimeLimit = agent._mech.dashTimeLimit;
+            defaultAiSpeed = agent._mech.fowardMoveSpeed;
+        }
+
         minRangeBeforeDashAllowed = agent._mech.range / 2;
         maxStoppingDist = agent._mech.range - 20f;
 
@@ -75,6 +89,19 @@ public class ChaseState : State
 
     public override void Tick()
     {
+        if(doubleStats != null && doubleStats._areStatsBuffed)
+        {
+            dashSpeed = agent._mech.dashSpeed * 2;
+            dashTimeLimit = agent._mech.dashTimeLimit * 2;
+            defaultAiSpeed = agent._mech.fowardMoveSpeed * 2;
+        }
+        else
+        {
+            dashSpeed = agent._mech.dashSpeed;
+            dashTimeLimit = agent._mech.dashTimeLimit;
+            defaultAiSpeed = agent._mech.fowardMoveSpeed;
+        }
+
         // TODO: bypass target selection delay whenever a new target is added to this AI's valid targets list
         if (!selectedInitialTgt)
         {
@@ -281,10 +308,10 @@ public class ChaseState : State
         {
             thisAgent.SetDestination(hit.position);
 
-            if (agent.debugPoint)
-            {
-                agent.debugPoint.position = hit.position;
-            }
+            //if (agent.debugPoint)
+            //{
+            //    agent.debugPoint.position = hit.position;
+            //}
         }
         //thisAgent.SetDestination(tgtPos);
 
@@ -362,10 +389,10 @@ public class ChaseState : State
         if (NavMesh.FindClosestEdge((agent.transform.position + dir).normalized, out hit, NavMesh.AllAreas))// using .normalized and * -200f in offset assignment seems to works decently
         {
             thisAgent.SetDestination(hit.position);
-            if (agent.debugPoint)
-            {
-                agent.debugPoint.position = hit.position;
-            }
+            //if (agent.debugPoint)
+            //{
+            //    agent.debugPoint.position = hit.position;
+            //}
         }
         //thisAgent.SetDestination(agent.transform.position + dir);
         //if (agent.debugPoint)
