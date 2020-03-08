@@ -90,40 +90,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8841960133733178278, guid: aaf99d2a6f82ca943a32b605f72c1907,
-        type: 3}
-      propertyPath: m_Name
-      value: All-purpose Mech Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 8841960133733178278, guid: aaf99d2a6f82ca943a32b605f72c1907,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 1799088289397407869, guid: aaf99d2a6f82ca943a32b605f72c1907,
-        type: 3}
-      propertyPath: mech
-      value: 
-      objectReference: {fileID: 11400000, guid: d0cc3f52f7b99a745a60c49c34f4aefc,
-        type: 2}
-    - target: {fileID: -7424934990164168292, guid: aaf99d2a6f82ca943a32b605f72c1907,
-        type: 3}
-      propertyPath: mech
-      value: 
-      objectReference: {fileID: 11400000, guid: d0cc3f52f7b99a745a60c49c34f4aefc,
-        type: 2}
-    - target: {fileID: 1010802245681831634, guid: aaf99d2a6f82ca943a32b605f72c1907,
-        type: 3}
-      propertyPath: mech
-      value: 
-      objectReference: {fileID: 11400000, guid: d0cc3f52f7b99a745a60c49c34f4aefc,
-        type: 2}
-    - target: {fileID: 8841960133733178275, guid: aaf99d2a6f82ca943a32b605f72c1907,
-        type: 3}
-      propertyPath: mech
-      value: 
-      objectReference: {fileID: 11400000, guid: d0cc3f52f7b99a745a60c49c34f4aefc,
-        type: 2}
     - target: {fileID: 8841960133733178277, guid: aaf99d2a6f82ca943a32b605f72c1907,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -179,6 +145,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8841960133733178278, guid: aaf99d2a6f82ca943a32b605f72c1907,
+        type: 3}
+      propertyPath: m_Name
+      value: All-purpose Mech Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841960133733178278, guid: aaf99d2a6f82ca943a32b605f72c1907,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799088289397407869, guid: aaf99d2a6f82ca943a32b605f72c1907,
+        type: 3}
+      propertyPath: mech
+      value: 
+      objectReference: {fileID: 11400000, guid: d0cc3f52f7b99a745a60c49c34f4aefc,
+        type: 2}
+    - target: {fileID: -7424934990164168292, guid: aaf99d2a6f82ca943a32b605f72c1907,
+        type: 3}
+      propertyPath: mech
+      value: 
+      objectReference: {fileID: 11400000, guid: d0cc3f52f7b99a745a60c49c34f4aefc,
+        type: 2}
+    - target: {fileID: 1010802245681831634, guid: aaf99d2a6f82ca943a32b605f72c1907,
+        type: 3}
+      propertyPath: mech
+      value: 
+      objectReference: {fileID: 11400000, guid: d0cc3f52f7b99a745a60c49c34f4aefc,
+        type: 2}
+    - target: {fileID: 8841960133733178275, guid: aaf99d2a6f82ca943a32b605f72c1907,
+        type: 3}
+      propertyPath: mech
+      value: 
+      objectReference: {fileID: 11400000, guid: d0cc3f52f7b99a745a60c49c34f4aefc,
+        type: 2}
     - target: {fileID: 9204702744872670521, guid: aaf99d2a6f82ca943a32b605f72c1907,
         type: 3}
       propertyPath: mecha
@@ -216,6 +216,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8101294009644754351, guid: aaf99d2a6f82ca943a32b605f72c1907,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0da9acc1ceec940b59369bccd4ec8e1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaf99d2a6f82ca943a32b605f72c1907, type: 3}
 --- !u!1 &5320919325789254278 stripped
