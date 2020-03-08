@@ -9,7 +9,6 @@ public class KamikazeApplyDamage : MonoBehaviour
     [SerializeField] private float blastRadius;
     private FollowPlayer followPlayer;
     private new Transform transform;
-    private Collider[] blastColliders;
 
     private void Awake()
     {
@@ -17,20 +16,19 @@ public class KamikazeApplyDamage : MonoBehaviour
         followPlayer = GetComponent<FollowPlayer>();
     }
 
-    private void Start()
-    {
-        blastColliders = new Collider[blastMaxAffectedObjects];
-    }
-
     private void OnCollisionEnter(Collision _collision)
     {
-        Physics.OverlapSphereNonAlloc(transform.position, blastRadius, blastColliders);
+        var colls = Physics.OverlapSphere(transform.position, blastRadius);
 
-        for (int i = 0; i < blastColliders.Length - 1; i++)
+        foreach (var col in colls)
         {
-            if (blastColliders[i].GetComponent<Health>() != null)
+            if (col.CompareTag("Player") || col.CompareTag("Enemy"))
             {
-                blastColliders[i].GetComponent<Health>().TakeDamage(damage, transform);
+                Health hpTGT = col.GetComponent<Health>();
+                if (hpTGT != null)
+                {
+                    hpTGT.TakeDamage(damage, transform);
+                }
             }
         }
 

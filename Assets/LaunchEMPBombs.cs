@@ -18,7 +18,7 @@ public class LaunchEMPBombs : MonoBehaviour
         center = center + transform.localPosition;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         spawnTimer += Time.deltaTime;
         if (spawnTimer >= bombLaunchTime)
