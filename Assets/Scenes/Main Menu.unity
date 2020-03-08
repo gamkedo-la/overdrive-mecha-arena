@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5233,7 +5233,8 @@ MonoBehaviour:
     models / rigs / animations, camera code, dangerous object support, base walls
     and pipe variations, enemy combat and patrol code, spawn code, missile barrage,
     autocannon, time limits, shields, HUD, gamepad support, score system and related
-    display, mecha selection menu, additional tuning and general bugfixing
+    display, mecha selection menu, additional tuning and general bugfixing, persisten
+    audio manager, emp zones, special powers. AOE support, menu juice, explosion vfx
 
 
     Alfonso Salinas:  Sound effects and related FMOD integration (UI, pause, laser
@@ -5253,8 +5254,8 @@ MonoBehaviour:
     Mohamed AbdAllah: Kamikaze saucer drone, environment props
 
 
-    Chris DeLeon: Decorative vehicles (tanks, helicopters), tesla coil model, autocannon
-    tracer
+    Chris DeLeon:  vehicles (tanks, helicopters), tesla coil model, tracer, responsive
+    UI support, AI use of specials, shield material
 
 
     Matthew Gigante: AI line of sight functionality
@@ -5288,12 +5289,12 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 13
+  m_fontSize: 11
   m_fontSizeBase: 13
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 3
-  m_fontSizeMax: 13
+  m_fontSizeMax: 11
   m_fontStyle: 0
   m_textAlignment: 258
   m_characterSpacing: 0
@@ -5304,7 +5305,7 @@ MonoBehaviour:
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
+  m_overflowMode: 4
   m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
@@ -5329,12 +5330,12 @@ MonoBehaviour:
   m_margin: {x: 52.88248, y: 0, z: 155.78693, w: -125.07059}
   m_textInfo:
     textComponent: {fileID: 148966451}
-    characterCount: 1242
+    characterCount: 1373
     spriteCount: 0
-    spaceCount: 178
-    wordCount: 170
+    spaceCount: 199
+    wordCount: 190
     linkCount: 0
-    lineCount: 29
+    lineCount: 27
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -47083,8 +47084,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 25.150024, y: 66.105}
-  m_SizeDelta: {x: -177.29, y: -208.53}
+  m_AnchoredPosition: {x: 25.150024, y: 16.5}
+  m_SizeDelta: {x: -177.3, y: -109.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1580166269
 MonoBehaviour:
