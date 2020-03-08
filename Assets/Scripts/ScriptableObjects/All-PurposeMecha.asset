@@ -10,30 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56876357d70960f47aa8ecbb4e9b224d, type: 3}
-  m_Name: Damage Mecha
+  m_Name: All-PurposeMecha
   m_EditorClassIdentifier: 
   names:
-  - Vincenerator
-  - Shelter Turtle
-  - Ong Wyne
-  - Ken Nyon
-  - Chunky Cat
+  - Handme Arench
+  - Redis Leon
+  - Mr. Ross
+  - JJ Niko
+  - Baron of the Bashi
   facePortrait: {fileID: 21300000, guid: c37f5ebf03ab51c4c88831780572a56d, type: 3}
-  mechType: Damage
-  health: 150
-  defense: 150
-  shieldCharges: 10
-  specialCooldown: 5
-  specialUseTimeLimit: 20
-  strengthOfSpecialAbility: 50
-  specialName: Homing Missiles
-  damage: 5
-  range: 350
-  fireRate: 0.75
-  fowardMoveSpeed: 40
-  backwardMoveSpeed: 25
-  dashSpeed: 1.85
-  dashTimeLimit: 7.5
+  mechType: All-purpose
+  health: 200
+  defense: 100
+  shieldCharges: 7
+  specialCooldown: 27
+  specialUseTimeLimit: 6
+  strengthOfSpecialAbility: 0
+  specialName: Double Stats
+  damage: 4
+  range: 275
+  fireRate: 0.5
+  fowardMoveSpeed: 50
+  backwardMoveSpeed: 30
+  dashSpeed: 2
+  dashTimeLimit: 5.5
   turnSpeed: 100
-  strafingRightMoveSpeed: 40
-  strafingLeftMoveSpeed: 40
+  strafingRightMoveSpeed: 50
+  strafingLeftMoveSpeed: 50

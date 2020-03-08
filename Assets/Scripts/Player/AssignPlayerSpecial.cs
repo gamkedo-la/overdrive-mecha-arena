@@ -16,7 +16,7 @@ public class AssignPlayerSpecial : MonoBehaviour
 
     private void Awake()
     {
-        switch(mech.mechType)
+        switch (mech.mechType)
         {
             case "Speed":
                 gameObject.AddComponent<InvulnerabilitySpecial>();

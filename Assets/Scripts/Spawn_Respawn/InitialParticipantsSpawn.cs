@@ -10,8 +10,10 @@ public class InitialParticipantsSpawn : MonoBehaviour
     [SerializeField] private int numberOfAIParticipants = 7;
     [SerializeField] private List<Transform> spawnPointsList;
     [SerializeField] private List<GameObject> enemyCharacters;
-    [SerializeField] private GameObject playerMech;
+    [SerializeField] private List<GameObject> playerClasses;
     [SerializeField] private List<GameObject> spawnedEnemies;
+
+    private GameObject playerMech;
 
     private SpawnParticipantIfAble respawnGOs;
 
@@ -21,8 +23,21 @@ public class InitialParticipantsSpawn : MonoBehaviour
 
     void Awake()
     {
+        switch (PlayerPrefs.GetString("Player Mech"))
+        {
+            case "Speed":
+                playerMech = playerClasses[0];
+                break;
+            case "Damage":
+                playerMech = playerClasses[1];
+                break;
+            case "All-purpose":
+                playerMech = playerClasses[2];
+                break;
+        }
+
         spawnedEnemies = new List<GameObject>();
-        if(derandomizeSpawn)
+        if (derandomizeSpawn)
         {
             Debug.Log("Derandomizing spawn points for testing purposes");
         }
@@ -45,11 +60,11 @@ public class InitialParticipantsSpawn : MonoBehaviour
 
     private void Update()
     {
-        string aiText = "";
-        for (int i = 0; i < spawnedEnemies.Count; i++)
-        {
-            aiText += spawnedEnemies[i].name + " " + spawnedEnemies[i].GetComponent<AICharacter>()._currentState.reasonForLastStateChange + "\n";
-        }
+        //string aiText = "";
+        //for (int i = 0; i < spawnedEnemies.Count; i++)
+        //{
+        //    aiText += spawnedEnemies[i].name + " " + spawnedEnemies[i].GetComponent<AICharacter>()._currentState.reasonForLastStateChange + "\n";
+        //}
         //AiStateDebugText.text = aiText;
     }
 

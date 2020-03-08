@@ -6317,16 +6317,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d18b271baa0024da7734819a45e5d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfAIParticipants: 1
+  numberOfAIParticipants: 7
   spawnPointsList:
   - {fileID: 1973670412}
   - {fileID: 1165262994}
+  - {fileID: 780134247}
+  - {fileID: 686688088}
+  - {fileID: 1228941349}
+  - {fileID: 2034137878}
+  - {fileID: 575100816}
+  - {fileID: 478932361}
+  - {fileID: 1304467947}
+  - {fileID: 242680732}
+  - {fileID: 1285902244}
+  - {fileID: 1366585695}
+  - {fileID: 2131111232}
+  - {fileID: 793392746}
+  - {fileID: 443537547}
+  - {fileID: 1737920837}
   enemyCharacters:
   - {fileID: 4234567098220050998, guid: 0990fce9499226f4d934f018624fbac0, type: 3}
   - {fileID: 5320919325789254278, guid: 4ac21b834438d534ea2c1d9e208e3028, type: 3}
   - {fileID: 4238611126876636925, guid: 51e6eaee4c804e247bc5f05a6931e97d, type: 3}
-  playerMech: {fileID: 1515524012658226926, guid: fdad7feaec8474cabbaf01b227a8fa9c,
-    type: 3}
+  playerClasses:
+  - {fileID: 1515524012658226926, guid: fdad7feaec8474cabbaf01b227a8fa9c, type: 3}
+  - {fileID: 1515524012658226926, guid: 37e4fd8bdbe4aea43b08a2b6a03464a5, type: 3}
+  - {fileID: 1515524012658226926, guid: 3c6552d1b1095d641901912283e6bcd8, type: 3}
   spawnedEnemies: []
 --- !u!114 &217279744
 MonoBehaviour:
@@ -24987,7 +25003,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649225986}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
@@ -47904,7 +47920,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1473506344
 MonoBehaviour:
   m_ObjectHideFlags: 0

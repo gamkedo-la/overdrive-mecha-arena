@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56876357d70960f47aa8ecbb4e9b224d, type: 3}
-  m_Name: Speed Mecha
+  m_Name: SpeedMecha
   m_EditorClassIdentifier: 
   names:
   - Rad Baby
@@ -23,7 +23,7 @@ MonoBehaviour:
   health: 250
   defense: 75
   shieldCharges: 5
-  specialCooldown: 5
+  specialCooldown: 18
   specialUseTimeLimit: 12.5
   strengthOfSpecialAbility: 0
   specialName: Invulnerability

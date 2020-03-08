@@ -34,9 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
-
         animator = GetComponentInChildren<Animator>();
-
         playerShooting = GetComponent<PlayerShooting>();
 
         //TODO: Make the following line toggable in game
