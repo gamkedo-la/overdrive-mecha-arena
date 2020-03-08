@@ -15,7 +15,7 @@ public class LaunchEMPBombs : MonoBehaviour
 
     private void Start()
     {
-        center = center + transform.localPosition;
+
     }
 
     private void FixedUpdate()
@@ -30,7 +30,7 @@ public class LaunchEMPBombs : MonoBehaviour
 
     private void LaunchEMP()
     {
-        Vector3 pos = center + new Vector3(Random.Range(-size.x / 2, size.x / 2), Random.Range(-size.y/2, size.y / 2), size.z);
+        Vector3 pos = transform.localPosition + center + new Vector3(Random.Range(-size.x / 2, size.x / 2), Random.Range(-size.y / 2, size.y / 2), Random.Range(-size.z / 2, size.z / 2));
 
         GameObject bomb = Instantiate(empBombPrefab, pos, Quaternion.identity) as GameObject;
         bomb.GetComponent<Rigidbody>().AddForce(transform.forward * launchForce);
@@ -38,7 +38,7 @@ public class LaunchEMPBombs : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = new Color(1, .25f,0, 0.5f);
+        Gizmos.color = new Color(1, .25f, 0, 0.5f);
         Gizmos.DrawCube(transform.localPosition + center, size);
     }
 }

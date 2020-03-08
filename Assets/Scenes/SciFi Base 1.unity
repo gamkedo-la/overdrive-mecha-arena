@@ -4969,10 +4969,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: EMP Bomb Zone (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4326832227145579620, guid: aa69e9b7b1cc3624090c8ed561dcf162,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4326832227145579621, guid: aa69e9b7b1cc3624090c8ed561dcf162,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 219
+      value: 218
       objectReference: {fileID: 0}
     - target: {fileID: 4326832227145579621, guid: aa69e9b7b1cc3624090c8ed561dcf162,
         type: 3}
@@ -5032,7 +5037,7 @@ PrefabInstance:
     - target: {fileID: 4326832227145579627, guid: aa69e9b7b1cc3624090c8ed561dcf162,
         type: 3}
       propertyPath: bombLaunchTime
-      value: 0.4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4326832227145579627, guid: aa69e9b7b1cc3624090c8ed561dcf162,
         type: 3}
@@ -6312,7 +6317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d18b271baa0024da7734819a45e5d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfAIParticipants: 1
+  numberOfAIParticipants: 0
   spawnPointsList:
   - {fileID: 1973670412}
   - {fileID: 1165262994}
@@ -71600,6 +71605,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EMP Bomb Zone (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4326832227145579620, guid: aa69e9b7b1cc3624090c8ed561dcf162,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4326832227145579621, guid: aa69e9b7b1cc3624090c8ed561dcf162,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -71613,7 +71623,7 @@ PrefabInstance:
     - target: {fileID: 4326832227145579621, guid: aa69e9b7b1cc3624090c8ed561dcf162,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 89
+      value: 86
       objectReference: {fileID: 0}
     - target: {fileID: 4326832227145579621, guid: aa69e9b7b1cc3624090c8ed561dcf162,
         type: 3}
@@ -73394,7 +73404,7 @@ PrefabInstance:
     - target: {fileID: 4326832227145579621, guid: aa69e9b7b1cc3624090c8ed561dcf162,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 437
+      value: 430
       objectReference: {fileID: 0}
     - target: {fileID: 4326832227145579621, guid: aa69e9b7b1cc3624090c8ed561dcf162,
         type: 3}
@@ -73439,12 +73449,12 @@ PrefabInstance:
     - target: {fileID: 4326832227145579627, guid: aa69e9b7b1cc3624090c8ed561dcf162,
         type: 3}
       propertyPath: launchForce
-      value: 8000
+      value: 8500
       objectReference: {fileID: 0}
     - target: {fileID: 4326832227145579627, guid: aa69e9b7b1cc3624090c8ed561dcf162,
         type: 3}
       propertyPath: bombLaunchTime
-      value: 0.25
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa69e9b7b1cc3624090c8ed561dcf162, type: 3}
@@ -73672,17 +73682,17 @@ PrefabInstance:
     - target: {fileID: 6015516231481194447, guid: 730aaf7f0988d904b9464cf3fe51ec3d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -28
+      value: -32
       objectReference: {fileID: 0}
     - target: {fileID: 6015516231481194447, guid: 730aaf7f0988d904b9464cf3fe51ec3d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6015516231481194447, guid: 730aaf7f0988d904b9464cf3fe51ec3d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -83
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: 6015516231481194447, guid: 730aaf7f0988d904b9464cf3fe51ec3d,
         type: 3}
@@ -73723,6 +73733,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6015516231481194446, guid: 730aaf7f0988d904b9464cf3fe51ec3d,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 730aaf7f0988d904b9464cf3fe51ec3d, type: 3}

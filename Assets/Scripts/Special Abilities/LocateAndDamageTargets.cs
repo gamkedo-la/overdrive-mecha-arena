@@ -71,7 +71,7 @@ public class LocateAndDamageTargets : MonoBehaviour
     {
         if (shouldHomeIn)
         {
-            StopCoroutine(waitBeforeHoming());
+            //StopCoroutine(waitBeforeHoming());
             if (targets != null)
             {
                 Vector3 direction = target.position - rb.position;
