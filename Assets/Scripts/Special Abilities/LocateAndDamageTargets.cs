@@ -91,7 +91,7 @@ public class LocateAndDamageTargets : MonoBehaviour
 
         if (tgtHealth != null && collision.collider.gameObject != myParent.gameObject)
         {
-            tgtHealth.TakeDamage(damage, gameObject.transform);
+            tgtHealth.TakeDamage(damage, myParent);
             Destroy(gameObject);
         }
         else

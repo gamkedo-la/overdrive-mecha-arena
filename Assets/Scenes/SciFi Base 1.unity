@@ -6317,7 +6317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d18b271baa0024da7734819a45e5d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfAIParticipants: 0
+  numberOfAIParticipants: 7
   spawnPointsList:
   - {fileID: 1973670412}
   - {fileID: 1165262994}
@@ -47920,7 +47920,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1473506344
 MonoBehaviour:
   m_ObjectHideFlags: 0

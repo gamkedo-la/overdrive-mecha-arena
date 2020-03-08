@@ -11,6 +11,7 @@ TagManager:
   - Hazards
   - PostProcessing
   - ScoreManager
+  - MissileBarrage
   layers:
   - Default
   - TransparentFX
