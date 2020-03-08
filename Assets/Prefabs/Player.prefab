@@ -90,7 +90,7 @@ MonoBehaviour:
   strafingLeftMoveSpeed: 50
   dashSpeed: 2
   dashTimeLimit: 5
-  mech: {fileID: 11400000, guid: b208076f6f69bc14bb2474c54ac024bf, type: 2}
+  mech: {fileID: 11400000, guid: d0cc3f52f7b99a745a60c49c34f4aefc, type: 2}
   PPV: {fileID: 0}
 --- !u!114 &1515524012658226913
 MonoBehaviour:
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4936ea3adaff3824f99db88545606205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mech: {fileID: 11400000, guid: b208076f6f69bc14bb2474c54ac024bf, type: 2}
+  mech: {fileID: 11400000, guid: d0cc3f52f7b99a745a60c49c34f4aefc, type: 2}
   shieldGO: {fileID: 7975748967430070120}
   shieldToHealthConversionLimitMultiplier: 1.5
   shieldRechargeDelay: 7.5
@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18bddd017efb15544929cc2107c5ea99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTryingToDash: 1
-  mecha: {fileID: 11400000, guid: b208076f6f69bc14bb2474c54ac024bf, type: 2}
+  isTryingToDash: 0
+  mecha: {fileID: 11400000, guid: d0cc3f52f7b99a745a60c49c34f4aefc, type: 2}
 --- !u!114 &-2573241638059145581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54d233158d2a064589ed994558fc84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mech: {fileID: 11400000, guid: b208076f6f69bc14bb2474c54ac024bf, type: 2}
+  mech: {fileID: 11400000, guid: d0cc3f52f7b99a745a60c49c34f4aefc, type: 2}
   specialsVFX:
   - {fileID: 0}
   - {fileID: 0}
@@ -475,7 +475,7 @@ PrefabInstance:
     - target: {fileID: 7844629466414344287, guid: c489bec42165ee54fb0656305ba54fb1,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7844629466414344272, guid: c489bec42165ee54fb0656305ba54fb1,
         type: 3}
@@ -722,7 +722,7 @@ PrefabInstance:
     - target: {fileID: 2140194284681802200, guid: 2412414e36a7e53468ee41227733e2be,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2140194284681802201, guid: 2412414e36a7e53468ee41227733e2be,
         type: 3}

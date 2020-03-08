@@ -156,10 +156,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationalForce: 15
-  speed: 80
+  speed: 200
   damage: 20
   secondsToWaitBeforeHoming: 1
-  blastOffForce: 15
+  blastOffForce: 30
   myParent: {fileID: 0}
 --- !u!114 &4092338175108253822
 MonoBehaviour:

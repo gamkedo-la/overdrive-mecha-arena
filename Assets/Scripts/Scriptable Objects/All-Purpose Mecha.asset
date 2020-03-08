@@ -24,7 +24,7 @@ MonoBehaviour:
   defense: 100
   shieldCharges: 7
   specialCooldown: 45
-  specialUseTimeLimit: 10
+  specialUseTimeLimit: 6
   strengthOfSpecialAbility: 0
   specialName: Double Stats
   damage: 4

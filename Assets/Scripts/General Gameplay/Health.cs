@@ -32,6 +32,7 @@ public class Health : MonoBehaviour
     public bool _isInvulnerable { set { isInvulnerable = value; } }
     public Transform _myAttacker { set { myAttacker = value; } get { return myAttacker; } }
 
+    private DoubleStatsSpecial doubleStats;
     AudioOcclusion AOScript;
     public float getPriorityScore
     {
@@ -63,8 +64,8 @@ public class Health : MonoBehaviour
     private float normalShieldLevels;
     private float shields = 100;
 
-    private float shieldRegenTimeLimit = 1.5f;
-    private float shieldTimer = 0.5f;
+    private float shieldRegenTimeLimit = 2.0f;
+    private float shieldTimer = 1.5f;
     private bool shieldRechargingLocked = false;
     private float rechargeSlower = 0.5f;
     private int shieldsChargesLeft = 2;
@@ -96,20 +97,15 @@ public class Health : MonoBehaviour
             setVcamScript = GetComponent<SetVcamFollowAndLookAt>();
             playerCamNoise = setVcamScript._vcam.GetComponent<PlayerCamNoise>();
         }
+
+        if (GetComponent<DoubleStatsSpecial>() != null)
+        {
+            doubleStats = GetComponent<DoubleStatsSpecial>();
+        }
     }
 
     private void Update()
     {
-        if (gameObject.CompareTag("Enemy"))
-        {
-            //Debug.Log(gameObject.name + " is drunk? " + isInOverdrive());
-        }
-
-        if (!gameObject.CompareTag("Non-playables") && !gameObject.CompareTag("Player") && myAttacker != null)// AI debugging to retreat behavior
-        {
-            //Debug.Log(gameObject.name + "'s attacker is: " + myAttacker.name);
-        }
-
         if (!gameObject.CompareTag("Non-playables"))
         {
             if (isUsingShield)

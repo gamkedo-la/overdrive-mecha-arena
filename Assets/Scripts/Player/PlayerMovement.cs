@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     bool start = true;
 
     private bool usingGamepad = false;
+    private DoubleStatsSpecial doubleStats;
 
     private void Awake()
     {
@@ -56,7 +57,10 @@ public class PlayerMovement : MonoBehaviour
         PPV.SetActive(false);
 
         playerEventsScript = gameObject.GetComponent<PlayerFMODEvents>();
-
+        if(GetComponent<DoubleStatsSpecial>() != null)
+        {
+            doubleStats = GetComponent<DoubleStatsSpecial>();
+        }
     }
 
     private void Update()
@@ -76,6 +80,27 @@ public class PlayerMovement : MonoBehaviour
             horizontalStrafe = Input.GetAxis("HorizontalJoy");
             vertical = Input.GetAxis("VerticalJoy");
             //Debug.Log(Input.GetAxis("HorizontalJoy"));
+        }
+
+        if(doubleStats != null && doubleStats._areStatsBuffed)
+        {
+            fowardMoveSpeed = mech.fowardMoveSpeed * 2;
+            turnSpeed = mech.turnSpeed * 2;
+            backwardMoveSpeed = mech.backwardMoveSpeed * 2;
+            strafingLeftMoveSpeed = mech.strafingLeftMoveSpeed * 2;
+            strafingRightMoveSpeed = mech.strafingRightMoveSpeed * 2;
+            dashSpeed = mech.dashSpeed * 2;
+            dashTimeLimit = mech.dashTimeLimit * 2;
+        }
+        else
+        {
+            fowardMoveSpeed = mech.fowardMoveSpeed;
+            turnSpeed = mech.turnSpeed;
+            backwardMoveSpeed = mech.backwardMoveSpeed;
+            strafingLeftMoveSpeed = mech.strafingLeftMoveSpeed;
+            strafingRightMoveSpeed = mech.strafingRightMoveSpeed;
+            dashSpeed = mech.dashSpeed;
+            dashTimeLimit = mech.dashTimeLimit;
         }
 
         var movement = new Vector3(horizontalRot, 0, vertical);

@@ -31,7 +31,7 @@ public class LocateAndDamageTargets : MonoBehaviour
 
         foreach (GameObject item in GOs)
         {
-            if(item != myParent.gameObject)
+            if (item != myParent.gameObject)
                 targets.Add(item.transform);
         }
 
@@ -50,7 +50,10 @@ public class LocateAndDamageTargets : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-        target = targets[Random.Range(0, targets.Count - 1)];
+        if (targets != null)
+        {
+            target = targets[Random.Range(0, targets.Count - 1)];
+        }
 
         StartCoroutine(waitBeforeHoming());
     }
@@ -58,8 +61,9 @@ public class LocateAndDamageTargets : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(shouldHomeIn)
+        if (shouldHomeIn)
         {
+            StopCoroutine(waitBeforeHoming());
             if (targets != null)
             {
                 Vector3 direction = target.position - rb.position;
@@ -75,7 +79,7 @@ public class LocateAndDamageTargets : MonoBehaviour
     {
         Health tgtHealth = collision.collider.GetComponent<Health>();
 
-        if(tgtHealth != null && collision.collider.gameObject != myParent.gameObject)
+        if (tgtHealth != null && collision.collider.gameObject != myParent.gameObject)
         {
             tgtHealth.TakeDamage(damage, gameObject.transform);
             Destroy(gameObject);

@@ -15,6 +15,7 @@ public class PlayerShooting : Shooting
     private Transform bulletPool;
     private AmmoHandling ammo;
 
+    private DoubleStatsSpecial doubleStats;
     public float _playerShootingRange { get { return range; } }
 
     protected override void Start()
@@ -30,11 +31,29 @@ public class PlayerShooting : Shooting
         ammo = GetComponent<AmmoHandling>();
 
         scoreHandler = health._scoreHandler;
+        if (GetComponent<DoubleStatsSpecial>() != null)
+        {
+            doubleStats = GetComponent<DoubleStatsSpecial>();
+        }
     }
 
     protected override void Update()
     {
         base.Update();
+
+        if (doubleStats != null && doubleStats._areStatsBuffed)
+        {
+            damage = mecha.damage * 2;
+            range = mecha.range * 2;
+            fireRate = mecha.fireRate / 2;
+        }
+        else
+        {
+            damage = mecha.damage;
+            range = mecha.range;
+            fireRate = mecha.fireRate;
+        }
+
         if (shotTimer >= fireRate)
         {
             if (Input.GetButton("Fire1") || Input.GetAxis("Fire4") == 1)
