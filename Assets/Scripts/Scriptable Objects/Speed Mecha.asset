@@ -23,7 +23,7 @@ MonoBehaviour:
   health: 250
   defense: 75
   shieldCharges: 5
-  specialCooldown: 30
+  specialCooldown: 5
   specialUseTimeLimit: 12.5
   strengthOfSpecialAbility: 0
   specialName: Invulnerability
