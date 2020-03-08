@@ -114,7 +114,7 @@ public class PlayerFMODEvents : MonoBehaviour
 
     public void PlayMechaMovementSound()
     {
-        Debug.Log("Play mecha sound");
+        // Debug.Log("Play mecha sound");
         if (PlaybackState(SFX_MechaMoves) != PLAYBACK_STATE.PLAYING)
         {
             SFX_MechaMoves.setParameterByID(mechaMovementParameterID, 0);

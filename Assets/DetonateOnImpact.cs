@@ -21,7 +21,7 @@ public class DetonateOnImpact : MonoBehaviour
 
         for (int i = 0; i < blastColliders.Length; i++)
         {
-            if (blastColliders[i].GetComponent<Health>() != null)
+            if (blastColliders[i] && blastColliders[i].GetComponent<Health>() != null)
             {
                 blastColliders[i].GetComponent<Health>().TakeDamage(damage, transform);
             }

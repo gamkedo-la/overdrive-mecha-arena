@@ -25,6 +25,14 @@ public class LocateAndDamageTargets : MonoBehaviour
         /// I.E. parent 1 = Spawn Point, parent 2 = Spawn Points List
         /// parent 3 = the mecha GO with the main scripts
         ///</summary>
+        if(transform.parent.parent.parent == null ||
+            transform.parent.parent== null ||
+            transform.parent == null)
+        {
+            Debug.LogWarning("LocateAndDamageTargets unable to initialize, requires being nested under 3 parents in hierarchy");
+            Destroy(this); // removing script so its breakage won't cause other errors
+            return;
+        }
         myParent = transform.parent.parent.parent.transform;
 
         List<GameObject> GOs = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
