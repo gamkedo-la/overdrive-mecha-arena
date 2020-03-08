@@ -2,27 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KamikazeApplyDamage : MonoBehaviour
+public class DetonateOnImpact : MonoBehaviour
 {
     [SerializeField] private int damage;
     [SerializeField] private int blastMaxAffectedObjects;
     [SerializeField] private float blastRadius;
-    private FollowPlayer followPlayer;
-    private new Transform transform;
-    private Collider[] blastColliders;
 
-    private void Awake()
-    {
-        transform = base.transform;
-        followPlayer = GetComponent<FollowPlayer>();
-    }
+    private Collider[] blastColliders;
 
     private void Start()
     {
         blastColliders = new Collider[blastMaxAffectedObjects];
     }
 
-    private void OnCollisionEnter(Collision _collision)
+    private void OnCollisionEnter(Collision collision)
     {
         Physics.OverlapSphereNonAlloc(transform.position, blastRadius, blastColliders);
 

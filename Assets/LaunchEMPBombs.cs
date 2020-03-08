@@ -9,9 +9,32 @@ public class LaunchEMPBombs : MonoBehaviour
 
     [SerializeField] private GameObject empBombPrefab;
 
-    private void Update()
+    private float spawnTimer = 0.0f;
+    [SerializeField] private float launchForce = 500f;
+    [SerializeField] private float bombLaunchTime = 1.5f;
+
+    private void Start()
     {
         center = center + transform.localPosition;
+    }
+
+    private void Update()
+    {
+        spawnTimer += Time.deltaTime;
+        if (spawnTimer >= 1.5f)
+        {
+            LaunchEMP();
+            spawnTimer = 0f;
+        }
+    }
+
+    private void LaunchEMP()
+    {
+        Vector3 pos = center + new Vector3(Random.Range(-size.x / 2, size.x / 2),
+                                                              Random.Range(-size.y/2, size.y / 2),
+                                                              Random.Range(-size.z / 2, size.z / 2));
+        GameObject bomb = Instantiate(empBombPrefab, pos, Quaternion.identity) as GameObject;
+        bomb.GetComponent<Rigidbody>().AddForce(transform.forward * launchForce);
     }
 
     private void OnDrawGizmosSelected()
