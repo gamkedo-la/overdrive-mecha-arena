@@ -26,7 +26,7 @@ public class LocateAndDamageTargets : MonoBehaviour
         /// parent 3 = the mecha GO with the main scripts
         ///</summary>
         if(transform.parent.parent.parent == null ||
-            transform.parent.parent== null ||
+            transform.parent.parent == null ||
             transform.parent == null)
         {
             Debug.LogWarning("LocateAndDamageTargets unable to initialize, requires being nested under 3 parents in hierarchy");
@@ -39,13 +39,13 @@ public class LocateAndDamageTargets : MonoBehaviour
 
         foreach (GameObject item in GOs)
         {
-            if (item != myParent.gameObject)
+            if (item != myParent.gameObject && item != null)
                 targets.Add(item.transform);
         }
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
-        if (player != myParent.gameObject)
+        if (player != myParent.gameObject && player != null)
         {
             targets.Add(player.transform);
         }
@@ -74,7 +74,7 @@ public class LocateAndDamageTargets : MonoBehaviour
             //StopCoroutine(waitBeforeHoming());
             if (targets != null)
             {
-                Vector3 direction = target.position - rb.position;
+                Vector3 direction = target.position + (Vector3.up * 14f) - rb.position;
                 direction.Normalize();
                 Vector3 rotationAmount = Vector3.Cross(transform.forward, direction);
                 rb.angularVelocity = rotationAmount * rotationalForce;

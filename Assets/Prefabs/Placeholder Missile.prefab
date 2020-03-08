@@ -66,8 +66,8 @@ MonoBehaviour:
   rotationalForce: 15
   speed: 200
   damage: 20
-  secondsToWaitBeforeHoming: 1
-  blastOffForce: 30
+  secondsToWaitBeforeHoming: 0.25
+  blastOffForce: 50
   myParent: {fileID: 0}
 --- !u!114 &4092338175108253822
 MonoBehaviour:

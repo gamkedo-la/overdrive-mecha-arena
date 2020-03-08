@@ -90,7 +90,7 @@ MonoBehaviour:
   strafingLeftMoveSpeed: 50
   dashSpeed: 2
   dashTimeLimit: 5
-  mech: {fileID: 11400000, guid: b208076f6f69bc14bb2474c54ac024bf, type: 2}
+  mech: {fileID: 11400000, guid: 95e684e9b36c3b44e8459eb7c01efd97, type: 2}
   PPV: {fileID: 0}
 --- !u!114 &1515524012658226913
 MonoBehaviour:
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4936ea3adaff3824f99db88545606205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mech: {fileID: 11400000, guid: b208076f6f69bc14bb2474c54ac024bf, type: 2}
+  mech: {fileID: 11400000, guid: 95e684e9b36c3b44e8459eb7c01efd97, type: 2}
   shieldGO: {fileID: 7975748967430070120}
   shieldToHealthConversionLimitMultiplier: 1.5
   shieldRechargeDelay: 7.5
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTryingToDash: 0
-  mecha: {fileID: 11400000, guid: b208076f6f69bc14bb2474c54ac024bf, type: 2}
+  mecha: {fileID: 11400000, guid: 95e684e9b36c3b44e8459eb7c01efd97, type: 2}
 --- !u!114 &-2573241638059145581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54d233158d2a064589ed994558fc84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mech: {fileID: 11400000, guid: b208076f6f69bc14bb2474c54ac024bf, type: 2}
+  mech: {fileID: 11400000, guid: 95e684e9b36c3b44e8459eb7c01efd97, type: 2}
   specialsVFX:
   - {fileID: 0}
   - {fileID: 0}
@@ -376,7 +376,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7216062996512086130}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 13, z: 14}
+  m_LocalPosition: {x: 0, y: 13, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7790023615950144782}
@@ -727,7 +727,7 @@ PrefabInstance:
     - target: {fileID: 2140194284681802201, guid: 2412414e36a7e53468ee41227733e2be,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2140194284681802201, guid: 2412414e36a7e53468ee41227733e2be,
         type: 3}
