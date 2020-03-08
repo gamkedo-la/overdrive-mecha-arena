@@ -151,7 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 18
   blastMaxAffectedObjects: 6
-  blastRadius: 30
+  blastRadius: 50
 --- !u!1001 &7217496425765002766
 PrefabInstance:
   m_ObjectHideFlags: 0

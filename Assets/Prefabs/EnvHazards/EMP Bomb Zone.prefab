@@ -48,8 +48,8 @@ MonoBehaviour:
   size: {x: 180, y: 70, z: 1}
   empBombPrefab: {fileID: 1125312656070920675, guid: 7e372faf102d8e0498fa0e8fc3dad30c,
     type: 3}
-  launchForce: 8500
-  bombLaunchTime: 1.5
+  launchForce: 5000
+  bombLaunchTime: 3
 --- !u!114 &4326832226628663622
 MonoBehaviour:
   m_ObjectHideFlags: 0

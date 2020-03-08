@@ -19,7 +19,7 @@ public class DetonateOnImpact : MonoBehaviour
     {
         Physics.OverlapSphereNonAlloc(transform.position, blastRadius, blastColliders);
 
-        for (int i = 0; i < blastColliders.Length; i++)
+        for (int i = 0; i < blastColliders.Length - 1; i++)
         {
             if (blastColliders[i] && blastColliders[i].GetComponent<Health>() != null)
             {

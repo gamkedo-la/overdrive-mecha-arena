@@ -21,7 +21,7 @@ public class LaunchEMPBombs : MonoBehaviour
     private void Update()
     {
         spawnTimer += Time.deltaTime;
-        if (spawnTimer >= 1.5f)
+        if (spawnTimer >= bombLaunchTime)
         {
             LaunchEMP();
             spawnTimer = 0f;
@@ -30,9 +30,8 @@ public class LaunchEMPBombs : MonoBehaviour
 
     private void LaunchEMP()
     {
-        Vector3 pos = center + new Vector3(Random.Range(-size.x / 2, size.x / 2),
-                                                              Random.Range(-size.y/2, size.y / 2),
-                                                              Random.Range(-size.z / 2, size.z / 2));
+        Vector3 pos = center + new Vector3(Random.Range(-size.x / 2, size.x / 2), Random.Range(-size.y/2, size.y / 2), size.z);
+
         GameObject bomb = Instantiate(empBombPrefab, pos, Quaternion.identity) as GameObject;
         bomb.GetComponent<Rigidbody>().AddForce(transform.forward * launchForce);
     }
