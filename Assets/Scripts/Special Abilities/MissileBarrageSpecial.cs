@@ -60,6 +60,7 @@ public class MissileBarrageSpecial : SpecialAbility
 
     public void UseSpecial()
     {
+        Debug.Log("AI using UseMissileBarrageSpecial");
         UseMissileBarrageSpecial();
     }
 }

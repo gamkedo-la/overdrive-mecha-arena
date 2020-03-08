@@ -35,7 +35,7 @@ public class SpecialAbility : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        if(CanUseSpecial() && gameObject.tag == "Player")
+        if(CanUseSpecial() && gameObject.tag != "Player")
         {
             // note: DoubleStatsSpecial doesn't have useSpecial yet, leaving that file alone since I know it's being worked on
             gameObject.SendMessage("UseSpecial",SendMessageOptions.DontRequireReceiver);

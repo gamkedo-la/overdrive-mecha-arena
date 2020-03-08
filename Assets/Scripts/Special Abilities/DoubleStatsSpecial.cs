@@ -31,4 +31,10 @@ public class DoubleStatsSpecial : SpecialAbility
         isSpecialInUse = true;
         areStatsBuffed = isSpecialInUse;
     }
+
+    public void UseSpecial()
+    {
+        Debug.Log("AI using UseDoubleStatsSpecial");
+        UseDoubleStatsSpecial();
+    }
 }
