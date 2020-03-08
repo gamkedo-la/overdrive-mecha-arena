@@ -9,6 +9,7 @@ public class LocateAndDamageTargets : MonoBehaviour
     [SerializeField] private float speed = 70.0f;
     [SerializeField] private int damage = 20;
     [SerializeField] private float secondsToWaitBeforeHoming = 2.5f;
+    [SerializeField] private ParticleSystem explosionVFX;
 
     [SerializeField] private float blastOffForce = 3.5f;
 
@@ -86,6 +87,7 @@ public class LocateAndDamageTargets : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Health tgtHealth = collision.collider.GetComponent<Health>();
+        Instantiate(explosionVFX, transform.position, Quaternion.identity);
 
         if (tgtHealth != null && collision.collider.gameObject != myParent.gameObject)
         {

@@ -4977,7 +4977,7 @@ PrefabInstance:
     - target: {fileID: 4326832227145579621, guid: aa69e9b7b1cc3624090c8ed561dcf162,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 218
+      value: 215
       objectReference: {fileID: 0}
     - target: {fileID: 4326832227145579621, guid: aa69e9b7b1cc3624090c8ed561dcf162,
         type: 3}
@@ -5032,7 +5032,7 @@ PrefabInstance:
     - target: {fileID: 4326832227145579627, guid: aa69e9b7b1cc3624090c8ed561dcf162,
         type: 3}
       propertyPath: size.x
-      value: 120
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4326832227145579627, guid: aa69e9b7b1cc3624090c8ed561dcf162,
         type: 3}
@@ -5042,7 +5042,7 @@ PrefabInstance:
     - target: {fileID: 4326832227145579627, guid: aa69e9b7b1cc3624090c8ed561dcf162,
         type: 3}
       propertyPath: launchForce
-      value: 6500
+      value: 5000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa69e9b7b1cc3624090c8ed561dcf162, type: 3}
@@ -6317,7 +6317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d18b271baa0024da7734819a45e5d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfAIParticipants: 7
+  numberOfAIParticipants: 0
   spawnPointsList:
   - {fileID: 1973670412}
   - {fileID: 1165262994}
@@ -47920,7 +47920,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1473506344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71639,7 +71639,7 @@ PrefabInstance:
     - target: {fileID: 4326832227145579621, guid: aa69e9b7b1cc3624090c8ed561dcf162,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 86
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 4326832227145579621, guid: aa69e9b7b1cc3624090c8ed561dcf162,
         type: 3}
@@ -71684,7 +71684,7 @@ PrefabInstance:
     - target: {fileID: 4326832227145579627, guid: aa69e9b7b1cc3624090c8ed561dcf162,
         type: 3}
       propertyPath: size.x
-      value: 130
+      value: 115.14
       objectReference: {fileID: 0}
     - target: {fileID: 4326832227145579627, guid: aa69e9b7b1cc3624090c8ed561dcf162,
         type: 3}

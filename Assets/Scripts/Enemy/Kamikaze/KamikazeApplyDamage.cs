@@ -7,6 +7,8 @@ public class KamikazeApplyDamage : MonoBehaviour
     [SerializeField] private int damage;
     [SerializeField] private int blastMaxAffectedObjects;
     [SerializeField] private float blastRadius;
+
+    [SerializeField] private ParticleSystem explosionVFX;
     private FollowPlayer followPlayer;
     private new Transform transform;
 
@@ -19,6 +21,7 @@ public class KamikazeApplyDamage : MonoBehaviour
     private void OnCollisionEnter(Collision _collision)
     {
         var colls = Physics.OverlapSphere(transform.position, blastRadius);
+        Instantiate(explosionVFX, transform.position, Quaternion.identity);
 
         foreach (var col in colls)
         {

@@ -102,6 +102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mech: {fileID: 11400000, guid: d0cc3f52f7b99a745a60c49c34f4aefc, type: 2}
   shieldGO: {fileID: 7975748967430070120}
+  explosionVFX: {fileID: 2407446781417748985, guid: 36d9c79c0bac4934392a9fded94b310b,
+    type: 3}
   shieldToHealthConversionLimitMultiplier: 1.5
   shieldRechargeDelay: 7.5
 --- !u!114 &-7531149912251045396

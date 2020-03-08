@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2407446781417748966}
   - component: {fileID: 2407446781417748985}
   - component: {fileID: 2407446781417748984}
+  - component: {fileID: -1246504079388873308}
   m_Layer: 0
   m_Name: Explosion VFX
   m_TagString: Untagged
@@ -46,7 +47,7 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -4811,3 +4812,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &-1246504079388873308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2407446781417748987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0846a04b7ec135e46bb3ec2250a0d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0.5

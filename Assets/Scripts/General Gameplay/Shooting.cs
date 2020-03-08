@@ -167,7 +167,7 @@ public class Shooting : MonoBehaviour
         }
         else
         {
-            newTracerEffect.transform.position = ray.origin;
+            newTracerEffect.transform.position = transform.position + transform.up * 18f + transform.forward * 20f;
             newTracerEffect.transform.rotation = Quaternion.LookRotation(ray.direction);
         }
 

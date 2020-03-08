@@ -67,6 +67,8 @@ MonoBehaviour:
   speed: 200
   damage: 20
   secondsToWaitBeforeHoming: 0.25
+  explosionVFX: {fileID: 2407446781417748985, guid: 36d9c79c0bac4934392a9fded94b310b,
+    type: 3}
   blastOffForce: 50
   myParent: {fileID: 0}
 --- !u!114 &4092338175108253822
@@ -106,21 +108,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: missile
-      objectReference: {fileID: 0}
-    - target: {fileID: -5074189099598830885, guid: 0b851532440dd004086898887a391727,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: -5074189099598830885, guid: 0b851532440dd004086898887a391727,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -5074189099598830885, guid: 0b851532440dd004086898887a391727,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0b851532440dd004086898887a391727,
         type: 3}
@@ -175,6 +162,21 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 0b851532440dd004086898887a391727,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5074189099598830885, guid: 0b851532440dd004086898887a391727,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: -5074189099598830885, guid: 0b851532440dd004086898887a391727,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5074189099598830885, guid: 0b851532440dd004086898887a391727,
+        type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690176266001544053}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.82, y: 19.23, z: 14.18}
+  m_LocalPosition: {x: 0.82, y: 13, z: 26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8841960133733178277}
@@ -216,6 +216,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mech: {fileID: 0}
   shieldGO: {fileID: 6059735608122948061}
+  explosionVFX: {fileID: 2407446781417748985, guid: 36d9c79c0bac4934392a9fded94b310b,
+    type: 3}
   shieldToHealthConversionLimitMultiplier: 1.5
   shieldRechargeDelay: 7.5
 --- !u!114 &9204702744872670521

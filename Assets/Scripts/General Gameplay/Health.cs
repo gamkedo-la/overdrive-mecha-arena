@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private Mecha mech;
     [SerializeField] private GameObject shieldGO;
+    [SerializeField] private ParticleSystem explosionVFX;
     [SerializeField] private float shieldToHealthConversionLimitMultiplier = 1.5f;
     private int startingHP = 200;
 
@@ -356,6 +357,8 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
+        Instantiate(explosionVFX, transform.position + Vector3.up * 13f, Quaternion.identity);
+
         scoreHandler.SubtractFromScore();
         scoreHandler._shouldSubtractScore = false;
 

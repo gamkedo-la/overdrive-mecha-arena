@@ -17,7 +17,7 @@ public class InitialParticipantsSpawn : MonoBehaviour
 
     private SpawnParticipantIfAble respawnGOs;
 
-    private bool derandomizeSpawn = true;
+    private bool derandomizeSpawn = false;
     private int spawnNextDerandom = 0;
     private int spawnID = 1;
 

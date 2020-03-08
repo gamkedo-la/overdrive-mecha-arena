@@ -7,10 +7,12 @@ public class DetonateOnImpact : MonoBehaviour
     [SerializeField] private int damage;
     [SerializeField] private int blastMaxAffectedObjects;
     [SerializeField] private float blastRadius;
+    [SerializeField] private ParticleSystem explosionVFX;
 
     private void OnCollisionEnter(Collision collision)
     {
         var colls = Physics.OverlapSphere(transform.position, blastRadius);
+        Instantiate(explosionVFX, transform.position, Quaternion.identity);
 
         foreach (var col in colls)
         {

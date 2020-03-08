@@ -152,6 +152,8 @@ MonoBehaviour:
   damage: 18
   blastMaxAffectedObjects: 6
   blastRadius: 50
+  explosionVFX: {fileID: 2407446781417748985, guid: 36d9c79c0bac4934392a9fded94b310b,
+    type: 3}
 --- !u!1001 &7217496425765002766
 PrefabInstance:
   m_ObjectHideFlags: 0
