@@ -57,4 +57,9 @@ public class MissileBarrageSpecial : SpecialAbility
             yield return new WaitForSeconds(0.75f);
         }
     }
+
+    public void UseSpecial()
+    {
+        UseMissileBarrageSpecial();
+    }
 }
