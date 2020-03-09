@@ -5237,7 +5237,7 @@ MonoBehaviour:
     audio manager, emp zones, special powers. AOE support, menu juice, explosion vfx
 
 
-    Alfonso Salinas:  Sound effects and related FMOD integration (UI, pause, laser
+    Alfonso Salinas: Sound effects and related FMOD integration (UI, pause, laser
     shots, dash, forcefeilds, tesla coil, drone, randomized mecha voice, environment
     ambience, mecha movement), audio occlusion scripting, pause menu fix, volume slider,
     reverb support, scene transition bug fixes
@@ -5254,7 +5254,7 @@ MonoBehaviour:
     Mohamed AbdAllah: Kamikaze saucer drone, environment props
 
 
-    Chris DeLeon:  vehicles (tanks, helicopters), tesla coil model, tracer, responsive
+    Chris DeLeon: Vehicles (tanks, helicopters), tesla coil model, tracer, responsive
     UI support, AI use of specials, shield material
 
 
