@@ -16,7 +16,7 @@ public class UpdateShieldLevels : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TMProText.SetText(playerHealth._shieldLevels.ToString() + "%");
+        TMProText.SetText(Mathf.Round(playerHealth._shieldLevels).ToString() + "%");
     }
 
     public void SetPlayerHealthScript(Health health)

@@ -5,7 +5,7 @@ using UnityEngine;
 public class DebugSpawner : MonoBehaviour
 {
     public GameObject[] prefabArrayToSpawn;
-
+    /* bypassing this debug functionality for game release
     void Update()
     {
         if(Input.anyKeyDown == false)
@@ -78,8 +78,6 @@ public class DebugSpawner : MonoBehaviour
         {
             Debug.Log("prefabArrayToSpawn has no match for key " + (spawnIdx + 1)); //+1 to un-index
         }
-
-
-
     }
+    */   
 }
