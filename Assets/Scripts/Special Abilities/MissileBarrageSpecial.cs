@@ -17,6 +17,8 @@ public class MissileBarrageSpecial : SpecialAbility
 
         if(gameObject.GetComponent<PlayerMovement>())
         {
+            SetupCanvasForPlayer();
+
             AssignPlayerSpecial assignPlayerSpecial = GetComponent<AssignPlayerSpecial>();
 
             missilePrefab = assignPlayerSpecial._missilePrefab;
@@ -29,12 +31,17 @@ public class MissileBarrageSpecial : SpecialAbility
     {
         base.Update();
 
-        if (CanUseSpecial())
+        if (CanUseSpecial() && gameObject.tag == "Player")
         {
-            if (Input.GetButtonDown("Fire3") && gameObject.tag == "Player")
+            icons.IsSpecialReady(true);
+            if (Input.GetButtonDown("Fire3"))
             {
                 UseMissileBarrageSpecial();
             }
+        }
+        else if (gameObject.CompareTag("Player"))
+        {
+            icons.IsSpecialReady(false);
         }
     }
 

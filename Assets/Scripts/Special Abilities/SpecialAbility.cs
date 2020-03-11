@@ -20,6 +20,13 @@ public class SpecialAbility : MonoBehaviour
 
     public Mecha _mech { get { return mech; } }
 
+    protected HandlePlayerSpecialIcons icons;
+
+    protected void SetupCanvasForPlayer()
+    {
+        icons = FindObjectOfType<Canvas>().GetComponentInChildren<HandlePlayerSpecialIcons>();
+    }
+
     protected virtual void Start()
     {
         Health health = GetComponent<Health>();

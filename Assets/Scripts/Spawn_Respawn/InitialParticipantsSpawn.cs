@@ -34,6 +34,9 @@ public class InitialParticipantsSpawn : MonoBehaviour
             case "All-purpose":
                 playerMech = playerClasses[2];
                 break;
+            default:
+                playerMech = playerClasses[0];
+                break;
         }
 
         spawnedEnemies = new List<GameObject>();

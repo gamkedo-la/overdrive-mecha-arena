@@ -24599,6 +24599,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 616315277}
+  - component: {fileID: 616315278}
   m_Layer: 5
   m_Name: Special Cooldown Icons
   m_TagString: Untagged
@@ -24628,6 +24629,20 @@ RectTransform:
   m_AnchoredPosition: {x: 99.25, y: 0}
   m_SizeDelta: {x: 70.81, y: 56.61}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &616315278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616315276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182495db81f440a48b1cf86839454dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  specialEnabledIcon: {fileID: 785376642}
+  specialDisabledIcon: {fileID: 1593085657}
 --- !u!4 &617698544 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 90109622726138418, guid: 11751b0b94808284eb9d94ae7a019698,
@@ -29501,7 +29516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &785376643
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29534,7 +29549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18178178, g: 0.8962264, b: 0.2670921, a: 0.9372549}
+  m_Color: {r: 0.04160734, g: 0.8018868, b: 0.133007, a: 0.9372549}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -50717,7 +50732,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1593085658
 RectTransform:
   m_ObjectHideFlags: 0
@@ -50750,7 +50765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.40396938, g: 0.53829944, b: 0.9622642, a: 0.9372549}
+  m_Color: {r: 0.07355818, g: 0.2524644, b: 0.8207547, a: 0.9372549}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:

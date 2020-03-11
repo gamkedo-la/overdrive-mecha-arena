@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     [SerializeField] private Mecha mech;
     [SerializeField] private GameObject shieldGO;
     [SerializeField] private ParticleSystem explosionVFX;
+    [SerializeField] private ParticleSystem drunkBubbles;
     [SerializeField] private float shieldToHealthConversionLimitMultiplier = 1.5f;
     private int startingHP = 200;
 
@@ -109,23 +110,7 @@ public class Health : MonoBehaviour
     {
         if (!gameObject.CompareTag("Non-playables"))
         {
-            if (isUsingShield)
-            {
-                shieldTimer -= Time.deltaTime;
-                if (shieldTimer <= 0)
-                {
-                    ShouldUseShield(false);
-                }
-            }
-            else
-            {
-                shieldTimer += Time.deltaTime * rechargeSlower;
-                if (shieldTimer >= shieldRegenTimeLimit)
-                {
-                    shieldTimer = shieldRegenTimeLimit;
-                    shieldRechargingLocked = false;
-                }
-            }
+            ShieldTimers();
 
             HandlePlayerShield();
 
@@ -135,6 +120,27 @@ public class Health : MonoBehaviour
             }
 
             HandleDrunkenBehavior();
+        }
+    }
+
+    private void ShieldTimers()
+    {
+        if (isUsingShield)
+        {
+            shieldTimer -= Time.deltaTime;
+            if (shieldTimer <= 0)
+            {
+                ShouldUseShield(false);
+            }
+        }
+        else
+        {
+            shieldTimer += Time.deltaTime * rechargeSlower;
+            if (shieldTimer >= shieldRegenTimeLimit)
+            {
+                shieldTimer = shieldRegenTimeLimit;
+                shieldRechargingLocked = false;
+            }
         }
     }
 
@@ -186,11 +192,11 @@ public class Health : MonoBehaviour
         {
             if (currentHP > startingHP)
             {
-                // Enabled drunken behavior for AI mechs
+                drunkBubbles.Play();
             }
             else
             {
-                // Disable drunken behavior for AI mechs
+                drunkBubbles.Stop();
             }
         }
     }

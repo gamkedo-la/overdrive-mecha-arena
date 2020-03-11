@@ -8,17 +8,33 @@ public class DoubleStatsSpecial : SpecialAbility
     private bool areStatsBuffed = false;
     public bool _areStatsBuffed { get { return areStatsBuffed; } }
 
+    protected override void Start()
+    {
+        base.Start();
+
+        if (gameObject.CompareTag("Player"))
+        {
+            SetupCanvasForPlayer();
+        }
+    }
+
     protected override void Update()
     {
         base.Update();
 
-        if (CanUseSpecial())
+        if (CanUseSpecial() && gameObject.tag == "Player")
         {
-            if (Input.GetButtonDown("Fire3") && gameObject.tag == "Player")
+            icons.IsSpecialReady(true);
+            if (Input.GetButtonDown("Fire3"))
             {
                 UseDoubleStatsSpecial();
             }
         }
+        else if(gameObject.CompareTag("Player"))
+        {
+            icons.IsSpecialReady(false);
+        }
+
         if (!isSpecialInUse)
         {
             areStatsBuffed = isSpecialInUse;

@@ -72,6 +72,7 @@ public class EnemyShooting : Shooting
             if (CanAttack())
             {
                 shotTimer = 0;
+                Instantiate(muzzleFlash, shotOrigin);
 
                 // check my health and if I'm moving, then set my accuracy according to those parameters
                 accuracy = SetAccuracyAccordingToHealthAndMovement(health.getCurrentHealthAsPercentage, _speed, baseSpeed, dashSpeed, isTryingToDash);
@@ -123,8 +124,8 @@ public class EnemyShooting : Shooting
             print("Could not get " + tgt.name + "'s shooting component");
         }
 
-        Debug.DrawLine(shotOrigin.position + Vector3.up * 18.0f, tgt.transform.position, Color.cyan);
-        bool isLineOfSightBlocked = Physics.Linecast(shotOrigin.position + Vector3.up * 18.0f, tgt.transform.position + Vector3.up * 18.0f, ~ignoreForViewObstructionCheck, QueryTriggerInteraction.Ignore);
+        Debug.DrawLine(shotOrigin.position, tgt.transform.position, Color.cyan);
+        bool isLineOfSightBlocked = Physics.Linecast(shotOrigin.position, tgt.transform.position + Vector3.up * 18.0f, ~ignoreForViewObstructionCheck, QueryTriggerInteraction.Ignore);
 
         if (!isLineOfSightBlocked && distance <= range) //Only attack if line of sight is clear and target is within range
         {
