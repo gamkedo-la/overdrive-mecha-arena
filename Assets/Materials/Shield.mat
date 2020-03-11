@@ -8,19 +8,23 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Shield
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 6c0a0fab37229e44685ab4cc6ab81af2,
+    type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
-  m_CustomRenderQueue: 3050
-  stringTagMap:
-    RenderType: Transparent
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses:
   - SHADOWCASTER
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_9CC22D:
+        m_Texture: {fileID: 2800000, guid: f137c2bf175d5467dba3c3524e3eb67b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -50,6 +54,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_72D8CD73: 0.1
+    - Vector1_9569AA22: 1
+    - Vector1_9790FE38: 0.5
+    - Vector1_C565F5C8: 0.5
+    - Vector1_E711D3B: 0.5
     - _AlphaClip: 0
     - _Blend: 2
     - _BumpScale: 1
@@ -72,6 +81,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 0
     m_Colors:
+    - Color_D433FE3: {r: 0.1803922, g: 1.796078, b: 1.647059, a: 0}
     - _BaseColor: {r: 0.35294113, g: 0.7916204, b: 0.8392157, a: 0.003921569}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0.04554919, g: 0.26415092, b: 0, a: 1}
