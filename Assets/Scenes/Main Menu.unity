@@ -5230,11 +5230,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Jaime Rivas: Project lead, core gameplay, special abilities, mech variant
-    models / rigs / animations, camera code, dangerous object support, base walls
-    and pipe variations, enemy combat and patrol code, spawn code, missile barrage,
-    autocannon, time limits, shields, HUD, gamepad support, score system and related
-    display, mecha selection menu, additional tuning and general bugfixing, persisten
-    audio manager, emp zones, special powers. AOE support, menu juice, explosion vfx
+    models, camera code, dangerous object support, base walls and pipe variations,
+    enemy combat and patrol code, spawn code, missile barrage, autocannon, time limits,
+    shields, HUD, gamepad support, score system and related display, mecha selection
+    menu, additional tuning and general bugfixing, persistent audio manager, emp zones,
+    special powers. AOE support, menu juice, explosion vfx, drunk bubbles vfx, shield
+    shader, background music, AI muzzle flash vfx, player special use UI indicator
 
 
     Alfonso Salinas: Sound effects and related FMOD integration (UI, pause, laser
@@ -5255,7 +5256,7 @@ MonoBehaviour:
 
 
     Chris DeLeon: Vehicles (tanks, helicopters), tesla coil model, tracer, responsive
-    UI support, AI use of specials, shield material
+    UI support, AI use of specials, shield texture, shield and health text bugfix
 
 
     Matthew Gigante: AI line of sight functionality
